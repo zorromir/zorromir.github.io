@@ -1,50 +1,49 @@
-# Kelvin Schouten — Portfolio website
+# Kelvin Schouten — Portfolio Website 2.0: Interactive Wireframes
 
-A clean, responsive one-page portfolio website for quantitative finance, mathematical modelling and research. Built using plain HTML/CSS/JavaScript; **no build step, framework, backend or paid hosting required**.
+This is a **design prototype**, not the production website. It does not modify the live GitHub Pages site.
 
-## Start locally
+## Open it
 
-1. Unzip the folder.
-2. Open `index.html` in a browser, or open the folder in VS Code and use the **Live Server** extension.
-3. The live GitHub section fetches public repositories from the GitHub API. If you're offline or over the API rate limit, a link to the GitHub profile is shown instead.
+Open `index.html` in any browser. The six navigation items switch between page concepts. On smaller screens the navigation becomes a menu. The top right **Hide / Show layout notes** toggle lets you review the visual structure without annotations. All primary navigation, contact, CV and GitHub links work.
 
-## Publish with GitHub Pages
+## Six pages
 
-1. On GitHub, sign in as **zorromir** and create a **public** repository named `zorromir.github.io` (or use an existing one).
-2. Upload **all contents of this folder** to the root of the `main` branch. The `index.html` file should be in the root, not inside another folder.
-3. Open **Settings → Pages → Build and deployment → Source → Deploy from a branch**.
-4. Choose **main** and **/(root)**, then click **Save**.
-5. The site will be available at **https://zorromir.github.io/** after deployment. This URL is only an expected address, **not an already-deployed site**.
+1. **Home:** identity, flagship industrial project, Empirical Finance, latest research, engineering hobbies.
+2. **Projects:** flagship detailed two-phase-flow case study, financial data analysis, curated GitHub code slots.
+3. **Research:** exact current topic placeholder, question/method/results structure, empirical work, research journal.
+4. **Engineering & Making:** photographic project cards for 3D printing and robot arms, build logs, other interests.
+5. **About:** career narrative, dated education and work, personal profile, methods and values.
+6. **CV & Contact:** one-page CV visual summary, **working local PDF downloads**, email and GitHub links.
 
-You can also use **GitHub Desktop** to publish changes: clone your site repository, copy the files into it, commit and push. For future edits, modify files in VS Code, then commit/push; Pages will redeploy.
+## What is verified / what is not
 
-Official guide: https://docs.github.com/en/pages/quickstart
+**Known:** Kelvin Schouten; Tilburg University MSc Quantitative Finance (2026–present); Utrecht University BSc Mathematics (2022–2026); independently modelled two-phase flow and pipe-cleaning behaviour for a food industry company during a six-month commissioned project; research assistant at The Hague University of Applied Sciences (2020–21); tutoring (2017–25); exploratory Empirical Finance industry-return analysis using Python and Ken French's data; GitHub `zorromir`.
 
-## Edit content
+**Unconfirmed placeholders:** exact topic/status of current primary research; names, software, dates, metrics, permissions for the commissioned project; specific GitHub project selection; real CAD/photos/video and finished status for robot-arm and 3D printing projects; LinkedIn; individual project results. No placeholders should be presented as finished work.
 
-| File | What to change |
-|---|---|
-| `index.html` | Biography, education, projects, skills, work experience, page titles and contact email |
-| `styles.css` | Colours, typography, spacing, mobile layouts |
-| `script.js` | `GITHUB_USERNAME`, maximum number of repo cards, theme and navigation behaviour |
-| `assets/cv/*.pdf` | Replace with new CVs using the same filenames |
-| `assets/favicon.svg` | The KS-style website icon |
+**Concept visualisation:** diagrams and charts are illustrative only and NOT real project results.
 
-The website intentionally uses **only public GitHub repositories**. Nonpublic repositories are never accessed by visitors or listed on the page. Its selected-work section includes an industrial modelling project described from your CV and an Empirical Finance coursework project. It does not publish project code or results without your review.
+## Decisions behind the wireframe
 
-## Before sharing with recruiters
+- Professional first impression should be credible and accessible within 10 seconds.
+- Technical evidence and contributions are made prominent and skimmable.
+- Long-form case studies follow **Problem → Model → Simulation/Implementation → Evidence → Limitations**.
+- Research is explicitly separated into active research, completed coursework, and possible journal topics.
+- Engineering hobbies have their own identity, not disguised as finance credentials.
+- Curated GitHub projects should be manually selected and documented, not automatically ranked by update date.
+- Employer-facing pages use restrained, research-inspired colour and typography; hobbies can later have a more photographic expression.
+- The concept uses HTML/CSS/JS with no build step, so it can be opened locally before migrating to any framework.
 
-- [ ] Check spelling of your name, institutions and degree titles.
-- [ ] Confirm the project description is approved for public disclosure by the commissioning company. Do not include confidential model parameters, charts or client information.
-- [ ] Verify that publishing your **CV PDF** is acceptable: it contains your phone number and email address. Remove or replace those details before publishing if you want to keep them private.
-- [ ] Check technical methods listed under Skills and in each project against tools you actually used.
-- [ ] Add links to your best public **project repositories** once the code is ready; use README files, figures and methodology for each.
-- [ ] Proofread every page and test the PDF download buttons after publishing.
+## Next design-review decisions
 
-## Possible version 2
+1. Approve the 6-page hierarchy and homepage hero tone.
+2. Choose light-only or light+dark appearance; this wireframe shows the light direction.
+3. Confirm which current research project belongs in the spotlight.
+4. Provide permitted technical detail and diagrams from industrial modelling.
+5. Select 2–4 public, code-filled GitHub repositories for detailed pages.
+6. Provide photographs / CAD renderings for 3D printing and mechatronics.
+7. Confirm willingness to share public email and CV contact details.
 
-- Add a case-study page for the industrial modelling project, using non-confidential diagrams and verified results.
-- Add a dedicated empirical-finance project page with charts, methodology and reproducible code.
-- Connect a custom domain through GitHub Pages settings (optional).
+## Production safeguards
 
-© Kelvin Schouten. Created as an editable personal website template.
+Create the real redesign in a separate branch, ensure GitHub Pages deployment works in a preview, and keep the currently live site unchanged until final approval. Review CV PDFs for personal details before public deployment.

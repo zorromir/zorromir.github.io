@@ -2,143 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Kelvin Schouten — MSc Quantitative Finance student at Tilburg University, with experience in mathematical modelling, simulation and financial data analysis.">
-  <meta name="author" content="Kelvin Schouten">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Kelvin Schouten | Quantitative Finance & Mathematical Modelling">
-  <meta property="og:description" content="Selected work, research interests, CV and GitHub. From mathematical theory to working models.">
-  <title>Kelvin Schouten — Quantitative Finance & Mathematical Modelling</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Kelvin Schouten — Portfolio 2.0 Wireframes</title>
+  <meta name="description" content="Interactive concept wireframes for a six-page portfolio website. Not the live portfolio.">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Kelvin Schouten, home"><span class="brand-mark" aria-hidden="true">k<span class="brand-dot">.</span></span><span class="brand-name">Kelvin Schouten</span></a>
-      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#work">Projects</a>
-        <a href="#background">Background</a>
-        <a href="#github">GitHub</a>
-        <a class="nav-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a>
+  <a href="#main-content" class="skip">Skip to content</a>
+  <div class="prototype-bar">
+    <div class="shell prototype-row"><span class="prototype-label"><span class="pulse"></span> WIREFRAME / CONCEPT V1</span>
+      <span class="prototype-center">Six-page interactive structure · Not published</span>
+      <button type="button" id="notes-toggle" class="small-toggle" aria-pressed="true">Hide layout notes <span>↗</span></button>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a href="#home" class="brand" aria-label="Kelvin Schouten — Home"><span class="brand-symbol">KS<span>.</span></span><span class="brand-label">Kelvin Schouten<small>Mathematics / Modelling / Research</small></span></a>
+      <button id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu" class="menu-toggle">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Website pages">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#research" data-nav="research">Research</a>
+        <a href="#engineering" data-nav="engineering">Engineering & Making</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#cv" data-nav="cv">CV & Contact</a>
       </nav>
-      <div class="header-actions">
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle colour theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu"><span></span><span></span></button>
-      </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
+  <main id="main-content">
+    <!-- PAGE 1: HOME -->
+    <article class="page" data-page="home" id="home" aria-labelledby="home-title">
+      <section class="hero shell home-hero">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> MATHEMATICS · FINANCE · SIMULATION</div>
-          <h1 id="hero-title">From mathematical <em>theory</em> to working <em>models.</em></h1>
-          <p class="hero-intro">I'm Kelvin, an MSc Quantitative Finance student at Tilburg University. I use mathematics, code and simulation to understand complex systems — from industrial flows to financial data.</p>
-          <div class="hero-buttons">
-            <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
-            <a class="button button-secondary" href="assets/cv/Kelvin_Schouten_CV_EN.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-availability"><span class="mini-rule"></span> Interested in quantitative research and modelling opportunities</div>
+          <div class="eyebrow"><span class="eyebrow-mark"></span> QUANTITATIVE FINANCE · MATHEMATICAL MODELLING</div>
+          <h1 id="home-title">I turn complex problems into <em>working models.</em></h1>
+          <p class="lead">I'm Kelvin, an MSc Quantitative Finance student at Tilburg University with a background in mathematics. I develop models, investigate data, and enjoy building things beyond the screen.</p>
+          <div class="button-row"><a class="button button-primary" href="#projects">Explore selected work <span>↗</span></a><a class="button button-outline" href="#cv">My CV & contact <span>↗</span></a></div>
+          <div class="short-facts"><span>Tilburg University / MSc 2026–present</span><span>Utrecht University / BSc Mathematics</span></div>
+          <div class="annotation">FIRST IMPRESSION <strong>Employer should understand your background and what you build in under 10 seconds.</strong></div>
         </div>
         <div class="hero-visual">
-          <div class="visual-frame" role="img" aria-label="Conceptual illustration of two-phase pipe flow and a modelled response curve; not real experimental data">
-            <div class="visual-header"><span class="visual-brand">MODEL / 01</span><span class="visual-live"><span></span> SIMULATION STUDY</span></div>
-            <div class="flow-title-row"><div><div class="diagram-caption">SYSTEM DYNAMICS</div><div class="diagram-title">Two-phase flow</div></div><div class="flow-badge">Conceptual</div></div>
-            <svg class="flow-svg" viewBox="0 0 440 155" role="presentation" aria-hidden="true">
-              <defs>
-                <linearGradient id="pipeFill" x1="0" x2="1"><stop offset="0" stop-color="#c4dedd" stop-opacity=".25"/><stop offset=".5" stop-color="#7db8b3" stop-opacity=".11"/><stop offset="1" stop-color="#c4dedd" stop-opacity=".25"/></linearGradient>
-                <linearGradient id="flowLine" x1="0" x2="1"><stop offset="0" stop-color="#167d77"/><stop offset="1" stop-color="#4bb4a1"/></linearGradient>
-                <clipPath id="pipeClip"><rect x="19" y="45" width="402" height="64" rx="8"/></clipPath>
-              </defs>
-              <path d="M20 38h400v78H20z" fill="none" stroke="currentColor" opacity=".14" stroke-width="1.5"/>
-              <rect x="19" y="45" width="402" height="64" rx="8" fill="url(#pipeFill)"/>
-              <g clip-path="url(#pipeClip)" class="flow-bubbles" fill="#277d78" opacity=".65">
-                <circle cx="35" cy="69" r="8"/><circle cx="75" cy="94" r="5"/><circle cx="107" cy="62" r="11"/><circle cx="143" cy="84" r="5"/><circle cx="182" cy="64" r="6"/><circle cx="219" cy="94" r="10"/><circle cx="267" cy="67" r="7"/><circle cx="299" cy="93" r="5"/><circle cx="342" cy="64" r="10"/><circle cx="389" cy="89" r="7"/>
-                <circle cx="58" cy="52" r="3"/><circle cx="159" cy="55" r="3"/><circle cx="247" cy="79" r="3"/><circle cx="358" cy="101" r="3"/>
-              </g>
-              <path d="M26 85c34-13 50 14 82 1s47-8 69 3 38-19 67-15 42 18 65 4 66-5 105 7" fill="none" stroke="url(#flowLine)" stroke-width="2.5" stroke-linecap="round"/>
-              <g stroke="currentColor" stroke-opacity=".25"><path d="M21 127h398"/><path d="M21 22h398"/></g>
-              <g fill="currentColor" opacity=".55" font-family="monospace" font-size="9"><text x="20" y="142">INLET</text><text x="379" y="142">OUTLET</text></g>
-              <path d="m412 139 7-3-7-3" fill="none" stroke="currentColor" opacity=".55"/>
+          <div class="visual-topline"><span>MODEL → EXPERIMENT → INTERPRETATION</span><span>FIG. 01</span></div>
+          <div class="technical-plot" aria-label="Conceptual visual of simulation-based modelling">
+            <svg viewBox="0 0 520 330" role="img" aria-label="Illustrative technical graph and flow system, not a real project result">
+              <g stroke="currentColor" stroke-opacity=".1" stroke-width="1"><path d="M30 38H490 M30 88H490 M30 138H490 M30 188H490 M30 238H490 M30 288H490"/><path d="M50 24V300 M124 24V300 M198 24V300 M272 24V300 M346 24V300 M420 24V300 M480 24V300"/></g>
+              <rect x="48" y="98" width="425" height="100" rx="12" fill="#DFE9E5" stroke="#5C9289" stroke-width="1.8" />
+              <path d="M48 148 C95 122 126 171 173 147 S255 119 306 151 S389 174 473 138" fill="none" stroke="#24776F" stroke-width="3.5"/>
+              <path d="M48 168 C96 179 131 125 173 166 S255 183 308 138 S395 125 473 171" fill="none" stroke="#BE9374" stroke-width="2" stroke-dasharray="7 8"/>
+              <g fill="#24776F" opacity=".75"><circle cx="110" cy="153" r="7"/><circle cx="227" cy="164" r="5"/><circle cx="356" cy="137" r="8"/><circle cx="435" cy="163" r="5"/></g>
+              <g fill="#657F79" font-size="13" font-family="monospace"><text x="48" y="79">INPUT CONDITIONS</text><text x="305" y="231">SIMULATED RESPONSE</text><text x="48" y="267">MODEL STATES</text><text x="375" y="267">N = ?</text></g>
+              <path d="M48 275H205" stroke="#94B2AA" stroke-dasharray="2 6"/><path d="M305 240H470" stroke="#94B2AA" stroke-dasharray="2 6"/>
             </svg>
-            <div class="visual-divider"></div>
-            <div class="chart-head"><span>SIMULATED RESPONSE</span><span class="chart-key"><i></i> MODEL OUTPUT</span></div>
-            <svg class="chart-svg" viewBox="0 0 440 180" role="presentation" aria-hidden="true">
-              <defs><linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b9c91" stop-opacity=".22"/><stop offset="1" stop-color="#2b9c91" stop-opacity="0"/></linearGradient></defs>
-              <g stroke="currentColor" stroke-opacity=".09" stroke-width="1"><path d="M28 18H423M28 55H423M28 92H423M28 129H423M28 166H423"/><path d="M28 18V166M127 18V166M226 18V166M325 18V166M423 18V166"/></g>
-              <path d="M28 147C72 146 81 108 124 112S188 134 224 78 279 96 319 56 384 46 423 22V166H28Z" fill="url(#areaGradient)"/>
-              <path d="M28 147C72 146 81 108 124 112S188 134 224 78 279 96 319 56 384 46 423 22" fill="none" stroke="#177d76" stroke-width="3" stroke-linecap="round"/>
-              <g fill="#f7faf8" stroke="#177d76" stroke-width="2"><circle cx="124" cy="112" r="4"/><circle cx="224" cy="78" r="4"/><circle cx="319" cy="56" r="4"/><circle cx="423" cy="22" r="4"/></g>
-              <g fill="currentColor" opacity=".5" font-size="10" font-family="monospace"><text x="28" y="178">FLOW STATE</text><text x="335" y="178">RESPONSE →</text></g>
-            </svg>
-            <div class="visual-footer"><span>MATHEMATICS → SIMULATION → INTERPRETATION</span><span class="visual-code">K / S</span></div>
           </div>
-          <div class="visual-undertext">01 / EXPLORING SYSTEMS THROUGH MATHEMATICAL MODELS</div>
+          <div class="visual-caption"><span>ILLUSTRATION / NOT MEASURED DATA</span><span>MATHEMATICS × ENGINEERING</span></div>
+          <div class="annotation">VISUAL DIRECTION <strong>Replace this diagram with a custom illustration based on your actual work, or an approved simplified simulation.</strong></div>
         </div>
-      </div>
-      <div class="container hero-bottom"><div class="hero-bottom-line"></div><div class="hero-bottom-label">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div></div>
-    </section>
-
-    <section class="section about-section" id="about" aria-labelledby="about-heading">
-      <div class="container section-grid">
-        <div class="section-rail"><span class="section-index">01 / ABOUT</span><span class="rail-line"></span></div>
-        <div class="section-main">
-          <p class="section-kicker">A LITTLE ABOUT ME</p>
-          <h2 id="about-heading" class="section-title">Curiosity, grounded<br>in <span>rigorous analysis.</span></h2>
-          <div class="about-grid"><p class="lead-text">My background in mathematics shapes the way I approach problems: understand the assumptions, build a model, test it, and investigate where it breaks.</p><p class="body-text">I'm currently studying Quantitative Finance at Tilburg University, after completing a BSc in Mathematics at Utrecht University. I have independently developed a simulation-based model for an industrial company and worked with data in both research and financial coursework.</p></div>
-          <div class="principles"><div class="principle"><span class="principle-num">I.</span><strong>Understand</strong><p>Start with the mathematics and the assumptions behind the problem.</p></div><div class="principle"><span class="principle-num">II.</span><strong>Model</strong><p>Translate the theory into a usable numerical or analytical framework.</p></div><div class="principle"><span class="principle-num">III.</span><strong>Evaluate</strong><p>Use simulation, evidence and sensitivity analysis to understand the results.</p></div></div>
+      </section>
+      <section class="narrative-band"><div class="shell band-grid"><div class="band-label">HOW I APPROACH A PROBLEM <span>↓</span></div><div class="band-content">Understand the assumptions. <em>Construct a model.</em> Test it. Learn where it fails.</div></div></section>
+      <section class="shell section-pad">
+        <div class="section-heading"><div><span class="kicker">01 / FEATURED WORK</span><h2>Selected work, <em>explained.</em></h2></div><a href="#projects" class="text-link">All projects ↗</a></div>
+        <div class="featured-grid">
+          <a href="#projects" class="feature feature-large"><div class="feature-picture picture-flow"><span class="picture-tag">COMMISSIONED INDUSTRY PROJECT</span><div class="flow-symbol"><span>FLOW STATES</span><i></i><i></i><i></i><b>→</b><span>ESTIMATED OUTPUT</span></div><span class="visual-disclaimer">CONCEPT VISUAL / PLACEHOLDER</span></div><div class="feature-content"><div class="meta">APPLIED MATHEMATICS / 6 MONTHS</div><h3>Modelling two-phase flow in industrial pipes</h3><p>Independent mathematical model development for a food-industry company: system needs, cleaning outcomes and simulations across flow regimes.</p><span class="feature-action">Explore case-study structure ↗</span></div></a>
+          <a href="#research" class="feature feature-small"><div class="feature-picture picture-finance"><span class="picture-tag">ACADEMIC / FINANCIAL ECONOMETRICS</span><svg viewBox="0 0 360 170" role="img" aria-label="Illustrative financial data graph"><g stroke="#CADAD4" stroke-width="1"><path d="M0 35H360M0 75H360M0 115H360M0 155H360"/></g><path d="M5 125L34 111L60 124L86 78L112 88L140 57L164 87L198 40L226 62L256 30L290 41L328 12L355 19" fill="none" stroke="#24776F" stroke-width="3"/><path d="M5 146L34 139L60 143L86 111L112 127L140 104L164 113L198 85L226 108L256 88L290 76L328 67L355 74" fill="none" stroke="#B88B68" stroke-width="2"/></svg><span class="visual-disclaimer">ILLUSTRATIVE DATA ONLY</span></div><div class="feature-content"><div class="meta">EMPIRICAL FINANCE / PYTHON</div><h3>Exploring industry portfolio returns</h3><p>Financial data preparation, descriptive statistics and relationships among industry returns.</p><span class="feature-action">Explore research ↗</span></div></a>
         </div>
-      </div>
-    </section>
+      </section>
+      <section class="shell section-pad section-divider">
+        <div class="section-heading"><div><span class="kicker">02 / THE NEXT QUESTION</span><h2>Research in <em>progress.</em></h2></div><a href="#research" class="text-link">Research archive ↗</a></div>
+        <div class="research-highlight"><div><div class="badge-outline">CURRENT RESEARCH · TOPIC TO CONFIRM</div><h3>What problem am I investigating now?</h3><p>This section will introduce the research question, why it matters, the theoretical approach and the current state of your work. The exact project is intentionally not assumed.</p><a href="#research" class="button button-outline">View research wireframe ↗</a></div><div class="research-sketch"><span>QUESTION</span><div class="horizontal-rule"></div><span>MODEL</span><div class="horizontal-rule"></div><span>EVIDENCE</span><div class="horizontal-rule"></div><span>INTERPRETATION</span></div></div>
+      </section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">03 / BEYOND UNIVERSITY</span><h2>Curiosity takes <em>many forms.</em></h2></div><a href="#engineering" class="text-link">Engineering & Making ↗</a></div><div class="two-teasers"><a class="mini-teaser" href="#engineering"><div class="mini-placeholder"><span>3D</span><small>YOUR PHOTOGRAPH / CAD MODEL</small></div><div><span class="meta">ENGINEERING & MAKING</span><h3>3D printing and functional design</h3><p>Document mechanisms, prints and prototypes you choose to share.</p></div></a><a class="mini-teaser" href="#engineering"><div class="mini-placeholder"><span>ARM</span><small>YOUR ROBOT ARM / TEST VIDEO</small></div><div><span class="meta">MECHATRONICS</span><h3>Robotics and hands-on experiments</h3><p>Show design decisions, electronics, control and lessons learned.</p></div></a></div><div class="annotation">HOBBIES POSITIONING <strong>Let these feel personal. Show finished and unfinished builds honestly, not as inflated professional credentials.</strong></div></section>
+    </article>
 
-    <section class="section work-section" id="work" aria-labelledby="work-heading">
-      <div class="container section-grid">
-        <div class="section-rail"><span class="section-index">02 / SELECTED WORK</span><span class="rail-line"></span></div>
-        <div class="section-main">
-          <p class="section-kicker">PROJECTS & APPLIED WORK</p>
-          <div class="section-heading-row"><h2 id="work-heading" class="section-title">Research ideas.<br><span>Real applications.</span></h2><p class="heading-aside">A selection of academic and commissioned modelling work.</p></div>
-          <article class="project-card project-featured">
-            <div class="project-visual project-flow" aria-hidden="true"><div class="project-graphic-top"><span>01 · APPLIED MATHEMATICS</span><span>◌ ◌ ●</span></div><svg viewBox="0 0 570 240" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="projectP" x1="0" x2="1"><stop stop-color="#bfdfdb" stop-opacity=".2"/><stop offset="1" stop-color="#67a69e" stop-opacity=".35"/></linearGradient></defs><rect x="31" y="70" width="508" height="95" rx="12" fill="url(#projectP)" stroke="#83bdb6" stroke-opacity=".45"/><g fill="#79bbb3" opacity=".6"><circle cx="75" cy="112" r="18"/><circle cx="133" cy="142" r="8"/><circle cx="194" cy="105" r="15"/><circle cx="235" cy="139" r="7"/><circle cx="291" cy="113" r="20"/><circle cx="349" cy="143" r="11"/><circle cx="417" cy="102" r="17"/><circle cx="490" cy="136" r="9"/></g><path d="M34 122C94 85 135 159 189 124s98-31 145-2 108-28 202 4" fill="none" stroke="#177d76" stroke-width="4"/><path d="m522 218 17-9-17-9" fill="none" stroke="#177d76" stroke-width="2"/><g font-size="13" font-family="monospace" fill="#487d77"><text x="32" y="39">MODEL INPUT</text><text x="414" y="210">OUTPUT STATES</text></g></svg><div class="project-graphic-bottom"><span>FLOW REGIMES</span><span>MODEL PARAMETERS</span><span>CLEANING ESTIMATE</span></div></div>
-            <div class="project-info"><div class="project-overline"><span class="project-label">COMMISSIONED INDUSTRY PROJECT</span><span class="project-date">6 MONTHS</span></div><h3>Modelling two-phase flow in industrial pipe systems</h3><p>Independently developed a mathematical model for a company in the food industry to estimate system requirements and cleaning effectiveness under different flow regimes. Used simulations to estimate unknown model quantities and account for varied operating conditions.</p><div class="tag-row"><span>Mathematical modelling</span><span>Simulation</span><span>Parameter estimation</span><span>Fluid systems</span></div><a class="project-link" href="mailto:schoutenkelvin@gmail.com?subject=Question%20about%20the%20industrial%20modelling%20project">Ask me about this project <span aria-hidden="true">↗</span></a></div>
-          </article>
-          <article class="project-card project-secondary">
-            <div class="project-visual project-finance" aria-hidden="true"><div class="project-graphic-top"><span>02 · FINANCIAL ECONOMETRICS</span><span>DATA / ANALYSIS</span></div><svg viewBox="0 0 570 250" preserveAspectRatio="xMidYMid meet"><g stroke="#82ada7" stroke-opacity=".27"><path d="M35 44h500M35 89h500M35 134h500M35 179h500M35 224h500"/><path d="M35 44v180M135 44v180M235 44v180M335 44v180M435 44v180M535 44v180"/></g><path d="M35 186 75 171 117 190 152 119 194 147 234 102 270 139 308 77 352 95 392 61 433 91 481 55 535 74" fill="none" stroke="#2c9589" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M35 153 75 159 117 128 152 147 194 111 234 129 270 89 308 120 352 114 392 148 433 122 481 94 535 107" fill="none" stroke="#98beb6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 7"/></svg><div class="project-graphic-bottom"><span>DAILY RETURNS</span><span>CROSS-INDUSTRY ANALYSIS</span></div></div>
-            <div class="project-info"><div class="project-overline"><span class="project-label">ACADEMIC COURSEWORK</span><span class="project-date">2026</span></div><h3>Exploring industry portfolio returns</h3><p>Analysed daily industry portfolio returns using data from Kenneth French's Data Library, including data preparation, descriptive statistics and cross-industry relationships. Part of my Empirical Finance coursework.</p><div class="tag-row"><span>Python</span><span>pandas</span><span>Financial data</span><span>Time series</span></div><a class="project-link" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html" target="_blank" rel="noopener noreferrer">Explore the data source <span aria-hidden="true">↗</span></a></div>
-          </article>
-          <p class="section-note">Selected work is described at a high level. Project code and full research reports are not automatically public.</p>
-        </div>
-      </div>
-    </section>
+    <!-- PAGE 2: PROJECTS -->
+    <article class="page" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
+      <section class="shell inner-hero"><div class="breadcrumbs">PORTFOLIO / 01 — PROJECTS</div><div class="inner-hero-grid"><h1 id="projects-title">Work worth <em>examining.</em></h1><div><p class="lead">A selective archive of mathematical models, financial analysis and software. Each project explains the question, decisions, tests and what the results actually support.</p><div class="annotation">RECRUITER VIEW <strong>Evidence is more persuasive than a long skills list. Prioritise 2–4 deep case studies.</strong></div></div></div></section>
+      <section class="shell section-pad"><div class="section-heading"><div><span class="kicker">FEATURED CASE STUDY / 01</span><h2>Industrial modelling</h2></div><div class="badge-outline">VERIFIED PROJECT · 6 MONTHS</div></div><div class="case-study"><div class="case-main"><div class="wide-sketch"><div class="model-schematic"><div>FLOW REGIME <span>→</span></div><div>SIMULATION <span>→</span></div><div>OUTPUT</div></div><span class="caption-on-image">TECHNICAL DIAGRAM / TO BE REPLACED WITH PERMITTED PROJECT MATERIAL</span></div><h3>Modelling two-phase flow in pipes for the food industry</h3><p>Developed an independent mathematical model in a company-commissioned project to estimate system requirements and cleaning outcomes under differing flow conditions. Simulation was used to estimate unknown quantities and address varied operating conditions.</p><div class="case-steps"><div><span>01</span><h4>Problem</h4><p>What requirements does a system have under different flow states?</p></div><div><span>02</span><h4>Model</h4><p>Explain variables, assumptions and equations, if publishable.</p></div><div><span>03</span><h4>Simulation</h4><p>Show the estimation approach and test cases.</p></div><div><span>04</span><h4>Evidence</h4><p>Provide validation and limitations without confidential data.</p></div></div></div><aside class="case-aside"><div class="aside-block"><span class="meta">YOUR ROLE</span><strong>Independent model developer</strong></div><div class="aside-block"><span class="meta">CONTEXT</span><strong>Commissioned company project</strong></div><div class="aside-block"><span class="meta">DURATION</span><strong>Six months</strong></div><div class="aside-block"><span class="meta">TO ADD</span><p>Company name (if permitted), dates, methods, implementation tools, examples and validation.</p></div><div class="annotation">CASE-STUDY RULE <strong>Public narrative is fine; disclose technical information only with the company's permission.</strong></div></aside></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">SELECTED FINANCIAL WORK / 02</span><h2>From data to interpretation</h2></div></div><div class="split-feature"><div class="graph-placeholder"><span class="graph-heading">INDUSTRY RETURNS / ANALYSIS PIPELINE</span><div class="bar-layout"><i style="height:45%"></i><i style="height:75%"></i><i style="height:36%"></i><i style="height:91%"></i><i style="height:55%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:82%"></i></div><small>PLACEHOLDER — USE ACTUAL ANALYSIS GRAPHS</small></div><div><span class="meta">FINANCIAL ECONOMETRICS · PYTHON</span><h3>Industry portfolio returns</h3><p>Data cleaning and analysis of daily industry portfolio returns, including descriptive statistics and cross-industry relationships.</p><p class="small-copy">Expand with real figures, definitions of estimators, inference choices and robustness checks as available.</p><a href="#research" class="text-link">Research page ↗</a></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">CURATED CODE</span><h2>Github projects, with a story.</h2></div><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer" class="text-link">GitHub profile ↗</a></div><div class="three-slots"><div class="project-slot"><span class="slot-number">CODE / SLOT 01</span><div class="slot-icon">{ }</div><h3>Featured repository</h3><p>Add once it has source code, a reproducible example, README and tests.</p><div class="slot-footer">ACTUAL REPO / TO SELECT</div></div><div class="project-slot"><span class="slot-number">CODE / SLOT 02</span><div class="slot-icon">∑</div><h3>Research replication</h3><p>Explain the paper or question, reproduction steps and results.</p><div class="slot-footer">ACTUAL REPO / TO SELECT</div></div><div class="project-slot"><span class="slot-number">CODE / SLOT 03</span><div class="slot-icon">↳</div><h3>Technical tool</h3><p>Show software architecture, interface, performance and design decisions.</p><div class="slot-footer">ACTUAL REPO / TO SELECT</div></div></div><div class="annotation">GITHUB CURATION <strong>Don't surface empty or private repositories as finished work. Select projects manually.</strong></div></section>
+    </article>
 
-    <section class="section background-section" id="background" aria-labelledby="background-heading">
-      <div class="container section-grid">
-        <div class="section-rail"><span class="section-index">03 / BACKGROUND</span><span class="rail-line"></span></div>
-        <div class="section-main">
-          <p class="section-kicker">EDUCATION & EXPERIENCE</p>
-          <h2 class="section-title" id="background-heading">Building a quantitative <span>foundation.</span></h2>
-          <div class="background-columns">
-            <div class="background-column"><h3 class="subsection-title">Education <span>↘</span></h3><div class="timeline-item"><div class="timeline-date">2026 — PRESENT</div><h4>MSc Quantitative Finance</h4><p>Tilburg University</p><span class="timeline-detail">Current postgraduate studies</span></div><div class="timeline-item"><div class="timeline-date">2022 — 2026</div><h4>BSc Mathematics</h4><p>Utrecht University</p></div></div>
-            <div class="background-column"><h3 class="subsection-title">Other experience <span>↘</span></h3><div class="timeline-item"><div class="timeline-date">2020 — 2021</div><h4>Research Assistant</h4><p>The Hague University of Applied Sciences</p><span class="timeline-detail">Student-performance data analysis and research reporting</span></div><div class="timeline-item"><div class="timeline-date">2017 — 2025</div><h4>Mathematics & Physics Tutor</h4><p>Altena College and independent tutoring</p><span class="timeline-detail">Individual instruction and tailored exercises</span></div></div>
-          </div>
-          <div class="skills-panel"><div class="skills-heading"><h3>Technical toolkit</h3><span>SKILLS & AREAS OF STUDY</span></div><div class="skills-list"><div class="skill-line"><strong>Programming & data</strong><span>Python · pandas · NumPy · Matplotlib</span></div><div class="skill-line"><strong>Modelling</strong><span>Mathematical modelling · Numerical simulation · Parameter estimation</span></div><div class="skill-line"><strong>Quantitative studies</strong><span>Statistics · Econometrics · Financial time series · Asset pricing</span></div></div></div>
-          <div class="cv-banner" id="cv"><div><div class="cv-kicker">RESUME / CURRICULUM VITAE</div><h3>Looking for the details?</h3><p>Download my current one-page CV in English or Dutch.</p></div><div class="cv-actions"><a class="button button-white" href="assets/cv/Kelvin_Schouten_CV_EN.pdf" download>English CV <span aria-hidden="true">↓</span></a><a class="button button-ghost" href="assets/cv/Kelvin_Schouten_CV_NL.pdf" download>Nederlandse cv <span aria-hidden="true">↓</span></a></div></div>
-        </div>
-      </div>
-    </section>
+    <!-- PAGE 3: RESEARCH -->
+    <article class="page" data-page="research" id="research" aria-labelledby="research-title" hidden>
+      <section class="shell inner-hero"><div class="breadcrumbs">PORTFOLIO / 02 — RESEARCH</div><div class="inner-hero-grid"><h1 id="research-title">Questions worth <em>investigating.</em></h1><div><p class="lead">A place for working hypotheses, analytical methods, empirical tests and results — including the things that don't work.</p><div class="annotation">RESEARCH HONESTY <strong>Separate hypotheses, planned experiments, completed analysis and peer-reviewed outcomes.</strong></div></div></div></section>
+      <section class="shell section-pad"><div class="research-document"><aside class="document-index"><span class="meta">RESEARCH 001</span><div class="status-tag">● TOPIC TO CONFIRM</div><div class="document-steps"><span>Question</span><span>Why it matters</span><span>Method</span><span>Evidence</span><span>Limitations</span></div><p class="small-copy">This is a content slot, not a statement that a specific project is underway.</p></aside><div class="document-body"><span class="kicker">CURRENT RESEARCH / FEATURED STUDY</span><h2>The current research question goes here.</h2><p class="lead">One clear paragraph describing the underlying question, why the answer might matter and your original contribution.</p><div class="math-sheet"><span class="sheet-note">MATHEMATICAL MODEL / EQUATIONS</span><div class="math-lines"><span>Assumptions</span><i></i><span>Model</span><i></i><span>Predictions</span><i></i></div></div><div class="research-method-grid"><div><h3>What is the problem?</h3><p>Define the question and relevant context.</p></div><div><h3>Why is it important?</h3><p>Explain the economic or scientific relevance.</p></div><div><h3>How will it be tested?</h3><p>Show benchmarks, data, simulations or proofs.</p></div><div><h3>What is known so far?</h3><p>State actual results and uncertainties.</p></div></div></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">EMPIRICAL WORK / SEPARATE FROM MAIN RESEARCH</span><h2>Industry return analysis</h2></div></div><div class="split-feature"><div class="graph-placeholder"><span class="graph-heading">PYTHON / DATA / STATISTICS</span><div class="bar-layout"><i style="height:60%"></i><i style="height:85%"></i><i style="height:40%"></i><i style="height:74%"></i><i style="height:56%"></i><i style="height:96%"></i></div><small>PLACEHOLDER — REAL FIGURES LATER</small></div><div><h3>From cleaned returns to defensible conclusions</h3><p>Document data provenance, descriptive statistics, model specifications and uncertainty. Include the relevant economic interpretation rather than only plots.</p><a href="#projects" class="text-link">Related project ↗</a></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">RESEARCH JOURNAL</span><h2>Notes from the process</h2></div></div><div class="article-list"><div class="article-row"><span>01 / FUTURE NOTE</span><strong>Mathematical idea or derivation</strong><span>PROPOSED</span></div><div class="article-row"><span>02 / FUTURE NOTE</span><strong>Simulation and interpretation</strong><span>PROPOSED</span></div><div class="article-row"><span>03 / FUTURE NOTE</span><strong>Paper replication or critique</strong><span>PROPOSED</span></div></div></section>
+    </article>
 
-    <section class="section github-section" id="github" aria-labelledby="github-heading">
-      <div class="container section-grid"><div class="section-rail"><span class="section-index">04 / GITHUB</span><span class="rail-line"></span></div><div class="section-main"><p class="section-kicker">CODE & REPOSITORIES</p><div class="section-heading-row"><h2 class="section-title" id="github-heading">Work in <span>progress.</span></h2><a class="github-profile" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.7.08-.7 1.18.08 1.8 1.21 1.8 1.21 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.57-.29-5.27-1.28-5.27-5.69 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.47.11-3.06 0 0 .98-.31 3.16 1.18a10.9 10.9 0 0 1 5.75 0c2.18-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.42-2.7 5.39-5.28 5.68.42.37.79 1.09.79 2.2v3.27c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>github.com/zorromir</span><span aria-hidden="true">↗</span></a></div><p class="github-intro">My public GitHub repositories are loaded directly from GitHub below. Academic and commissioned work may be kept private while it is being developed.</p><div class="repo-grid" id="repo-grid"><div class="repo-placeholder"><span class="repo-placeholder-icon">⌁</span><p>Loading public repositories…</p></div></div><p class="github-footnote">Only public repositories are displayed. Repository descriptions and update dates come from GitHub.</p></div></div>
-    </section>
+    <!-- PAGE 4: ENGINEERING -->
+    <article class="page" data-page="engineering" id="engineering" aria-labelledby="engineering-title" hidden>
+      <section class="shell inner-hero"><div class="breadcrumbs">PERSONAL / 03 — ENGINEERING & MAKING</div><div class="inner-hero-grid"><h1 id="engineering-title">Curiosity you can <em>hold.</em></h1><div><p class="lead">An engineering notebook for 3D printing, robot arms, mechatronics and experiments built outside formal coursework.</p><div class="annotation">PERSONAL IDENTITY <strong>Keep the language informal, but show real prototypes, iterations and results where available.</strong></div></div></div></section>
+      <section class="shell section-pad"><div class="section-heading"><div><span class="kicker">THE MAKER'S WORKBENCH</span><h2>Projects and prototypes</h2></div><span class="meta">ADD YOUR ACTUAL BUILDS</span></div><div class="maker-grid"><div class="maker-card"><div class="maker-visual"><div class="cube-css"><div></div><div></div><div></div></div><span>PHOTO / CAD RENDER PLACEHOLDER</span></div><div class="maker-info"><span class="meta">INTEREST AREA / PROJECT DETAILS PENDING</span><h3>3D printing & design</h3><p>What was the intended function? How did you design the part, choose the material, test fit and improve it?</p><div class="tags"><span>CAD</span><span>Prototype</span><span>Iteration</span></div></div></div><div class="maker-card"><div class="maker-visual"><svg viewBox="0 0 300 190" role="img" aria-label="Diagrammatic robotic arm placeholder"><g stroke="#739C93" stroke-width="11" stroke-linecap="round"><path d="M75 162L115 115L168 88L219 43" fill="none"/></g><g fill="#DFEBE7" stroke="#377F73" stroke-width="4"><circle cx="75" cy="162" r="16"/><circle cx="115" cy="115" r="12"/><circle cx="168" cy="88" r="12"/><circle cx="219" cy="43" r="9"/><rect x="48" y="175" width="55" height="11" rx="3"/></g><path d="M226 38l24-15m-20 26l22 16" stroke="#B18A68" stroke-width="6" stroke-linecap="round"/></svg><span>BUILD PHOTO / DEMO PLACEHOLDER</span></div><div class="maker-info"><span class="meta">INTEREST AREA / PROJECT DETAILS PENDING</span><h3>Robot arms & mechatronics</h3><p>Document mechanics, control, electronics, prototypes, motion tests and lessons from assembly.</p><div class="tags"><span>Mechanics</span><span>Control</span><span>Electronics</span></div></div></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">ENGINEERING BUILD LOG TEMPLATE</span><h2>The process matters as much as the result.</h2></div></div><div class="build-steps"><div><span>01</span><h3>Sketch</h3><p>Why did you want to build it?</p></div><div><span>02</span><h3>Design</h3><p>What constraints shaped the prototype?</p></div><div><span>03</span><h3>Build</h3><p>Photos, code, schematics and hardware.</p></div><div><span>04</span><h3>Test</h3><p>What failed, and how did you improve it?</p></div></div><div class="annotation">HONEST SHOWCASE <strong>Do not present an interest in robotics as a completed robot-arm project until the evidence is available.</strong></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">PERSONAL / OPTIONAL</span><h2>Other things I enjoy.</h2></div></div><div class="two-teasers"><div class="mini-teaser passive"><div class="mini-placeholder"><span>?</span></div><div><h3>Gaming & strategy</h3><p>A place for thoughtful League of Legends analysis, if you want it public.</p></div></div><div class="mini-teaser passive"><div class="mini-placeholder"><span>✦</span></div><div><h3>Other interests</h3><p>Books, experiments, photography, creative work or anything else that matters to you.</p></div></div></div></section>
+    </article>
 
-    <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div class="container contact-inner"><div class="contact-topline"><span>05 / GET IN TOUCH</span><span>LET'S CONNECT</span></div><h2 id="contact-heading">Have a question,<br>idea or <em>opportunity?</em></h2><p>I'm interested in conversations about quantitative research, modelling and applied mathematics.</p><div class="contact-buttons"><a class="button button-contact" href="mailto:schoutenkelvin@gmail.com?subject=Portfolio%20enquiry">Send an email <span aria-hidden="true">↗</span></a><a class="button button-contact-outline" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a></div><a class="contact-mail" href="mailto:schoutenkelvin@gmail.com">schoutenkelvin@gmail.com</a></div></section>
+    <!-- PAGE 5: ABOUT -->
+    <article class="page" data-page="about" id="about" aria-labelledby="about-title" hidden>
+      <section class="shell inner-hero"><div class="breadcrumbs">PERSONAL / 04 — ABOUT</div><div class="inner-hero-grid"><h1 id="about-title">A mathematical mind. <em>A practical instinct.</em></h1><div><p class="lead">My background is in mathematics, and my current focus is quantitative finance. I enjoy independently working through unfamiliar problems, building models, testing them and explaining what I learn.</p><div class="annotation">PERSONAL VOICE <strong>This introduction should ultimately be revised in your own words, with a few specific examples.</strong></div></div></div></section>
+      <section class="shell section-pad"><div class="about-layout"><div><span class="kicker">THE STORY SO FAR</span><h2>Learning through theory <em>and practice.</em></h2><p>I'm studying Quantitative Finance at Tilburg University after completing a mathematics bachelor's at Utrecht University. I also have experience with industrial modelling, academic research support and teaching mathematics and physics.</p><p>Outside university, I'm interested in practical engineering and making, including 3D printing and mechatronics.</p><a href="#engineering" class="text-link">Explore Engineering & Making ↗</a></div><div class="photo-placeholder"><div class="photo-outline"><span>OPTIONAL</span><strong>YOUR PORTRAIT / WORKSPACE</strong><span>OR KEEP THIS TEXT-ONLY</span></div></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">EDUCATION & EXPERIENCE</span><h2>Career timeline</h2></div></div><div class="timeline"><div class="timeline-event"><div class="timeline-date">2026 — PRESENT</div><div><span class="meta">EDUCATION</span><h3>MSc Quantitative Finance</h3><p>Tilburg University</p></div></div><div class="timeline-event"><div class="timeline-date">2022 — 2026</div><div><span class="meta">EDUCATION</span><h3>BSc Mathematics</h3><p>Utrecht University</p></div></div><div class="timeline-event"><div class="timeline-date">SIX-MONTH PROJECT</div><div><span class="meta">INDUSTRY / DATES PENDING</span><h3>Independent mathematical modelling</h3><p>Company-commissioned modelling of two-phase flow and cleaning outcomes in industrial pipes.</p></div></div><div class="timeline-event"><div class="timeline-date">2020 — 2021</div><div><span class="meta">RESEARCH EXPERIENCE</span><h3>Research Assistant</h3><p>The Hague University of Applied Sciences</p></div></div><div class="timeline-event"><div class="timeline-date">2017 — 2025</div><div><span class="meta">TEACHING EXPERIENCE</span><h3>Mathematics & Physics Tutor</h3><p>Altena College and independent tutoring</p></div></div></div></section>
+      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">HOW I WORK</span><h2>What guides the process</h2></div></div><div class="three-slots"><div class="principle"><span>01 / FRAME</span><h3>Start with assumptions</h3><p>Understand the system and formulate the right problem.</p></div><div class="principle"><span>02 / TEST</span><h3>Let evidence challenge the model</h3><p>Run experiments, check uncertainty and understand failure cases.</p></div><div class="principle"><span>03 / EXPLAIN</span><h3>Make the outcome understandable</h3><p>Communicate what a result means, and what it does not.</p></div></div></section>
+    </article>
+
+    <!-- PAGE 6: CV -->
+    <article class="page" data-page="cv" id="cv" aria-labelledby="cv-title" hidden>
+      <section class="shell inner-hero"><div class="breadcrumbs">CAREER / 05 — CV & CONTACT</div><div class="inner-hero-grid"><h1 id="cv-title">Let's make the work <em>useful.</em></h1><div><p class="lead">For research opportunities, modelling projects, internships or a technical conversation, you can reach me using the links below.</p></div></div></section>
+      <section class="shell section-pad"><div class="cv-layout"><div class="cv-document"><div class="cv-top"><strong>KELVIN SCHOUTEN</strong><span>CV / PREVIEW</span></div><div class="cv-hero"><span>QUANTITATIVE FINANCE / MATHEMATICS</span><div class="fake-line l90"></div><div class="fake-line l75"></div><div class="fake-line l85"></div></div><div class="cv-piece"><h4>EDUCATION</h4><div><b>MSc Quantitative Finance</b><span>2026 — PRESENT</span></div><p>Tilburg University</p><div><b>BSc Mathematics</b><span>2022 — 2026</span></div><p>Utrecht University</p></div><div class="cv-piece"><h4>SELECTED EXPERIENCE</h4><div><b>Industrial mathematical modelling</b><span>6 MONTHS</span></div><p>Two-phase flow and simulation-based estimates</p><div><b>Research Assistant</b><span>2020 — 2021</span></div><p>The Hague University of Applied Sciences</p></div><div class="cv-piece"><h4>TECHNICAL AREAS</h4><p>Mathematical modelling · Python · Quantitative analysis · Simulation</p></div></div><div class="cv-side"><span class="kicker">DOCUMENTS</span><h2>Download my CV</h2><p>Current editable CV design, in English and Dutch. Check the content before publishing future revisions.</p><a class="button button-primary full-button" href="assets/cv/Kelvin_Schouten_CV_EN.pdf" target="_blank" rel="noopener">English CV / PDF ↓</a><a class="button button-outline full-button" href="assets/cv/Kelvin_Schouten_CV_NL.pdf" target="_blank" rel="noopener">Nederlandse CV / PDF ↓</a><div class="contact-card"><span class="kicker">CONTACT</span><h3>Open to an introduction?</h3><a href="mailto:schoutenkelvin@gmail.com">schoutenkelvin@gmail.com ↗</a><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">github.com/zorromir ↗</a><span class="small-copy">LinkedIn / add when available</span></div><div class="annotation">PRIVACY <strong>Before publishing PDFs, check whether you want personal phone and location details visible on a public website.</strong></div></div></div></section>
+    </article>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div><span class="footer-brand">Kelvin Schouten<span>.</span></span><p>Mathematics · Quantitative Finance · Modelling</p></div><div class="footer-right"><span>© <span id="current-year">2026</span> Kelvin Schouten</span><a href="#top">Back to top ↑</a></div></div></footer>
-  <!-- Deployment check: published from repository root. -->
+
+  <section class="closing-cta"><div class="shell closing-grid"><div><span class="kicker">A PORTFOLIO THAT GROWS WITH THE WORK</span><h2>From ideas to <em>evidence.</em></h2></div><div><p>Projects, research, engineering, and the questions worth asking next.</p><a href="mailto:schoutenkelvin@gmail.com" class="button button-light">Get in touch ↗</a></div></div></section>
+  <footer class="site-footer"><div class="shell footer-grid"><div><b>KS<span>.</span></b><p>Kelvin Schouten · Portfolio 2.0 wireframe</p></div><div><a href="#home">Back to home ↑</a><span>Concept only — live site unchanged</span></div></div></footer>
 </body>
 </html>
