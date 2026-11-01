@@ -269,3 +269,39 @@ html{scroll-padding-top:100px}
 
 /* Phase 2: preserve the actual 1000 × 440 numerical SVG proportions. */
 #projects .industrial-phase2-figure img{aspect-ratio:1000 / 440;object-fit:contain}
+
+
+/* About page — biography, research focus, and selected experience */
+#about .about-layout{grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);gap:clamp(32px,5vw,78px);align-items:start}
+#about .about-copy p{max-width:710px;font-size:14px;line-height:1.85;margin-bottom:17px}
+#about .about-copy .text-link{display:inline-block;margin-top:6px}
+#about .about-focus-panel{background:#e8f0e9;border:1px solid #d3e1d8;padding:31px 29px}
+#about .about-focus-statement{font-family:var(--title);font-size:clamp(24px,2.5vw,35px);letter-spacing:-.04em;line-height:1.25;color:var(--ink);margin:28px 0}
+#about .about-focus-rule{height:1px;background:#bed0c5;margin:20px 0}
+#about .about-focus-panel>p:not(.about-focus-statement){font-size:13px;line-height:1.85;margin-bottom:25px}
+#about .about-focus-labels{display:flex;flex-wrap:wrap;gap:7px}
+#about .about-focus-labels span{border:1px solid #b4cbbf;padding:6px 8px;font:10px var(--mono);letter-spacing:.03em;color:#4d776b}
+#about .about-story-section{padding-bottom:54px}
+#about .about-experience-section{padding-bottom:79px}
+#about .about-experience-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#about .about-experience-card{display:flex;flex-direction:column;min-height:244px;padding:25px 25px 22px;background:var(--paper);border:1px solid var(--line);transition:border-color .15s,transform .15s}
+#about .about-experience-card:hover{border-color:#8cb3a5;transform:translateY(-2px);color:inherit}
+#about .about-experience-card:focus-visible{outline:3px solid #38a79a;outline-offset:3px}
+#about .about-card-index{font:700 10px var(--mono);letter-spacing:.07em;color:var(--teal)}
+#about .about-experience-card h3{font-size:20px;line-height:1.25;margin:23px 0 12px}
+#about .about-experience-card p{font-size:13px;line-height:1.75;margin-bottom:23px}
+#about .about-card-link{margin-top:auto;font-size:12px;font-weight:700;color:var(--teal)}
+@media(max-width:810px){
+  #about .about-layout{grid-template-columns:1fr;gap:30px}
+  #about .about-focus-panel{max-width:650px}
+  #about .about-experience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #about .about-experience-card:last-child{grid-column:1/-1;min-height:0}
+}
+@media(max-width:620px){
+  #about .about-story-section{padding-bottom:39px}
+  #about .about-focus-panel{padding:24px}
+  #about .about-experience-section{padding-bottom:53px}
+  #about .about-experience-grid{grid-template-columns:1fr;gap:12px}
+  #about .about-experience-card,#about .about-experience-card:last-child{grid-column:auto;min-height:0;padding:21px}
+  #about .about-experience-card h3{margin-top:16px}
+}
