@@ -14,7 +14,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
-ROUTES = ("home", "projects", "research", "engineering", "about", "cv")
+ROUTES = ("home", "projects", "research", "engineering", "about")
 VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080),
              ("mobile", 390, 844), ("narrow-mobile", 320, 720))
 
@@ -41,6 +41,10 @@ def check_site(browser, base, device, width, height):
               f"{device}/{route}: missing or duplicate visible page heading")
         check(page.locator('h1:visible').count() == 1,
               f"{device}/{route}: multiple visible h1 elements")
+        pdf = page.locator(".site-footer .footer-cv-link")
+        check(pdf.count() == 1
+              and pdf.get_attribute("href").startswith("assets/cv/Kelvin_Schouten_CV_EN.pdf"),
+              f"{device}/{route}: footer PDF link missing")
         check(page.locator('[data-nav][aria-current="page"]').count() == 1,
               f"{device}/{route}: navigation did not update")
         check(page.locator(f'[data-nav="{route}"][aria-current="page"]').count() == 1,
@@ -55,6 +59,14 @@ def check_site(browser, base, device, width, height):
             page.screenshot(path=str(SHOTS / f"{device}-{route}.png"), full_page=True,
                             animations="disabled", timeout=60000)
         check(not exceptions, f"{device}/{route}: JS exception: {exceptions}")
+
+    # Existing external links to #cv must open the new combined profile.
+    page.goto(f"{base}/index.html#cv", wait_until="load")
+    page.locator("#about").wait_for(state="visible", timeout=5000)
+    check(page.locator('#about h1').inner_text() == "Profile & CV",
+          f"{device}: legacy CV link did not open Profile & CV")
+    check(page.locator('[data-nav="about"][aria-current="page"]').count() == 1,
+          f"{device}: legacy CV link did not select Profile & CV navigation")
 
     page.goto(f"{base}/index.html#home", wait_until="load")
     check(page.locator(".brand img").count() == 0,
@@ -139,7 +151,7 @@ def check_site(browser, base, device, width, height):
 
 
 def check_without_javascript(browser, base):
-    # With JavaScript disabled, all six sections must remain reachable and
+    # With JavaScript disabled, all five sections must remain reachable and
     # the hand-written bibliography must still list all six citations.
     context = browser.new_context(java_script_enabled=False,
                                   viewport={"width": 390, "height": 844})
@@ -150,6 +162,8 @@ def check_without_javascript(browser, base):
               "No-JS page hidden: " + route)
     check(page.locator("[data-paper-fallback] li").count() == 6,
           "No-JS bibliography missing")
+    check(page.locator("#cv").count() == 1,
+          "No-JS legacy #cv anchor missing")
     check(page.locator("#main-nav").is_visible(),
           "No-JS navigation unavailable")
     page.close()
@@ -177,7 +191,7 @@ def main():
                 browser.close()
     finally:
         server.shutdown()
-    print("PASS: browser QA, 12 screenshots and fallback in artifacts/qa")
+    print("PASS: browser QA, 10 screenshots and fallback in artifacts/qa")
 
 
 if __name__ == "__main__":
