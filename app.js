@@ -150,173 +150,103 @@
     show(0);
   });
 
-  // Research-library data is maintained in data/reading-list.json; this code only renders it.
-  const library = document.querySelector('[data-paper-carousel]');
+  // A filterable bibliography is more useful here than one-paper-at-a-time slides.
+  // The HTML contains a usable bibliography if JavaScript or the JSON fetch fails.
+  // data/reading-list.json remains the maintained source for enhanced entries.
+  const library = document.querySelector('[data-paper-library]');
   if (library) {
-    const track = library.querySelector('[data-paper-track]');
+    const list = library.querySelector('[data-paper-list]');
+    const filters = library.querySelector('[data-paper-filters]');
+    const fallback = library.querySelector('[data-paper-fallback]');
     const counter = library.querySelector('[data-paper-count]');
-    const prev = library.querySelector('[data-paper-prev]');
-    const next = library.querySelector('[data-paper-next]');
-    const filters = document.querySelector('[data-paper-filters]');
-    const dotsHost = library.querySelector('[data-paper-dots]');
-    const collectionNote = document.querySelector('[data-paper-collection-note]');
-    let current = 0;
-    let filtered = [];
-    let activeFilter = 'all';
-    let touchStart = null;
+    const collectionNote = library.querySelector('[data-paper-collection-note]');
 
-    function node(tag, className, value) {
+    function node(tag, className, text) {
       const el = document.createElement(tag);
       if (className) el.className = className;
-      if (value !== undefined) el.textContent = String(value);
+      if (text !== undefined) el.textContent = String(text);
       return el;
     }
 
-    function safeUrl(value, internal = false) {
+    function safeUrl(value, allowHash = false) {
       if (typeof value !== 'string') return null;
-      if (internal && /^#[a-z0-9-]+$/i.test(value)) return value;
+      if (allowHash && /^#[a-z0-9-]+$/i.test(value)) return value;
       try {
-        const parsed = new URL(value);
-        return parsed.protocol === 'https:' ? parsed.href : null;
+        const url = new URL(value);
+        return url.protocol === 'https:' ? url.href : null;
       } catch (_) { return null; }
     }
 
-    function link(text, href, className) {
+    function paperLink(text, url, className) {
+      const href = safeUrl(url, true);
+      if (!href) return null;
       const a = node('a', className, text);
-      const safe = safeUrl(href, true);
-      if (!safe) return null;
-      a.href = safe;
-      if (!safe.startsWith('#')) {
+      a.href = href;
+      if (!href.startsWith('#')) {
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
       }
       return a;
     }
 
-    function coverFor(paper, index) {
-      const cover = node('div', 'paper-cover');
-      const accent = /^#[0-9a-fA-F]{6}$/.test(paper.cover_accent || '') ? paper.cover_accent : '#24766e';
-      cover.style.setProperty('--paper-accent', accent);
-      cover.setAttribute('aria-label', 'Custom typographic cover for ' + paper.title);
-
-      const top = node('div', 'paper-cover-top');
-      top.append(node('span', '', 'RESEARCH / ' + paper.year), node('span', '', String(index + 1).padStart(2, '0')));
-
-      const inside = node('div', 'paper-cover-inner');
-      inside.append(node('span', 'paper-cover-code', paper.short_label));
-      const lines = node('div', 'paper-cover-lines');
-      for (let i = 0; i < 3; i++) lines.append(document.createElement('i'));
-      inside.append(lines, node('span', 'paper-cover-topic', paper.topic.toUpperCase()));
-
-      const bottom = node('div', 'paper-cover-bottom');
-      bottom.append(node('span', '', paper.journal), node('span', '', 'SELECTED PAPER'));
-      cover.append(top, inside, bottom);
-      return cover;
+    function validData(data) {
+      if (!data || !Array.isArray(data.papers) || !Array.isArray(data.categories) || !Array.isArray(data.projects)) return false;
+      const ids = new Set();
+      const categories = new Set(data.categories.map(c => c.id));
+      const projects = new Set(data.projects.map(p => p.id));
+      if (!categories.has('all')) return false;
+      return data.papers.every(p => {
+        if (!p || typeof p.id !== 'string' || ids.has(p.id)) return false;
+        ids.add(p.id);
+        return ['title','authors','topic','journal','idea','relevance'].every(k => typeof p[k] === 'string' && p[k].trim())
+          && Number.isInteger(p.year) && !!safeUrl(p.url)
+          && Array.isArray(p.category_ids) && p.category_ids.length > 0
+          && p.category_ids.every(id => categories.has(id))
+          && Array.isArray(p.project_ids) && p.project_ids.every(id => projects.has(id))
+          && [null, 'to-read', 'reading', 'read'].includes(p.reading_status);
+      });
     }
 
-    function detail(label, value) {
-      const wrapper = node('div', 'reading-detail');
-      wrapper.append(node('span', 'meta', label), node('p', '', value));
-      return wrapper;
-    }
+    function makeEntry(paper, projectMap) {
+      const row = node('li', 'academic-paper-entry');
+      const heading = node('h3', 'academic-paper-title');
+      const title = paperLink(paper.title, paper.url, '');
+      if (title) heading.append(title);
+      row.append(heading);
 
-    function makeSlide(paper, index, projectMap) {
-      const slide = node('article', 'reading-slide');
-      slide.setAttribute('role', 'group');
-      slide.setAttribute('aria-roledescription', 'slide');
-      slide.setAttribute('aria-label', (index + 1) + ': ' + paper.title);
+      row.append(node('p', 'academic-paper-citation', paper.authors + ' (' + paper.year + ') · ' + paper.journal));
+      row.append(node('p', 'academic-paper-relevance', paper.relevance));
+      const more = node('details', 'academic-paper-detail');
+      more.append(node('summary', '', 'Core idea'), node('p', '', paper.idea));
+      row.append(more);
 
-      const copy = node('div', 'reading-paper-copy');
-      copy.append(
-        node('span', 'meta', paper.topic.toUpperCase() + ' · ' + paper.year),
-        node('h3', '', paper.title),
-        node('p', 'reading-byline', paper.authors + ' · ' + paper.journal),
-        detail('THE CORE IDEA', paper.idea),
-        detail('WHY IT MATTERS FOR MY ECONOMETRICS', paper.relevance)
-      );
-
-      const related = node('div', 'reading-related');
-      const projects = paper.project_ids.map(id => projectMap.get(id)).filter(Boolean);
-      if (projects.length) {
-        related.append(node('span', 'meta', 'CONNECTED PROJECTS'));
-        const linksBox = node('div', 'reading-related-links');
-        projects.forEach(project => {
-          const a = link(project.name + ' ↗', project.url, 'reading-project-link');
-          if (a) linksBox.append(a);
+      const related = paper.project_ids.map(id => projectMap.get(id)).filter(Boolean);
+      if (related.length) {
+        const relationships = node('p', 'academic-paper-related');
+        relationships.append(node('span', '', 'Related: '));
+        related.forEach((project, i) => {
+          if (i) relationships.append(document.createTextNode(' · '));
+          const a = paperLink(project.name, project.url, '');
+          if (a) relationships.append(a);
         });
-        related.append(linksBox);
+        row.append(relationships);
       }
-      copy.append(related);
 
-      const statusNames = {'to-read':'To read',reading:'Reading',read:'Read'};
-      if (statusNames[paper.reading_status]) {
-        copy.append(node('p', 'reading-status', 'Reading status: ' + statusNames[paper.reading_status]));
-      }
-      const paperLink = link('Open publication ↗', paper.url, 'text-link reading-paper-link');
-      if (paperLink) copy.append(paperLink);
-      slide.append(coverFor(paper, index), copy);
-      return slide;
+      const names = {'to-read':'To read', 'reading':'Reading', 'read':'Read'};
+      if (names[paper.reading_status]) row.append(node('p', 'academic-paper-status', 'Reading status: ' + names[paper.reading_status]));
+      return row;
     }
 
-    function showPaper(index) {
-      if (!filtered.length) return;
-      current = (index + filtered.length) % filtered.length;
-      track.style.transform = 'translateX(-' + (100 * current) + '%)';
-      [...track.children].forEach((slide, i) => {
-        const selected = i === current;
-        slide.setAttribute('aria-hidden', String(!selected));
-        slide.inert = !selected;
-      });
-      [...dotsHost.children].forEach((dot, i) => {
-        dot.classList.toggle('is-active', i === current);
-        dot.setAttribute('aria-pressed', String(i === current));
-      });
-      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(filtered.length).padStart(2, '0');
-    }
-
-    function renderCollection(data, category) {
-      activeFilter = category;
-      current = 0;
-      filtered = data.papers.filter(paper => category === 'all' || paper.category_ids.includes(category));
-      const projectMap = new Map(data.projects.map(project => [project.id, project]));
-      track.style.transform = 'translateX(0)';
-      track.replaceChildren(...filtered.map((paper, i) => makeSlide(paper, i, projectMap)));
-      dotsHost.replaceChildren(...filtered.map((paper, i) => {
-        const dot = node('button', 'reading-dot');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', 'Show paper ' + (i + 1) + ': ' + paper.title);
-        dot.setAttribute('aria-pressed', String(i === 0));
-        dot.addEventListener('click', () => showPaper(i));
-        return dot;
-      }));
+    function render(data, category) {
+      const papers = data.papers.filter(p => category === 'all' || p.category_ids.includes(category));
+      const projectMap = new Map(data.projects.map(p => [p.id, p]));
+      list.replaceChildren(...papers.map(p => makeEntry(p, projectMap)));
+      if (!papers.length) list.append(node('li', 'academic-paper-empty', 'No references in this category.'));
+      counter.textContent = papers.length + (papers.length === 1 ? ' reference' : ' references');
       [...filters.children].forEach(button => {
         const active = button.dataset.filter === category;
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', String(active));
-      });
-      const disabled = filtered.length < 2;
-      prev.disabled = next.disabled = disabled;
-      dotsHost.hidden = disabled;
-      if (filtered.length) showPaper(0);
-      else {
-        track.append(node('p', 'reading-loading', 'No papers in this category yet.'));
-        counter.textContent = '00 / 00';
-      }
-    }
-
-    function validData(data) {
-      if (!data || !Array.isArray(data.papers) || !Array.isArray(data.projects) || !Array.isArray(data.categories)) return false;
-      const ids = new Set();
-      const categories = new Set(data.categories.map(item => item.id));
-      const projects = new Set(data.projects.map(item => item.id));
-      return data.papers.every(p => {
-        if (!p || typeof p.id !== 'string' || ids.has(p.id)) return false;
-        ids.add(p.id);
-        return ['title','authors','topic','journal','idea','relevance','short_label'].every(field => typeof p[field] === 'string' && p[field].trim().length > 0)
-          && Number.isInteger(p.year) && !!safeUrl(p.url)
-          && Array.isArray(p.category_ids) && p.category_ids.length > 0 && p.category_ids.every(id => categories.has(id))
-          && Array.isArray(p.project_ids) && p.project_ids.every(id => projects.has(id))
-          && [null,'to-read','reading','read'].includes(p.reading_status);
       });
     }
 
@@ -326,47 +256,31 @@
         return response.json();
       })
       .then(data => {
-        if (!validData(data)) throw new Error('Reading-list data needs correction');
-        const presentCategories = data.categories.filter(category => category.id === 'all' || data.papers.some(paper => paper.category_ids.includes(category.id)));
-        filters.replaceChildren(...presentCategories.map(category => {
-          const count = category.id === 'all' ? data.papers.length : data.papers.filter(paper => paper.category_ids.includes(category.id)).length;
-          const button = node('button', 'reading-filter', category.label + ' · ' + count);
+        if (!validData(data)) throw new Error('Invalid reading-list data');
+        const usedCategories = data.categories.filter(c =>
+          c.id === 'all' || data.papers.some(p => p.category_ids.includes(c.id))
+        );
+        filters.replaceChildren(...usedCategories.map(category => {
+          const button = node('button', 'academic-paper-filter', category.id === 'all' ? 'All' : category.label);
           button.type = 'button';
           button.dataset.filter = category.id;
           button.setAttribute('aria-pressed', 'false');
-          button.addEventListener('click', () => renderCollection(data, category.id));
+          button.addEventListener('click', () => render(data, category.id));
           return button;
         }));
-        collectionNote.textContent = data.collection_note || 'Project-specific reading notes.';
-        renderCollection(data, 'all');
+        if (typeof data.collection_note === 'string') collectionNote.textContent = data.collection_note;
+        render(data, 'all');
+        list.hidden = false;
+        counter.hidden = false;
+        fallback.hidden = true;
       })
       .catch(() => {
+        // Preserve the static bibliography as a fallback, rather than showing an error-only panel.
+        list.hidden = true;
+        counter.hidden = true;
+        fallback.hidden = false;
         filters.replaceChildren();
-        track.style.transform = 'none';
-        track.replaceChildren(node('p', 'reading-loading', 'The paper library could not load. You can still open the source bibliography below.'));
-        counter.textContent = '— / —';
-        prev.disabled = next.disabled = true;
-        dotsHost.replaceChildren();
-        collectionNote.textContent = 'Paper cards are temporarily unavailable.';
       });
-
-    prev.addEventListener('click', () => showPaper(current - 1));
-    next.addEventListener('click', () => showPaper(current + 1));
-    library.addEventListener('keydown', event => {
-      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-      if (event.target.closest('a, button, input, select, textarea')) return;
-      event.preventDefault();
-      showPaper(current + (event.key === 'ArrowRight' ? 1 : -1));
-    });
-    library.addEventListener('touchstart', event => {
-      if (event.touches.length === 1) touchStart = event.touches[0].clientX;
-    }, { passive: true });
-    library.addEventListener('touchend', event => {
-      if (touchStart === null || !event.changedTouches.length) return;
-      const dx = event.changedTouches[0].clientX - touchStart;
-      touchStart = null;
-      if (Math.abs(dx) > 55) showPaper(current + (dx < 0 ? 1 : -1));
-    }, { passive: true });
   }
 
 })();
