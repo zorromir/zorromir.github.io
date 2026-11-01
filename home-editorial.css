@@ -1,0 +1,235 @@
+/* Phase 3 — Homepage editorial refinement.
+   Intentionally scoped to #home. Keep the original site stylesheet unchanged.
+   Sources: Muller-Brockmann's grid design, Tufte's evidence-first graphics,
+   and Distill's scientific presentation. No illustrative fake research data. */
+
+#home .home-editorial-hero {
+  background: #1d3639;
+  margin-top: clamp(16px, 2.4vw, 32px);
+  padding: clamp(40px, 5.2vw, 76px) clamp(26px, 5.4vw, 82px) 0;
+}
+#home .home-editorial-hero .explore-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .65fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+  padding: 12px 0 clamp(46px, 5.7vw, 80px);
+}
+#home .home-editorial-hero .explore-hero-eyebrow {
+  margin-bottom: clamp(23px, 3.2vw, 44px);
+  color: #b8d6c7;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .075em;
+}
+#home .home-editorial-hero h1 {
+  max-width: 790px;
+  font-family: var(--title);
+  font-size: clamp(43px, 5.15vw, 76px);
+  line-height: 1.13;
+  letter-spacing: -.042em;
+  font-weight: 400;
+  text-wrap: balance;
+}
+#home .home-editorial-hero .explore-hero-side {
+  border-left: 1px solid rgba(217, 234, 224, .5);
+  padding: 3px 0 3px clamp(19px, 2.7vw, 35px);
+}
+#home .home-editorial-hero .explore-hero-side p {
+  color: #e4ebe5;
+  font-size: clamp(16px, 1.26vw, 19px);
+  line-height: 1.68;
+  max-width: 40ch;
+}
+#home .home-editorial-hero .explore-hero-footer {
+  padding: 18px 0 21px;
+  font-size: 10px;
+  letter-spacing: .045em;
+  color: #b0d1bf;
+}
+
+/* The immediate path to projects, CV and GitHub should stay visible. */
+#home .home-direct-links {
+  padding-top: 28px;
+  padding-bottom: 31px;
+  gap: 36px;
+}
+#home .home-direct-copy .kicker { display: none; }
+#home .home-direct-copy p {
+  color: var(--ink-dim);
+  margin: 0;
+  max-width: 47ch;
+  font-size: 15px;
+  line-height: 1.66;
+}
+#home .home-direct-actions { gap: 11px 17px; }
+#home .home-direct-actions .button {
+  min-height: 44px;
+  padding: 12px 19px;
+  font-size: 13px;
+}
+#home .home-direct-github { font-size: 13px; }
+
+/* A quieter figure-first project gallery rather than repetitive cards. */
+#home .home-featured-section { padding-top: clamp(67px, 7.2vw, 105px); padding-bottom: clamp(76px, 7.5vw, 110px); }
+#home .home-section-heading { margin-bottom: 34px; align-items: end; }
+#home .home-section-heading .kicker { font-size: 11px; letter-spacing: .075em; }
+#home .home-section-heading h2 {
+  margin: 11px 0 0;
+  font-size: clamp(39px, 4.1vw, 58px);
+  line-height: 1.16;
+  letter-spacing: -.039em;
+}
+#home .home-section-heading > p {
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 37ch;
+  margin-bottom: 3px;
+}
+#home .home-feature-grid { gap: clamp(27px, 3.5vw, 52px); }
+#home .home-feature-card {
+  border: 0;
+  border-top: 1px solid #cddbd3;
+  background: transparent;
+  box-shadow: none;
+  padding-top: 17px;
+  transition: none;
+}
+#home .home-feature-card:hover {
+  border-color: #cddbd3;
+  transform: none;
+}
+#home .home-feature-card:focus-within { border-top-color: var(--teal); }
+#home .home-feature-top {
+  background: transparent;
+  border: 0;
+  padding: 0 0 16px;
+  font: 600 11px/1.5 var(--mono);
+  letter-spacing: .035em;
+  color: var(--teal);
+  text-wrap: balance;
+}
+#home .home-feature-media {
+  min-height: 225px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+#home .home-feature-media img { width: 100%; max-height: 300px; object-fit: contain; }
+#home .home-feature-content { padding: 25px 0 0; }
+#home .home-feature-content > .meta { font-size: 11px; line-height: 1.5; letter-spacing: .025em; }
+#home .home-feature-content h3 {
+  margin: 10px 0 13px;
+  font-size: clamp(27px, 2.5vw, 35px);
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+#home .home-feature-content > p {
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 53ch;
+  margin-bottom: 28px;
+}
+#home .home-feature-footer {
+  align-items: flex-start;
+  gap: 15px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+#home .home-feature-footer small {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+#home .home-feature-actions { gap: 9px 17px; }
+#home .home-feature-actions a {
+  font-size: 13px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Academic thesis feature: one genuinely computed figure as the focal point. */
+#home .home-research-band {
+  padding: clamp(69px, 7vw, 95px) 0;
+  background: #ecf2ed;
+  border: 0;
+}
+#home .home-research-grid {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(37px, 6vw, 90px);
+}
+#home .home-research-copy h2 {
+  max-width: 530px;
+  margin: 13px 0 22px;
+  font-size: clamp(39px, 4vw, 57px);
+  line-height: 1.18;
+}
+#home .home-research-lead { font-size: 21px; line-height: 1.5; }
+#home .home-research-copy > p:not(.home-research-lead) { font-size: 15px; line-height: 1.77; }
+#home .home-research-figure { padding: clamp(14px, 2vw, 25px); border: 1px solid #d4e1d8; }
+#home .home-research-figure-top { font-size: 11px; }
+#home .home-research-figure img { margin-top: 20px; }
+#home .home-research-figure figcaption { font-size: 13px; line-height: 1.65; }
+
+/* Current interests should read like a notebook index, not another card gallery. */
+#home .home-current-section { padding-top: clamp(68px, 7vw, 95px); padding-bottom: clamp(75px, 7vw, 100px); }
+#home .home-current-section .home-section-heading { margin-bottom: 25px; }
+#home .home-focus-grid { gap: clamp(28px, 4vw, 62px); }
+#home .home-focus-item {
+  padding: 24px 4px 27px 0;
+  border-top: 1px solid #b7cfc1;
+  border-bottom: 1px solid var(--line);
+  transition: none;
+}
+#home .home-focus-item:hover { border-top-color: var(--teal); }
+#home .home-focus-number { font-size: 11px; letter-spacing: .02em; }
+#home .home-focus-item h3 { font-size: clamp(26px, 2.4vw, 33px); margin: 16px 0 12px; }
+#home .home-focus-item p { font-size: 15px; line-height: 1.75; }
+#home .home-focus-link { font-size: 13px; }
+
+/* One set of scoped responsive corrections for the homepage. */
+@media (max-width: 960px) {
+  #home .home-editorial-hero .explore-hero-grid { grid-template-columns: 1fr; gap: 29px; }
+  #home .home-editorial-hero .explore-hero-side { max-width: 620px; }
+  #home .home-research-grid { grid-template-columns: 1fr; }
+  #home .home-research-figure { max-width: 800px; }
+}
+@media (max-width: 810px) {
+  #home .home-feature-grid { grid-template-columns: 1fr; gap: 47px; }
+  #home .home-direct-links { align-items: flex-start; flex-direction: column; gap: 17px; }
+  #home .home-direct-actions { justify-content: flex-start; }
+  #home .home-feature-card { max-width: 710px; }
+  #home .home-feature-footer { flex-direction: row; flex-wrap: wrap; }
+  #home .home-feature-footer small { max-width: 100%; }
+  #home .home-feature-actions { justify-content: flex-start; text-align: left; }
+}
+@media (max-width: 620px) {
+  #home .home-editorial-hero { padding: 34px 23px 0; margin-top: 12px; }
+  #home .home-editorial-hero .explore-hero-grid { gap: 26px; padding: 4px 0 36px; }
+  #home .home-editorial-hero .explore-hero-eyebrow { font-size: 10px; margin-bottom: 22px; }
+  #home .home-editorial-hero h1 { font-size: clamp(35px, 9.1vw, 49px); line-height: 1.17; overflow-wrap: break-word; }
+  #home .home-editorial-hero .explore-hero-side { padding: 1px 0 1px 16px; }
+  #home .home-editorial-hero .explore-hero-side p { font-size: 16px; line-height: 1.7; }
+  #home .home-editorial-hero .explore-hero-footer { font-size: 10px; padding: 16px 0; }
+  #home .home-direct-copy p { font-size: 14px; }
+  #home .home-direct-actions .button { font-size: 13px; min-height: 44px; padding: 11px 15px; }
+  #home .home-featured-section { padding-top: 57px; padding-bottom: 70px; }
+  #home .home-section-heading h2 { font-size: clamp(33px, 9vw, 40px); }
+  #home .home-section-heading > p { font-size: 14px; }
+  #home .home-feature-media { min-height: 190px; }
+  #home .home-feature-content { padding: 21px 0 0; }
+  #home .home-feature-content > p { font-size: 14px; }
+  #home .home-feature-footer { flex-direction: column; }
+  #home .home-feature-actions { gap: 10px 16px; }
+  #home .home-research-band { padding: 59px 0 66px; }
+  #home .home-research-copy h2 { font-size: clamp(35px, 8.6vw, 43px); }
+  #home .home-research-figure { padding: 13px; }
+  #home .home-research-figure figcaption { font-size: 12px; }
+  #home .home-current-section { padding-top: 62px; padding-bottom: 75px; }
+  #home .home-focus-grid { grid-template-columns: 1fr; gap: 8px; }
+  #home .home-focus-item h3 { font-size: 25px; }
+  #home .home-focus-item p { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #home .home-feature-card, #home .home-focus-item { transition: none; transform: none; }
+}
