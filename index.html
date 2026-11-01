@@ -399,57 +399,72 @@
     </article>
 
     <!-- PAGE 5: ABOUT -->
-    <article class="page" data-page="about" id="about" aria-labelledby="about-title" hidden>
-      
-      <section class="shell explore-hero" aria-label="About introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> ABOUT / KELVIN SCHOUTEN</div>
-            <h1 id="about-title">About</h1>
-          </div>
-          <div class="explore-hero-side"><p>I enjoy understanding how things work, translating that understanding into mathematical models and testing those models against evidence.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>CURIOSITY / MATHEMATICS / RESEARCH</span><span>04 / ABOUT</span></div>
-      </section>
-      <section class="shell section-pad about-story-section" aria-labelledby="about-story-title">
-        
-        <div class="about-story-grid">
-          <div class="about-copy">
-            <h2 id="about-story-title">Biography</h2>
-            <p class="about-first-paragraph">I have always wanted to understand how things work and why. That curiosity led me to mathematics. My interest in financial markets began through conversations with my father about the stock market and how economic developments could affect his business. Wanting to understand those connections more deeply led me from a BSc in Mathematics at Utrecht University to an MSc in Quantitative Finance at Tilburg University.</p>
-            <p>During a six-month project for a company in the food industry, I independently investigated two-phase flow in industrial pipelines. I studied scientific literature, adapted published mathematical models to the company's operating conditions, and used numerical methods and Monte Carlo simulations to examine uncertainty. Comparing predictions with experimental measurements taught me how important it is to understand where a model does and does not reflect reality.</p>
-            <p>My bachelor's research explored periodicity and non-periodicity in fractional-order differential systems. I have also analysed educational data as a research assistant and taught mathematics and physics as a tutor. Now, through my master's, I am working with financial data and econometric methods, including Fama–French factors and industry portfolio returns in Python. I am particularly interested in factor investing, machine learning and the reliability of backtesting.</p>
-            <a href="#engineering" class="text-link">Explore what I am learning ↗</a>
-          </div>
+    <article class="page academic-about" data-page="about" id="about" aria-labelledby="about-title" hidden>
+      <header class="shell academic-page-intro">
+        <h1 id="about-title">About</h1>
+        <p>Background, education and research experience.</p>
+      </header>
 
-        </div>
-      </section>
+      <div class="shell academic-about-content">
+        <section class="academic-about-section academic-about-biography" aria-labelledby="about-story-title">
+          <h2 id="about-story-title">Biography</h2>
+          <p>I studied Mathematics at Utrecht University and am currently completing an MSc in Quantitative Finance at Tilburg University. I have always been interested in understanding how things work. Conversations with my father about financial markets and their effects on his business prompted me to look more closely at the mathematics behind economic decisions.</p>
+          <p>In a six-month industrial project, I developed and adapted mathematical models for two-phase flow in pipelines. I used numerical simulations and Monte Carlo methods to study uncertain quantities, and compared model predictions with available measurements.</p>
+          <p>My bachelor's thesis examined periodicity and non-periodicity in fractional differential systems. More recently, I have been applying statistical methods to financial return data, including factor-model regressions and questions about robust inference and backtesting.</p>
+        </section>
 
+        <section class="academic-about-section" aria-labelledby="about-education-title">
+          <h2 id="about-education-title">Education</h2>
+          <dl class="academic-record-list">
+            <div class="academic-record">
+              <dt><strong>MSc Quantitative Finance</strong><span>Current</span></dt>
+              <dd>Tilburg University</dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>BSc Mathematics</strong><span>2026</span></dt>
+              <dd>Utrecht University</dd>
+              <dd class="academic-record-detail">Bachelor's thesis: <a href="#research">The Fractional Harmonic Oscillator: Analysis and Computations</a></dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Applied Mathematics (HBO)</strong><span>Earlier studies</span></dt>
+              <dd>Higher professional education; not completed before continuing to university mathematics.</dd>
+            </div>
+          </dl>
+        </section>
 
+        <section class="academic-about-section" aria-labelledby="about-timeline-heading">
+          <h2 id="about-timeline-heading">Experience</h2>
+          <dl class="academic-record-list">
+            <div class="academic-record">
+              <dt><strong>Industrial mathematical modelling</strong><span>Six-month project</span></dt>
+              <dd>Independent applied research for a company in the food industry.</dd>
+              <dd class="academic-record-detail">Two-phase pipeline flow, model adaptation, uncertainty analysis and comparison with measurements. <a href="#projects">Project details</a></dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Research Assistant</strong><span>2019</span></dt>
+              <dd>The Hague University of Applied Sciences</dd>
+              <dd class="academic-record-detail">Analysis and reporting of student performance data.</dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Mathematics and Physics Tutor</strong></dt>
+              <dd>Secondary-school tutoring, including preparation of exercises and individual explanations.</dd>
+            </div>
+          </dl>
+        </section>
 
-      <section class="shell section-pad about-timeline-section" aria-labelledby="about-timeline-heading">
-        <div class="about-timeline-layout">
-          <div class="about-timeline-intro">
-            <span class="kicker">03 / EDUCATION &amp; EXPERIENCE</span>
-            <h2 id="about-timeline-heading">Education and experience</h2>
-            <p>Academic study, independent research and teaching have shaped how I approach new questions.</p>
-          </div>
-          <div class="about-timeline-list">
-            <div class="about-timeline-event"><span class="about-timeline-date">2026 — PRESENT</span><div><span class="meta">EDUCATION</span><h3>MSc Quantitative Finance</h3><p>Tilburg University</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2026</span><div><span class="meta">EDUCATION</span><h3>BSc Mathematics</h3><p>Utrecht University</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2025</span><div><span class="meta">ACADEMIC RESEARCH</span><h3>Fractional-order differential systems</h3><p>Bachelor's research · Supervised by Paul Zegeling</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2026 · SIX MONTHS</span><div><span class="meta">INDUSTRIAL RESEARCH</span><h3>Two-phase flow modelling</h3><p>Independent company project · Simulation, uncertainty and validation</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2019</span><div><span class="meta">RESEARCH EXPERIENCE</span><h3>Research Assistant</h3><p>The Hague University of Applied Sciences · Educational data analysis</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2017 — 2025</span><div><span class="meta">TEACHING EXPERIENCE</span><h3>Mathematics &amp; Physics Tutor</h3><p>Altena College and independent tutoring</p></div></div>
-          </div>
-        </div>
-      </section>
+        <section class="academic-about-section academic-about-interests" aria-labelledby="about-interests-title">
+          <h2 id="about-interests-title">Research interests</h2>
+          <p>Mathematical modelling, stochastic processes, numerical methods, econometrics, asset pricing and the reliability of empirical testing. I am particularly interested in machine learning, factor models and ways of evaluating backtests without overstating what the data can show.</p>
+        </section>
 
-
+        <section class="academic-about-section academic-about-methods" aria-labelledby="about-methods-title">
+          <h2 id="about-methods-title">Technical methods</h2>
+          <p>Python, numerical simulation, Monte Carlo uncertainty analysis, regression methods, model validation, scientific computing and reproducible research. Selected code and project documentation are available on <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+        </section>
+      </div>
     </article>
 
-    
-    <!-- PAGE 6: CV & CONTACT -->
+        <!-- PAGE 6: CV & CONTACT -->
     <article class="page" data-page="cv" id="cv" aria-labelledby="cv-title" hidden>
       
       <section class="shell explore-hero" aria-label="CV and Contact introduction">
