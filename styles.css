@@ -603,3 +603,6 @@ html{scroll-padding-top:100px}
  #cv .cv-download-panel,#cv .cv-areas-panel{padding:23px}
  #cv .cv-contact-band{padding:55px 0 62px}
 }
+
+/* Phase 6: respect the actual generated 1000 x 445 scientific SVG ratio. */
+#projects .industrial-phase6-figure img{aspect-ratio:1000 / 445;object-fit:contain}
