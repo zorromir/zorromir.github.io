@@ -40,34 +40,97 @@ html{scroll-padding-top:100px}
 @media(max-width:1000px){.thesis-document{grid-template-columns:1fr}.thesis-index{position:static}.thesis-index .document-steps{display:flex;flex-wrap:wrap;flex-direction:row;gap:6px 15px}.thesis-index .document-steps span{padding:9px 0}}
 @media(max-width:620px){.thesis-main{padding:23px 19px}.thesis-index .document-steps{flex-direction:column}.thesis-figure{margin:18px 0 23px}.thesis-methods{grid-template-columns:1fr}.thesis-equation{padding:18px 9px}.thesis-research-question p{font-size:17px}}
 
-/* Source-backed empirical-finance case study: preserves the existing slate/teal visual language. */
-.empirical-case .empirical-overview{align-items:start;gap:38px}
-.empirical-case .empirical-overview h3{font-size:clamp(24px,2.5vw,31px);line-height:1.22;margin-top:12px}
-.empirical-case .empirical-overview p{font-size:14px}
-.empirical-figure{margin:0;border:1px solid var(--line);background:#eef3ef;padding:13px}
-.empirical-figure img{display:block;width:100%;height:auto;background:#f8faf8}
-.empirical-figure figcaption{margin:10px 4px 0;font-size:11px;color:var(--ink-dim);line-height:1.6}
-.empirical-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:30px 0 24px}
-.empirical-metric{border-top:2px solid var(--teal);background:#edf3ef;padding:17px 20px;min-height:121px}
-.empirical-metric strong{display:block;font-family:var(--title);font-size:35px;line-height:1.1;letter-spacing:-.03em;color:var(--ink);font-weight:500}
-.empirical-metric span{display:block;margin-top:10px;color:var(--ink-dim);font-size:12px;line-height:1.6}
-.empirical-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.empirical-insights>div{background:var(--paper);border:1px solid var(--line);padding:22px;min-width:0}
-.empirical-insights h3{margin:12px 0;font-size:19px;line-height:1.3}
-.empirical-insights p{font-size:13px;margin:0;color:var(--ink-dim)}
-.empirical-footer{margin-top:21px;border-left:3px solid var(--line);padding-left:16px;color:var(--ink-dim);font-size:12px;line-height:1.8}
-@media(max-width:850px){.empirical-case .empirical-overview{grid-template-columns:1fr;gap:24px}.empirical-insights{grid-template-columns:1fr}}
-@media(max-width:650px){.empirical-metrics{grid-template-columns:1fr}.empirical-metric{min-height:0}.empirical-case .section-heading{align-items:start;flex-direction:column;gap:5px}.empirical-figure{padding:6px}.empirical-figure figcaption{margin:8px 7px}}
 
-/* Industrial two-phase flow: research case study visuals */
-.industrial-figure{margin:0 0 28px;background:#edf3ef;border:1px solid var(--line);padding:12px}
-.industrial-figure img{display:block;width:100%;height:auto;background:#f8f9f5}
-.industrial-figure figcaption{font-size:11px;line-height:1.7;margin:10px 4px 2px;color:var(--ink-dim)}
-.industrial-chart{margin-top:26px}
-.industrial-explainer{padding:24px 25px;background:var(--paper);border-left:3px solid var(--teal);border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-right:1px solid var(--line);margin:24px 0 25px}
-.industrial-explainer h4{font-size:20px;line-height:1.3;color:var(--ink);margin:10px 0}
-.industrial-explainer p,.industrial-source p{font-size:13px;line-height:1.8;margin:10px 0}
-.industrial-equation{background:#edf3ef;border:1px solid var(--line);font-family:Georgia,serif;color:var(--ink);font-size:clamp(15px,1.5vw,20px);padding:17px 13px;margin:17px 0;line-height:1.7;text-align:center}
-.industrial-source{border-top:1px solid var(--line);padding-top:19px;margin:26px 0}
-.industrial-source a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
-@media(max-width:650px){.industrial-figure{padding:6px}.industrial-figure figcaption{margin:8px;font-size:11px}.industrial-explainer{padding:18px 15px}.industrial-equation{font-size:15px}}
+/* Projects editorial layout — concise case studies with responsive, constrained media. */
+#projects .inner-hero{padding-block:54px 52px}
+#projects .inner-hero .breadcrumbs{margin-bottom:24px}
+#projects .section-pad{padding-top:62px;padding-bottom:66px}
+#projects .section-heading{margin-bottom:25px}
+#projects .section-heading h2{margin-top:8px}
+#projects .case-study{grid-template-columns:minmax(0,1.67fr) minmax(230px,.62fr);gap:30px}
+#projects .case-main,#projects .case-aside{min-width:0}
+#projects .wide-sketch{height:235px;margin-bottom:23px;background:#e6eee9;border:1px solid var(--line)}
+#projects .model-schematic{width:min(88%,660px);padding:12px;gap:9px}
+#projects .model-schematic>div{flex:1;min-width:0;padding:15px 6px;border-color:#adc8bc;background:#fafcf9}
+#projects .caption-on-image{font-size:10px}
+#projects .case-main>h3{font-size:clamp(22px,2.6vw,28px);line-height:1.25;margin-top:7px}
+#projects .case-main>p{max-width:76ch;font-size:14px;line-height:1.78}
+#projects .case-steps{gap:12px 24px;margin-top:22px}
+#projects .case-steps>div{padding-top:11px}
+#projects .case-steps h4{margin:5px 0}
+#projects .case-steps p{margin:4px 0;font-size:12px;line-height:1.65}
+#projects .case-aside{padding:20px}
+#projects .aside-block{padding-bottom:13px;margin-bottom:13px}
+#projects .aside-block strong{font-size:13px}
+#projects .aside-block p{line-height:1.6;margin-bottom:0}
+
+/* The empirical feature uses minmax(0, …) to stop the 900px SVG from narrowing the summary column. */
+#projects .empirical-section-title{align-items:end}
+#projects .empirical-shell{background:#f0f4f0;border:1px solid var(--line);padding:28px 29px 27px}
+#projects .empirical-deck{max-width:76ch;font-size:14px;line-height:1.7;color:var(--ink-dim);margin:0 0 23px}
+#projects .empirical-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 22px}
+#projects .empirical-metric{background:#fff;border:1px solid var(--line);border-top:2px solid var(--teal);padding:17px 20px;min-width:0;min-height:113px}
+#projects .empirical-metric strong{font-family:var(--title);font-weight:500;letter-spacing:-.035em;font-size:35px;line-height:1.1;display:block;color:var(--ink)}
+#projects .empirical-metric span{display:block;margin-top:9px;max-width:34ch;color:var(--ink-dim);font-size:12px;line-height:1.58}
+#projects .empirical-main{display:grid;grid-template-columns:minmax(0,1.26fr) minmax(0,.92fr);align-items:stretch;gap:18px}
+#projects .empirical-figure,#projects .empirical-summary{min-width:0;margin:0;border:1px solid var(--line);background:#fff}
+#projects .empirical-figure{padding:16px 16px 14px;display:flex;flex-direction:column;justify-content:center}
+#projects .empirical-figure img{display:block;width:100%;max-width:100%;height:auto;min-width:0;object-fit:contain}
+#projects .empirical-figure figcaption{margin:8px 2px 0;color:var(--ink-dim);font-size:11px;line-height:1.6}
+#projects .empirical-summary{padding:22px 23px;display:flex;flex-direction:column;align-items:flex-start}
+#projects .empirical-summary .meta{font-size:10px;letter-spacing:.07em}
+#projects .empirical-summary h3{margin:10px 0 15px;font-size:clamp(23px,2.1vw,31px);line-height:1.18;letter-spacing:-.012em;max-width:23ch}
+#projects .empirical-summary p{color:var(--ink-dim);font-size:13px;line-height:1.72;margin:0 0 12px}
+#projects .empirical-summary .text-link{white-space:normal;margin-top:auto;padding-top:5px}
+#projects .empirical-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+#projects .empirical-insights>div{min-width:0;padding:18px 19px;background:#fff;border:1px solid var(--line)}
+#projects .empirical-insights .meta{font-size:10px;letter-spacing:.055em}
+#projects .empirical-insights h3{margin:9px 0 9px;font-size:18px;line-height:1.28}
+#projects .empirical-insights p{margin:0;color:var(--ink-dim);font-size:12px;line-height:1.75}
+#projects .empirical-footer{border-top:1px solid #d4e1d8;padding:15px 1px 0;margin:19px 0 0;color:var(--ink-dim);font-size:11px;line-height:1.75}
+#projects .empirical-footer strong{color:var(--ink)}
+
+/* A purposeful compact repository link instead of another decorative diagram. */
+#projects .projects-code{padding-top:48px}
+#projects .projects-repo-strip{background:#eaf1ec;border:1px solid var(--line);padding:27px 30px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+#projects .projects-repo-copy h2{font-size:clamp(25px,2.6vw,33px);margin:9px 0 6px}
+#projects .projects-repo-copy p{margin:0;color:var(--ink-dim);font-size:13px;max-width:66ch;line-height:1.65}
+#projects .projects-repo-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+#projects .projects-repo-actions .text-link{white-space:normal}
+
+@media(max-width:1020px){
+  #projects .empirical-main{grid-template-columns:minmax(0,1fr)}
+  #projects .empirical-figure{padding:18px}
+  #projects .empirical-summary h3{max-width:36ch}
+  #projects .case-study{grid-template-columns:minmax(0,1.6fr) minmax(215px,.65fr);gap:20px}
+}
+@media(max-width:810px){
+  #projects .case-study{grid-template-columns:1fr}
+  #projects .case-aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  #projects .aside-block{margin:0;padding:0;border:0}
+  #projects .empirical-insights{grid-template-columns:1fr}
+  #projects .projects-repo-strip{grid-template-columns:1fr}
+  #projects .projects-repo-actions{flex-direction:row;align-items:center;flex-wrap:wrap}
+}
+@media(max-width:620px){
+  #projects .inner-hero{padding-block:39px}
+  #projects .section-pad{padding-top:42px;padding-bottom:46px}
+  #projects .wide-sketch{height:180px}
+  #projects .model-schematic{width:100%;gap:4px;padding:9px}
+  #projects .model-schematic>div{font-size:10px;padding:10px 4px}
+  #projects .case-steps{grid-template-columns:1fr 1fr;gap:12px}
+  #projects .case-aside{grid-template-columns:1fr}
+  #projects .empirical-shell{padding:15px}
+  #projects .empirical-deck{font-size:13px;margin-bottom:18px}
+  #projects .empirical-metrics{grid-template-columns:1fr;gap:8px;margin-bottom:14px}
+  #projects .empirical-metric{min-height:0;padding:13px 16px;display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;gap:10px}
+  #projects .empirical-metric strong{font-size:30px}
+  #projects .empirical-metric span{margin:0}
+  #projects .empirical-main{gap:12px}
+  #projects .empirical-figure{padding:8px}
+  #projects .empirical-figure figcaption{padding:0 5px}
+  #projects .empirical-summary{padding:19px}
+  #projects .empirical-insights{gap:9px;margin-top:12px}
+  #projects .empirical-insights>div{padding:16px}
+  #projects .projects-repo-strip{padding:20px}
+}
