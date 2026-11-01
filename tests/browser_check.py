@@ -96,6 +96,18 @@ def check_site(browser, base, device, width, height):
     page.goto(f"{base}/index.html#projects", wait_until="load")
     carousels = page.locator('[data-project-carousel]')
     check(carousels.count() == 2, f"{device}: missing project carousels")
+    equations = page.locator("#projects .industrial-stage-equation math")
+    check(equations.count() == 4, f"{device}: expected four rendered MathML equations")
+    for i in range(equations.count()):
+        equation = equations.nth(i)
+        metrics = equation.evaluate("""math => ({
+            namespace: math.namespaceURI,
+            height: math.getBoundingClientRect().height,
+            width: math.getBoundingClientRect().width
+        })""")
+        check(metrics["namespace"] == "http://www.w3.org/1998/Math/MathML"
+              and metrics["height"] >= 20 and metrics["width"] > 0,
+              f"{device}: equation {i+1} failed to render: {metrics}")
     for i in range(2):
         carousel = carousels.nth(i)
         check(carousel.locator('[data-project-count]').inner_text().startswith("01"),
