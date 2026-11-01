@@ -75,7 +75,7 @@ body {
   gap: clamp(32px, 5.5vw, 78px);
   padding-top: clamp(52px, 6vw, 80px);
   padding-bottom: clamp(40px, 5vw, 63px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
 }
 #home .academic-home-profile { max-width: 680px; }
 #home .academic-home-affiliation {
