@@ -108,6 +108,17 @@ def check_site(browser, base, device, width, height):
         check(metrics["namespace"] == "http://www.w3.org/1998/Math/MathML"
               and metrics["height"] >= 20 and metrics["width"] > 0,
               f"{device}: equation {i+1} failed to render: {metrics}")
+        check(equation.locator(":scope > mrow").count() == 1,
+              f"{device}: equation {i+1} has no grouped mathematical row")
+    if width > 810:
+        size = equations.first.evaluate("""math => ({
+          equation: math.getBoundingClientRect().width,
+          container: math.closest('.industrial-stage-equation').clientWidth,
+          fraction: math.querySelector('mfrac').getBoundingClientRect().width
+        })""")
+        check(size["equation"] < size["container"] * .85
+              and size["fraction"] < size["container"] * .65,
+              f"{device}: fraction stretches across the panel: {size}")
     for i in range(2):
         carousel = carousels.nth(i)
         check(carousel.locator('[data-project-count]').inner_text().startswith("01"),
