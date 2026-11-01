@@ -184,3 +184,67 @@ html{scroll-padding-top:100px}
 #projects .industrial-evidence .small-copy{font-size:11px;margin-bottom:0}
 @media(max-width:1100px){#projects .industrial-phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){#projects .industrial-phases{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:17px 0 20px}#projects .industrial-phases>div{padding:12px 10px}#projects .industrial-phases h4{font-size:16px}#projects .industrial-evidence{padding:17px 16px}#projects .industrial-evidence h4{font-size:19px}}
+
+
+/* Now & Reading — a quiet academic workbench replacing the former maker gallery. */
+#engineering .now-hero{padding-block:65px 64px}
+#engineering .section-pad{padding-block:66px 72px}
+#engineering .section-heading{align-items:end}
+#engineering .section-heading h2{margin-top:8px}
+#engineering .now-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+#engineering .now-project-card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);padding:26px 24px}
+#engineering .now-project-card .meta{font-size:10px;letter-spacing:.065em}
+#engineering .now-project-card h3{font-size:clamp(23px,2.2vw,28px);line-height:1.2;margin:13px 0 10px}
+#engineering .now-project-card>p{font-size:13px;line-height:1.76;color:var(--ink-dim);margin:0 0 28px}
+#engineering .now-project-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:12px;flex-direction:column}
+#engineering .now-project-foot span{font:10px/1.5 var(--mono);color:var(--muted);letter-spacing:.04em}
+#engineering .now-project-foot .text-link{white-space:normal}
+#engineering .reading-heading{gap:30px}
+#engineering .reading-heading p{font-size:14px;line-height:1.7;color:var(--ink-dim);max-width:42ch;margin:0}
+#engineering .reading-carousel{background:#edf3ee;border:1px solid #d1dfd7;padding:24px 27px 18px;outline-offset:5px}
+#engineering .reading-carousel-top,#engineering .reading-carousel-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px}
+#engineering .reading-carousel-top{margin-bottom:19px}
+#engineering .reading-controls{display:flex;align-items:center;gap:8px}
+#engineering .reading-counter{font:11px var(--mono);color:var(--ink-dim);margin-right:9px;font-variant-numeric:tabular-nums}
+#engineering .reading-control{width:37px;height:37px;border:1px solid #bdd0c4;background:#fff;color:var(--ink);display:grid;place-items:center;line-height:1;font-size:19px;transition:background-color .15s ease}
+#engineering .reading-control:hover{background:#dbe8df}
+#engineering .reading-viewport{overflow:hidden;background:#f8faf7;border:1px solid #d7e3da;min-width:0}
+#engineering .reading-track{display:flex;min-width:0;transition:transform .35s ease}
+#engineering .reading-slide{flex:0 0 100%;width:100%;min-width:0;display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:0}
+#engineering .paper-cover{min-height:400px;min-width:0;margin:21px 0 21px 21px;padding:18px 19px;display:flex;flex-direction:column;justify-content:space-between;position:relative;border:1px solid #cbd9d2;background:#e8efea;color:var(--ink)}
+#engineering .paper-cover::before{content:"";position:absolute;inset:51px 18px 50px;z-index:0;border:1px solid #d0dfd5;background:repeating-linear-gradient(0deg,transparent,transparent 26px,#dae6dd 27px)}
+#engineering .paper-cover-top,#engineering .paper-cover-bottom{display:flex;justify-content:space-between;gap:10px;font:10px/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-dim);position:relative;z-index:1}
+#engineering .paper-cover-inner{position:relative;z-index:1;align-self:center;width:82%;min-height:210px;border:2px solid var(--paper-accent,#24766e);background:rgba(250,252,249,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:23px 15px}
+#engineering .paper-cover-code{font-family:var(--title);font-weight:500;letter-spacing:-.045em;font-size:clamp(52px,6vw,76px);line-height:1;color:var(--paper-accent,#24766e)}
+#engineering .paper-cover-lines{display:flex;gap:7px;margin:14px 0 16px}
+#engineering .paper-cover-lines i{display:block;width:18px;height:2px;background:var(--paper-accent,#24766e);opacity:.6}
+#engineering .paper-cover-topic{font:10px/1.65 var(--mono);letter-spacing:.05em;color:var(--ink-dim)}
+#engineering .reading-paper-copy{min-width:0;padding:31px 31px 31px 29px;display:flex;flex-direction:column}
+#engineering .reading-paper-copy>.meta{font-size:10px;letter-spacing:.06em}
+#engineering .reading-paper-copy h3{font-size:clamp(22px,2.3vw,32px);line-height:1.22;margin:10px 0 12px}
+#engineering .reading-byline{font-size:12px;color:var(--ink-dim);margin:0 0 19px}
+#engineering .reading-detail{margin-bottom:14px}
+#engineering .reading-detail .meta{font-size:10px}
+#engineering .reading-detail p{font-size:13px;line-height:1.7;color:var(--ink-dim);margin:6px 0 0}
+#engineering .reading-connection{margin:0 0 14px;font-size:11px;font-family:var(--mono);line-height:1.65;color:var(--teal)}
+#engineering .reading-paper-copy .text-link{white-space:normal;margin-top:auto;align-self:flex-start}
+#engineering .reading-carousel-bottom{margin-top:16px}
+#engineering .reading-note,#engineering .now-reading-disclaimer{font-size:11px;line-height:1.75;color:var(--muted)}
+#engineering .reading-dots{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+#engineering .reading-dot{padding:0;width:10px;height:10px;border:1px solid #71988c;border-radius:50%;background:transparent}
+#engineering .reading-dot.is-active{background:var(--teal);border-color:var(--teal)}
+#engineering .now-reading-disclaimer{margin:13px 0 0}
+#engineering .now-learning-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 32px}
+#engineering .now-learning-grid>div{border-top:1px solid #b6cbbf;padding-top:17px}
+#engineering .now-learning-grid h3{font-size:21px;margin:10px 0 7px}
+#engineering .now-learning-grid p{font-size:13px;line-height:1.7;color:var(--ink-dim);margin:0;max-width:55ch}
+#engineering .now-code{padding-top:45px}
+#engineering .now-code-panel{background:#e9f1ea;border:1px solid var(--line);padding:32px 36px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px}
+#engineering .now-code-panel h2{font-size:clamp(27px,2.7vw,36px);margin:10px 0 9px}
+#engineering .now-code-panel p{font-size:13px;line-height:1.7;color:var(--ink-dim);margin:0;max-width:65ch}
+#engineering .now-code-actions{display:flex;align-items:flex-start;flex-direction:column;gap:15px}
+#engineering .now-code-actions .text-link{white-space:normal}
+@media(max-width:990px){#engineering .now-project-grid{grid-template-columns:1fr 1fr}#engineering .reading-slide{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}#engineering .paper-cover{min-height:350px}#engineering .reading-paper-copy{padding:23px}}
+@media(max-width:760px){#engineering .now-project-grid{grid-template-columns:1fr}#engineering .reading-slide{grid-template-columns:1fr}#engineering .paper-cover{min-height:265px;margin:16px 16px 0}#engineering .paper-cover::before{inset:35px 15px}#engineering .paper-cover-inner{min-height:140px;padding:12px}#engineering .paper-cover-code{font-size:48px}#engineering .reading-paper-copy{padding:22px}#engineering .now-code-panel{grid-template-columns:1fr}#engineering .reading-heading{align-items:start;flex-direction:column;gap:12px}}
+@media(max-width:620px){#engineering .now-hero{padding-block:42px}#engineering .section-pad{padding-block:46px 50px}#engineering .reading-carousel{padding:15px}#engineering .reading-carousel-top{align-items:flex-start}#engineering .reading-carousel-top>.meta{font-size:10px;max-width:20ch}#engineering .reading-counter{margin-right:2px}#engineering .reading-control{width:34px;height:34px}#engineering .paper-cover{margin:10px 10px 0;min-height:215px}#engineering .paper-cover-inner{width:84%;min-height:115px}#engineering .paper-cover-code{font-size:42px}#engineering .paper-cover-lines{margin:9px 0}#engineering .reading-paper-copy{padding:19px 16px 24px}#engineering .reading-paper-copy h3{font-size:23px}#engineering .reading-carousel-bottom{align-items:start;flex-direction:column}#engineering .now-learning-grid{grid-template-columns:1fr}#engineering .now-code-panel{padding:22px}}
+@media(prefers-reduced-motion:reduce){#engineering .reading-track{transition:none}}

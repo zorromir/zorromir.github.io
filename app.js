@@ -27,7 +27,7 @@
 
     closeMenu();
     if (changed && hash !== 'main-content') window.scrollTo({ top: 0, behavior: 'instant' });
-    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Engineering & Making',about:'About',cv:'CV & Contact'}[name];
+    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Now & Reading',about:'About',cv:'CV & Contact'}[name];
     document.title = label === 'Home'
       ? 'Kelvin Schouten | Quantitative Finance & Mathematical Modelling'
       : label + ' | Kelvin Schouten';
@@ -63,4 +63,52 @@
       main.focus({ preventScroll: false });
     });
   }
+
+  // Selected research shelf. All cards remain static HTML so paper links work without JavaScript.
+  const carousel = document.querySelector('[data-paper-carousel]');
+  if (carousel) {
+    const track = carousel.querySelector('[data-paper-track]');
+    const slides = [...carousel.querySelectorAll('.reading-slide')];
+    const counter = carousel.querySelector('[data-paper-count]');
+    const dots = [...carousel.querySelectorAll('[data-paper-dot]')];
+    const prev = carousel.querySelector('[data-paper-prev]');
+    const next = carousel.querySelector('[data-paper-next]');
+    let current = 0;
+    let touchStart = null;
+    function showPaper(index) {
+      if (!slides.length) return;
+      current = (index + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      slides.forEach((slide, i) => {
+        const selected = i === current;
+        slide.setAttribute('aria-hidden', String(!selected));
+        slide.querySelectorAll('a, button').forEach(el => { el.tabIndex = selected ? 0 : -1; });
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === current);
+        dot.setAttribute('aria-pressed', String(i === current));
+      });
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    }
+    prev.addEventListener('click', () => showPaper(current - 1));
+    next.addEventListener('click', () => showPaper(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => showPaper(i)));
+    carousel.addEventListener('keydown', ev => {
+      if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') {
+        ev.preventDefault();
+        showPaper(current + (ev.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    carousel.addEventListener('touchstart', ev => {
+      if (ev.touches.length === 1) touchStart = ev.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', ev => {
+      if (touchStart === null || !ev.changedTouches.length) return;
+      const delta = ev.changedTouches[0].clientX - touchStart;
+      touchStart = null;
+      if (Math.abs(delta) > 55) showPaper(current + (delta < 0 ? 1 : -1));
+    }, { passive: true });
+    showPaper(0);
+  }
+
 })();
