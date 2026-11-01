@@ -67,6 +67,8 @@ assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
+assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
+assert "four of five industries" in html
 assert "independent public python reconstruction" in html.lower()
 assert "AI-assisted reconstruction" in html
 assert "not predictive accuracy against company measurements" in html

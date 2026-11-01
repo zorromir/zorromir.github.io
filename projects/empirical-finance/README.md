@@ -39,6 +39,12 @@ Five U.S. value-weighted portfolios from the [Kenneth French Data Library](https
 - These are historical in-sample observations, without transaction-cost and out-of-sample validation.
 - The original report's factor-model t-statistics were based on conventional OLS inference despite text referring to HAC. The corrected HAC calculations above were performed as an independent audit.
 
+## Independent robustness and out-of-sample checks
+
+A later [public Python diagnostic](https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md) tests the sensitivity of the previously reported results. Across three equally sized calendar subsamples, only Textiles rejects the month-of-year equality null in all three. Across tested FF5 HAC bandwidths (6, 12, 24, 36), Textiles and Toys retain significant alphas after Holm adjustment. None of the alternative SDF covariance specifications rejects the J test at 5%.
+
+A separately defined **lagged-factor expanding-window forecast**, using previous-month predictors rather than contemporaneous factors, performs worse than an expanding historical-mean benchmark for Oil, Banks, Toys and Retail; Textiles' OOS R² improvement is only about **0.52%**. This does not establish an investable edge. Inputs are not historical point-in-time vintages, and no execution costs or trading simulation are included.
+
 ## Implementation status
 
 **Numerical review:** Calendar tests reproduce the original paper. Matched-sample CAPM and FF5 coefficient estimates reproduce the report. Independent HAC p-values and Holm corrections have been calculated. The original GMM algorithm reproduces its reported values.
