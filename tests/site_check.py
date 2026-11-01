@@ -116,6 +116,11 @@ assert "industrial-photos-credit" not in projects
 assert "Use the arrows or select a stage" not in projects
 assert "The process follows four stages." in projects
 assert "border-bottom: 0;" in editorial_css.split("#home .academic-home-intro {", 1)[1].split("}", 1)[0]
+intro_rule = editorial_css.split("#home .academic-home-intro::after {", 1)[1].split("}", 1)[0]
+assert "left: 0;" in intro_rule and "right: 0;" in intro_rule
+assert "border-bottom: 1px solid var(--line);" in intro_rule
+assert "#home .academic-home-record > div:last-child { margin-bottom: 0; border-bottom: 0; }" in editorial_css
+assert "#home .academic-home-intro::after { bottom: 27px; }" in editorial_css
 assert 'rather than one coupled simulator' in projects
 assert projects.count('class="industrial-literature-citation"') == 5
 assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
