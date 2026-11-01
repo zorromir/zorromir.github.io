@@ -104,6 +104,11 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' in projects
+assert projects.count('class="industrial-literature-citation"') == 5
+assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
+assert projects.count('href="https://doi.org/10.1038/s41597-024-03441-7"') == 1
+assert 'Tijsseling et al. (2016) ↗' not in projects
+assert 'Chen et al. (2024) ↗' not in projects
 assert 'industrial-literature-list' in editorial_css
 for doi in ("https://doi.org/10.1016/0301-9322(89)90023-2", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003"):
     assert doi in projects, f"Missing journal link: {doi}"
@@ -125,6 +130,8 @@ assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
 assert "Thesis overview" in research and "THESIS.md" in research
+assert 'data-thesis-pdf-path="assets/research/Kelvin_Schouten_BSc_Thesis_Public.pdf"' in research
+assert "method: 'HEAD'" in js and "thesisLink.textContent = 'Thesis (PDF)'" in js
 assert "not a validated investment strategy" in research
 # Profile & CV is one page, with the old #cv URL still supported by JS.
 assert 'class="page academic-about academic-profile"' in about
