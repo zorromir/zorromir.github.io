@@ -66,6 +66,8 @@ assert html.count('class="home-feature-actions"') == 2
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
+assert "https://github.com/zorromir/Empirical-Finance" in html
+assert "independent public Python reconstruction" in html.lower()
 assert "AI-assisted reconstruction" in html
 assert "not predictive accuracy against company measurements" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html

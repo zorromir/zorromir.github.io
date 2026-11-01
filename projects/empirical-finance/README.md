@@ -43,7 +43,7 @@ Five U.S. value-weighted portfolios from the [Kenneth French Data Library](https
 
 **Numerical review:** Calendar tests reproduce the original paper. Matched-sample CAPM and FF5 coefficient estimates reproduce the report. Independent HAC p-values and Holm corrections have been calculated. The original GMM algorithm reproduces its reported values.
 
-**Code publication status:** The supplied archive is not a polished, one-command public replication package. It still needs clean inputs, dependencies, reproducibility instructions, tests and an authorship/publication review.
+**Independent public implementation:** A new [Empirical-Finance Python repository](https://github.com/zorromir/Empirical-Finance) downloads public Kenneth French data, runs calendar Wald tests, matched-sample CAPM/FF5 regressions, momentum intercepts and two-step GMM, and saves source ZIP hashes. [The public-data results from 1 November 2026](https://github.com/zorromir/Empirical-Finance/blob/main/docs/RESULTS_2026-11-01.md) are numerically close to the archived central findings. This is newly written research code, **not** the original five-person group archive. Subperiod analysis and the extra SDF slope-restriction test are not yet implemented. Exact numerical identity across all original tables has not been established.
 
 Do not upload the original five-person report or its cover page with student IDs publicly without agreement of co-authors. This repository summarizes group findings with attribution rather than claiming that the complete group project is solo work.
 
