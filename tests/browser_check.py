@@ -4,6 +4,7 @@
 Run: python3 tests/browser_check.py
 Requires Playwright and its Chromium browser.
 """
+import json
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -12,6 +13,7 @@ from urllib.request import urlopen
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_PAPERS = len(json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))["papers"])
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
 ROUTES = ("home", "projects", "research", "engineering", "about")
@@ -166,8 +168,13 @@ def check_site(browser, base, device, width, height):
 
     page.goto(f"{base}/index.html#engineering", wait_until="load")
     page.locator('[data-paper-list]:not([hidden])').wait_for(timeout=12000)
-    check(page.locator('[data-paper-list] > li').count() == 6,
-          f"{device}: expected six bibliography entries")
+    check(page.locator('[data-paper-list] > li').count() == EXPECTED_PAPERS,
+          f"{device}: expected {EXPECTED_PAPERS} bibliography entries")
+    check("Managing unreliable suppliers" in page.locator('[data-paper-list] > li').first.inner_text(),
+          f"{device}: current-reading article missing")
+    page.locator('[data-paper-filters] button', has_text="Optimization & Risk").click()
+    check(page.locator('[data-paper-list] > li').count() == 1,
+          f"{device}: optimization filter did not isolate the current article")
     page.locator('[data-paper-filters] button', has_text="Econometrics").click()
     check(page.locator('[data-paper-list] > li').count() >= 2,
           f"{device}: bibliography filter did not work")
@@ -177,7 +184,7 @@ def check_site(browser, base, device, width, height):
 
 def check_without_javascript(browser, base):
     # With JavaScript disabled, all five sections must remain reachable and
-    # the hand-written bibliography must still list all six citations.
+    # the hand-written bibliography must still list all entries.
     context = browser.new_context(java_script_enabled=False,
                                   viewport={"width": 390, "height": 844})
     page = context.new_page()
@@ -185,7 +192,7 @@ def check_without_javascript(browser, base):
     for route in ROUTES:
         check(page.locator("#" + route).is_visible(),
               "No-JS page hidden: " + route)
-    check(page.locator("[data-paper-fallback] li").count() == 6,
+    check(page.locator("[data-paper-fallback] li").count() == EXPECTED_PAPERS,
           "No-JS bibliography missing")
     check(page.locator("#cv").count() == 1,
           "No-JS legacy #cv anchor missing")
@@ -211,7 +218,7 @@ def main():
                     check_site(browser, base, device, width, height)
                     print(f"PASS: {device}, {width}px — routes, keyboard and interactions")
                 check_without_javascript(browser, base)
-                print("PASS: no-JavaScript document and six-entry bibliography")
+                print(f"PASS: no-JavaScript document and {EXPECTED_PAPERS}-entry bibliography")
             finally:
                 browser.close()
     finally:
