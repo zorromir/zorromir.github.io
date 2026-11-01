@@ -1,63 +1,31 @@
-# Industrial pipeline modelling — public mathematical figures
+# Industrial pipeline modelling — public examples
 
-This directory contains **independent, data-free illustrations** of the physical relationships described in an industrial modelling case study. It contains **no original employer source code**, factory measurements, experimental sensor series, pipe layouts, calibration parameters, or internal technical report.
+Small, independently written Python demonstrations of published fluid-mechanics equations. This folder exists to support the [portfolio project page](https://zorromir.github.io/#projects) while the standalone research package awaits its own GitHub repository.
 
-## What the figures show
+All inputs are **synthetic**. There are no employer datasets, internal reports, calibrated parameters, installation diagrams or original company source files here.
 
-- **Pressure under isolated gas expansion:** an ideal-gas/polytropic source \(p/p_0=(V_{g,0}/V_g)^n\), plotted alongside an idealized constant-pressure boundary. The two assumptions describe *different* possible source models, not one fitted experimental run.
-- **Product-volume bookkeeping:** \(V_{\mathrm{full}}+V_{\mathrm{holdup}}+V_{\mathrm{out}}=V_0\), where \(V_{\mathrm{holdup}}=\beta V_{\mathrm{pass}}\), \(V_{\mathrm{out}}=(1-\beta)V_{\mathrm{pass}}\).
-- Other plots shown on the portfolio use an independently written constant-pressure moving-column numerical example following Tijsseling et al. (2016).
+## Reproducible examples
 
-Parameters are deliberately hypothetical and are **not** measured or calibrated values. Curves are illustrations, not validation results or reliable performance forecasts. These examples do not implement the full four-stage industrial application.
+| Topic | Code |
+| --- | --- |
+| Polytropic pressure and product-volume balances | [Basic figures](generate_synthetic_figures.py) |
+| Air-driven moving-column dynamics | [Push numerical example](rigid_column_example.py) |
+| Segmented versus volume-equivalent pipe | [Pipeline resistance](phase3_pipe_resistance_demo.py) |
+| Control-volume balance in Blow | [Blow transition](phase4_blow_volume_demo.py) |
+| Scrambled Sobol sampling, simulated Push uncertainty | [QMC example](phase5_qmc_push_demo.py) |
+| Rinse-to-Dry water inventory transfer | [Rinse / Dry example](phase6_rinse_dry_demo.py) |
 
-## Generate
+Install NumPy, SciPy and Matplotlib, then run a script with Python. These examples are designed to be self-contained and not to read industrial measurements.
 
-```bash
-python -m pip install numpy scipy matplotlib
-python generate_synthetic_figures.py
-python rigid_column_example.py
-```
+## What the figures establish
 
-The scripts write SVG and PNG files to a local `figures/` directory. `rigid_column_example.py` integrates the published constant-pressure special case numerically and stops before the zero-length singularity. Neither script reads any dataset.
+The examples illustrate model behaviour and numerical consistency, **not** experimental predictive accuracy. The Blow model is not a validated annular-flow simulator; Rinse and Dry are simplified mass-balance and inventory examples. Sobol sampling is a space-filling input design here, not a computation of variance-based Sobol indices.
 
-## Scientific references
+## Research references
 
-Tijsseling, Hou, Bozkus & Laanearu (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines*, [DOI](https://doi.org/10.1115/1.4031508).
+- Tijsseling et al. (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines* — https://doi.org/10.1115/1.4031508
+- Chen et al. (2024), *Experimental data on filling and emptying of a large-scale pipeline* — https://doi.org/10.1038/s41597-024-03441-7
 
-Chen, Hou, Laanearu & Tijsseling (2024), *Experimental data on filling and emptying of a large-scale pipeline*, [DOI](https://doi.org/10.1038/s41597-024-03441-7). Its experiment data are **not** included in these plots.
+The publications are external scientific sources, not work authored by the portfolio owner. Source-code reuse and publication of further industrial material require the relevant permissions.
 
-These sources describe the relevant research concepts. They do not validate this simplified demonstration.
-
-## Phase 4: Blow control-volume demonstration
-
-The [Phase 4 standalone Python example](phase4_blow_volume_demo.py) solves a simplified, constant-pressure Blow transition and plots the conserved liquid volumes. Inputs are synthetic. This is **not** an annular-flow correlation, a film-stripping calibration or a validated cleaning prediction.
-
-Full Phase 4 transition and separated film-inventory models are prepared in the local `pipeline-flow-modelling` package pending a dedicated public repository. No company records are included.
-
-## Phase 5: uncertainty propagation using synthetic Sobol scenarios
-
-The [Phase 5 Python reproducer](phase5_qmc_push_demo.py) numerically integrates the independent uniform-pipe Push equations for 256 **scrambled Sobol** parameter combinations. It varies four deliberately invented inputs — initial air pressure, Darcy friction, outlet resistance and liquid holdup — and produces a percentile envelope for simulated outlet product flow at matched removal progress.
-
-Run it with:
-
-```bash
-python -m pip install numpy scipy matplotlib
-python phase5_qmc_push_demo.py
-```
-
-The median simulated time to reach 50% product removal is approximately 10.30 s (10th–90th sample percentiles: 8.61–12.45 s) for this **hypothetical scenario design**. These are *sample quantiles*, not validated confidence or prediction intervals. Sobol points are used to sample the inputs; the project does not claim variance-based Sobol sensitivity indices.
-
-The complete modular uncertainty implementation, tests, and additional figures are in the local, standalone `pipeline-flow-modelling` Phase 5 package until a dedicated public repository is available.
-
-## Phase 6: Rinse and Dry inventory handoff (synthetic)
-
-The [Phase 6 standalone Python reproducer](phase6_rinse_dry_demo.py) integrates a deliberately simplified, three-compartment Rinse water/product inventory model. Water is introduced at a fixed illustrative rate; product remaining on an imaginary wall is transferred into an illustrative mobile compartment with an **invented** first-order rate. Water and product inventories are checked separately for conservation.
-
-The modeled water remaining after Rinse becomes the initial state of a second, *first-order water-removal demonstration* for Dry. The Dry coefficient is **not connected to gas mass flow**, and a 90% water-removal target is **not a validated physical dryness criterion**. The demonstration does not implement published annular-flow correlations, calibrated cleaning kinetics, or a combined Push-to-Dry engineering solver.
-
-```bash
-python -m pip install numpy scipy matplotlib
-python phase6_rinse_dry_demo.py
-```
-
-The complete modular Phase 6 local package also includes the Rinse/Dry type-safe interface, test suite, three original Python-generated plots and documented scientific limitations. No employer code or experimental data are included.
+**Phase 7 status:** The full tested modular package, five selected plots and GitHub Actions workflow have been prepared separately. The dedicated repository is not yet published; do not confuse this folder of standalone examples with the full package.
