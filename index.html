@@ -162,9 +162,11 @@
   <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">01</span><div><span class="meta">MOVING-COLUMN DYNAMICS</span><h4>Displacing the liquid column</h4><p>The pipe initially contains liquid product. Compressed air enters behind it and drives the product towards the outlet as the full liquid column shortens.</p><p class="industrial-stage-question"><strong>Key question:</strong> How fast does the liquid leave, and what changes when the air pressure falls?</p></div></div>
   <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>A one-dimensional momentum and volume balance couples outlet flow to the moving column. Pressure can be constant or decline as an isolated gas volume expands.</p></div><div class="industrial-stage-equation">
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="The derivative of x sub T with respect to t equals Q divided by the product of one minus beta and A sub T.">
+    <mrow>
     <mfrac><mrow><mi mathvariant="normal">d</mi><msub><mi>x</mi><mi mathvariant="normal">T</mi></msub></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac>
     <mo>=</mo>
     <mfrac><mi>Q</mi><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mi>β</mi><mo>)</mo><msub><mi>A</mi><mi mathvariant="normal">T</mi></msub></mrow></mfrac>
+    </mrow>
   </math>
 </div><p class="industrial-equation-explain">The moving interface responds to outlet flow Q, pipe area A and the assumed retained-liquid fraction β.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">BOUNDARY</span><p>Uniform-pipe demonstrations; the segmented resistance example is not yet coupled to this transient model.</p></div></div>
 </article>
@@ -172,10 +174,12 @@
   <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">02</span><div><span class="meta">VOLUME CONSERVATION</span><h4>Column-to-film transition</h4><p>After the main displacement, the pipe can still contain a shorter full liquid column and liquid left behind the moving interface.</p><p class="industrial-stage-question"><strong>Key question:</strong> How much is discharged, how much remains as a column, and how much is left behind?</p></div></div>
   <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>A control-volume calculation tracks the partition into discharged liquid, remaining column and residual inventory. A separate film-decay example explores assumed removal rates.</p></div><div class="industrial-stage-equation">
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Initial volume equals column volume plus discharged volume plus left-behind volume.">
+    <mrow>
     <msub><mi>V</mi><mn>0</mn></msub><mo>=</mo>
     <msub><mi>V</mi><mtext>column</mtext></msub><mo>+</mo>
     <msub><mi>V</mi><mtext>out</mtext></msub><mo>+</mo>
     <msub><mi>V</mi><mtext>left</mtext></msub>
+    </mrow>
   </math>
 </div><p class="industrial-equation-explain">The initial volume equals the remaining full column plus discharged and left-behind liquid.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">BOUNDARY</span><p>No validated annular-film transport, Cioncolini–Thome implementation or industrial film-removal calibration is claimed.</p></div></div>
 </article>
@@ -183,10 +187,12 @@
   <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">03</span><div><span class="meta">MULTI-INVENTORY BALANCES</span><h4>Water and product transport</h4><p>Water is introduced to carry away residual product. Water and product must be followed separately because they can remain inside or leave the pipe.</p><p class="industrial-stage-question"><strong>Key question:</strong> Where does the supplied water go, and how does residual product move?</p></div></div>
   <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>A simplified three-compartment example tracks introduced water, mobile product, remaining wall product and discharge with explicit conservation checks.</p></div><div class="industrial-stage-equation">
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="The derivative of W with respect to time equals water inflow minus water outflow.">
+    <mrow>
     <mfrac><mrow><mi mathvariant="normal">d</mi><mi>W</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac>
     <mo>=</mo>
     <msub><mi>Q</mi><mtext>water,in</mtext></msub><mo>−</mo>
     <msub><mi>Q</mi><mtext>water,out</mtext></msub>
+    </mrow>
   </math>
 </div><p class="industrial-equation-explain">Water in the pipe grows with inflow and falls with discharge; product has a separate balance.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">BOUNDARY</span><p>Mixing compartments and wall-detachment rates are hypothetical; the model is not calibrated cleaning chemistry or two-phase hydrodynamics.</p></div></div>
 </article>
@@ -194,9 +200,11 @@
   <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">04</span><div><span class="meta">STATE TRANSFER</span><h4>Removing residual rinse water</h4><p>Rinsing can leave water behind. The Dry example starts from that remaining water inventory and explores its decline under an assumed removal rate.</p><p class="industrial-stage-question"><strong>Key question:</strong> How much water remains over time, and how does the assumed removal rate matter?</p></div></div>
   <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>The example transfers the final water inventory without resetting it and examines an assumed first-order rate of water removal.</p></div><div class="industrial-stage-equation">
   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="W of t equals the water remaining at the end of rinsing multiplied by e to the power minus k t.">
+    <mrow>
     <mi>W</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo>
     <msub><mi>W</mi><mtext>Rinse,end</mtext></msub>
     <msup><mi>e</mi><mrow><mo>−</mo><mi>k</mi><mi>t</mi></mrow></msup>
+    </mrow>
   </math>
 </div><p class="industrial-equation-explain">Dry starts from the water left after Rinse; k is an illustrative rate, not a calibrated parameter.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">BOUNDARY</span><p>The drying constant and stopping target are illustrative. No compressor curve or validated industrial dryness criterion is modelled.</p></div></div>
 </article></div></div>
