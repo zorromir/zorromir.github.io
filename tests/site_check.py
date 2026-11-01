@@ -110,6 +110,12 @@ assert 'industrial-process-photos' in projects
 assert projects.count('class="industrial-photos-grid"') == 1
 assert projects.count('src="https://fluivac.com/wp-content/uploads/2021/10/') == 4
 assert 'industrial-photos-grid' in editorial_css
+for caption in ("Push", "Blow", "Rinse", "Dry"):
+    assert projects.count(f"<figcaption>{caption}</figcaption>") == 1, f"Missing photo stage: {caption}"
+assert "industrial-photos-credit" not in projects
+assert "Use the arrows or select a stage" not in projects
+assert "The process follows four stages." in projects
+assert "border-bottom: 0;" in editorial_css.split("#home .academic-home-intro {", 1)[1].split("}", 1)[0]
 assert 'rather than one coupled simulator' in projects
 assert projects.count('class="industrial-literature-citation"') == 5
 assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
