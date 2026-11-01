@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
 ROUTES = ("home", "projects", "research", "engineering", "about", "cv")
-VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080), ("mobile", 390, 844))
+VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080),
+             ("mobile", 390, 844), ("narrow-mobile", 320, 720))
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -55,6 +56,29 @@ def check_site(browser, base, device, width, height):
                             animations="disabled", timeout=60000)
         check(not exceptions, f"{device}/{route}: JS exception: {exceptions}")
 
+    page.goto(f"{base}/index.html#home", wait_until="load")
+    # The skip link should be the first focusable item in keyboard navigation.
+    page.keyboard.press("Tab")
+    check(page.evaluate("document.activeElement.classList.contains('skip')"),
+          f"{device}: skip link not reached by keyboard Tab")
+    check(page.evaluate("""() => {
+        const style = getComputedStyle(document.activeElement);
+        return style.outlineStyle !== 'none' && style.outlineWidth !== '0px';
+    }"""), f"{device}: keyboard focus indicator missing")
+
+    if width <= 620:
+        # The mobile menu needs to open, navigate and close.
+        toggle = page.locator("#menu-toggle")
+        check(toggle.is_visible(), f"{device}: mobile menu toggle absent")
+        toggle.click()
+        check(toggle.get_attribute("aria-expanded") == "true",
+              f"{device}: menu did not expand")
+        page.locator('[data-nav="research"]').click()
+        check(page.locator("#research").is_visible(),
+              f"{device}: mobile navigation did not activate Research")
+        check(toggle.get_attribute("aria-expanded") == "false",
+              f"{device}: menu did not close after navigation")
+
     page.goto(f"{base}/index.html#projects", wait_until="load")
     carousels = page.locator('[data-project-carousel]')
     check(carousels.count() == 2, f"{device}: missing project carousels")
@@ -77,6 +101,24 @@ def check_site(browser, base, device, width, height):
     page.close()
 
 
+def check_without_javascript(browser, base):
+    # With JavaScript disabled, all six sections must remain reachable and
+    # the hand-written bibliography must still list all six citations.
+    context = browser.new_context(java_script_enabled=False,
+                                  viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.goto(base + "/index.html#engineering", wait_until="load")
+    for route in ROUTES:
+        check(page.locator("#" + route).is_visible(),
+              "No-JS page hidden: " + route)
+    check(page.locator("[data-paper-fallback] li").count() == 6,
+          "No-JS bibliography missing")
+    check(page.locator("#main-nav").is_visible(),
+          "No-JS navigation unavailable")
+    page.close()
+    context.close()
+
+
 def main():
     handler = partial(QuietHandler, directory=str(ROOT))
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
@@ -91,12 +133,14 @@ def main():
             try:
                 for device, width, height in VIEWPORTS:
                     check_site(browser, base, device, width, height)
-                    print(f"PASS: {device}, {width}px — six routes and interactions")
+                    print(f"PASS: {device}, {width}px — routes, keyboard and interactions")
+                check_without_javascript(browser, base)
+                print("PASS: no-JavaScript document and six-entry bibliography")
             finally:
                 browser.close()
     finally:
         server.shutdown()
-    print("PASS: browser checks and twelve screenshots in artifacts/qa")
+    print("PASS: browser QA, 12 screenshots and fallback in artifacts/qa")
 
 
 if __name__ == "__main__":
