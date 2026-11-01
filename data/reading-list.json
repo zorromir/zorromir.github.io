@@ -1,7 +1,7 @@
 {
   "version": 1,
   "library_state": "sample_references",
-  "collection_note": "These are example references related to the projects and methods described here. Reading progress and project-specific papers will be added after confirmation.",
+  "collection_note": "The supplier-optimization article is my current reading. The remaining entries are study references, not a list of completed readings.",
   "categories": [
     {
       "id": "all",
@@ -22,6 +22,10 @@
     {
       "id": "model-validation",
       "label": "Backtesting & ML"
+    },
+    {
+      "id": "optimization",
+      "label": "Optimization & Risk"
     }
   ],
   "projects": [
@@ -39,9 +43,34 @@
       "id": "backtesting",
       "name": "Backtesting and validation",
       "url": "#engineering"
+    },
+    {
+      "id": "supplier-optimization",
+      "name": "Supplier decisions under uncertainty",
+      "url": "#engineering"
     }
   ],
   "papers": [
+    {
+      "id": "merzifonluoglu-et-al-2026-supplier-risk",
+      "short_label": "FDG",
+      "topic": "Supplier reliability / risk-averse optimization",
+      "category_ids": [
+        "optimization"
+      ],
+      "title": "Managing unreliable suppliers under varying risk preferences: all-or-nothing versus fractional delivery guarantees",
+      "authors": "Yasemin Merzifonluoglu, Ismail Serdar Bakal, Marie Versteeg & Arnout den Hollander",
+      "year": 2026,
+      "journal": "OR Spectrum",
+      "url": "https://doi.org/10.1007/s00291-026-00869-8",
+      "idea": "Studies the newsvendor problem with all-or-nothing and fractional-delivery-guarantee suppliers. In the risk-neutral setting, suppliers are activated in increasing unit procurement cost, while disruption parameters influence order sizes and activation thresholds. It also compares variance and weighted-variance measures of profit risk.",
+      "relevance": "The core research article for the Decision Making Under Uncertainty assignment: supplier selection, delivery disruptions and risk preferences underpin the optimization and simulation models being studied.",
+      "project_ids": [
+        "supplier-optimization"
+      ],
+      "reading_status": "reading",
+      "cover_accent": "#517b73"
+    },
     {
       "id": "hansen-1982-gmm",
       "short_label": "GMM",
