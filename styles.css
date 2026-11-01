@@ -606,3 +606,6 @@ html{scroll-padding-top:100px}
 
 /* Phase 6: respect the actual generated 1000 x 445 scientific SVG ratio. */
 #projects .industrial-phase6-figure img{aspect-ratio:1000 / 445;object-fit:contain}
+
+/* Portfolio chart is reproduced exactly from the public research repository. */
+#projects .industrial-phase5-figure img{aspect-ratio:706.79952 / 346.79952;object-fit:contain}
