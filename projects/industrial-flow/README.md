@@ -13,11 +13,12 @@ Parameters are deliberately hypothetical and are **not** measured or calibrated 
 ## Generate
 
 ```bash
-python -m pip install numpy matplotlib
+python -m pip install numpy scipy matplotlib
 python generate_synthetic_figures.py
+python rigid_column_example.py
 ```
 
-The script writes SVG and PNG files to a local `figures/` directory.
+The scripts write SVG and PNG files to a local `figures/` directory. `rigid_column_example.py` integrates the published constant-pressure special case numerically and stops before the zero-length singularity. Neither script reads any dataset.
 
 ## Scientific references
 
