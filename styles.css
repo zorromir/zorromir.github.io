@@ -11,3 +11,31 @@ html{scroll-padding-top:100px}
 .evidence-grid h3{font-size:18px}
 .case-steps h4{overflow-wrap:anywhere}
 @media(max-width:620px){.research-summary{min-height:150px}.button-row .button{flex-grow:1}}
+
+
+/* Fractional oscillator thesis case study */
+.thesis-document{grid-template-columns:.46fr 1.54fr;gap:29px}
+.thesis-index{position:sticky;top:112px}
+.thesis-index .text-link{white-space:normal;display:inline-block;margin-top:12px;line-height:1.7}
+.thesis-main{padding:42px 44px 48px}
+.thesis-main h2{font-size:clamp(32px,3vw,49px);line-height:1.14}
+.thesis-main h2 em{font-style:normal}
+.thesis-main p{line-height:1.84}
+.thesis-research-question,.thesis-takeaway{background:#edf3ef;border-left:3px solid var(--teal);padding:21px 24px;margin:30px 0}
+.thesis-research-question p{font-family:var(--title);font-size:19px;line-height:1.55;margin:8px 0 0;color:var(--ink)}
+.thesis-subsection{border-top:1px solid var(--line);padding-top:25px;margin:35px 0 14px}
+.thesis-subsection h3{font-size:clamp(23px,2.3vw,29px);margin:8px 0 5px}
+.thesis-equation{margin:22px 0 24px;padding:25px 17px;background:#f1f5f1;border:1px solid #cbdcd0;text-align:center}
+.thesis-equation>span{font-family:Georgia,'Times New Roman',serif;display:block;font-size:clamp(22px,3vw,36px);line-height:1.6;color:var(--ink)}
+.thesis-equation small{display:block;font:11px/1.7 var(--mono);color:var(--ink-dim);margin-top:8px}
+.thesis-equation sup,.thesis-equation sub{font-size:60%}
+.thesis-figure{margin:27px 0 33px}
+.thesis-figure img{display:block;width:100%;height:auto;background:#f8f9f5;border:1px solid var(--line)}
+.thesis-figure figcaption{font-size:12px;line-height:1.7;margin-top:11px;color:var(--ink-dim)}
+.thesis-methods h3{font-size:17px;margin-bottom:7px}
+.thesis-methods p{font-size:13px}
+.thesis-takeaway{border:1px solid var(--line);border-left:3px solid var(--teal)}
+.thesis-takeaway p{margin:8px 0 0;color:var(--ink);font-size:15px}
+.thesis-source{border-top:1px solid var(--line);padding-top:16px;font-size:11px!important;color:var(--muted)}
+@media(max-width:1000px){.thesis-document{grid-template-columns:1fr}.thesis-index{position:static}.thesis-index .document-steps{display:flex;flex-wrap:wrap;flex-direction:row;gap:6px 15px}.thesis-index .document-steps span{padding:9px 0}}
+@media(max-width:620px){.thesis-main{padding:23px 19px}.thesis-index .document-steps{flex-direction:column}.thesis-figure{margin:18px 0 23px}.thesis-methods{grid-template-columns:1fr}.thesis-equation{padding:18px 9px}.thesis-research-question p{font-size:17px}}
