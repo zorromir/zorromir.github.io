@@ -8,6 +8,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 html = (ROOT / "index.html").read_text(encoding="utf-8")
 css = (ROOT / "styles.css").read_text(encoding="utf-8")
+editorial_css = (ROOT / "academic.css").read_text(encoding="utf-8")
 js = (ROOT / "app.js").read_text(encoding="utf-8")
 
 class SiteParser(HTMLParser):
@@ -61,8 +62,18 @@ assert not re.search(r"98%|95%|WIREFRAME / CONCEPT|lorem ipsum", html, re.I)
 assert 'class="research-finance-figure"' in html
 assert "assets/empirical-finance-fit.svg" in html
 # Recruiters must see evidence links without a hidden or unverified code claim.
-assert html.count('class="home-feature-card"') == 2
-assert html.count('class="home-feature-actions"') == 2
+def count_class(name):
+    return sum(name in classes.split() for classes in re.findall(r'class="([^"]+)"', html))
+
+assert count_class("home-feature-card") == 2
+assert count_class("home-feature-actions") == 2
+home = html.split("<!-- PAGE 1: HOME -->", 1)[1].split("<!-- PAGE 2: PROJECTS -->", 1)[0]
+assert 'class="shell academic-home-intro"' in home
+assert 'class="academic-home-work-list"' in home
+assert "The Fractional Harmonic Oscillator" in home
+assert "<blockquote" not in home
+assert "assets/industrial-push-phase2-discharge.svg" in home
+assert "assets/research/01_fractional_oscillator_time.svg" in home
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
@@ -81,6 +92,8 @@ assert "aria-current" in js and "aria-expanded" in js and "inert" in js
 assert "fetch('data/reading-list.json')" in js
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
 assert css.count("{") == css.count("}"), "Unbalanced stylesheet blocks"
+assert editorial_css.count("{") == editorial_css.count("}"), "Unbalanced editorial stylesheet"
+assert "--layout-max: 1080px" in editorial_css
 reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
