@@ -1,170 +1,70 @@
 /*
- * Academic editorial refinement — November 2026
- * A deliberately small layer above the existing project-specific styles.
- * Keep the original diagrams, responsive navigation and carousel controls.
- * Later phases can consolidate the historical selectors in styles.css.
+ * Academic editorial refinement
+ * The original stylesheet still owns the interactive scientific diagrams.
+ * This file defines the quieter academic presentation used across six pages.
  */
 :root {
   --layout-max: 1080px;
   --layout-gutter: clamp(20px, 4vw, 46px);
-  --rhythm-section: clamp(38px, 5vw, 62px);
   --body-measure: 70ch;
 }
-body { background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.72; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.72;
+}
 .page p { color: var(--ink-dim); }
-.page a:not(.button):not(.home-focus-item):not(.about-experience-card):not(.now-project-card) { text-underline-offset: 3px; }
-.site-header { background: rgba(248,249,245,.98); backdrop-filter: none; border-bottom: 1px solid var(--line); }
-.header-row { min-height: 65px; }
-.brand-symbol { width: 33px; height: 33px; }
-.brand-label { font: 600 15px/1.25 Georgia, "Times New Roman", serif; letter-spacing: 0; }
-.brand-label small { display: none; }
-.main-nav { gap: 1px; }
-.main-nav a { font: 13px/1.35 Georgia, "Times New Roman", serif; padding: 8px 9px; border-radius: 0; }
-.main-nav a:hover, .main-nav a.is-active { color: var(--teal); background: transparent; }
-.page .explore-hero {
-  background: transparent; color: var(--ink);
-  margin-top: 10px; padding: 40px 0 26px;
+.page a { text-underline-offset: 4px; }
+.site-header {
+  background: rgba(248, 249, 245, .98);
+  backdrop-filter: none;
   border-bottom: 1px solid var(--line);
 }
-.page .explore-hero-grid { display: block; padding: 0; }
-.page .explore-hero-main { width: 100%; }
-.page .explore-hero-eyebrow, .page .explore-hero-footer { display: none; }
-.page .explore-hero h1, #about .explore-hero h1, #cv .explore-hero h1 {
-  color: var(--ink); font-size: clamp(38px, 4.3vw, 54px);
-  font-weight: 400; line-height: 1.12; letter-spacing: -.04em; margin: 0 0 13px;
+.header-row { min-height: 65px; }
+.brand-symbol { width: 33px; height: 33px; }
+.brand-label {
+  font: 600 15px/1.25 Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
 }
-.page .explore-hero h1 em { color: inherit; font-style: normal; }
-.page .explore-hero-side { border: 0; padding: 0; max-width: 69ch; }
-.page .explore-hero-side p { font: 15px/1.7 Georgia, "Times New Roman", serif; max-width: 69ch; color: var(--muted); }
-.page .section-pad { padding-top: var(--rhythm-section); padding-bottom: var(--rhythm-section); }
-.page .section-heading, #home .home-section-heading, #cv .cv-section-top {
-  margin-bottom: 22px; gap: 14px;
+.brand-label small { display: none; }
+.main-nav { gap: 1px; }
+.main-nav a {
+  font: 13px/1.35 Georgia, "Times New Roman", serif;
+  padding: 8px 9px;
+  border-radius: 0;
 }
-.page .section-heading h2, #home .home-section-heading h2, #cv .cv-section-top h2 {
-  font: 400 clamp(25px, 2.7vw, 33px)/1.22 Georgia, "Times New Roman", serif;
-  letter-spacing: -.025em; margin: 0;
+.main-nav a:hover, .main-nav a.is-active {
+  color: var(--teal);
+  background: transparent;
 }
-.page .section-heading h2 em, #home .home-section-heading h2 em,
-#cv .cv-section-top h2 em { font-style: normal; color: inherit; }
-.page .section-heading > p, #home .home-section-heading > p, #cv .cv-section-top > p { font-size: 13.5px; }
-.kicker, .meta { font-family: var(--mono); color: var(--muted); font-size: 10px; letter-spacing: .035em; }
-.page .section-heading .kicker, #home .home-section-heading .kicker { display: none; }
 .page .button { border-radius: 0; box-shadow: none; }
 .page .text-link { font-size: 13px; font-weight: 500; }
-.page figure figcaption { font: 12.5px/1.65 Georgia, "Times New Roman", serif; }
-.page h3 { letter-spacing: -.018em; }
-.page h3 em { font-style: normal; color: inherit; }
-
-/* Home: one academic introduction and compact, figure-led project entries. */
-#home .explore-hero { padding-top: 55px; padding-bottom: 30px; }
-#home .explore-hero h1 { font-size: clamp(43px, 5vw, 65px); }
-#home .explore-hero-side p { color: var(--ink-dim); }
-#home .home-direct-links { padding-top: 16px; padding-bottom: 21px; gap: 20px; }
-#home .home-direct-copy { display: none; }
-#home .home-direct-actions { justify-content: flex-start; gap: 12px 25px; }
-#home .home-direct-actions .button,
-#home .home-direct-github {
-  min-height: 0; padding: 0; background: none; border: 0; color: var(--teal);
-  font: 13px/1.65 Georgia, "Times New Roman", serif; text-decoration: underline; text-underline-offset: 4px;
+.page figure figcaption {
+  font: 12.5px/1.65 Georgia, "Times New Roman", serif;
 }
-#home .home-featured-section { padding-top: 42px; padding-bottom: 56px; }
-#home .home-feature-grid { gap: 38px; }
-#home .home-feature-card { background: transparent; border: 0; transition: none; }
-#home .home-feature-card:hover { transform: none; border-color: transparent; }
-#home .home-feature-top { display: none; }
-#home .home-feature-media { background: #f1f5f0; padding: 11px; border: 1px solid var(--line); min-height: 0; }
-#home .home-feature-content { padding: 17px 0 0; }
-#home .home-feature-content > .meta { display: none; }
-#home .home-feature-content h3 { font-size: clamp(21px, 2.2vw, 27px); margin: 0 0 9px; letter-spacing: -.025em; }
-#home .home-feature-content > p { margin: 0 0 16px; line-height: 1.65; font-size: 14px; }
-#home .home-feature-footer { border-top: 1px solid var(--line); margin-top: auto; padding-top: 12px; }
-#home .home-feature-footer small { font: 11px/1.5 Georgia, "Times New Roman", serif; color: var(--muted); }
-#home .home-feature-actions a { font: 12px/1.5 Georgia, "Times New Roman", serif; font-weight: 400; }
-#home .home-research-band { background: transparent; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 48px 0; }
-#home .home-research-grid { gap: clamp(24px, 4vw, 55px); }
-#home .home-research-copy .kicker { display: none; }
-#home .home-research-copy h2 { font-size: clamp(25px, 2.7vw, 33px); margin: 0 0 12px; }
-#home .home-research-copy h2 em { font-style: normal; color: inherit; }
-#home .home-research-lead { font-size: 18px; margin-bottom: 12px; }
-#home .home-research-copy > p:not(.home-research-lead) { font-size: 14px; line-height: 1.7; margin-bottom: 17px; }
-#home .home-inline-cta { background: transparent; color: var(--teal); padding: 0; font: 13px Georgia, "Times New Roman", serif; text-decoration: underline; text-underline-offset: 4px; }
-#home .home-inline-cta:hover { background: transparent; color: var(--ink); }
-#home .home-research-figure { padding: 10px; background: #fff; border: 1px solid var(--line); }
-#home .home-research-figure-top { display: none; }
-#home .home-current-section { padding-top: 44px; padding-bottom: 60px; }
-#home .home-focus-grid { gap: 24px; }
-#home .home-focus-item { border-top: 1px solid var(--line); padding: 17px 0 15px; }
-#home .home-focus-item h3 { font-size: 21px; margin: 5px 0 7px; }
-#home .home-focus-item p { font-size: 13.5px; margin-bottom: 11px; }
-#home .home-focus-number, #home .home-method-line { display: none; }
-
-/* Projects: research figures and case studies remain distinct from marketing cards. */
-#projects .industrial-case, #projects .empirical-case { border-color: var(--line); }
-#projects .section-heading .badge-outline { border-color: var(--line); background: transparent; color: var(--muted); }
-#projects .projects-repo-strip { background: transparent; box-shadow: none; }
-
-/* Research: preserve mathematics, plots and article navigation. */
-#research .thesis-document { gap: clamp(22px, 3vw, 38px); }
-#research .thesis-main { background: #fff; border: 1px solid var(--line); box-shadow: none; }
-#research .thesis-subsection .meta { color: var(--teal); }
-
-/* Reading: remove large tinted zones and gratuitous card contrast. */
-#engineering .explore-reading-band { background: transparent; border-color: var(--line); }
-#engineering .now-project-card { background: transparent; border: 0; border-top: 1px solid var(--line); padding: 18px 0; min-height: 0; }
-#engineering .now-project-card h3 { font-size: 22px; margin-top: 8px; }
-#engineering .now-project-card .meta { color: var(--muted); }
-#engineering .reading-carousel { background: #f3f6f2; border: 1px solid var(--line); }
-#engineering .now-code-panel { background: transparent; border-top: 1px solid var(--line); box-shadow: none; }
-
-/* About: biography first, concise academic record second. */
-#about .about-story-section { padding-top: 42px; padding-bottom: 24px; }
-#about .about-story-grid { grid-template-columns: minmax(0, 1fr); }
-#about .about-copy { max-width: 76ch; }
-#about .about-copy h2 { font-size: 27px; margin-bottom: 19px; }
-#about .about-copy h2 em { font-style: normal; color: inherit; }
-#about .about-copy p, #about .about-copy .about-first-paragraph { font-size: 15px; line-height: 1.76; color: var(--ink-dim); }
-#about .about-timeline-section { padding-top: 35px; padding-bottom: 62px; }
-#about .about-timeline-layout { gap: 35px; grid-template-columns: minmax(0,.65fr) minmax(0,1.35fr); }
-#about .about-timeline-intro h2 { font-size: 27px; }
-#about .about-timeline-intro h2 em { font-style: normal; color: inherit; }
-
-/* CV: reduce promotional treatments while keeping the downloadable document. */
-#cv .cv-main-section { padding-top: 44px; padding-bottom: 54px; }
-#cv .cv-paper { box-shadow: none; }
-#cv .cv-download-panel, #cv .cv-areas-panel { background: transparent; box-shadow: none; }
-#cv .cv-contact-band { background: transparent; color: var(--ink); border-top: 1px solid var(--line); }
-#cv .cv-contact-intro h2 em { font-style: normal; color: inherit; }
-
-/* One unobtrusive footer, not a second hero. */
-.site-footer { background: transparent; color: var(--muted); border-top: 1px solid var(--line); padding: 23px 0; }
+.site-footer {
+  background: transparent;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding: 23px 0;
+}
 .site-footer .footer-grid { align-items: center; gap: 20px; }
-.site-footer .footer-grid p { font: 12px/1.5 Georgia, "Times New Roman", serif; color: var(--muted); margin: 0; }
+.site-footer .footer-grid p {
+  font: 12px/1.5 Georgia, "Times New Roman", serif;
+  color: var(--muted);
+  margin: 0;
+}
 .site-footer .footer-grid a { color: var(--teal); font-size: 12px; }
 .site-footer .footer-grid > div:last-child { font-size: 12px; }
 @media (max-width: 810px) {
   .header-row { min-height: 60px; }
   .main-nav.is-open { background: var(--bg); border: 1px solid var(--line); }
-  #about .about-timeline-layout { grid-template-columns: 1fr; gap: 15px; }
 }
 @media (max-width: 620px) {
   .shell { width: calc(100% - 40px); }
-  .page .explore-hero { margin-top: 0; padding: 31px 0 22px; }
-  .page .explore-hero h1, #about .explore-hero h1, #cv .explore-hero h1 { font-size: 38px; line-height: 1.16; }
-  .page .explore-hero-side { padding: 0; }
-  .page .explore-hero-side p { font-size: 14.5px; line-height: 1.68; }
-  .page .section-heading h2, #home .home-section-heading h2, #cv .cv-section-top h2 { font-size: 26px; }
-  #home .explore-hero h1 { font-size: 43px; }
-  #home .home-direct-actions { justify-content: flex-start; }
-  #home .home-feature-grid { grid-template-columns: 1fr; gap: 34px; }
-  #home .home-feature-content { padding: 14px 0 0; }
-  #home .home-research-band { padding: 35px 0; }
-  #home .home-focus-grid { grid-template-columns: 1fr; gap: 10px; }
-  #home .home-current-section { padding-bottom: 43px; }
-  #about .about-story-section { padding-top: 32px; }
-  #about .about-timeline-event { grid-template-columns: 100px minmax(0,1fr); gap: 15px; }
-  #cv .cv-main-section { padding-top: 34px; }
 }
-
 
 /* Phase 3 — homepage as an academic profile and a short list of actual work.
    These rules intentionally override the historical homepage card styles. */
