@@ -1330,3 +1330,239 @@ html{scroll-padding-top:100px}
  #home .home-method-line p{text-align:left;font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){#home .home-feature-card,#home .home-focus-item{transition:none}}
+
+/* Editorial system — shared, deliberately restrained refinements across six pages.
+   Keep new cross-page rules here; preserve specialized case-study styling above. */
+:root {
+  --layout-max: 1240px;
+  --layout-gutter: clamp(18px, 3.5vw, 42px);
+  --surface-base: #f8f9f5;
+  --surface-pale: #edf3ee;
+  --surface-card: #ffffff;
+  --slate-deep: #1c363a;
+  --teal-soft: #a1d0ba;
+  --rule-subtle: #d8e3dc;
+  --rhythm-section: clamp(60px, 6vw, 88px);
+  --body-measure: 69ch;
+  --card-pad: clamp(20px, 2.5vw, 30px);
+}
+.shell { width: min(var(--layout-max), calc(100% - 2 * var(--layout-gutter))); }
+body { line-height: 1.65; }
+img, svg { max-width: 100%; }
+figure { min-width: 0; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 3px solid #218d7e; outline-offset: 3px;
+}
+button:disabled { cursor: not-allowed; }
+.text-link { text-underline-offset: 4px; text-decoration-thickness: 1px; white-space: normal; }
+.button { border-radius: 2px; min-height: 44px; }
+.menu-toggle { border-radius: 2px; min-height: 44px; }
+.main-nav a { border-radius: 2px; }
+.main-nav a[aria-current="page"] { background: #e5ece7; color: #1c6259; }
+
+/* One canonical hero; same alignment and grid on every route. */
+.page .explore-hero {
+  margin-top: 30px;
+  padding: clamp(35px, 4vw, 50px) clamp(26px, 4.8vw, 65px) 0;
+  background: var(--slate-deep);
+}
+.page .explore-hero-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: clamp(30px, 5.5vw, 78px);
+  align-items: center;
+  padding: 5px 0 clamp(42px, 4.4vw, 56px);
+}
+.page .explore-hero-eyebrow { margin-bottom: 23px; font-size: 10px; line-height: 1.6; }
+.page .explore-hero h1,
+#about .explore-hero h1,
+#cv .explore-hero h1 {
+  font-size: clamp(48px, 4.9vw, 76px);
+  line-height: 1.085;
+  letter-spacing: -.052em;
+  text-wrap: balance;
+}
+.page .explore-hero-side { padding: 11px 0 11px clamp(20px, 2.4vw, 30px); }
+.page .explore-hero-side p {
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.72;
+  max-width: 38ch;
+}
+.page .explore-hero-footer { min-height: 54px; padding: 17px 0; font-size: 10px; line-height: 1.55; }
+.page .explore-hero-footer span { min-width: 0; }
+
+/* Common editorial hierarchy and section rhythm. */
+.page .kicker, .page .meta { line-height: 1.55; }
+.page .section-pad { padding-top: var(--rhythm-section); padding-bottom: var(--rhythm-section); }
+.page .section-heading,
+#home .home-section-heading,
+#cv .cv-section-top { gap: clamp(18px, 3vw, 40px); margin-bottom: 30px; align-items: end; }
+.page .section-heading h2,
+#home .home-section-heading h2,
+#cv .cv-section-top h2 {
+  font-family: var(--title);
+  font-size: clamp(36px, 3.5vw, 53px);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -.048em;
+  text-wrap: balance;
+}
+.page .section-heading > p,
+#home .home-section-heading > p,
+#cv .cv-section-top > p {
+  max-width: 35ch;
+  font-size: 13.5px;
+  line-height: 1.72;
+  color: var(--ink-dim);
+}
+.page .section-heading > .meta { max-width: 32ch; text-align: right; }
+.page .section-divider { border-color: var(--rule-subtle); }
+.page figure figcaption { color: #526d65; line-height: 1.7; }
+.page .lead { max-width: var(--body-measure); }
+
+/* Home — keep the overview concise while making scientific graphics legible. */
+#home .home-feature-top { padding-top: 16px; padding-bottom: 13px; }
+#home .home-feature-media { padding: 14px; min-height: 250px; }
+#home .home-feature-media img { max-height: 300px; }
+#home .home-feature-content { padding: var(--card-pad); }
+#home .home-feature-content h3 { margin-top: 10px; margin-bottom: 11px; }
+#home .home-feature-content > p { max-width: 66ch; line-height: 1.72; margin-bottom: 22px; }
+#home .home-feature-footer { gap: 15px; }
+#home .home-research-figure { padding: 16px; }
+#home .home-research-figure figcaption { font-size: 12px; }
+
+/* Projects — distinguish explanations from evidence and improve controls. */
+#projects .industrial-case .case-main > p { font-size: 14px; line-height: 1.8; max-width: var(--body-measure); }
+#projects .industrial-case .case-main > h3 { line-height: 1.22; }
+#projects .industrial-case .project-carousel { border-color: var(--rule-subtle); }
+#projects .industrial-case .project-carousel-header { align-items: center; }
+#projects .industrial-case .project-carousel-controls button { min-width: 42px; min-height: 42px; }
+#projects .industrial-case .industrial-carousel-subtitle { font-size: 13px; line-height: 1.65; }
+#projects .industrial-case .industrial-gallery-figure img { width: 100%; height: auto; object-fit: contain; }
+#projects .industrial-case .industrial-gallery-reading { border-left-color: var(--teal); }
+#projects .empirical-figure img { width: 100%; height: auto; object-fit: contain; }
+#projects .empirical-deck { line-height: 1.75; }
+#projects .empirical-insights p { line-height: 1.75; }
+
+/* Research — use actual project figures and allow clear mathematical reading. */
+#research .thesis-document { gap: clamp(23px, 3.2vw, 44px); }
+#research .thesis-index { position: sticky; top: 110px; }
+#research .thesis-main { padding: clamp(25px, 3.2vw, 44px); }
+#research .thesis-main > p:not(.thesis-source) { max-width: var(--body-measure); }
+#research .thesis-main h2 { line-height: 1.17; text-wrap: balance; }
+#research .thesis-figure { margin: 28px 0 36px; }
+#research .thesis-figure img { background: var(--surface-base); }
+#research .thesis-figure figcaption { font-size: 12.5px; margin-top: 13px; }
+#research .thesis-figure figcaption strong { color: var(--ink); }
+#research .thesis-equation { max-width: 100%; overflow-wrap: anywhere; }
+#research .research-finance-figure {
+  margin: 0; padding: 15px; background: var(--surface-card);
+  border: 1px solid var(--rule-subtle);
+}
+#research .research-finance-figure-label {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  border-bottom: 1px solid var(--rule-subtle); padding: 2px 0 13px;
+  font: 700 10px/1.5 var(--mono); letter-spacing: .06em; color: #4c7b6e;
+}
+#research .research-finance-figure img { display: block; width: 100%; height: auto; margin: 12px 0 0; }
+#research .research-finance-figure figcaption { border-top: 1px solid var(--rule-subtle); padding-top: 12px; font-size: 11.5px; }
+#research .research-finance-copy > .meta { display: block; margin-bottom: 12px; }
+#research .research-finance-copy p { font-size: 14px; line-height: 1.76; }
+
+/* Exploring & Reading — quiet cards, strong research connections. */
+#engineering .now-project-card { padding: var(--card-pad); min-height: 255px; }
+#engineering .now-project-card h3 { line-height: 1.21; margin-top: 12px; }
+#engineering .now-project-card > p { line-height: 1.73; font-size: 13.5px; }
+#engineering .reading-carousel { background: #f0f5f0; }
+#engineering .reading-paper-copy h3 { line-height: 1.23; }
+#engineering .reading-detail p { font-size: 13.5px; }
+#engineering .reading-filter { min-height: 43px; }
+#engineering .reading-control { width: 43px; height: 43px; }
+#engineering .reading-dot { min-width: 25px; min-height: 25px; border: 0; position: relative; }
+#engineering .reading-dot:before { content: ""; position: absolute; inset: 8px; border: 1px solid #749a8a; border-radius: 50%; }
+#engineering .reading-dot.is-active { background: transparent; }
+#engineering .reading-dot.is-active:before { background: var(--teal); border-color: var(--teal); }
+
+/* About — reduce dead space without turning the story into dense columns. */
+#about .about-copy p { max-width: var(--body-measure); line-height: 1.8; }
+#about .about-thesis { margin-top: clamp(20px, 4vw, 57px); }
+#about .about-experience-card { box-shadow: none; }
+#about .about-timeline-layout { gap: clamp(35px, 6vw, 90px); }
+#about .about-timeline-event { padding: 20px 0; }
+
+/* CV — balanced paper and links, with less decorative depth. */
+#cv .cv-paper { box-shadow: 5px 5px 0 #e7eee8; }
+#cv .cv-content-grid { gap: clamp(24px, 3.5vw, 48px); }
+#cv .cv-download-panel, #cv .cv-areas-panel { padding: clamp(21px, 2.7vw, 30px); }
+#cv .cv-file-link { min-height: 72px; }
+#cv .cv-file-link:focus-visible, #cv .cv-paper-open:focus-visible { outline-offset: 4px; }
+
+/* Responsive composition is shared across pages rather than separately patched. */
+@media (max-width: 1024px) {
+  .page .explore-hero-grid { gap: 30px; }
+  .page .section-heading > p,
+  #home .home-section-heading > p,
+  #cv .cv-section-top > p { max-width: 40ch; }
+  #research .thesis-document { grid-template-columns: minmax(185px, .46fr) minmax(0, 1.54fr); gap: 22px; }
+}
+@media (max-width: 810px) {
+  :root { --rhythm-section: 62px; }
+  .page .explore-hero { margin-top: 19px; }
+  .page .explore-hero-grid { grid-template-columns: 1fr; gap: 24px; padding-bottom: 32px; }
+  .page .explore-hero h1, #about .explore-hero h1, #cv .explore-hero h1 {
+    font-size: clamp(45px, 7.3vw, 64px); text-wrap: balance;
+  }
+  .page .explore-hero-side { max-width: 640px; }
+  .page .explore-hero-side p { max-width: 54ch; }
+  .page .section-heading, #home .home-section-heading, #cv .cv-section-top {
+    align-items: flex-start; flex-direction: column; gap: 11px;
+  }
+  .page .section-heading > .meta { text-align: left; }
+  #home .home-research-grid { gap: 32px; }
+  #research .thesis-document { grid-template-columns: 1fr; }
+  #research .thesis-index { position: static; }
+  #research .research-finance-copy { padding-top: 4px; }
+  #about .about-thesis { margin-top: 0; }
+  #cv .cv-content-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  :root { --rhythm-section: 54px; }
+  .page .explore-hero { margin-top: 12px; padding: 30px 22px 0; }
+  .page .explore-hero-grid { gap: 24px; padding-bottom: 27px; }
+  .page .explore-hero-eyebrow { font-size: 10px; margin-bottom: 18px; }
+  .page .explore-hero h1, #about .explore-hero h1, #cv .explore-hero h1 {
+    font-size: clamp(35px, 9.4vw, 50px); line-height: 1.12; letter-spacing: -.047em;
+    overflow-wrap: normal;
+  }
+  .page .explore-hero-side { padding: 4px 0 4px 17px; }
+  .page .explore-hero-side p { font-size: 15px; line-height: 1.68; }
+  .page .explore-hero-footer { flex-direction: column; align-items: flex-start; gap: 6px; padding: 13px 0; font-size: 9px; }
+  .page .section-heading h2, #home .home-section-heading h2, #cv .cv-section-top h2 {
+    font-size: clamp(33px, 9vw, 40px);
+  }
+  #home .home-feature-media { min-height: 185px; padding: 11px; }
+  #home .home-feature-content { padding: 21px; }
+  #home .home-feature-footer { align-items: flex-start; flex-wrap: wrap; }
+  #home .home-feature-footer small { max-width: 100%; }
+  #home .home-research-figure { padding: 12px; }
+  #projects .industrial-case .case-main > p, #projects .industrial-case .industrial-summary .case-main > p { font-size: 13.5px; }
+  #projects .industrial-case .project-carousel-header { align-items: flex-start; }
+  #projects .industrial-case .industrial-carousel-subtitle { font-size: 12.5px; }
+  #research .thesis-main { padding: 22px 17px 25px; }
+  #research .thesis-main h2 { font-size: clamp(29px, 7.6vw, 36px); }
+  #research .thesis-figure figcaption { font-size: 12px; }
+  #engineering .now-project-card { min-height: 0; }
+  #engineering .reading-filter { font-size: 11.5px; min-height: 42px; }
+  #engineering .reading-carousel { padding: 13px; }
+  #engineering .reading-paper-copy { padding: 21px 17px 24px; }
+  #engineering .reading-detail p { font-size: 13px; }
+  #engineering .reading-carousel-top > .meta { font-size: 10px; }
+  #engineering .reading-control { width: 41px; height: 41px; }
+  #about .about-copy p { font-size: 14px; }
+  #cv .cv-paper { padding: 23px 18px; box-shadow: none; }
+  #cv .cv-file-link { min-height: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

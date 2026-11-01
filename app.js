@@ -27,7 +27,7 @@
 
     closeMenu();
     if (changed && hash !== 'main-content') window.scrollTo({ top: 0, behavior: 'instant' });
-    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Now & Reading',about:'About',cv:'CV & Contact'}[name];
+    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Exploring & Reading',about:'About',cv:'CV & Contact'}[name];
     document.title = label === 'Home'
       ? 'Kelvin Schouten | Quantitative Finance & Mathematical Modelling'
       : label + ' | Kelvin Schouten';
@@ -353,10 +353,10 @@
     prev.addEventListener('click', () => showPaper(current - 1));
     next.addEventListener('click', () => showPaper(current + 1));
     library.addEventListener('keydown', event => {
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-        event.preventDefault();
-        showPaper(current + (event.key === 'ArrowRight' ? 1 : -1));
-      }
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      if (event.target.closest('a, button, input, select, textarea')) return;
+      event.preventDefault();
+      showPaper(current + (event.key === 'ArrowRight' ? 1 : -1));
     });
     library.addEventListener('touchstart', event => {
       if (event.touches.length === 1) touchStart = event.touches[0].clientX;
