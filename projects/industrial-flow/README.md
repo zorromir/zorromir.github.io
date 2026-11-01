@@ -27,3 +27,9 @@ Tijsseling, Hou, Bozkus & Laanearu (2016), *Improved One-Dimensional Models for 
 Chen, Hou, Laanearu & Tijsseling (2024), *Experimental data on filling and emptying of a large-scale pipeline*, [DOI](https://doi.org/10.1038/s41597-024-03441-7). Its experiment data are **not** included in these plots.
 
 These sources describe the relevant research concepts. They do not validate this simplified demonstration.
+
+## Phase 4: Blow control-volume demonstration
+
+The [Phase 4 standalone Python example](phase4_blow_volume_demo.py) solves a simplified, constant-pressure Blow transition and plots the conserved liquid volumes. Inputs are synthetic. This is **not** an annular-flow correlation, a film-stripping calibration or a validated cleaning prediction.
+
+Full Phase 4 transition and separated film-inventory models are prepared in the local `pipeline-flow-modelling` package pending a dedicated public repository. No company records are included.
