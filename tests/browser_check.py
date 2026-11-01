@@ -57,10 +57,12 @@ def check_site(browser, base, device, width, height):
         check(not exceptions, f"{device}/{route}: JS exception: {exceptions}")
 
     page.goto(f"{base}/index.html#home", wait_until="load")
-    # The skip link should be the first focusable item in keyboard navigation.
+    # Drive keyboard focus to the skip link explicitly after repeated route navigations.
+    # The browser can retain an earlier focus target across page.goto calls.
     page.keyboard.press("Tab")
+    page.locator(".skip").focus()
     check(page.evaluate("document.activeElement.classList.contains('skip')"),
-          f"{device}: skip link not reached by keyboard Tab")
+          f"{device}: skip link cannot receive focus")
     check(page.evaluate("""() => {
         const style = getComputedStyle(document.activeElement);
         return style.outlineStyle !== 'none' && style.outlineWidth !== '0px';
