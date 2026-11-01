@@ -104,6 +104,13 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' in projects
+assert 'Fluivac — Push, Blow, Rinse &amp; Dry' in projects
+assert 'Public Python reconstruction and tests' not in projects
+assert 'industrial-process-photos' in projects
+assert projects.count('class="industrial-photos-grid"') == 1
+assert projects.count('src="https://fluivac.com/wp-content/uploads/2021/10/') == 4
+assert 'industrial-photos-grid' in editorial_css
+assert 'rather than one coupled simulator' in projects
 assert projects.count('class="industrial-literature-citation"') == 5
 assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
 assert projects.count('href="https://doi.org/10.1038/s41597-024-03441-7"') == 1
