@@ -48,3 +48,16 @@ python phase5_qmc_push_demo.py
 The median simulated time to reach 50% product removal is approximately 10.30 s (10th–90th sample percentiles: 8.61–12.45 s) for this **hypothetical scenario design**. These are *sample quantiles*, not validated confidence or prediction intervals. Sobol points are used to sample the inputs; the project does not claim variance-based Sobol sensitivity indices.
 
 The complete modular uncertainty implementation, tests, and additional figures are in the local, standalone `pipeline-flow-modelling` Phase 5 package until a dedicated public repository is available.
+
+## Phase 6: Rinse and Dry inventory handoff (synthetic)
+
+The [Phase 6 standalone Python reproducer](phase6_rinse_dry_demo.py) integrates a deliberately simplified, three-compartment Rinse water/product inventory model. Water is introduced at a fixed illustrative rate; product remaining on an imaginary wall is transferred into an illustrative mobile compartment with an **invented** first-order rate. Water and product inventories are checked separately for conservation.
+
+The modeled water remaining after Rinse becomes the initial state of a second, *first-order water-removal demonstration* for Dry. The Dry coefficient is **not connected to gas mass flow**, and a 90% water-removal target is **not a validated physical dryness criterion**. The demonstration does not implement published annular-flow correlations, calibrated cleaning kinetics, or a combined Push-to-Dry engineering solver.
+
+```bash
+python -m pip install numpy scipy matplotlib
+python phase6_rinse_dry_demo.py
+```
+
+The complete modular Phase 6 local package also includes the Rinse/Dry type-safe interface, test suite, three original Python-generated plots and documented scientific limitations. No employer code or experimental data are included.
