@@ -129,9 +129,9 @@ assert research.count('class="thesis-figure"') == 3
 assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
-assert "Thesis overview" in research and "THESIS.md" in research
-assert 'data-thesis-pdf-path="assets/research/Kelvin_Schouten_BSc_Thesis_Public.pdf"' in research
-assert "method: 'HEAD'" in js and "thesisLink.textContent = 'Thesis (PDF)'" in js
+assert 'href="assets/research/The_Fractional_Harmonic_Oscillator__Analysis_and_Computations.pdf"' in research, "Thesis must link directly to the published PDF"
+assert 'type="application/pdf">Thesis (PDF)</a>' in research
+assert "data-thesis-pdf-path" not in html and "method: 'HEAD'" not in js
 assert "not a validated investment strategy" in research
 # Profile & CV is one page, with the old #cv URL still supported by JS.
 assert 'class="page academic-about academic-profile"' in about
