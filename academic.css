@@ -595,7 +595,18 @@ body {
   font: 12.5px/1.72 Georgia, "Times New Roman", serif;
 }
 #projects .academic-industrial-project .industrial-reference-links {
-  display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px;
+  display: flex; flex-direction: row; flex-wrap: wrap;
+  align-items: baseline; gap: 9px 22px; margin-top: 12px;
+}
+#projects .academic-industrial-project .industrial-reference-links a,
+#projects .academic-industrial-project .industrial-reference-links a:first-child,
+#projects .academic-industrial-project .industrial-reference-links a:first-child:hover {
+  display: inline;
+  min-height: 0; margin: 0; padding: 0;
+  background: transparent; border: 0; border-radius: 0;
+  box-shadow: none; color: var(--teal);
+  font: 13px/1.55 Georgia, "Times New Roman", serif;
+  text-decoration: underline; text-underline-offset: 4px;
 }
 /* Empirical: chart and scientific conclusions replace metrics and three panels. */
 #projects .academic-empirical-intro { max-width: 76ch; margin-bottom: 23px; }
@@ -1000,4 +1011,13 @@ body {
   #cv .academic-cv-records dt span { width: 100%; }
   #cv .academic-cv-skills > div,
   #cv .academic-cv-contact-list > div { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Final QA: consistent keyboard focus without adding ornamental states. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
