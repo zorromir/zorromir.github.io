@@ -4,7 +4,7 @@
 **Status:** Component library created in Figma; responsive browser proof-of-concept supplied as a standalone HTML file in ChatGPT; production implementation not started.
 **Figma file:** https://www.figma.com/design/709SHfK8VVpaZSCeVdpi5S
 **Working branch:** `design/editorial-refinement-v2`
-**Published branch:** `main` (unchanged)
+**Published branch:** `main` (not modified by Phase 2; advanced independently to `2b085feaf9fba35e471d5b90b719ab2cd00babf6` during this work)
 
 ## Goal
 
@@ -73,6 +73,7 @@ Do not force every page into the same two-column dark hero. The Home page retain
 ## Code implementation handoff (Phase 3)
 
 Before production CSS changes:
+- Reconcile the redesign branch against the latest `main` commit. During Phase 2, `main` advanced independently from the frozen baseline `4eaa07d` to `2b085fe`; do not assume it still matches Phase 0 or overwrite its newer research-content changes.
 - Inspect `styles.css` for duplicate rules and produce a cascade audit; consolidate safely instead of appending more overrides.
 - Scope new styles under meaningful section/component classes and keep existing `app.js` behavior.
 - Compare screenshots across desktop 1440, tablet 1024, mobile 390 and narrow 320.
