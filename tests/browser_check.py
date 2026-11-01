@@ -55,6 +55,31 @@ def check_site(browser, base, device, width, height):
         })""")
         check(size["scroll"] <= size["client"] + 2,
               f"{device}/{route}: horizontal overflow {size}")
+        # Every route uses the same outer grid as the navigation and footer.
+        # Keep the research figures and project carousels free to use the grid.
+        alignment = page.evaluate("""route => {
+            const box = element => {
+                const rect = element.getBoundingClientRect();
+                return {left: rect.left, width: rect.width};
+            };
+            const header = box(document.querySelector('.site-header .shell'));
+            const footer = box(document.querySelector('.site-footer .shell'));
+            const title = box(document.querySelector('#' + route + ' h1'));
+            const sections = [...document.querySelectorAll('#' + route + ' > .shell')]
+                .map(box);
+            return {header, footer, title, sections};
+        }""", route)
+        check(len(alignment["sections"]) >= 2,
+              f"{device}/{route}: page sections missing: {alignment}")
+        for name, rect in [("footer", alignment["footer"]),
+                           ("title", alignment["title"]),
+                           *[(f"section {i}", item)
+                             for i, item in enumerate(alignment["sections"], start=1)]]:
+            check(abs(rect["left"] - alignment["header"]["left"]) < 1.5,
+                  f"{device}/{route}: {name} left edge shifts: {alignment}")
+            if name != "title":
+                check(abs(rect["width"] - alignment["header"]["width"]) < 1.5,
+                      f"{device}/{route}: {name} width shifts: {alignment}")
         if device in ("desktop", "mobile"):
             page.screenshot(path=str(SHOTS / f"{device}-{route}.png"), full_page=True,
                             animations="disabled", timeout=60000)

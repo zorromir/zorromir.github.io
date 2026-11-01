@@ -4,9 +4,10 @@
  * This file defines the quieter academic presentation used across six pages.
  */
 :root {
-  --layout-max: 1080px;
+  --layout-max: 960px;
   --layout-gutter: clamp(20px, 4vw, 46px);
   --body-measure: 70ch;
+  --academic-copy-measure: 72ch;
 }
 body {
   background: var(--bg);
@@ -208,8 +209,8 @@ body {
  * content remains in the HTML. Avoid decorative sidebars and callout blocks.
  */
 #about .academic-page-intro,
-#about .academic-about-content { max-width: 820px; }
-#research .academic-page-intro { max-width: 920px; }
+#about .academic-about-content { max-width: var(--layout-max); }
+#research .academic-page-intro { max-width: var(--layout-max); }
 .page .academic-page-intro {
   padding-top: clamp(42px, 5.7vw, 72px);
   padding-bottom: 24px;
@@ -265,7 +266,7 @@ body {
 
 /* Research: source-backed article, small byline, full-width mathematical figures. */
 #research .academic-research-thesis,
-#research .academic-research-finance { max-width: 920px; }
+#research .academic-research-finance { max-width: var(--layout-max); }
 #research .academic-research-thesis {
   padding-top: 33px; padding-bottom: 58px;
 }
@@ -439,13 +440,13 @@ body {
 
 /* Phase 5 — projects: academically styled case studies, not landing-page cards.
    Keep the four stage slides, five numerical figures, source links and caveats. */
-#projects .academic-projects-intro { max-width: 920px; }
+#projects .academic-projects-intro { max-width: var(--layout-max); }
 #projects .academic-industrial-project,
 #projects .academic-empirical-project,
 #projects .academic-project-thesis { padding-top: 34px; padding-bottom: 42px; }
 #projects .academic-industrial-project { border-bottom: 1px solid var(--line); }
 #projects .academic-empirical-project { border-bottom: 1px solid var(--line); }
-#projects .academic-project-thesis { padding-bottom: 65px; max-width: 920px; }
+#projects .academic-project-thesis { padding-bottom: 65px; max-width: var(--layout-max); }
 #projects .academic-project-heading { margin-bottom: 20px; }
 #projects .academic-project-context {
   color: var(--teal); margin: 0 0 8px;
@@ -716,7 +717,7 @@ body {
  */
 #engineering.academic-exploring { overflow: visible; }
 #engineering .academic-exploring-intro,
-#engineering .academic-exploring-section { max-width: 920px; }
+#engineering .academic-exploring-section { max-width: var(--layout-max); }
 #engineering .academic-exploring-section {
   padding-top: 35px;
   padding-bottom: 37px;
@@ -1131,4 +1132,24 @@ summary:focus-visible,
   #about .academic-profile-skills > div,
   #about .academic-profile-contact > div { grid-template-columns: 1fr; gap: 2px; }
   .site-footer .footer-grid > div:last-child { gap: 9px 16px; }
+}
+
+
+/* Consistent reading measure across pages. Full-width figures, grids and
+   interactive models retain the entire shared content width. */
+.page .academic-page-intro > p,
+#about .academic-about-section > p,
+#home .academic-home-summary,
+#research .academic-thesis-article > p,
+#research .academic-thesis-article > p.lead,
+#research .academic-thesis-article .thesis-research-question p,
+#projects .academic-project-description,
+#projects .academic-project-description > p,
+#projects .academic-empirical-intro,
+#projects .academic-project-thesis > p,
+#engineering .academic-project-entry p,
+#engineering .academic-literature-header > p,
+#engineering .academic-paper-relevance,
+#engineering .academic-literature-fallback li > p {
+  max-width: var(--academic-copy-measure);
 }
