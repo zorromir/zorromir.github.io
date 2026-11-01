@@ -85,5 +85,34 @@ reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
 
+
+# Phase 3: the editorial homepage uses isolated CSS and keeps evidence prominent.
+home_css_path = ROOT / "home-editorial.css"
+assert home_css_path.is_file(), "Missing Phase 3 homepage CSS"
+home_css = home_css_path.read_text(encoding="utf-8")
+assert "home-editorial.css?v=editorial-phase3-20261101" in html
+assert 'class="shell explore-hero home-editorial-hero"' in html
+assert '<h1 id="home-title">Mathematical modelling<br>&amp; quantitative finance.</h1>' in html
+for expected_heading in (
+    '<h2 id="home-featured-title">Selected projects</h2>',
+    '<h2 id="home-research-title">Mathematics of memory</h2>',
+    '<h2 id="home-current-title">Reading &amp; ongoing work</h2>',
+):
+    assert expected_heading in html, f"Editorial homepage heading missing: {expected_heading}"
+assert "home-method-line" not in html, "Redundant promotional callout still present"
+assert home_css.count("{") == home_css.count("}"), "Unbalanced homepage CSS blocks"
+assert all(sel in home_css for sel in (
+    "#home .home-editorial-hero",
+    "#home .home-feature-grid",
+    "#home .home-research-figure",
+    "@media (max-width: 960px)",
+    "@media (max-width: 810px)",
+    "@media (max-width: 620px)",
+    "@media (prefers-reduced-motion: reduce)",
+)), "Missing homepage layout or accessibility rule"
+assert "Synthetic reproduction shown" in html
+assert "Historical, in-sample analysis" in html
+print("PASS: Phase 3 editorial homepage headings, evidence links and responsive stylesheet.")
+
 print(f"PASS: {len(site.pages)} pages, {len(site.images)} images, anchors, scientific figures, data and responsive styles.")
 print("NOTE: Browser viewport tests, external URLs and CV personal details need manual review.")
