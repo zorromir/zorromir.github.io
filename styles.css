@@ -3,3 +3,11 @@
 /* Portfolio production adjustments */
 html{scroll-padding-top:100px}
 @media(max-width:620px){.brand-label small{font-size:11px}.shell{max-width:100%}}
+
+/* Phase 1 release improvements */
+:focus-visible{outline:3px solid #146e62;outline-offset:4px}
+.research-summary{align-content:center;overflow-wrap:anywhere}
+.evidence-grid>div{border-top:1px solid #d8e2db;padding:12px 0}
+.evidence-grid h3{font-size:18px}
+.case-steps h4{overflow-wrap:anywhere}
+@media(max-width:620px){.research-summary{min-height:150px}.button-row .button{flex-grow:1}}
