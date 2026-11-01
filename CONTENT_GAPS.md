@@ -8,7 +8,7 @@ Updated 1 November 2026. The portfolio is intended for quantitative research and
 | --- | --- | --- | --- |
 | Industrial pipeline modelling | [Python reconstruction](https://github.com/zorromir/pipeline-flow-modelling), unit tests, numerical figures, mathematical notes | Adapted literature-based models in a six-month industry project; the public demonstration tests numerical assumptions | The public code is AI-assisted, synthetic and partial; no original employer code, parameters, measurements or validated industrial accuracy are public |
 | Fractional harmonic oscillator | [Thesis reconstruction](https://github.com/zorromir/fractional-harmonic-oscillator), analytical formulas, numerical examples and tests | BSc mathematics research, with a later reproducibility remake | Public code differs from the original research scripts; computed figures are simulations, not measurements |
-| Empirical asset pricing | [Independent public Python analysis](https://github.com/zorromir/Empirical-Finance) and [verified public-data results](https://github.com/zorromir/Empirical-Finance/blob/main/docs/RESULTS_2026-11-01.md) | Completed five-person group study with a separate, independently written public-data implementation; Python 3.10/3.12 tests and live sample integration passed | Original group code and report are not published; subperiod/restriction tests and exhaustive numeric equivalence remain pending |
+| Empirical asset pricing | [Independent public Python analysis](https://github.com/zorromir/Empirical-Finance) and [verified public-data results](https://github.com/zorromir/Empirical-Finance/blob/main/docs/RESULTS_2026-11-01.md) | Completed five-person group study with a separate, independently written public-data implementation; Python 3.10/3.12 tests and live sample integration passed | Original group code and report are not published; point-in-time forecasting, a full joint GMM restriction test and exhaustive report equivalence remain pending |
 
 The website should make these distinctions visible before a recruiter follows a link.
 
@@ -29,4 +29,4 @@ The website should make these distinctions visible before a recruiter follows a 
 
 ## Scope note
 
-This file is a maintenance checklist, **not a list of unfinished UI screens**. The previous release-gate checklist is superseded; the site and the two standalone research repositories are published. No private coursework or unreleased group materials should be uploaded merely to fill a portfolio gap.
+This file is a maintenance checklist, **not a list of unfinished UI screens**. The previous release-gate checklist is superseded; the site and three standalone public research repositories are published. No private coursework or unreleased group materials should be uploaded merely to fill a portfolio gap.
