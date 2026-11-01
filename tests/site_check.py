@@ -115,7 +115,7 @@ assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
 assert "four of five industries" in html
 assert "independent public python reconstruction" in html.lower()
 assert "AI-assisted reconstruction" in html
-assert "not predictive accuracy against company measurements" in html
+assert "do not establish predictive accuracy against company measurements" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
