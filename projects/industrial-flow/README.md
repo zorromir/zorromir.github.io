@@ -12,10 +12,10 @@ Parameters are deliberately hypothetical and are **not** measured or calibrated 
 
 ## Generate
 
-\`\`\`bash
+```bash
 python -m pip install numpy matplotlib
 python generate_synthetic_figures.py
-\`\`\`
+```
 
 The script writes SVG and PNG files to a local `figures/` directory.
 
