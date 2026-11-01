@@ -120,7 +120,18 @@ assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
 assert html.count("data-project-carousel") == 2
-assert "data-paper-carousel" in html and "data-paper-filters" in html
+# Reading is a bibliography, not a one-paper-at-a-time carousel.
+reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: ABOUT -->", 1)[0]
+assert 'class="page academic-exploring"' in reading_page
+for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
+               "data-paper-fallback", "data-paper-count", "Most recent readings",
+               "Reading progress has not been confirmed", "Currently studying",
+               "not establish predictive accuracy against company measurements"):
+    assert marker in reading_page, f"Reading-page content missing: {marker}"
+assert "data-paper-carousel" not in html
+assert "coverFor(" not in js and "makeSlide(" not in js
+assert "academic-paper-filter" in js and "academic-paper-detail" in js
+assert "academic-literature-list" in editorial_css
 assert "aria-current" in js and "aria-expanded" in js and "inert" in js
 assert "fetch('data/reading-list.json')" in js
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
@@ -130,6 +141,12 @@ assert "--layout-max: 1080px" in editorial_css
 reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
+# Verify that the no-JavaScript bibliography matches the JSON source list.
+assert len(reading["papers"]) == reading_page.count("class=\"paper-citation\"")
+for paper in reading["papers"]:
+    assert paper["title"].replace("&", "&amp;") in reading_page
+    assert paper["url"] in reading_page
+assert "sample_references" == reading["library_state"]
 
 print(f"PASS: {len(site.pages)} pages, {len(site.images)} images, anchors, scientific figures, data and responsive styles.")
 print("NOTE: Browser viewport tests, external URLs and CV personal details need manual review.")
