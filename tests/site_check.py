@@ -74,6 +74,21 @@ assert "The Fractional Harmonic Oscillator" in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
+# Preserve all project demonstrations while simplifying their presentation.
+projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RESEARCH -->", 1)[0]
+assert 'class="page academic-projects"' in projects
+assert 'id="industrial-project-title"' in projects
+assert 'id="empirical-heading"' in projects
+assert 'id="projects-thesis-title"' in projects
+assert projects.count("data-project-carousel") == 2
+assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
+assert projects.count('data-project-go=') == 4
+assert projects.count('class="industrial-gallery-figure"') == 5
+for marker in ("AI-assisted reconstruction", "No company measurements",
+               "Hansen J-test", "four of five industries", "p = 0.311",
+               "not a validated trading strategy"):
+    assert marker in projects, f"Project evidence or limitation missing: {marker}"
+assert "academic-empirical-layout" in editorial_css
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: ABOUT -->", 1)[1].split("<!-- PAGE 6: CV & CONTACT -->", 1)[0]
 assert 'class="page academic-about"' in about
