@@ -1,6 +1,8 @@
 # Industrial pipeline modelling — public examples
 
-Small, independently written Python demonstrations of published fluid-mechanics equations. This folder exists to support the [portfolio project page](https://zorromir.github.io/#projects) while the standalone research package awaits its own GitHub repository.
+This folder contains small Python demonstrations of published fluid-mechanics equations used to support the [portfolio project page](https://zorromir.github.io/#projects). The more complete, tested package is available in the [pipeline-flow-modelling repository](https://github.com/zorromir/pipeline-flow-modelling).
+
+**Provenance.** The dedicated repository is an **AI-assisted reconstruction of selected methods from my original industrial research**, not a release of the original company code. The original source code, measurements and detailed equipment information remain confidential.
 
 All inputs are **synthetic**. There are no employer datasets, internal reports, calibrated parameters, installation diagrams or original company source files here.
 
@@ -28,4 +30,4 @@ The examples illustrate model behaviour and numerical consistency, **not** exper
 
 The publications are external scientific sources, not work authored by the portfolio owner. Source-code reuse and publication of further industrial material require the relevant permissions.
 
-**Phase 7 status:** The full tested modular package, five selected plots and GitHub Actions workflow have been prepared separately. The dedicated repository is not yet published; do not confuse this folder of standalone examples with the full package.
+**Relationship to the dedicated repository:** These are standalone demonstrations rather than the full modular implementation. For numerical tests, mathematical scope, reproducible figures and limitations, see [pipeline-flow-modelling](https://github.com/zorromir/pipeline-flow-modelling). Neither set of public examples has been shown to predict the original industrial measurements.
