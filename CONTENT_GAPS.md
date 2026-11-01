@@ -1,25 +1,32 @@
-# Phase 1 release gates and Phase 2 handover (1 November 2026)
+# Recruitment readiness — evidence and remaining work
 
-## Before merging the release
+Updated 1 November 2026. The portfolio is intended for quantitative research and modelling internship applications, including research-led asset management and trading firms.
 
-- [ ] **CV privacy:** Both existing English and Dutch CV PDFs contain a personal phone number and hometown; explicitly approve this public disclosure or replace them with public-safe PDFs. The current files are also older than the recently updated internship CV.
-- [ ] Verify mobile layouts at 360, 390, 768 and 1280 px; keyboard Tab/Shift+Tab, Enter, Escape and all six routes.
-- [ ] Verify CV downloads and metadata in the deployed version.
-- [ ] Check GitHub Pages build and live website after PR review.
+## Evidence a recruiter can inspect now
 
-## Missing verification
+| Project | Public evidence | Appropriate claim | Limitation |
+| --- | --- | --- | --- |
+| Industrial pipeline modelling | [Python reconstruction](https://github.com/zorromir/pipeline-flow-modelling), unit tests, numerical figures, mathematical notes | Adapted literature-based models in a six-month industry project; the public demonstration tests numerical assumptions | The public code is AI-assisted, synthetic and partial; no original employer code, parameters, measurements or validated industrial accuracy are public |
+| Fractional harmonic oscillator | [Thesis reconstruction](https://github.com/zorromir/fractional-harmonic-oscillator), analytical formulas, numerical examples and tests | BSc mathematics research, with a later reproducibility remake | Public code differs from the original research scripts; computed figures are simulations, not measurements |
+| Empirical asset pricing | [Verified findings and methods](projects/empirical-finance/README.md) and the website's adjusted-R² figure | Completed five-person MSc group analysis of factor models, HAC inference and GMM | The group report is not a solo project; a one-command public replication package is not yet released |
 
-- Industrial: project dates, company name/public permission, exact mathematical models, software, permitted diagrams and experimental results, definitions of reported 98%/95% figures.
-- Academic: full fractional-order research report, methods, proofs and conclusions. Title/year/supervisor are independently documented.
-- Research assistant: master information says 2019; earlier CV/website say 2020–21. Verify before publishing dates.
-- Missing: LinkedIn address, engineering photos and completed build documentation.
+The website should make these distinctions visible before a recruiter follows a link.
 
-## Phase 2: repository links
+## Priority next steps
 
-1. Empirical-Finance — empty at audit; add reproducible Python, a clear dataset source, regression assumptions, checked outputs and tests before promotion.
-2. Panal-Data-assignment — contains files; first review copyright, coursework integrity, data/privacy and documentation.
-3. MSc — contains files; isolate a suitable public and documented project after a content and privacy audit.
-4. Quant-Research-Papers and Market-Micro-Structure — empty at audit; do not feature as completed.
-5. neetcode-submissions — optional secondary programming practice, not flagship quant research.
+1. **Highest priority — empirical-finance reproducibility.** Publish a standalone cleaned project *only with appropriate group/data permissions*. Include a reproducible dataset recipe, matching sample dates, dependencies, tests, HAC inference, Holm correction, GMM moments, validation results and attribution. Until then, describe it as a verified results summary rather than public runnable code.
+2. **CV privacy check.** The English and Dutch CV PDFs are downloadable from the public website. Review their contact details and confirm both are the intended application versions. Do not automatically remove details without the owner's approval.
+3. **Project ownership and claims.** For interviews, prepare a concise explanation of which work was performed in the original industry project versus the public AI-assisted reconstruction, and which empirical-finance work was shared by the group. Avoid unverified numerical performance percentages.
+4. **Optional future evidence.** Add out-of-sample financial-model validation only after it has been implemented and independently checked. The present portfolio correctly avoids presenting a live strategy or a validated trading edge.
 
-Prefer real approved project plots to illustrative scientific visuals. Consider Astro only if future content collections make maintenance difficult.
+## Maintenance checks
+
+- All six pages load, and links reach the intended project or CV.
+- Home links directly to the public Python/test repositories, and to verified empirical-finance methods.
+- Projects identifies the reconstruction boundary and group authorship.
+- Thesis and industrial figures are genuine code outputs; synthetic simulations are clearly distinguished from observed data.
+- GitHub Actions succeeds and the published mobile view remains readable.
+
+## Scope note
+
+This file is a maintenance checklist, **not a list of unfinished UI screens**. The previous release-gate checklist is superseded; the site and the two standalone research repositories are published. No private coursework or unreleased group materials should be uploaded merely to fill a portfolio gap.

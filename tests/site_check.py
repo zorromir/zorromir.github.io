@@ -60,6 +60,14 @@ assert not re.search(r"98%|95%|WIREFRAME / CONCEPT|lorem ipsum", html, re.I)
 
 assert 'class="research-finance-figure"' in html
 assert "assets/empirical-finance-fit.svg" in html
+# Recruiters must see evidence links without a hidden or unverified code claim.
+assert html.count('class="home-feature-card"') == 2
+assert html.count('class="home-feature-actions"') == 2
+assert "https://github.com/zorromir/pipeline-flow-modelling" in html
+assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
+assert "projects/empirical-finance/README.md" in html
+assert "AI-assisted reconstruction" in html
+assert "not predictive accuracy against company measurements" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
