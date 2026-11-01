@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-labelledby="title desc">
+<title id="title">Model comparison: adjusted R-squared by industry</title>
+<desc id="desc">For each of five industry portfolios, the FF5 adjusted R-squared is above the CAPM adjusted R-squared. Oil 37.4 versus 45.3 percent; Banks 62.9 versus 74.3; Textiles 46.1 versus 63.0; Toys 51.7 versus 59.4; Retail 68.1 versus 70.3.</desc>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#20343a}.head{font-family:Georgia,serif;font-size:27px}.sub{font-size:12px;fill:#53666a}.industry{font-size:15px;font-weight:600}.value{font-size:12px;fill:#20343a;font-weight:600}.tick{font-size:12px;fill:#738488}.legend{font-size:13px}</style>
+<rect width="900" height="470" fill="#f8faf8"/>
+<text x="38" y="39" class="head">Explanatory fit improves across industries</text>
+<text x="40" y="64" class="sub">Adjusted R² · monthly U.S. value-weighted portfolios · July 1963–June 2026</text>
+<rect x="40" y="80" width="13" height="13" rx="2" fill="#b98666"/><text x="60" y="91" class="legend">CAPM</text>
+<rect x="141" y="80" width="13" height="13" rx="2" fill="#24766e"/><text x="161" y="91" class="legend">Fama–French five-factor</text>
+<line x1="198" y1="109" x2="198" y2="448" stroke="#dce7e1" stroke-width="1"/><text x="198" y="462" text-anchor="middle" class="tick">0%</text>
+<line x1="350.5" y1="109" x2="350.5" y2="448" stroke="#dce7e1" stroke-width="1"/><text x="350.5" y="462" text-anchor="middle" class="tick">20%</text>
+<line x1="503" y1="109" x2="503" y2="448" stroke="#dce7e1" stroke-width="1"/><text x="503" y="462" text-anchor="middle" class="tick">40%</text>
+<line x1="655.5" y1="109" x2="655.5" y2="448" stroke="#dce7e1" stroke-width="1"/><text x="655.5" y="462" text-anchor="middle" class="tick">60%</text>
+<line x1="808" y1="109" x2="808" y2="448" stroke="#dce7e1" stroke-width="1"/><text x="808" y="462" text-anchor="middle" class="tick">80%</text><text x="40" y="149" class="industry">Oil</text>
+  <rect x="198" y="127" rx="2" width="284.9" height="17" fill="#b98666"/>
+  <rect x="198" y="148" rx="2" width="345.1" height="17" fill="#24766e"/>
+  <text x="490.9" y="140" class="value">37.4%</text>
+  <text x="551.1" y="161" class="value">45.3%</text>
+<text x="40" y="215" class="industry">Banks</text>
+  <rect x="198" y="193" rx="2" width="479.3" height="17" fill="#b98666"/>
+  <rect x="198" y="214" rx="2" width="566.9" height="17" fill="#24766e"/>
+  <text x="685.3" y="206" class="value">62.9%</text>
+  <text x="772.9" y="227" class="value">74.3%</text>
+<text x="40" y="281" class="industry">Textiles</text>
+  <rect x="198" y="259" rx="2" width="351.7" height="17" fill="#b98666"/>
+  <rect x="198" y="280" rx="2" width="480.5" height="17" fill="#24766e"/>
+  <text x="557.7" y="272" class="value">46.1%</text>
+  <text x="686.5" y="293" class="value">63.0%</text>
+<text x="40" y="347" class="industry">Toys</text>
+  <rect x="198" y="325" rx="2" width="394.1" height="17" fill="#b98666"/>
+  <rect x="198" y="346" rx="2" width="453.1" height="17" fill="#24766e"/>
+  <text x="600.1" y="338" class="value">51.7%</text>
+  <text x="659.1" y="359" class="value">59.4%</text>
+<text x="40" y="413" class="industry">Retail</text>
+  <rect x="198" y="391" rx="2" width="519.3" height="17" fill="#b98666"/>
+  <rect x="198" y="412" rx="2" width="536.1" height="17" fill="#24766e"/>
+  <text x="725.3" y="404" class="value">68.1%</text>
+  <text x="742.1" y="425" class="value">70.3%</text>
+</svg>
