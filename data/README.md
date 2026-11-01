@@ -1,6 +1,6 @@
 # Research paper library
 
-The **Now & Reading** section of [the portfolio](../../index.html) reads this directory's `reading-list.json` at page load. **To add or revise a paper, edit only the JSON file** — the site generates the cover, paper description, project links, category buttons and carousel controls automatically.
+The **Exploring & Reading** section of [the portfolio](../../index.html) reads this directory's `reading-list.json` at page load. **To add or revise a paper, edit only the JSON file** — the site generates the cover, paper description, project links, category buttons and carousel controls automatically.
 
 ## Adding a paper
 
