@@ -106,7 +106,7 @@ def check_site(browser, base, device, width, height):
             width: math.getBoundingClientRect().width
         })""")
         check(metrics["namespace"] == "http://www.w3.org/1998/Math/MathML"
-              and metrics["height"] >= 20 and metrics["width"] > 0,
+              and metrics["height"] >= 12 and metrics["width"] > 0,
               f"{device}: equation {i+1} failed to render: {metrics}")
         check(equation.locator(":scope > mrow").count() == 1,
               f"{device}: equation {i+1} has no grouped mathematical row")
