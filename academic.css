@@ -23,7 +23,6 @@ body {
   border-bottom: 1px solid var(--line);
 }
 .header-row { min-height: 65px; }
-.brand-symbol { width: 33px; height: 33px; }
 .brand-label {
   font: 600 15px/1.25 Georgia, "Times New Roman", serif;
   letter-spacing: 0;
@@ -90,14 +89,8 @@ body {
   font: 16px/1.75 Georgia, "Times New Roman", serif; color: var(--ink-dim);
   max-width: 64ch; margin-bottom: 22px;
 }
-#home .academic-home-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-#home .academic-home-links a {
-  font: 13px/1.6 Georgia, "Times New Roman", serif;
-  color: var(--teal); text-decoration: underline;
-  text-decoration-color: #aac8ba; text-underline-offset: 4px;
-}
-#home .academic-home-links a:hover { text-decoration-color: currentColor; }
-#home .academic-home-record { padding-top: 3px; }
+/* Align the first education label around the middle of the name heading. */
+#home .academic-home-record { padding-top: clamp(56px, 6.2vw, 72px); }
 #home .academic-home-record > div {
   padding: 0 0 20px; margin-bottom: 18px; border-bottom: 1px solid var(--line);
 }
@@ -187,6 +180,7 @@ body {
   #home .academic-home-intro { grid-template-columns: minmax(0,1fr); gap: 25px; padding-top: 48px; }
   #home .academic-home-record {
     display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px;
+    padding-top: 0; /* Stacked layout: spacing comes from the parent grid gap. */
   }
   #home .academic-home-record > div { margin: 0; padding-bottom: 14px; }
   #home .academic-work-row, #home .home-feature-card.academic-work-row {
