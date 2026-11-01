@@ -1,5 +1,22 @@
 (() => {
   'use strict';
+
+  // Publish-safe link: show the original PDF when it has been uploaded.
+  // Until then, keep the working GitHub thesis overview instead of a 404.
+  const thesisLink = document.querySelector('[data-thesis-pdf-path]');
+  if (thesisLink) {
+    const pdfPath = thesisLink.dataset.thesisPdfPath;
+    fetch(pdfPath, { method: 'HEAD', cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) return;
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('pdf') && !contentType.includes('octet-stream')) return;
+        thesisLink.href = pdfPath;
+        thesisLink.textContent = 'Thesis (PDF)';
+        thesisLink.setAttribute('type', 'application/pdf');
+      })
+      .catch(() => { /* The thesis overview remains available. */ });
+  }
   const validPages = new Set(['home', 'projects', 'research', 'engineering', 'about']);
   const pages = [...document.querySelectorAll('[data-page]')];
   const links = [...document.querySelectorAll('[data-nav]')];
