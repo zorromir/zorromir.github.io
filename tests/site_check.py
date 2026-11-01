@@ -38,7 +38,7 @@ class SiteParser(HTMLParser):
 
 site = SiteParser()
 site.feed(html)
-expected = ["home", "projects", "research", "engineering", "about", "cv"]
+expected = ["home", "projects", "research", "engineering", "about"]
 assert [name for name, _ in site.pages] == expected, "Unexpected page order/routes"
 assert len(site.ids) == len(set(site.ids)), "Duplicate element IDs"
 assert all(label in site.ids for _, label in site.pages), "Page heading missing"
@@ -70,6 +70,12 @@ assert count_class("home-feature-actions") == 2
 home = html.split("<!-- PAGE 1: HOME -->", 1)[1].split("<!-- PAGE 2: PROJECTS -->", 1)[0]
 assert 'class="shell academic-home-intro"' in home
 assert 'class="academic-home-work-list"' in home
+# Header is text-only and homepage no longer repeats the site navigation.
+assert 'class="brand-symbol"' not in html
+assert 'class="brand-label"' in html
+assert 'class="academic-home-links"' not in home
+assert 'class="academic-home-record"' in home
+assert "padding-top: clamp(56px, 6.2vw, 72px)" in editorial_css
 assert "The Fractional Harmonic Oscillator" in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
@@ -83,6 +89,14 @@ assert 'id="projects-thesis-title"' in projects
 assert projects.count("data-project-carousel") == 2
 assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
 assert projects.count('data-project-go=') == 4
+# All four industrial stages use semantic, browser-native mathematical notation.
+assert projects.count('class="industrial-stage-equation"') == 4
+assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
+assert projects.count("<mfrac>") == 3
+assert projects.count("<msup>") == 1
+assert projects.count("<msub>") >= 9
+assert 'industrial-stage-equation">dx' not in projects
+assert 'industrial-stage-equation math' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
 for marker in ("AI-assisted reconstruction", "No company measurements",
                "Hansen J-test", "four of five industries", "p = 0.311",
@@ -90,8 +104,8 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
 # Academic About and Research must keep their distinct content and source notes.
-about = html.split("<!-- PAGE 5: ABOUT -->", 1)[1].split("<!-- PAGE 6: CV & CONTACT -->", 1)[0]
-assert 'class="page academic-about"' in about
+about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
+assert 'class="page academic-about academic-profile"' in about
 assert 'class="academic-record-list"' in about
 assert 'id="about-story-title"' in about
 assert 'id="about-education-title"' in about
@@ -107,23 +121,36 @@ assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
 assert "not a validated investment strategy" in research
-# CV & Contact: confirm the actual PDF and contacts, without dashboard cards.
-cv = html.split("<!-- PAGE 6: CV & CONTACT -->", 1)[1].split("  </main>", 1)[0]
-assert 'class="page academic-cv"' in cv
-for section_id in ("cv-title", "cv-overview-title", "cv-education-title",
-                   "cv-experience-title", "cv-skills-title", "cv-contact-title"):
-    assert f'id="{section_id}"' in cv, f"Missing CV section: {section_id}"
-assert cv.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv") == 2
-assert 'download="Kelvin_Schouten_CV.pdf"' in cv
-assert "mailto:schoutenkelvin@gmail.com" in cv
-assert "https://github.com/zorromir" in cv
-assert "The Hague University of Applied Sciences" in cv
-assert "Tilburg University" in cv and "Utrecht University" in cv
-assert "Monte Carlo" in cv and "Panel Data Econometrics" in cv
-for legacy_class in ("cv-paper", "cv-sidebar", "cv-download-panel",
-                     "cv-areas-panel", "cv-contact-band"):
-    assert f'class="{legacy_class}"' not in cv
-assert "Phase 7 — CV & Contact." in editorial_css
+# Profile & CV is one page, with the old #cv URL still supported by JS.
+assert 'class="page academic-about academic-profile"' in about
+assert 'id="cv" class="legacy-route-anchor"' in about
+assert 'data-page="cv"' not in html and 'data-nav="cv"' not in html
+assert 'data-nav="about">Profile &amp; CV</a>' in html
+assert "hash === 'cv' ? 'about'" in js
+for section_id in ("about-title", "about-story-title", "about-education-title",
+                   "about-timeline-heading", "about-interests-title", "about-methods-title",
+                   "about-languages-title", "about-contact-title"):
+    assert f'id="{section_id}"' in about, f"Missing merged profile section: {section_id}"
+assert about.count("<h1") == 1
+assert about.count("id=\"about-education-title\"") == 1
+assert "The Hague University of Applied Sciences" in about
+assert "Tilburg University" in about and "Utrecht University" in about
+assert "Panel Data Econometrics" in about
+assert "Monte Carlo" in about and "Mathematics and Physics Tutor" in about
+assert "Dutch (native)" in about and "English (proficient)" in about
+assert "mailto:schoutenkelvin@gmail.com" in about
+assert "academic-profile-skills" in editorial_css
+assert "footer-cv-link" in editorial_css
+# The shared footer appears outside individual articles, so this single PDF
+# link is available from every routed page, beside GitHub and Email.
+footer = html.split('<footer class="site-footer">', 1)[1]
+assert footer.count('class="footer-cv-link"') == 1
+assert footer.count('href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv"') == 1
+assert 'type="application/pdf"' in footer
+assert 'target="_blank"' in footer
+assert 'mailto:schoutenkelvin@gmail.com' in footer
+assert 'https://github.com/zorromir' in footer
+assert html.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv") == 2
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
@@ -138,7 +165,7 @@ kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encodi
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
 assert html.count("data-project-carousel") == 2
 # Reading is a bibliography, not a one-paper-at-a-time carousel.
-reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: ABOUT -->", 1)[0]
+reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Most recent readings",

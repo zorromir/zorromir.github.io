@@ -14,7 +14,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
-ROUTES = ("home", "projects", "research", "engineering", "about", "cv")
+ROUTES = ("home", "projects", "research", "engineering", "about")
 VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080),
              ("mobile", 390, 844), ("narrow-mobile", 320, 720))
 
@@ -41,6 +41,10 @@ def check_site(browser, base, device, width, height):
               f"{device}/{route}: missing or duplicate visible page heading")
         check(page.locator('h1:visible').count() == 1,
               f"{device}/{route}: multiple visible h1 elements")
+        pdf = page.locator(".site-footer .footer-cv-link")
+        check(pdf.count() == 1
+              and pdf.get_attribute("href").startswith("assets/cv/Kelvin_Schouten_CV_EN.pdf"),
+              f"{device}/{route}: footer PDF link missing")
         check(page.locator('[data-nav][aria-current="page"]').count() == 1,
               f"{device}/{route}: navigation did not update")
         check(page.locator(f'[data-nav="{route}"][aria-current="page"]').count() == 1,
@@ -56,7 +60,27 @@ def check_site(browser, base, device, width, height):
                             animations="disabled", timeout=60000)
         check(not exceptions, f"{device}/{route}: JS exception: {exceptions}")
 
+    # Existing external links to #cv must open the new combined profile.
+    page.goto(f"{base}/index.html#cv", wait_until="load")
+    page.locator("#about").wait_for(state="visible", timeout=5000)
+    check(page.locator('#about h1').inner_text() == "Profile & CV",
+          f"{device}: legacy CV link did not open Profile & CV")
+    check(page.locator('[data-nav="about"][aria-current="page"]').count() == 1,
+          f"{device}: legacy CV link did not select Profile & CV navigation")
+
     page.goto(f"{base}/index.html#home", wait_until="load")
+    check(page.locator(".brand img").count() == 0,
+          f"{device}: header monogram still visible")
+    check(page.locator("#home .academic-home-links").count() == 0,
+          f"{device}: repeated homepage quick links remain")
+    if width > 810:
+        vertical = page.evaluate("""() => {
+          const title = document.querySelector('#home-title').getBoundingClientRect();
+          const label = document.querySelector('#home .academic-home-record span').getBoundingClientRect();
+          return {midpoint: title.top + title.height / 2, labelTop: label.top};
+        }""")
+        check(vertical["labelTop"] >= vertical["midpoint"] - 8,
+              f"{device}: current studies not lowered toward name midpoint: {vertical}")
     # Drive keyboard focus to the skip link explicitly after repeated route navigations.
     # The browser can retain an earlier focus target across page.goto calls.
     page.keyboard.press("Tab")
@@ -84,6 +108,29 @@ def check_site(browser, base, device, width, height):
     page.goto(f"{base}/index.html#projects", wait_until="load")
     carousels = page.locator('[data-project-carousel]')
     check(carousels.count() == 2, f"{device}: missing project carousels")
+    equations = page.locator("#projects .industrial-stage-equation math")
+    check(equations.count() == 4, f"{device}: expected four rendered MathML equations")
+    for i in range(equations.count()):
+        equation = equations.nth(i)
+        metrics = equation.evaluate("""math => ({
+            namespace: math.namespaceURI,
+            height: math.getBoundingClientRect().height,
+            width: math.getBoundingClientRect().width
+        })""")
+        check(metrics["namespace"] == "http://www.w3.org/1998/Math/MathML"
+              and metrics["height"] >= 12 and metrics["width"] > 0,
+              f"{device}: equation {i+1} failed to render: {metrics}")
+        check(equation.locator(":scope > mrow").count() == 1,
+              f"{device}: equation {i+1} has no grouped mathematical row")
+    if width > 810:
+        size = equations.first.evaluate("""math => ({
+          equation: math.getBoundingClientRect().width,
+          container: math.closest('.industrial-stage-equation').clientWidth,
+          fraction: math.querySelector('mfrac').getBoundingClientRect().width
+        })""")
+        check(size["equation"] < size["container"] * .85
+              and size["fraction"] < size["container"] * .65,
+              f"{device}: fraction stretches across the panel: {size}")
     for i in range(2):
         carousel = carousels.nth(i)
         check(carousel.locator('[data-project-count]').inner_text().startswith("01"),
@@ -104,7 +151,7 @@ def check_site(browser, base, device, width, height):
 
 
 def check_without_javascript(browser, base):
-    # With JavaScript disabled, all six sections must remain reachable and
+    # With JavaScript disabled, all five sections must remain reachable and
     # the hand-written bibliography must still list all six citations.
     context = browser.new_context(java_script_enabled=False,
                                   viewport={"width": 390, "height": 844})
@@ -115,6 +162,8 @@ def check_without_javascript(browser, base):
               "No-JS page hidden: " + route)
     check(page.locator("[data-paper-fallback] li").count() == 6,
           "No-JS bibliography missing")
+    check(page.locator("#cv").count() == 1,
+          "No-JS legacy #cv anchor missing")
     check(page.locator("#main-nav").is_visible(),
           "No-JS navigation unavailable")
     page.close()
@@ -142,7 +191,7 @@ def main():
                 browser.close()
     finally:
         server.shutdown()
-    print("PASS: browser QA, 12 screenshots and fallback in artifacts/qa")
+    print("PASS: browser QA, 10 screenshots and fallback in artifacts/qa")
 
 
 if __name__ == "__main__":
