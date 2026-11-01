@@ -103,6 +103,10 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
                "not a validated trading strategy"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
+assert 'industrial-literature-title' in projects
+assert 'industrial-literature-list' in editorial_css
+for doi in ("https://doi.org/10.1016/0301-9322(89)90023-2", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003"):
+    assert doi in projects, f"Missing journal link: {doi}"
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
 assert 'class="page academic-about academic-profile"' in about
@@ -120,6 +124,7 @@ assert research.count('class="thesis-figure"') == 3
 assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
+assert "Thesis overview" in research and "THESIS.md" in research
 assert "not a validated investment strategy" in research
 # Profile & CV is one page, with the old #cv URL still supported by JS.
 assert 'class="page academic-about academic-profile"' in about
@@ -181,7 +186,7 @@ assert "fetch('data/reading-list.json')" in js
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
 assert css.count("{") == css.count("}"), "Unbalanced stylesheet blocks"
 assert editorial_css.count("{") == editorial_css.count("}"), "Unbalanced editorial stylesheet"
-assert "--layout-max: 1080px" in editorial_css
+assert "--layout-max: 960px" in editorial_css
 reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
