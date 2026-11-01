@@ -552,8 +552,41 @@ body {
   background: #f8faf7; border-color: var(--line); padding: 20px;
 }
 #projects .academic-industrial-project .industrial-stage-equation {
-  background: transparent; color: var(--ink); border-color: var(--line);
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 78px;
+  padding: 17px clamp(12px, 2vw, 22px);
+  background: #f5f8f4;
+  color: var(--ink);
+  border: 1px solid var(--line);
   box-shadow: none;
+  overflow-x: auto;
+  white-space: normal;
+  scrollbar-width: thin;
+}
+#projects .academic-industrial-project .industrial-stage-equation math {
+  display: block;
+  flex: none;
+  width: max-content;
+  min-width: 100%;
+  margin: 0 auto;
+  font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", "Noto Sans Math", serif;
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.4;
+  text-align: center;
+}
+#projects .academic-industrial-project .industrial-stage-equation math mtext {
+  font-family: Georgia, "Times New Roman", serif;
+}
+@media (max-width: 620px) {
+  #projects .academic-industrial-project .industrial-stage-equation {
+    min-height: 70px;
+    padding: 13px 10px;
+  }
+  #projects .academic-industrial-project .industrial-stage-equation math {
+    font-size: 19px;
+  }
 }
 #projects .academic-industrial-project .industrial-gallery-figure {
   background: #fff; border-color: var(--line); padding: 12px;
