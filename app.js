@@ -64,6 +64,92 @@
     });
   }
 
+  // Independent project carousels: process stages and Python-generated figures.
+  // Static HTML keeps the content accessible and available without external data.
+  document.querySelectorAll('[data-project-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('[data-project-track]');
+    const slides = track ? [...track.querySelectorAll('.project-slide')] : [];
+    const previous = carousel.querySelector('[data-project-prev]');
+    const next = carousel.querySelector('[data-project-next]');
+    const counter = carousel.querySelector('[data-project-count]');
+    const tabs = [...carousel.querySelectorAll('[data-project-go]')];
+    const dotsHost = carousel.querySelector('[data-project-dots]');
+    if (!slides.length || !previous || !next || !counter) return;
+
+    let current = 0;
+    let touchStart = null;
+    carousel.classList.add('is-enhanced');
+
+    if (dotsHost) {
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Show figure ' + (index + 1) + ': ' + slide.getAttribute('aria-label'));
+        dot.setAttribute('aria-pressed', String(index === 0));
+        dot.addEventListener('click', () => show(index));
+        dotsHost.append(dot);
+      });
+    }
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (100 * current) + '%)';
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.inert = !active;
+      });
+      tabs.forEach((tab, i) => {
+        const active = i === current;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-pressed', String(active));
+      });
+      if (dotsHost) {
+        [...dotsHost.children].forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === current);
+          dot.setAttribute('aria-pressed', String(i === current));
+        });
+      }
+      counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    }
+
+    const hasMultiple = slides.length > 1;
+    previous.disabled = next.disabled = !hasMultiple;
+    previous.addEventListener('click', () => show(current - 1));
+    next.addEventListener('click', () => show(current + 1));
+    tabs.forEach(tab => {
+      const target = Number(tab.dataset.projectGo);
+      if (Number.isInteger(target) && target >= 0 && target < slides.length) {
+        tab.addEventListener('click', () => show(target));
+      }
+    });
+    carousel.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      if (event.target.closest('a, button, input, select, textarea')) return;
+      event.preventDefault();
+      show(current + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    const viewport = carousel.querySelector('.project-viewport');
+    if (viewport) {
+      viewport.addEventListener('touchstart', event => {
+        if (event.touches.length === 1) {
+          touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+        }
+      }, { passive: true });
+      viewport.addEventListener('touchend', event => {
+        if (!touchStart || !event.changedTouches.length) return;
+        const dx = event.changedTouches[0].clientX - touchStart.x;
+        const dy = event.changedTouches[0].clientY - touchStart.y;
+        touchStart = null;
+        if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          show(current + (dx < 0 ? 1 : -1));
+        }
+      }, { passive: true });
+      viewport.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
+    }
+    show(0);
+  });
+
   // Research-library data is maintained in data/reading-list.json; this code only renders it.
   const library = document.querySelector('[data-paper-carousel]');
   if (library) {
