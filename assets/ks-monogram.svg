@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" aria-labelledby="ks-title">
+  <title id="ks-title">KS geometric monogram</title>
+  <rect x="1.25" y="1.25" width="45.5" height="45.5" fill="none" stroke="#20343a" stroke-width="1.75"/>
+  <path fill="#20343a" d="M7.8 12H12.6V21.6L19.15 12H24.75L16.65 23.25L24.95 36H19.25L12.6 26.25V36H7.8Z"/>
+  <path fill="#20343a" d="M39.85 12H29.5L25.55 16V22.2L29.3 26H34.6L35.5 26.9V30.9L34.55 31.95H25.7V36H36.95L40.2 32.7V25.5L36.5 21.85H31.2L30.2 20.8V17L31.2 16H39.85Z"/>
+</svg>
