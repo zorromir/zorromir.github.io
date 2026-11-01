@@ -105,7 +105,7 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
 assert "academic-empirical-layout" in editorial_css
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
-assert 'class="page academic-about"' in about
+assert 'class="page academic-about academic-profile"' in about
 assert 'class="academic-record-list"' in about
 assert 'id="about-story-title"' in about
 assert 'id="about-education-title"' in about
