@@ -155,3 +155,11 @@ html{scroll-padding-top:100px}
   #projects .industrial-explainer{padding:16px 15px;margin-block:18px}
   #projects .industrial-equation{font-size:11px}
 }
+
+/* Data-free simulation figures: readable full-width plots with full-resolution links. */
+#projects .industrial-plots{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+#projects .industrial-plots .industrial-figure{margin:5px 0 15px}
+#projects .industrial-figure>a{display:block;outline-offset:3px}
+#projects .industrial-figure>a:hover img{border-color:#9bbdb2}
+#projects .industrial-figure img{aspect-ratio:1000/460}
+@media(max-width:620px){#projects .industrial-plots{gap:0}}
