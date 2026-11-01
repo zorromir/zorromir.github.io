@@ -784,3 +784,10 @@ html{scroll-padding-top:100px}
  #projects .project-track{transition:none}
  #projects .industrial-stage-tab,#projects .project-carousel-controls button{transition:none}
 }
+
+/* Larger interactive hit areas without increasing the visible figure dots. */
+#projects .project-gallery-dots{gap:3px}
+#projects .project-gallery-dots button{width:26px;height:26px;display:grid;place-items:center;border:0;background:transparent;border-radius:0}
+#projects .project-gallery-dots button::before{content:"";width:9px;height:9px;border:1px solid #7eada0;border-radius:50%;background:transparent}
+#projects .project-gallery-dots button.is-active::before{background:var(--teal);border-color:var(--teal)}
+#projects .project-gallery-dots button:hover::before{border-color:#24594f}
