@@ -74,6 +74,24 @@ assert "The Fractional Harmonic Oscillator" in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
+# Academic About and Research must keep their distinct content and source notes.
+about = html.split("<!-- PAGE 5: ABOUT -->", 1)[1].split("<!-- PAGE 6: CV & CONTACT -->", 1)[0]
+assert 'class="page academic-about"' in about
+assert 'class="academic-record-list"' in about
+assert 'id="about-story-title"' in about
+assert 'id="about-education-title"' in about
+assert 'id="about-timeline-heading"' in about
+assert "Tilburg University" in about and "Utrecht University" in about
+assert "<blockquote" not in about
+research = html.split("<!-- PAGE 3: RESEARCH -->", 1)[1].split("<!-- PAGE 4: EXPLORING & READING", 1)[0]
+assert 'class="page academic-research"' in research
+assert 'class="academic-thesis-article thesis-main"' in research
+assert research.count('class="thesis-equation"') == 2
+assert research.count('class="thesis-figure"') == 3
+assert 'class="research-finance-figure"' in research
+assert "assets/research/03_caputo_memory_kernel.svg" in research
+assert "thesis-source" in research and "Paul Zegeling" in research
+assert "not a validated investment strategy" in research
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
