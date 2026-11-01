@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://zorromir.github.io/">
   <meta name="twitter:card" content="summary">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css?v=industrial-context-20261101">
+  <link rel="stylesheet" href="styles.css?v=home-refinement-20261101">
   <script defer src="app.js?v=industrial-carousels-20261101"></script>
 </head>
 <body>
@@ -36,7 +36,6 @@
   <main id="main-content">
     <!-- PAGE 1: HOME -->
     <article class="page" data-page="home" id="home" aria-labelledby="home-title">
-      
       <section class="shell explore-hero" aria-label="Home introduction">
         <div class="explore-hero-grid">
           <div class="explore-hero-main">
@@ -47,27 +46,91 @@
         </div>
         <div class="explore-hero-footer"><span>MATHEMATICS / MODELLING / QUANTITATIVE FINANCE</span><span>00 / HOME</span></div>
       </section>
-      <section class="shell portfolio-home-actions" aria-label="Portfolio links">
-  <div class="portfolio-home-actions-copy"><span class="kicker">MATHEMATICS × APPLICATION</span><p>Industrial modelling, mathematical research and empirical finance.</p></div>
-  <div class="portfolio-home-actions-links">
-    <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-    <a class="button button-outline" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener">English CV <span aria-hidden="true">↗</span></a>
-    <a class="portfolio-home-github" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-  </div>
-</section>
-      <section class="narrative-band"><div class="shell band-grid"><div class="band-label">HOW I APPROACH A PROBLEM <span>↓</span></div><div class="band-content">Understand the assumptions. <em>Construct a model.</em> Test it. Learn where it fails.</div></div></section>
-      <section class="shell section-pad">
-        <div class="section-heading"><div><span class="kicker">01 / FEATURED WORK</span><h2>Selected work, <em>explained.</em></h2></div><a href="#projects" class="text-link">All projects ↗</a></div>
-        <div class="featured-grid">
-          <a href="#projects" class="feature feature-large"><div class="feature-picture picture-flow"><span class="picture-tag">COMMISSIONED INDUSTRY PROJECT</span><div class="flow-symbol"><span>FLOW STATES</span><i></i><i></i><i></i><b>→</b><span>ESTIMATED OUTPUT</span></div><span class="visual-disclaimer">CONCEPTUAL ILLUSTRATION</span></div><div class="feature-content"><div class="meta">APPLIED MATHEMATICS / 6 MONTHS</div><h3>Modelling two-phase flow in industrial pipes</h3><p>Six-month industry project: adapted published two-phase-flow models, used Monte Carlo uncertainty analysis and compared predictions with experimental measurements.</p><span class="feature-action">Explore project ↗</span></div></a>
-          <a href="#projects" class="feature feature-small"><div class="feature-picture picture-finance"><span class="picture-tag">ACADEMIC / FINANCIAL ECONOMETRICS</span><svg viewBox="0 0 360 170" role="img" aria-label="Illustrative financial data graph"><g stroke="#CADAD4" stroke-width="1"><path d="M0 35H360M0 75H360M0 115H360M0 155H360"/></g><path d="M5 125L34 111L60 124L86 78L112 88L140 57L164 87L198 40L226 62L256 30L290 41L328 12L355 19" fill="none" stroke="#24776F" stroke-width="3"/><path d="M5 146L34 139L60 143L86 111L112 127L140 104L164 113L198 85L226 108L256 88L290 76L328 67L355 74" fill="none" stroke="#B88B68" stroke-width="2"/></svg><span class="visual-disclaimer">SCHEMATIC PREVIEW</span></div><div class="feature-content"><div class="meta">EMPIRICAL ASSET PRICING / MSc GROUP PROJECT · 2026</div><h3>Testing CAPM, Fama–French factors and momentum</h3><p>Five industry portfolios, calendar predictability, factor-model pricing errors and two-step GMM. A completed group report with empirical results and critical interpretation.</p><span class="feature-action">Read the project case study ↗</span></div></a>
+
+      <section class="shell home-direct-links" aria-label="Portfolio introduction and links">
+        <div class="home-direct-copy">
+          <span class="kicker">MATHEMATICS × APPLICATION</span>
+          <p>Independent industrial research, mathematical analysis and empirical finance.</p>
+        </div>
+        <div class="home-direct-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">View CV <span aria-hidden="true">↗</span></a>
+          <a class="home-direct-github" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </section>
-      <section class="shell section-pad section-divider">
-        <div class="section-heading"><div><span class="kicker">02 / THE NEXT QUESTION</span><h2>Research and <em>analysis.</em></h2></div><a href="#research" class="text-link">Research archive ↗</a></div>
-        <div class="research-highlight"><div><div class="badge-outline">COMPLETED ACADEMIC RESEARCH · 2025</div><h3>The Fractional Harmonic Oscillator: Analysis and Computations</h3><p>For my Utrecht University mathematics thesis, I analysed fractional oscillators using Mittag-Leffler functions, Laplace transforms, and numerical simulation. Explore the computed plots and the effect of mathematical memory.</p><a href="#research" class="button button-outline">Explore academic research ↗</a></div><div class="research-sketch research-summary"><span>UTRECHT UNIVERSITY</span><div class="horizontal-rule"></div><span>FRACTIONAL OSCILLATORS · 2025</span><div class="horizontal-rule"></div><span>RESEARCH · 2025</span></div></div>
+
+      <section class="shell home-featured-section" aria-labelledby="home-featured-title">
+        <div class="home-section-heading">
+          <div><span class="kicker">01 / SELECTED PROJECTS</span><h2 id="home-featured-title">Models put <em>to the test.</em></h2></div>
+          <p>Research and empirical analysis, from mathematical assumptions to results that can be inspected.</p>
+        </div>
+        <div class="home-feature-grid">
+          <a class="home-feature-card" href="#projects" aria-label="Explore industrial pipeline modelling case study">
+            <div class="home-feature-top"><span>01 / INDUSTRIAL RESEARCH</span><span>MATHEMATICAL MODELLING</span></div>
+            <div class="home-feature-media">
+              <img src="assets/industrial-push-phase2-discharge.svg" width="1000" height="440" loading="lazy" alt="Numerical liquid discharge curves for constant-pressure and isolated-gas expansion scenarios, using hypothetical pipeline inputs.">
+            </div>
+            <div class="home-feature-content">
+              <span class="meta">NUMERICAL METHODS / UNCERTAINTY / VALIDATION</span>
+              <h3>Two-phase flow in industrial pipelines</h3>
+              <p>Adapted published flow models to industrial operating conditions, studied uncertainty with Monte Carlo simulations and compared predictions with measurements.</p>
+              <div class="home-feature-footer"><small>Synthetic reproduction shown · No company data</small><span>Explore project <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
+
+          <a class="home-feature-card" href="#projects" aria-label="Explore empirical asset pricing case study">
+            <div class="home-feature-top"><span>02 / EMPIRICAL FINANCE</span><span>MSC GROUP PROJECT · 2026</span></div>
+            <div class="home-feature-media">
+              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Comparison of CAPM and Fama-French five-factor adjusted R-squared for five industry portfolios in a completed empirical finance analysis.">
+            </div>
+            <div class="home-feature-content">
+              <span class="meta">ASSET PRICING / REGRESSION / GMM</span>
+              <h3>Testing financial factor models</h3>
+              <p>Compared CAPM and Fama–French models across industry portfolios, examining explanatory fit, pricing errors, robust inference and moment restrictions.</p>
+              <div class="home-feature-footer"><small>Results from an MSc group analysis</small><span>Explore analysis <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
+        </div>
       </section>
-      <section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">03 / CURRENT FOCUS</span><h2>Learning beyond <em>the lecture room.</em></h2></div><a href="#engineering" class="text-link">Exploring &amp; Reading ↗</a></div><div class="two-teasers"><a class="mini-teaser" href="#engineering"><div class="mini-placeholder"><span>GMM</span><small>ECONOMETRICS</small></div><div><span class="meta">THEORY &amp; EMPIRICAL TESTING</span><h3>From papers to econometric tests</h3><p>Factor models, moment conditions and robust inference in financial return data.</p></div></a><a class="mini-teaser" href="#engineering"><div class="mini-placeholder"><span>CODE</span><small>REPRODUCTION</small></div><div><span class="meta">SCIENTIFIC PYTHON</span><h3>Documented numerical projects</h3><p>Rebuilding research code and checking models against analytical results or data.</p></div></a></div></section>
+
+      <section class="home-research-band" aria-labelledby="home-research-title">
+        <div class="shell home-research-grid">
+          <div class="home-research-copy">
+            <span class="kicker">02 / ACADEMIC RESEARCH</span>
+            <h2 id="home-research-title">Mathematics <em>with memory.</em></h2>
+            <p class="home-research-lead">The Fractional Harmonic Oscillator: Analysis and Computations</p>
+            <p>My mathematics thesis investigated how fractional-order derivatives affect oscillations. I studied analytical solutions using Mittag-Leffler functions and Laplace transforms, and compared them with numerical calculations.</p>
+            <a class="home-inline-cta" href="#research">Explore the thesis <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="home-research-figure">
+            <div class="home-research-figure-top"><span>COMPUTED RESULTS / BSC THESIS</span><span>2025</span></div>
+            <img src="assets/research/01_fractional_oscillator_time.svg" width="960" height="420" loading="lazy" alt="Displacement over time of classical and fractional oscillators for fractional orders 1.2, 1.5, 1.8 and 2.">
+            <figcaption>Order-dependent displacement, calculated from the fractional oscillator model.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="shell home-current-section" aria-labelledby="home-current-title">
+        <div class="home-section-heading">
+          <div><span class="kicker">03 / CURRENT EXPLORATION</span><h2 id="home-current-title">From papers <em>to practice.</em></h2></div>
+          <a class="text-link" href="#engineering">Exploring &amp; Reading ↗</a>
+        </div>
+        <div class="home-focus-grid">
+          <a href="#engineering" class="home-focus-item">
+            <span class="home-focus-number">01 / ECONOMETRICS</span>
+            <h3>Factor models &amp; empirical testing</h3>
+            <p>Connecting financial theory, moment conditions and robust inference to models estimated from return data.</p>
+            <span class="home-focus-link">Explore methods <span aria-hidden="true">↗</span></span>
+          </a>
+          <a href="#engineering" class="home-focus-item">
+            <span class="home-focus-number">02 / SCIENTIFIC PYTHON</span>
+            <h3>Reproduction &amp; model validation</h3>
+            <p>Documenting numerical methods, testing assumptions and building reproducible research code.</p>
+            <span class="home-focus-link">See current work <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+        <div class="home-method-line"><span>HOW I APPROACH RESEARCH</span><p>Understand the assumptions. <em>Construct a model.</em> Test it against evidence.</p></div>
+      </section>
     </article>
 
     <!-- PAGE 2: PROJECTS -->
