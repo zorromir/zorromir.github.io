@@ -14,7 +14,18 @@
   <meta name="twitter:card" content="summary">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=recruiter-evidence-20261101">
+  <link rel="stylesheet" href="academic.css?v=academic-20261101">
   <script defer src="app.js?v=editorial-consistency-20261101"></script>
+  <noscript>
+    <style>
+      /* Progressive fallback: show all six document sections when routing JS is off. */
+      .page[hidden] { display: block !important; }
+      .menu-toggle { display: none !important; }
+      .header-row { flex-wrap: wrap; }
+      .main-nav { display: flex !important; flex-wrap: wrap; gap: 4px 10px; }
+      .page + .page { border-top: 2px solid var(--line); }
+    </style>
+  </noscript>
 </head>
 <body>
   <a href="#main-content" class="skip">Skip to content</a>
@@ -35,133 +46,119 @@
 
   <main id="main-content">
     <!-- PAGE 1: HOME -->
-    <article class="page" data-page="home" id="home" aria-labelledby="home-title">
-      <section class="shell explore-hero" aria-label="Home introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> HOME / KELVIN SCHOUTEN</div>
-            <h1 id="home-title">From theory,<br><em>to tested models.</em></h1>
+    <article class="page academic-home" data-page="home" id="home" aria-labelledby="home-title">
+      <section class="shell academic-home-intro" aria-label="Introduction">
+        <div class="academic-home-profile">
+          <p class="academic-home-affiliation">Mathematics · Quantitative Finance</p>
+          <h1 id="home-title">Kelvin Schouten</h1>
+          <p class="academic-home-summary">I work with mathematical models, numerical methods and financial data. My recent work includes industrial flow modelling, a thesis on fractional differential equations, and empirical tests of asset-pricing models.</p>
+          <nav class="academic-home-links" aria-label="Quick links">
+            <a href="#projects">Projects</a>
+            <a href="#research">Research</a>
+            <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">CV (PDF)</a>
+            <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </nav>
+        </div>
+        <aside class="academic-home-record" aria-label="Academic background">
+          <div>
+            <span>Current studies</span>
+            <strong>MSc Quantitative Finance</strong>
+            <p>Tilburg University</p>
           </div>
-          <div class="explore-hero-side"><p>I am an MSc Quantitative Finance student with a background in mathematics. I work with models, simulations and data to better understand how theory meets evidence.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>MATHEMATICS / MODELLING / QUANTITATIVE FINANCE</span><span>00 / HOME</span></div>
+          <div>
+            <span>Education</span>
+            <strong>BSc Mathematics</strong>
+            <p>Utrecht University</p>
+          </div>
+        </aside>
       </section>
 
-      <section class="shell home-direct-links" aria-label="Portfolio introduction and links">
-        <div class="home-direct-copy">
-          <span class="kicker">MATHEMATICS × APPLICATION</span>
-          <p>Mathematical modelling, numerical research and empirical finance, with methods and limitations documented.</p>
+      <section class="shell academic-home-work" aria-labelledby="home-featured-title">
+        <div class="academic-home-section-head">
+          <h2 id="home-featured-title">Selected work</h2>
+          <a href="#projects">All projects</a>
         </div>
-        <div class="home-direct-actions">
-          <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">View CV <span aria-hidden="true">↗</span></a>
-          <a class="home-direct-github" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <section class="shell home-featured-section" aria-labelledby="home-featured-title">
-        <div class="home-section-heading">
-          <div><span class="kicker">01 / SELECTED PROJECTS</span><h2 id="home-featured-title">Models put <em>to the test.</em></h2></div>
-          <p>Research and empirical analysis, from mathematical assumptions to results that can be inspected.</p>
-        </div>
-        <div class="home-feature-grid">
-          <article class="home-feature-card" aria-label="Industrial pipeline modelling project">
-            <div class="home-feature-top"><span>01 / INDUSTRIAL RESEARCH</span><span>MATHEMATICAL MODELLING</span></div>
-            <div class="home-feature-media">
-              <img src="assets/industrial-push-phase2-discharge.svg" width="1000" height="440" loading="lazy" alt="Numerical liquid discharge curves for constant-pressure and isolated-gas expansion scenarios, using hypothetical pipeline inputs.">
-            </div>
-            <div class="home-feature-content">
-              <span class="meta">NUMERICAL METHODS / UNCERTAINTY / VALIDATION</span>
+        <div class="academic-home-work-list">
+          <article class="home-feature-card academic-work-row" aria-label="Industrial pipeline modelling project">
+            <div class="academic-work-copy">
+              <p class="academic-work-type">Industrial research · Mathematical modelling</p>
               <h3>Two-phase flow in industrial pipelines</h3>
-              <p>Adapted published flow models to industrial operating conditions, studied uncertainty with Monte Carlo simulations and compared predictions with measurements.</p>
-              <div class="home-feature-footer"><small>Synthetic reproduction shown · No company data</small><div class="home-feature-actions"><a href="#projects">Case study ↗</a><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Python &amp; tests ↗</a></div></div>
+              <p>During a six-month project, I adapted published models to industrial operating conditions, studied uncertainty with Monte Carlo simulations and compared predictions with measurements.</p>
+              <p class="academic-work-note">Synthetic reproduction shown · No company data</p>
+              <div class="home-feature-actions">
+                <a href="#projects">Read the case study</a>
+                <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Python &amp; tests</a>
+              </div>
             </div>
+            <figure class="academic-work-figure">
+              <img src="assets/industrial-push-phase2-discharge.svg" width="1000" height="440" loading="lazy" decoding="async" alt="Illustrative computed discharge curves for two pressure scenarios in a pipeline.">
+              <figcaption>Illustrative numerical model output</figcaption>
+            </figure>
           </article>
 
-          <article class="home-feature-card" aria-label="Empirical asset pricing MSc group study">
-            <div class="home-feature-top"><span>02 / EMPIRICAL FINANCE</span><span>MSC GROUP PROJECT · 2026</span></div>
-            <div class="home-feature-media">
-              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Comparison of CAPM and Fama-French five-factor adjusted R-squared for five industry portfolios in a completed empirical finance analysis.">
-            </div>
-            <div class="home-feature-content">
-              <span class="meta">ASSET PRICING / REGRESSION / GMM</span>
+          <article class="home-feature-card academic-work-row" aria-label="Empirical asset pricing MSc group study">
+            <div class="academic-work-copy">
+              <p class="academic-work-type">MSc group project · Empirical finance</p>
               <h3>Testing financial factor models</h3>
-              <p>Compared CAPM and Fama–French models across industry portfolios, examining explanatory fit, pricing errors, robust inference and moment restrictions.</p>
-              <div class="home-feature-footer"><small>MSc group study · Historical, in-sample analysis</small><div class="home-feature-actions"><a href="#projects">Case study ↗</a><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python &amp; tests ↗</a><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group findings ↗</a></div></div>
+              <p>Our group compared CAPM and Fama–French models using industry portfolio returns. We examined model fit, pricing errors, robust inference and moment conditions.</p>
+              <p class="academic-work-note">Historical data · In-sample results</p>
+              <div class="home-feature-actions">
+                <a href="#projects">Read the case study</a>
+                <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python &amp; tests</a>
+                <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group findings</a>
+              </div>
             </div>
+            <figure class="academic-work-figure">
+              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" decoding="async" alt="CAPM and Fama-French five-factor adjusted R-squared comparison for five industry portfolios.">
+              <figcaption>Comparison of factor-model fit</figcaption>
+            </figure>
+          </article>
+
+          <article class="academic-work-row academic-work-thesis" aria-label="Bachelor's mathematics thesis">
+            <div class="academic-work-copy">
+              <p class="academic-work-type">Bachelor's thesis · Utrecht University</p>
+              <h3>The Fractional Harmonic Oscillator</h3>
+              <p>I studied how fractional-order derivatives affect oscillations, using Laplace transforms, Mittag-Leffler functions and numerical calculations.</p>
+              <div class="academic-work-links">
+                <a href="#research">Read about the thesis</a>
+                <a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Numerical code</a>
+              </div>
+            </div>
+            <figure class="academic-work-figure">
+              <img src="assets/research/01_fractional_oscillator_time.svg" width="960" height="420" loading="lazy" decoding="async" alt="Displacement over time for fractional oscillator orders 1.2, 1.5, 1.8 and 2.">
+              <figcaption>Computed displacement for different orders</figcaption>
+            </figure>
           </article>
         </div>
       </section>
 
-      <section class="home-research-band" aria-labelledby="home-research-title">
-        <div class="shell home-research-grid">
-          <div class="home-research-copy">
-            <span class="kicker">02 / ACADEMIC RESEARCH</span>
-            <h2 id="home-research-title">Mathematics <em>with memory.</em></h2>
-            <p class="home-research-lead">The Fractional Harmonic Oscillator: Analysis and Computations</p>
-            <p>My mathematics thesis investigated how fractional-order derivatives affect oscillations. I studied analytical solutions using Mittag-Leffler functions and Laplace transforms, and compared them with numerical calculations.</p>
-            <div class="home-research-actions"><a class="home-inline-cta" href="#research">Explore the thesis <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View numerical code ↗</a></div>
-          </div>
-          <figure class="home-research-figure">
-            <div class="home-research-figure-top"><span>COMPUTED RESULTS / BSC THESIS</span><span>2025</span></div>
-            <img src="assets/research/01_fractional_oscillator_time.svg" width="960" height="420" loading="lazy" alt="Displacement over time of classical and fractional oscillators for fractional orders 1.2, 1.5, 1.8 and 2.">
-            <figcaption>Order-dependent displacement, calculated from the fractional oscillator model.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="shell home-current-section" aria-labelledby="home-current-title">
-        <div class="home-section-heading">
-          <div><span class="kicker">03 / CURRENT EXPLORATION</span><h2 id="home-current-title">From papers <em>to practice.</em></h2></div>
-          <a class="text-link" href="#engineering">Exploring &amp; Reading ↗</a>
-        </div>
-        <div class="home-focus-grid">
-          <a href="#engineering" class="home-focus-item">
-            <span class="home-focus-number">01 / ECONOMETRICS</span>
-            <h3>Factor models &amp; empirical testing</h3>
-            <p>Connecting financial theory, moment conditions and robust inference to models estimated from return data.</p>
-            <span class="home-focus-link">Explore methods <span aria-hidden="true">↗</span></span>
-          </a>
-          <a href="#engineering" class="home-focus-item">
-            <span class="home-focus-number">02 / SCIENTIFIC PYTHON</span>
-            <h3>Reproduction &amp; model validation</h3>
-            <p>Documenting numerical methods, testing assumptions and building reproducible research code.</p>
-            <span class="home-focus-link">See current work <span aria-hidden="true">↗</span></span>
-          </a>
-        </div>
-        <div class="home-method-line"><span>HOW I APPROACH RESEARCH</span><p>Understand the assumptions. <em>Construct a model.</em> Test it against evidence.</p></div>
+      <section class="shell academic-home-current" aria-labelledby="home-current-title">
+        <h2 id="home-current-title">Currently exploring</h2>
+        <p>Econometrics, factor models, out-of-sample testing and reproducible Python research. I keep notes on papers, methods and ongoing projects on the <a href="#engineering">Exploring &amp; Reading</a> page.</p>
       </section>
     </article>
 
     <!-- PAGE 2: PROJECTS -->
-    <article class="page" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
-      
-      <section class="shell explore-hero" aria-label="Projects introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> PORTFOLIO / PROJECTS</div>
-            <h1 id="projects-title">Work worth<br><em>examining.</em></h1>
-          </div>
-          <div class="explore-hero-side"><p>Selected mathematical models, financial analysis and software. Each project explains the question, the methods and what the results actually support.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>MODELLING / ANALYSIS / VALIDATION</span><span>01 / PROJECTS</span></div>
-      </section>
-      <section class="shell section-pad industrial-case">
-  <div class="section-heading"><div><span class="kicker">FEATURED CASE STUDY / 01</span><h2>Industrial modelling</h2></div><div class="badge-outline">SIX-MONTH RESEARCH PROJECT</div></div>
-  <div class="case-study industrial-summary">
-    <div class="case-main"><span class="meta">MATHEMATICAL MODELLING · NUMERICAL METHODS · UNCERTAINTY</span><h3>Modelling fluid displacement in industrial pipelines</h3>
-      <p><strong>Why this matters:</strong> After a liquid product passes through a pipeline, some may remain inside. Compressed air can displace much of it, but a residual layer can be left behind. Rinsing introduces water that must also be removed. Understanding these steps helps evaluate product recovery and system requirements.</p>
-      <p>During a six-month industrial project, I implemented and adapted published mathematical models, compared calculated quantities with available measurements, and investigated uncertainty. The central question was <strong>what drives the flow, what stays in the pipe, and how dependable are the predictions?</strong> The interactive demonstrations below use hypothetical inputs and link to <a class="industrial-inline-link" href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">independent Python reproduction code ↗</a>.</p>
-    </div>
-    <aside class="case-aside industrial-summary-aside">
-      <div class="aside-block"><span class="meta">ROLE</span><strong>Applied mathematical research and numerical modelling</strong></div>
-      <div class="aside-block"><span class="meta">METHODS</span><strong>Python · ODE solvers · conservation · QMC</strong></div>
-      <div class="aside-block"><span class="meta">RESEARCH QUESTION</span><p>How do pressure, geometry and changing flow conditions affect product removal and uncertainty?</p></div>
-    </aside>
-  </div>
+    <article class="page academic-projects" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
+      <header class="shell academic-page-intro academic-projects-intro">
+        <h1 id="projects-title">Projects</h1>
+        <p>Selected work in applied mathematical modelling, empirical finance and numerical research. Detailed figures and code are included where a public reproduction is available.</p>
+      </header>
 
-  <section class="project-carousel industrial-workflow" data-project-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Explore four stages of pipeline modelling">
-    <div class="project-carousel-header"><div><span class="meta">01 / MODELLING WALKTHROUGH</span><h3>Four stages, different physics.</h3><p class="industrial-carousel-subtitle">Follow the process from moving product to removing the final rinse water.</p></div>
+      <section class="shell academic-industrial-project industrial-case" aria-labelledby="industrial-project-title">
+        <header class="academic-project-heading">
+          <p class="academic-project-context">Industrial research · Six-month project</p>
+          <h2 id="industrial-project-title">Two-phase flow in industrial pipelines</h2>
+        </header>
+        <div class="academic-project-description">
+          <p>After a liquid product moves through an industrial pipeline, some can remain in the pipe. Compressed air can displace much of this liquid, but residual product and rinse water still need to be accounted for.</p>
+          <p>I investigated published models of this process, adapted mathematical relationships to operating conditions, and studied uncertainty with numerical methods and Monte Carlo simulations. I also compared calculations with available measurements during the original industrial project.</p>
+          <p class="academic-project-methods"><strong>Methods:</strong> Conservation laws, differential equations, numerical solvers, uncertainty propagation and Python.</p>
+          <p class="academic-project-description-links"><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public Python reconstruction and tests</a></p>
+        </div>
+        <div class="academic-project-demonstrations">
+<section class="project-carousel industrial-workflow" data-project-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Explore four stages of pipeline modelling">
+    <div class="project-carousel-header"><div><span class="meta">01 / MODELLING WALKTHROUGH</span><h3>Modelling stages</h3><p class="industrial-carousel-subtitle">Four stages connect liquid displacement, residual inventory, rinsing and water removal.</p></div>
       <div class="project-carousel-controls"><span data-project-count aria-live="polite">01 / 04</span><button type="button" data-project-prev aria-label="Previous modelling stage" disabled>←</button><button type="button" data-project-next aria-label="Next modelling stage" disabled>→</button></div></div>
     <div class="industrial-stage-tabs" data-project-tabs role="group" aria-label="Select a modelling stage"><button class="industrial-stage-tab is-active" type="button" data-project-go="0" aria-pressed="true"><span>01</span>Push</button>
 <button class="industrial-stage-tab" type="button" data-project-go="1" aria-pressed="false"><span>02</span>Blow</button>
@@ -187,7 +184,7 @@
   </section>
 
   <section class="project-carousel industrial-gallery" data-project-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Five reproducible numerical modelling figures">
-    <div class="project-carousel-header"><div><span class="meta">02 / NUMERICAL FIGURES</span><h3>Explore the model outputs.</h3><p class="industrial-carousel-subtitle">Each plot answers a different question. Read the axes to understand what its result actually shows.</p></div>
+    <div class="project-carousel-header"><div><span class="meta">02 / NUMERICAL FIGURES</span><h3>Numerical figures</h3><p class="industrial-carousel-subtitle">Five illustrative results, each with the assumptions needed to interpret it.</p></div>
       <div class="project-carousel-controls"><span data-project-count aria-live="polite">01 / 05</span><button type="button" data-project-prev aria-label="Previous numerical figure" disabled>←</button><button type="button" data-project-next aria-label="Next numerical figure" disabled>→</button></div></div>
     <div class="project-viewport industrial-gallery-viewport"><div class="project-track" data-project-track><article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="01 Pressure-source comparison">
   <figure class="industrial-gallery-figure"><a href="assets/industrial-gallery-push.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Pressure-source comparison plot"><img src="assets/industrial-gallery-push.svg" width="700" height="325" loading="lazy" alt="Numerically computed product discharge for constant upstream pressure and expanding isolated compressed air, using synthetic input values."></a><figcaption>Original Python-generated figure · synthetic input parameters</figcaption></figure>
@@ -236,363 +233,333 @@
     <div class="industrial-reference-links"><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">View code and technical documentation ↗</a><a href="https://doi.org/10.1115/1.4031508" target="_blank" rel="noopener noreferrer">Tijsseling et al. (2016) ↗</a><a href="https://doi.org/10.1038/s41597-024-03441-7" target="_blank" rel="noopener noreferrer">Chen et al. (2024) ↗</a></div>
   </div>
   <noscript><p>To browse all stages and figures without JavaScript, see the <a href="https://github.com/zorromir/pipeline-flow-modelling">full public research repository</a>.</p></noscript>
-</section>
-      <section class="shell section-pad section-divider empirical-case" aria-labelledby="empirical-heading">
-        <div class="section-heading empirical-section-title">
-          <div><span class="kicker">SELECTED FINANCIAL WORK / 02 · COMPLETED GROUP STUDY</span><h2 id="empirical-heading">Empirical asset pricing</h2></div>
-          <span class="meta">TILBURG UNIVERSITY · 2026</span>
         </div>
-        <div class="empirical-shell">
-          <p class="empirical-deck">Can a model explain returns more accurately yet price assets less accurately? An empirical study of industry portfolios, calendar effects and momentum.</p>
-          <div class="empirical-metrics" aria-label="Selected results from the empirical finance group report">
-            <div class="empirical-metric"><strong>5 / 5</strong><span>Full-sample calendar tests significant after HAC(24) and Holm correction</span></div>
-            <div class="empirical-metric"><strong>2 / 5</strong><span>FF5 industry alphas significant after Holm correction: Textiles and Toys</span></div>
-            <div class="empirical-metric"><strong>+0.75%</strong><span>Estimated monthly momentum alpha under the five-factor model</span></div>
-          </div>
-          <div class="empirical-main">
-            <figure class="empirical-figure">
+      </section>
+
+      <section class="shell academic-empirical-project" aria-labelledby="empirical-heading">
+        <header class="academic-project-heading">
+          <p class="academic-project-context">MSc group study · Tilburg University · 2026</p>
+          <h2 id="empirical-heading">Empirical asset pricing</h2>
+        </header>
+        <p class="academic-empirical-intro">Our five-person group examined return seasonality, CAPM and Fama–French factor models, momentum and stochastic discount factor restrictions using historical U.S. industry returns.</p>
+        <div class="academic-empirical-layout">
+          <figure class="empirical-figure">
               <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison for CAPM and Fama–French five-factor regressions across Oil, Banks, Textiles, Toys and Retail. FF5 explains more time-series variation for each industry.">
               <figcaption>Figure 01 · Adjusted R², July 1963–June 2026. FF5 improves explanatory fit for every industry, but fit and pricing are different measures.</figcaption>
             </figure>
-            <div class="empirical-summary">
-              <span class="meta">PYTHON · FACTOR MODELS · GMM</span>
-              <h3>Better fit. Larger pricing errors.</h3>
-              <p>Our five-person MSc group studied value-weighted U.S. industry portfolios using Kenneth French's data library. We tested return seasonality, CAPM and Fama–French five-factor models, momentum and a stochastic discount factor.</p>
-              <p>FF5 improved adjusted R² for every industry. Yet negative alphas for Textiles and Toys remained significant after Holm correction, and neither model explained momentum.</p><p class="small-copy">A separate lagged-factor walk-forward diagnostic underperformed a historical-mean forecast for four of five industries. This is not a point-in-time trading backtest.</p>
-              <a class="text-link" href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Run the independent Python analysis ↗</a><a class="text-link" href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Inspect robustness and OOS results ↗</a><a class="text-link" href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Read group-study methodology and findings ↗</a>
+          <div class="academic-empirical-copy">
+            <h3>Model fit and pricing errors</h3>
+            <p>The five-factor model improved adjusted R² across all five industries, but it did not eliminate pricing errors. Textiles and Toys retained statistically significant alphas after correction for multiple tests.</p>
+            <p>A separate public Python reconstruction includes robustness checks. In a lagged-factor walk-forward diagnostic, four of five industries underperformed a historical-mean forecast. This diagnostic is not a point-in-time trading backtest.</p>
+            <div class="academic-empirical-links">
+              <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Public Python analysis</a>
+              <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness results</a>
+              <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group methods and findings</a>
             </div>
           </div>
-          <div class="empirical-insights">
-            <div><span class="meta">01 / PREDICTABILITY</span><h3>Calendar effects</h3><p>All five industries show significant full-sample calendar effects, but only Textiles remains significant across all three subperiods. Predictability alone does not establish tradable abnormal returns.</p></div>
-            <div><span class="meta">02 / FACTOR PRICING</span><h3>Regression fit versus alpha</h3><p>The additional FF5 factors explain more variation without removing every pricing error. Alpha inference uses HAC(24), with Holm correction across the five industry tests.</p></div>
-            <div><span class="meta">03 / MODEL VALIDATION</span><h3>Stochastic discount factor</h3><p>The CAPM SDF Hansen J-test is not rejected (p = 0.311). Similar industry exposures limit the test's power; momentum was not part of its GMM moment conditions.</p></div>
-          </div>
-          <p class="empirical-footer"><strong>Academic group project · September 2026.</strong> Five co-authors. Results reflect historical, in-sample analysis, not a tested trading strategy. Seasonal sample: 1927–2025; factor/GMM sample: July 1963–June 2026. An independent public Python reconstruction has been released and verified on public data; it is not the group's original code or a complete reproduction of every original test.</p>
+        </div>
+        <div class="academic-empirical-findings">
+          <h3>Selected findings</h3>
+          <ul>
+            <li><strong>Calendar effects:</strong> All five industry tests were significant in the full sample after HAC(24) inference and Holm correction; only Textiles remained significant across all three subperiods.</li>
+            <li><strong>Momentum:</strong> Estimated monthly alpha of approximately +0.75% under the five-factor model. This is a historical estimate, not an achievable trading return.</li>
+            <li><strong>Stochastic discount factor:</strong> The CAPM SDF Hansen J-test was not rejected (p = 0.311). Similar industry exposures limit test power, and momentum was not included in its moment conditions.</li>
+          </ul>
+          <p class="academic-empirical-provenance"><strong>Scope:</strong> MSc group project, September 2026, five co-authors. Calendar sample: 1927–2025; factor and GMM sample: July 1963–June 2026. Results are historical and predominantly in-sample, not a validated trading strategy. The independent public Python reconstruction is not the group's original code or a complete reproduction of every original test.</p>
         </div>
       </section>
-      <section class="shell section-pad section-divider projects-code" aria-labelledby="projects-code-heading">
-        <div class="projects-repo-strip">
-          <div class="projects-repo-copy">
-            <span class="kicker">CODE &amp; DOCUMENTATION</span>
-            <h2 id="projects-code-heading">Explore the work on GitHub.</h2>
-            <p>Three public research-code packages, including an independent empirical-finance reconstruction. Group authorship and model limitations remain explicit.</p>
-          </div>
-          <div class="projects-repo-actions">
-            <a class="button button-outline" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
-            <a class="text-link" href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Pipeline modelling · Python and tests ↗</a>
-            <a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Fractional oscillator · Code and numerical tests ↗</a>
-            <a class="text-link" href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Empirical finance · Public Python package and tests ↗</a>
-            <a class="text-link" href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Empirical finance · Group methods and verified findings ↗</a>
-          </div>
+
+      <section class="shell academic-project-thesis" aria-labelledby="projects-thesis-title">
+        <div class="academic-project-heading">
+          <p class="academic-project-context">Bachelor's thesis · Utrecht University · 2025</p>
+          <h2 id="projects-thesis-title">The Fractional Harmonic Oscillator</h2>
         </div>
+        <p>My thesis investigated how fractional derivatives change the behaviour of oscillators, combining analytical techniques with numerical methods. The <a href="#research">Research page</a> contains the mathematical model, computed figures and interpretation.</p>
+        <p><a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View the reproducible numerical code</a></p>
       </section>
     </article>
 
     <!-- PAGE 3: RESEARCH -->
-    <article class="page" data-page="research" id="research" aria-labelledby="research-title" hidden>
-
-      <section class="shell explore-hero" aria-label="Research introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> PORTFOLIO / RESEARCH</div>
-            <h1 id="research-title">Mathematics<br><em>of memory.</em></h1>
-          </div>
-          <div class="explore-hero-side"><p>How does an oscillator change when its present depends on its past? My mathematics thesis explored fractional differential equations through analytical and numerical methods.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>FRACTIONAL CALCULUS / DYNAMICAL SYSTEMS / COMPUTATION</span><span>02 / RESEARCH</span></div>
-      </section>
-      <section class="shell section-pad"><div class="research-document thesis-document">
-<aside class="document-index thesis-index"><span class="meta">BACHELOR'S THESIS / 2025</span><div class="status-tag">COMPLETED ACADEMIC PROJECT</div><div class="document-steps"><span>Utrecht University</span><span>BSc Mathematics</span><span>Supervisor: Paul Zegeling</span><span>Analysis · Simulation · Dynamical systems</span></div><p class="small-copy">Mathematical models and simulations; not calibrated to empirical measurements or published as a peer-reviewed paper.</p><a class="text-link" href="https://webspace.science.uu.nl/~zegel101/STUDENTEN.html" target="_blank" rel="noopener noreferrer">University research listing ↗</a></aside>
-<div class="document-body thesis-main"><span class="kicker">FRACTIONAL DIFFERENTIAL EQUATIONS</span><h2>The Fractional Harmonic Oscillator: <em>Analysis and Computations</em></h2>
+    <article class="page academic-research" data-page="research" id="research" aria-labelledby="research-title" hidden>
+      <header class="shell academic-page-intro">
+        <h1 id="research-title">Research</h1>
+        <p>My work includes fractional differential equations, numerical modelling and empirical financial analysis.</p>
+      </header>
+      <section class="shell academic-research-thesis" aria-labelledby="research-thesis-title">
+        <header class="academic-research-thesis-heading">
+          <p class="academic-research-context">Bachelor's thesis · Utrecht University · 2025</p>
+          <h2 id="research-thesis-title">The Fractional Harmonic Oscillator: Analysis and Computations</h2>
+          <p class="academic-research-byline">Supervised by Paul Zegeling · BSc Mathematics</p>
+          <p class="academic-research-credentials"><a href="https://webspace.science.uu.nl/~zegel101/STUDENTEN.html" target="_blank" rel="noopener noreferrer">University research listing</a> · <a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Numerical code</a></p>
+        </header>
+        <div class="academic-thesis-article thesis-main">
 <p class="lead">Classical differential equations use integer-order derivatives. Fractional calculus extends differentiation to noninteger orders, allowing dynamical models to incorporate memory. My thesis examined how this affects oscillations, decay and phase-space behaviour.</p>
-<div class="thesis-research-question"><span class="meta">RESEARCH QUESTION</span><p>How can fractional differential equations model the fractional harmonic oscillator, and what are the implications for accuracy, stability and physical interpretation?</p></div>
-<div class="thesis-subsection"><span class="meta">01 / MATHEMATICAL MODEL</span><h3>From classical motion to fractional memory</h3></div>
+<div class="thesis-research-question"><h3>Research question</h3><p>How can fractional differential equations model the fractional harmonic oscillator, and what are the implications for accuracy, stability and physical interpretation?</p></div>
+<h3 class="academic-article-subheading">From classical motion to fractional memory</h3>
 <p>In the simple oscillator, the ordinary second derivative is replaced by the Caputo derivative of order α. For 1 &lt; α ≤ 2, the model retains familiar initial conditions for displacement and velocity.</p>
 <div class="thesis-equation" role="img" aria-label="Caputo derivative of order alpha of x of t plus omega squared times x of t equals zero"><span><sup>C</sup>D<sup>α</sup>x(t) + ω<sup>2</sup>x(t) = 0</span><small>1 &lt; α ≤ 2 · x(0) = 1 · x′(0) = 0 · ω = 1 in the figures</small></div>
 <p>At α = 2, the classical harmonic oscillator is recovered. For noninteger orders, the derivative depends on previous values of the system, changing its response even without a separate damping term.</p>
 <figure class="thesis-figure"><img src="assets/research/01_fractional_oscillator_time.svg" alt="Computed displacement over time for fractional orders alpha equal to 1.2, 1.5, 1.8, and classical order 2; the classical system continues to oscillate with constant amplitude." width="960" height="420" loading="lazy"><figcaption><strong>Figure 01 — Displacement over time.</strong> Calculated solutions for four fractional orders. The classical case remains periodic; the fractional cases display order-dependent decay.</figcaption></figure>
-<div class="thesis-subsection"><span class="meta">02 / EXACT ANALYTICAL SOLUTION</span><h3>The Mittag-Leffler connection</h3></div>
+<h3 class="academic-article-subheading">The Mittag-Leffler connection</h3>
 <p>The thesis uses Laplace transforms and Mittag-Leffler functions to construct exact solutions in tractable linear cases. For the illustrated initial conditions, the solution is:</p>
 <div class="thesis-equation" role="img" aria-label="x of t equals Mittag-Leffler E alpha comma one of minus omega squared t raised to alpha"><span>x(t) = E<sub>α,1</sub>(−ω<sup>2</sup>t<sup>α</sup>)</span><small>For arbitrary initial values, a second term involving t E<sub>α,2</sub> is needed.</small></div>
 <p>When α = 2, this expression becomes cos(ωt). Analytical solutions offer a benchmark for testing numerical approximations and interpreting the nonclassical dynamics.</p>
 <figure class="thesis-figure"><img src="assets/research/02_phase_portraits.svg" alt="Position velocity trajectory plots for fractional order 1.2, fractional order 1.8, and classical order 2; trajectories contract toward the origin in the fractional cases." width="1020" height="365" loading="lazy"><figcaption><strong>Figure 02 — Position–velocity projections.</strong> Classical motion follows a closed orbit; the illustrated fractional solutions approach equilibrium. Because the system has memory, this projection is not a complete state-space description.</figcaption></figure>
-<div class="thesis-subsection"><span class="meta">03 / EXPLAINING THE MEMORY EFFECT</span><h3>Why earlier motion still matters</h3></div>
+<h3 class="academic-article-subheading">Why earlier motion still matters</h3>
 <p>For 1 &lt; α &lt; 2, the Caputo derivative integrates past acceleration with a power-law kernel. Its dependence on the entire earlier interval is the mathematical reason these models are described as nonlocal.</p>
 <figure class="thesis-figure"><img src="assets/research/03_caputo_memory_kernel.svg" alt="Caputo power-law memory weights for fractional orders 1.2, 1.5, and 1.8, against elapsed time lag." width="960" height="410" loading="lazy"><figcaption><strong>Figure 03 — The memory kernel.</strong> K<sub>α</sub>(u) = u<sup>1−α</sup>/Γ(2−α), with lag u &gt; 0. This is a kernel illustration, not measured data or an oscillator trajectory.</figcaption></figure>
-<div class="thesis-subsection"><span class="meta">04 / ANALYTICAL & NUMERICAL METHODS</span><h3>From proof techniques to simulations</h3></div>
+<h3 class="academic-article-subheading">From proof techniques to simulations</h3>
 <div class="research-method-grid thesis-methods"><div><h3>Analytical methods</h3><p>Laplace transforms, Mittag-Leffler functions and fractional power series for solution construction and limiting-case analysis.</p></div><div><h3>Numerical methods</h3><p>L1 and L2 weighted-difference schemes for approximating Caputo derivatives; comparisons of simulated trajectories.</p></div><div><h3>Oscillator models</h3><p>Simple, nonlinear, damped and periodically driven fractional oscillators, including changes in the derivative orders.</p></div><div><h3>Further directions</h3><p>The thesis outlines potential fractional extensions of Van der Pol and Lotka–Volterra systems; these extensions were not completed in the thesis.</p></div></div>
-<p class="thesis-code-link"><a class="button button-outline" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View the reproducible thesis code on GitHub ↗</a></p>
-<div class="thesis-takeaway"><span class="meta">RESEARCH SKILLS</span><p>Mathematical modelling, special functions, Laplace transforms, numerical discretization, scientific Python, and the interpretation of computational results.</p></div>
+<p class="thesis-code-link"><a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View the reproducible thesis code on GitHub ↗</a></p>
+<div class="thesis-takeaway"><h3>Methods and skills</h3><p>Mathematical modelling, special functions, Laplace transforms, numerical discretization, scientific Python, and the interpretation of computational results.</p></div>
 <p class="thesis-source">Figures on this page were newly computed from the simple fractional oscillator and Caputo kernel formulas discussed in the 2025 thesis. They are illustrative model outputs, not empirical datasets. The thesis manuscript contains some formula and caption inconsistencies; the figures use the stated Caputo initial-value problem.</p>
-</div></div></section>
-<section class="shell section-pad section-divider"><div class="section-heading"><div><span class="kicker">ONGOING MSC WORK / FINANCIAL ECONOMETRICS</span><h2>Research in financial data</h2></div></div><div class="split-feature"><figure class="research-finance-figure"><div class="research-finance-figure-label"><span>EMPIRICAL FINANCE / MSC GROUP STUDY</span><span>2026</span></div><img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison between CAPM and Fama–French five-factor regressions for five industry portfolios."><figcaption>Computed regression results · Historical industry returns · Not a trading backtest</figcaption></figure><div class="research-finance-copy"><span class="meta">FINANCIAL ECONOMETRICS / MODEL VALIDATION</span><h3>Industry returns and factor-model testing</h3><p>In an MSc group study, we compared CAPM and Fama–French factor models across five U.S. industry portfolios. The figure shows improved adjusted R² under the five-factor model; this does not imply that all pricing errors disappear.</p><p>My ongoing work focuses on reproducible Python analysis, robust inference, machine learning and the reliability of backtesting.</p><p class="small-copy">The figure presents historical, in-sample results from the group analysis, not a validated investment strategy.</p><a href="#projects" class="text-link">Explore the empirical study ↗</a> <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" class="text-link" target="_blank" rel="noopener noreferrer">Review robustness results ↗</a></div></div></section>
-</article>
-
-<!-- PAGE 4: EXPLORING & READING (legacy #engineering link retained) -->
-    <article class="page" data-page="engineering" id="engineering" aria-labelledby="engineering-title" hidden>
-      
-      <section class="shell explore-hero" aria-label="Exploring and Reading introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> EXPLORING &amp; READING</div>
-            <h1 id="engineering-title">In progress,<br><em>in context.</em></h1>
-          </div>
-          <div class="explore-hero-side"><p>The projects I am developing, research papers that inform my work, and the mathematical methods I am studying in quantitative finance.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>RESEARCH / READING / IMPLEMENTATION</span><span>03 / EXPLORING &amp; READING</span></div>
-      </section>
-      <section class="shell section-pad now-projects" aria-labelledby="now-projects-title">
-        <div class="section-heading"><div><span class="kicker">01 / WORK IN PROGRESS</span><h2 id="now-projects-title">Current research &amp; code</h2></div><span class="meta">MODEL / TEST / REPRODUCE</span></div>
-        <div class="now-project-grid">
-          <article class="now-project-card">
-            <span class="meta">FINANCIAL ECONOMETRICS / REPRODUCTION</span>
-            <h3>Empirical asset pricing</h3>
-            <p>An independent Python pipeline tests CAPM, FF5, HAC inference and GMM on public data. New subperiod and walk-forward checks show why in-sample fit is not the same as reliable prediction. Original-report comparisons remain open.</p>
-            <div class="now-project-foot"><a class="text-link" href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">View Python &amp; tests <span aria-hidden="true">↗</span></a> <a class="text-link" href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness results <span aria-hidden="true">↗</span></a></div>
-          </article>
-          <article class="now-project-card">
-            <span class="meta">MATHEMATICAL FINANCE / SCIENTIFIC PYTHON</span>
-            <h3>Fractional harmonic oscillator</h3>
-            <p>Maintaining a reproducible remake of my mathematics thesis code, connecting Mittag-Leffler solutions, fractional derivatives and numerical experiments.</p>
-            <div class="now-project-foot"><a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a></div>
-          </article>
-          <article class="now-project-card">
-            <span class="meta">MATHEMATICAL MODELLING / VALIDATION</span>
-            <h3>Two-phase flow modelling</h3>
-            <p>Refining public, data-free simulations of pipeline displacement and uncertainty. The examples test numerical behaviour and conservation, not predictive accuracy against company measurements.</p>
-            <div class="now-project-foot"><a class="text-link" href="#projects">See the case study <span aria-hidden="true">↗</span></a></div>
-          </article>
         </div>
       </section>
+      <section class="shell academic-research-finance" aria-labelledby="research-finance-title">
+        <header class="academic-research-finance-heading">
+          <h2 id="research-finance-title">Empirical finance</h2>
+          <p>MSc group research on industry returns and factor-model testing.</p>
+        </header>
+        <div class="split-feature"><figure class="research-finance-figure"><div class="research-finance-figure-label"><span>EMPIRICAL FINANCE / MSC GROUP STUDY</span><span>2026</span></div><img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison between CAPM and Fama–French five-factor regressions for five industry portfolios."><figcaption>Computed regression results · Historical industry returns · Not a trading backtest</figcaption></figure><div class="research-finance-copy"><span class="meta">FINANCIAL ECONOMETRICS / MODEL VALIDATION</span><h3>Industry returns and factor-model testing</h3><p>In an MSc group study, we compared CAPM and Fama–French factor models across five U.S. industry portfolios. The figure shows improved adjusted R² under the five-factor model; this does not imply that all pricing errors disappear.</p><p>My ongoing work focuses on reproducible Python analysis, robust inference, machine learning and the reliability of backtesting.</p><p class="small-copy">The figure presents historical, in-sample results from the group analysis, not a validated investment strategy.</p><a href="#projects" class="text-link">Explore the empirical study ↗</a> <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" class="text-link" target="_blank" rel="noopener noreferrer">Review robustness results ↗</a></div></div>
+      </section>
+    </article>
 
-      <div class="explore-reading-band">
-        <section class="shell section-pad now-reading" aria-labelledby="reading-title">
-          <div class="section-heading reading-heading">
-            <div><span class="kicker">02 / READING DESK</span><h2 id="reading-title">Most recent <em>readings.</em></h2></div>
-            <p>Browse methods by research area, then explore the publication and its connection to a project. Reading progress will be added when confirmed.</p>
-          </div>
-          <div class="reading-filters" data-paper-filters role="group" aria-label="Filter research papers by topic"></div>
-          <noscript><p class="now-reading-disclaimer">The interactive carousel requires JavaScript. The <a href="data/reading-list.json">paper bibliography</a> remains available.</p></noscript>
-          <div class="reading-carousel" data-paper-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Selected research papers">
-            <div class="reading-carousel-top">
-              <span class="meta">RESEARCH NOTES / SELECTED LITERATURE</span>
-              <div class="reading-controls"><span class="reading-counter" data-paper-count aria-live="polite">— / —</span><button type="button" class="reading-control" data-paper-prev aria-label="Previous research paper" disabled>←</button><button type="button" class="reading-control" data-paper-next aria-label="Next research paper" disabled>→</button></div>
+    <!-- PAGE 4: EXPLORING & READING (legacy #engineering link retained) -->
+    <article class="page academic-exploring" data-page="engineering" id="engineering" aria-labelledby="engineering-title" hidden>
+      <header class="shell academic-page-intro academic-exploring-intro">
+        <h1 id="engineering-title">Exploring &amp; Reading</h1>
+        <p>Current projects, papers related to my work and mathematical methods I am studying.</p>
+      </header>
+
+      <section class="shell academic-exploring-section" aria-labelledby="now-projects-title">
+        <h2 id="now-projects-title">Current projects</h2>
+        <div class="academic-current-projects">
+          <article>
+            <div class="academic-project-entry">
+              <div>
+                <h3>Empirical asset pricing</h3>
+                <p>Reproducing factor-model tests in Python, with HAC inference, GMM and out-of-sample diagnostics. The historical results do not establish a profitable trading strategy.</p>
+                <p class="academic-entry-links"><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python repository</a><a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness checks</a></p>
+              </div>
+              <span>Econometrics</span>
             </div>
-            <div class="reading-viewport"><div class="reading-track" data-paper-track><div class="reading-loading" data-paper-loading>Loading research papers…</div></div></div>
-            <div class="reading-carousel-bottom"><span class="reading-note">Custom title cards · linked to original publications</span><div class="reading-dots" data-paper-dots aria-label="Select a research paper"></div></div>
-          </div>
-          <p class="now-reading-disclaimer"><span data-paper-collection-note>Sample papers selected for their connection to current work. Reading progress has not been confirmed.</span> <a href="data/reading-list.json" class="reading-data-link">View source bibliography ↗</a></p>
-        </section>
-      </div>
-
-      <section class="shell section-pad now-learning" aria-labelledby="learning-title">
-        <div class="section-heading"><div><span class="kicker">03 / WHAT I AM LEARNING</span><h2 id="learning-title">Theory into practice.</h2></div><span class="meta">MSC QUANTITATIVE FINANCE / TILBURG</span></div>
-        <div class="now-learning-grid">
-          <div><span class="meta">01 / ECONOMETRICS</span><h3>Panel data &amp; identification</h3><p>Fixed and random effects, strict exogeneity, dynamic panels and moment conditions.</p></div>
-          <div><span class="meta">02 / ASSET PRICING</span><h3>Factor models &amp; SDFs</h3><p>Risk premia, pricing restrictions, GMM estimation and the meaning of statistical non-rejection.</p></div>
-          <div><span class="meta">03 / EMPIRICAL TESTING</span><h3>Machine learning &amp; backtesting</h3><p>Out-of-sample validation, multiple testing, leakage and the reliability of discovered patterns.</p></div>
-          <div><span class="meta">04 / IMPLEMENTATION</span><h3>Reproducible Python</h3><p>Data pipelines, numerical checks, simulations and code that makes empirical results easier to inspect.</p></div>
+          </article>
+          <article>
+            <div class="academic-project-entry">
+              <div>
+                <h3>Fractional harmonic oscillator</h3>
+                <p>Maintaining a reproducible remake of my thesis calculations, including Mittag-Leffler solutions and numerical experiments for fractional-order systems.</p>
+                <p class="academic-entry-links"><a href="#research">Thesis explanation</a><a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Numerical code</a></p>
+              </div>
+              <span>Mathematics</span>
+            </div>
+          </article>
+          <article>
+            <div class="academic-project-entry">
+              <div>
+                <h3>Two-phase flow modelling</h3>
+                <p>Refining public simulations of pipeline displacement, conservation and uncertainty. The examples use hypothetical inputs; they do not establish predictive accuracy against company measurements.</p>
+                <p class="academic-entry-links"><a href="#projects">Case study</a><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public code</a></p>
+              </div>
+              <span>Applied modelling</span>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="shell now-code" aria-labelledby="now-code-title">
-        <div class="now-code-panel">
-          <div><span class="kicker">04 / GITHUB &amp; REPRODUCIBILITY</span><h2 id="now-code-title">From reading to working code.</h2><p>Research is most useful when assumptions, numerical choices and results can be inspected. My public repositories document selected experiments and reproductions.</p></div>
-          <div class="now-code-actions"><a class="button button-outline" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Fractional oscillator code ↗</a></div>
+      <section class="shell academic-exploring-section academic-literature" aria-labelledby="reading-title">
+        <div class="academic-literature-header">
+          <h2 id="reading-title">Most recent readings</h2>
+          <p>Selected references connected to my projects. Reading progress has not been confirmed; the list should not be interpreted as a record of completed reading.</p>
         </div>
+        <div class="academic-literature-library" data-paper-library>
+          <div class="academic-literature-filters" data-paper-filters role="group" aria-label="Filter papers by research area"></div>
+          <p class="academic-literature-count" data-paper-count aria-live="polite" hidden></p>
+          <ol class="academic-literature-list" data-paper-list aria-label="Filtered research bibliography" hidden></ol>
+          <div class="academic-literature-fallback" data-paper-fallback>
+            <ol class="academic-literature-list" aria-label="Selected research bibliography">
+              <li><a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Large Sample Properties of Generalized Method of Moments Estimators</a><span class="paper-citation">Lars Peter Hansen (1982) · Econometrica</span><p>Provides the theoretical basis for two-step GMM and Hansen J-tests used to evaluate the CAPM stochastic discount factor.</p></li>
+              <li><a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix</a><span class="paper-citation">Whitney K. Newey &amp; Kenneth D. West (1987) · Econometrica</span><p>Clarifies why conventional OLS inference can be misleading for financial returns and how HAC errors change alpha tests.</p></li>
+              <li><a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">A Five-Factor Asset Pricing Model</a><span class="paper-citation">Eugene F. Fama &amp; Kenneth R. French (2015) · Journal of Financial Economics</span><p>Provides the five-factor benchmark compared with CAPM and clarifies why stronger regression fit need not mean smaller pricing errors.</p></li>
+              <li><a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">On Persistence in Mutual Fund Performance</a><span class="paper-citation">Mark M. Carhart (1997) · The Journal of Finance</span><p>Motivates examining momentum as a missing dimension in models that otherwise explain significant return variation.</p></li>
+              <li><a href="https://doi.org/10.2307/2297968" target="_blank" rel="noopener noreferrer">Some Tests of Specification for Panel Data: Monte Carlo Evidence and an Application to Employment Equations</a><span class="paper-citation">Manuel Arellano &amp; Stephen Bond (1991) · The Review of Economic Studies</span><p>Connects panel instruments and moment restrictions to the principles of consistent GMM estimation.</p></li>
+              <li><a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality</a><span class="paper-citation">David H. Bailey &amp; Marcos López de Prado (2014) · The Journal of Portfolio Management</span><p>Provides a framework for assessing model selection and overfitting before interpreting historical signals as useful strategies.</p></li>
+            </ol>
+          </div>
+          <p class="academic-literature-note"><span data-paper-collection-note>These are example references related to the projects and methods described here. Reading progress and project-specific papers will be added after confirmation.</span> <a href="data/reading-list.json">Bibliography data</a></p>
+        </div>
+      </section>
+
+      <section class="shell academic-exploring-section academic-current-learning" aria-labelledby="learning-title">
+        <h2 id="learning-title">Currently studying</h2>
+        <dl class="academic-learning-list">
+          <div><dt>Panel data and identification</dt><dd>Fixed and random effects, strict exogeneity, dynamic panels and moment restrictions.</dd></div>
+          <div><dt>Asset pricing</dt><dd>Risk premia, factor models, stochastic discount factors and GMM estimation.</dd></div>
+          <div><dt>Machine learning and backtesting</dt><dd>Out-of-sample validation, leakage, multiple testing and overfitting.</dd></div>
+          <div><dt>Scientific Python</dt><dd>Reproducible data pipelines, numerical simulations and verification checks.</dd></div>
+        </dl>
+        <p class="academic-current-learning-outro">Selected implementations and research notes are available on <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       </section>
     </article>
 
     <!-- PAGE 5: ABOUT -->
-    <article class="page" data-page="about" id="about" aria-labelledby="about-title" hidden>
-      
-      <section class="shell explore-hero" aria-label="About introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> ABOUT / KELVIN SCHOUTEN</div>
-            <h1 id="about-title">Curiosity,<br>mathematics <em>and</em><br><em>research.</em></h1>
-          </div>
-          <div class="explore-hero-side"><p>I enjoy understanding how things work, translating that understanding into mathematical models and testing those models against evidence.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>CURIOSITY / MATHEMATICS / RESEARCH</span><span>04 / ABOUT</span></div>
-      </section>
-      <section class="shell section-pad about-story-section" aria-labelledby="about-story-title">
-        <div class="about-story-label"><span class="kicker">01 / BACKGROUND</span></div>
-        <div class="about-story-grid">
-          <div class="about-copy">
-            <h2 id="about-story-title">Learning through theory <em>and practice.</em></h2>
-            <p class="about-first-paragraph">I have always wanted to understand how things work and why. That curiosity led me to mathematics. My interest in financial markets began through conversations with my father about the stock market and how economic developments could affect his business. Wanting to understand those connections more deeply led me from a BSc in Mathematics at Utrecht University to an MSc in Quantitative Finance at Tilburg University.</p>
-            <p>During a six-month project for a company in the food industry, I independently investigated two-phase flow in industrial pipelines. I studied scientific literature, adapted published mathematical models to the company's operating conditions, and used numerical methods and Monte Carlo simulations to examine uncertainty. Comparing predictions with experimental measurements taught me how important it is to understand where a model does and does not reflect reality.</p>
-            <p>My bachelor's research explored periodicity and non-periodicity in fractional-order differential systems. I have also analysed educational data as a research assistant and taught mathematics and physics as a tutor. Now, through my master's, I am working with financial data and econometric methods, including Fama–French factors and industry portfolio returns in Python. I am particularly interested in factor investing, machine learning and the reliability of backtesting.</p>
-            <a href="#engineering" class="text-link">Explore what I am learning ↗</a>
-          </div>
-          <aside class="about-thesis" aria-label="Research approach">
-            <span class="about-thesis-number">THE APPROACH</span>
-            <div class="about-thesis-mark" aria-hidden="true">“</div>
-            <blockquote>Understand the assumptions. <em>Test against evidence.</em></blockquote>
-            <div class="about-thesis-rule"></div>
-            <p>Whether the problem comes from differential equations, industrial systems or financial data, I want to know what a model explains, what it assumes and where it stops working.</p>
-            <div class="about-thesis-tags"><span>01 / FRAME</span><span>02 / VALIDATE</span><span>03 / INTERPRET</span></div>
-          </aside>
-        </div>
-      </section>
+    <article class="page academic-about" data-page="about" id="about" aria-labelledby="about-title" hidden>
+      <header class="shell academic-page-intro">
+        <h1 id="about-title">About</h1>
+        <p>Background, education and research experience.</p>
+      </header>
 
-      <section class="about-work-band" aria-labelledby="about-experience-heading">
-        <div class="shell about-work-inner">
-          <div class="section-heading">
-            <div><span class="kicker">02 / SELECTED EXPERIENCE</span><h2 id="about-experience-heading">Research across <em>different fields.</em></h2></div>
-            <p class="about-section-intro">Different problems, but the same emphasis on clear assumptions, numerical methods and careful interpretation.</p>
-          </div>
-          <div class="about-experience-grid">
-            <a class="about-experience-card" href="#projects">
-              <div class="about-experience-top"><span>APPLIED RESEARCH</span><span>01</span></div>
-              <div class="about-card-glyph about-card-glyph-flow" aria-hidden="true"><i></i><i></i><i></i><b>→</b></div>
-              <h3>Industrial <em>modelling.</em></h3>
-              <p>Adapted published two-phase-flow models, investigated uncertainty with Monte Carlo simulation and compared predictions with experimental measurements.</p>
-              <span class="about-card-link">View project <span aria-hidden="true">↗</span></span>
-            </a>
-            <a class="about-experience-card" href="#research">
-              <div class="about-experience-top"><span>ACADEMIC MATHEMATICS</span><span>02</span></div>
-              <div class="about-card-glyph about-card-glyph-math" aria-hidden="true">D<sup>α</sup>x(t)</div>
-              <h3>Fractional <em>systems.</em></h3>
-              <p>Studied periodicity and non-periodicity in fractional-order differential systems through analytical and computational methods.</p>
-              <span class="about-card-link">View research <span aria-hidden="true">↗</span></span>
-            </a>
-            <a class="about-experience-card" href="#engineering">
-              <div class="about-experience-top"><span>QUANTITATIVE FINANCE</span><span>03</span></div>
-              <div class="about-card-glyph about-card-glyph-finance" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-              <h3>Empirical <em>finance.</em></h3>
-              <p>Working with Fama–French factors, industry returns and econometric tests in Python, with an interest in robustness and interpretation.</p>
-              <span class="about-card-link">Exploring &amp; Reading <span aria-hidden="true">↗</span></span>
-            </a>
-          </div>
-        </div>
-      </section>
+      <div class="shell academic-about-content">
+        <section class="academic-about-section academic-about-biography" aria-labelledby="about-story-title">
+          <h2 id="about-story-title">Biography</h2>
+          <p>I studied Mathematics at Utrecht University and am currently completing an MSc in Quantitative Finance at Tilburg University. I have always been interested in understanding how things work. Conversations with my father about financial markets and their effects on his business prompted me to look more closely at the mathematics behind economic decisions.</p>
+          <p>In a six-month industrial project, I developed and adapted mathematical models for two-phase flow in pipelines. I used numerical simulations and Monte Carlo methods to study uncertain quantities, and compared model predictions with available measurements.</p>
+          <p>My bachelor's thesis examined periodicity and non-periodicity in fractional differential systems. More recently, I have been applying statistical methods to financial return data, including factor-model regressions and questions about robust inference and backtesting.</p>
+        </section>
 
-      <section class="shell section-pad about-timeline-section" aria-labelledby="about-timeline-heading">
-        <div class="about-timeline-layout">
-          <div class="about-timeline-intro">
-            <span class="kicker">03 / EDUCATION &amp; EXPERIENCE</span>
-            <h2 id="about-timeline-heading">The path <em>so far.</em></h2>
-            <p>Academic study, independent research and teaching have shaped how I approach new questions.</p>
-          </div>
-          <div class="about-timeline-list">
-            <div class="about-timeline-event"><span class="about-timeline-date">2026 — PRESENT</span><div><span class="meta">EDUCATION</span><h3>MSc Quantitative Finance</h3><p>Tilburg University</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2026</span><div><span class="meta">EDUCATION</span><h3>BSc Mathematics</h3><p>Utrecht University</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2025</span><div><span class="meta">ACADEMIC RESEARCH</span><h3>Fractional-order differential systems</h3><p>Bachelor's research · Supervised by Paul Zegeling</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2026 · SIX MONTHS</span><div><span class="meta">INDUSTRIAL RESEARCH</span><h3>Two-phase flow modelling</h3><p>Independent company project · Simulation, uncertainty and validation</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2019</span><div><span class="meta">RESEARCH EXPERIENCE</span><h3>Research Assistant</h3><p>The Hague University of Applied Sciences · Educational data analysis</p></div></div>
-            <div class="about-timeline-event"><span class="about-timeline-date">2017 — 2025</span><div><span class="meta">TEACHING EXPERIENCE</span><h3>Mathematics &amp; Physics Tutor</h3><p>Altena College and independent tutoring</p></div></div>
-          </div>
-        </div>
-      </section>
+        <section class="academic-about-section" aria-labelledby="about-education-title">
+          <h2 id="about-education-title">Education</h2>
+          <dl class="academic-record-list">
+            <div class="academic-record">
+              <dt><strong>MSc Quantitative Finance</strong><span>Current</span></dt>
+              <dd>Tilburg University</dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>BSc Mathematics</strong><span>2026</span></dt>
+              <dd>Utrecht University</dd>
+              <dd class="academic-record-detail">Bachelor's thesis: <a href="#research">The Fractional Harmonic Oscillator: Analysis and Computations</a></dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Applied Mathematics (HBO)</strong><span>Earlier studies</span></dt>
+              <dd>Higher professional education; not completed before continuing to university mathematics.</dd>
+            </div>
+          </dl>
+        </section>
 
-      <section class="shell about-principles-section" aria-labelledby="about-principles-heading">
-        <div class="section-heading"><div><span class="kicker">04 / RESEARCH PRINCIPLES</span><h2 id="about-principles-heading">What guides <em>the process.</em></h2></div></div>
-        <div class="about-principles">
-          <div class="about-principle"><span>01 / FRAME</span><h3>Start with assumptions.</h3><p>Understand the system and formulate the right problem.</p></div>
-          <div class="about-principle"><span>02 / TEST</span><h3>Challenge the model.</h3><p>Run experiments, examine uncertainty and identify failure cases.</p></div>
-          <div class="about-principle"><span>03 / INTERPRET</span><h3>Explain the result.</h3><p>Communicate what the evidence supports, and what it does not.</p></div>
-        </div>
-      </section>
+        <section class="academic-about-section" aria-labelledby="about-timeline-heading">
+          <h2 id="about-timeline-heading">Experience</h2>
+          <dl class="academic-record-list">
+            <div class="academic-record">
+              <dt><strong>Industrial mathematical modelling</strong><span>Six-month project</span></dt>
+              <dd>Independent applied research for a company in the food industry.</dd>
+              <dd class="academic-record-detail">Two-phase pipeline flow, model adaptation, uncertainty analysis and comparison with measurements. <a href="#projects">Project details</a></dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Research Assistant</strong><span>2019</span></dt>
+              <dd>The Hague University of Applied Sciences</dd>
+              <dd class="academic-record-detail">Analysis and reporting of student performance data.</dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Mathematics and Physics Tutor</strong></dt>
+              <dd>Secondary-school tutoring, including preparation of exercises and individual explanations.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="academic-about-section academic-about-interests" aria-labelledby="about-interests-title">
+          <h2 id="about-interests-title">Research interests</h2>
+          <p>Mathematical modelling, stochastic processes, numerical methods, econometrics, asset pricing and the reliability of empirical testing. I am particularly interested in machine learning, factor models and ways of evaluating backtests without overstating what the data can show.</p>
+        </section>
+
+        <section class="academic-about-section academic-about-methods" aria-labelledby="about-methods-title">
+          <h2 id="about-methods-title">Technical methods</h2>
+          <p>Python, numerical simulation, Monte Carlo uncertainty analysis, regression methods, model validation, scientific computing and reproducible research. Selected code and project documentation are available on <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+        </section>
+      </div>
     </article>
 
-    
-    <!-- PAGE 6: CV & CONTACT -->
-    <article class="page" data-page="cv" id="cv" aria-labelledby="cv-title" hidden>
-      
-      <section class="shell explore-hero" aria-label="CV and Contact introduction">
-        <div class="explore-hero-grid">
-          <div class="explore-hero-main">
-            <div class="explore-hero-eyebrow"><span aria-hidden="true"></span> CV &amp; CONTACT / KELVIN SCHOUTEN</div>
-            <h1 id="cv-title">Mathematical thinking.<br><em>Applied research.</em></h1>
-          </div>
-          <div class="explore-hero-side"><p>A background in mathematics, experience in numerical modelling and uncertainty analysis, and a current focus on quantitative finance.</p></div>
-        </div>
-        <div class="explore-hero-footer"><span>EDUCATION / RESEARCH / TECHNICAL SKILLS</span><span>05 / CV &amp; CONTACT</span></div>
-      </section>
-      <section class="shell cv-main-section" aria-labelledby="cv-overview-title">
-        <div class="cv-section-top">
-          <div><span class="kicker">01 / CV OVERVIEW</span><h2 id="cv-overview-title">Experience, <em>at a glance.</em></h2></div>
-          <p>Selected details from my academic background and research experience. The complete CV is available as a PDF.</p>
-        </div>
-        <div class="cv-content-grid">
-          <div class="cv-paper" aria-label="Curriculum vitae summary">
-            <div class="cv-paper-heading">
-              <div><span class="cv-paper-micro">CURRICULUM VITAE</span><h3>Kelvin Schouten</h3><p>MSc Quantitative Finance · BSc Mathematics</p></div>
-              <span class="cv-paper-year">PROFILE / 2026</span>
-            </div>
-            <div class="cv-paper-section cv-profile">
-              <h4>Profile</h4>
-              <p>MSc Quantitative Finance student with a BSc in Mathematics and six months of independent industrial modelling research. Experience in numerical modelling, Monte Carlo uncertainty analysis and validation against experimental measurements.</p>
-            </div>
-            <div class="cv-paper-section">
-              <h4>Education</h4>
-              <div class="cv-entry"><div><strong>MSc Quantitative Finance</strong><span>Tilburg University</span><small>Empirical Finance · Panel Data Econometrics · Valuation &amp; Risk</small></div><time>2026 — present</time></div>
-              <div class="cv-entry"><div><strong>BSc Mathematics</strong><span>Utrecht University</span><small>Research: (Non-)periodicity in fractional-order differential systems</small></div><time>2026</time></div>
-              <div class="cv-entry cv-entry-compact"><div><strong>HBO Applied Mathematics</strong><span>Higher professional education · Not completed; continued with BSc Mathematics</span></div><time>2021</time></div>
-            </div>
-            <div class="cv-paper-section">
-              <h4>Research &amp; experience</h4>
-              <div class="cv-entry"><div><strong>Two-phase flow modelling &amp; uncertainty quantification</strong><span>Independent industrial research · Food-industry pipelines</span><small>Literature-based model adaptation, Monte Carlo uncertainty analysis, calibration and comparison with experimental measurements.</small></div><time>2026 · 6 months</time></div>
-              <div class="cv-entry"><div><strong>Empirical Finance Data Analysis</strong><span>MSc coursework · Python</span><small>Regression-based analysis of Fama–French factors and industry portfolio returns.</small></div><time>2026</time></div>
-              <div class="cv-entry"><div><strong>Research Assistant</strong><span>The Hague University of Applied Sciences</span><small>Student performance data analysis and research reporting; credited contributor to <i>Ondersteuningsnetwerken</i>.</small></div><time>2019</time></div>
-              <div class="cv-entry"><div><strong>Mathematics &amp; Physics Tutor</strong><span>Altena College and independent tutoring</span><small>Tailored secondary-school mathematics and physics instruction.</small></div><time>2017 — 2025</time></div>
-            </div>
-            <div class="cv-paper-section cv-skills-section">
-              <h4>Technical skills</h4>
-              <div class="cv-skill-rows">
-                <div><span>PROGRAMMING</span><p>Python · Jupyter · Git · GitHub</p></div>
-                <div><span>QUANTITATIVE</span><p>Numerical modelling · Monte Carlo simulation · Parameter estimation · Uncertainty propagation · Model validation</p></div>
-                <div><span>STATISTICS</span><p>Regression analysis · Econometrics · Probability theory · Stochastic processes</p></div>
-              </div>
-            </div>
-            <div class="cv-paper-bottom"><span>DUTCH / NATIVE</span><span>ENGLISH / PROFICIENT</span></div>
-            <a class="cv-paper-open" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">Read the complete CV <span aria-hidden="true">↗</span></a>
-          </div>
-          <aside class="cv-sidebar" aria-label="Downloads and contact options">
-            <div class="cv-download-panel">
-              <span class="kicker">DOCUMENTS</span>
-              <h3>Full curriculum <em>vitae.</em></h3>
-              <p>The latest one-page English CV, including my research experience, education and technical skills.</p>
-              <a class="cv-file-link cv-file-primary" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">
-                <span class="cv-file-icon" aria-hidden="true">PDF</span><span><strong>English CV</strong><small>Open PDF document</small></span><span class="cv-file-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="cv-file-link cv-file-download" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" download="Kelvin_Schouten_CV.pdf" type="application/pdf">
-                <span class="cv-file-icon" aria-hidden="true">PDF</span><span><strong>Save a copy</strong><small>Download the current English CV</small></span><span class="cv-file-arrow" aria-hidden="true">↓</span>
-              </a>
-            </div>
-            <div class="cv-areas-panel">
-              <span class="kicker">RESEARCH AREAS</span>
-              <h3>Connecting theory <em>and evidence.</em></h3>
-              <div class="cv-area"><span>01</span><div><strong>Mathematical modelling</strong><p>Numerical methods, simulation and experimental validation.</p></div></div>
-              <div class="cv-area"><span>02</span><div><strong>Uncertainty quantification</strong><p>Monte Carlo methods, sensitivity and parameter uncertainty.</p></div></div>
-              <div class="cv-area"><span>03</span><div><strong>Empirical finance</strong><p>Financial return data, factor models and econometric analysis.</p></div></div>
-              <a href="#projects" class="text-link">Explore projects ↗</a>
-            </div>
-          </aside>
-        </div>
-      </section>
+        <!-- PAGE 6: CV & CONTACT -->
+    <article class="page academic-cv" data-page="cv" id="cv" aria-labelledby="cv-title" hidden>
+      <header class="shell academic-page-intro academic-cv-intro">
+        <h1 id="cv-title">CV &amp; Contact</h1>
+        <p>A short overview of my education, research experience and technical skills. The complete CV is available as a PDF.</p>
+      </header>
 
-      <section class="cv-contact-band" aria-labelledby="cv-contact-title">
-        <div class="shell cv-contact-grid">
-          <div class="cv-contact-intro">
-            <span class="kicker">02 / CONTACT</span>
-            <h2 id="cv-contact-title">Let's talk about <em>research.</em></h2>
-            <p>For quantitative research internships, mathematical modelling projects or a technical discussion, you can contact me directly.</p>
+      <div class="shell academic-cv-content">
+        <div class="academic-cv-download" aria-label="Curriculum vitae documents">
+          <div>
+            <h2 id="cv-overview-title">Curriculum vitae</h2>
+            <p>Kelvin Schouten · MSc Quantitative Finance · BSc Mathematics</p>
           </div>
-          <div class="cv-contact-links">
-            <a class="cv-contact-link" href="mailto:schoutenkelvin@gmail.com"><span><small>EMAIL</small><strong>schoutenkelvin@gmail.com</strong></span><span aria-hidden="true">↗</span></a>
-            <a class="cv-contact-link" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer"><span><small>GITHUB</small><strong>github.com/zorromir</strong></span><span aria-hidden="true">↗</span></a>
-            <a class="cv-contact-link cv-contact-link-pdf" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf"><span><small>CURRICULUM VITAE</small><strong>Latest CV · English PDF</strong></span><span aria-hidden="true">↗</span></a>
-            <div class="cv-contact-place"><span>BASED IN</span><strong>Dussen, Netherlands</strong></div>
+          <div class="academic-cv-download-links">
+            <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">View CV (PDF)</a>
+            <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" download="Kelvin_Schouten_CV.pdf" type="application/pdf">Download CV</a>
           </div>
         </div>
-      </section>
+
+        <section class="academic-cv-section" aria-labelledby="cv-profile-title">
+          <h2 id="cv-profile-title">Profile</h2>
+          <p>I study Quantitative Finance at Tilburg University after completing a BSc in Mathematics at Utrecht University. My experience includes six months of independent industrial modelling research, numerical simulation and Monte Carlo uncertainty analysis. I am currently applying mathematical and statistical methods to financial data.</p>
+        </section>
+
+        <section class="academic-cv-section" aria-labelledby="cv-education-title">
+          <h2 id="cv-education-title">Education</h2>
+          <dl class="academic-cv-records">
+            <div>
+              <dt><strong>MSc Quantitative Finance</strong><span>Current</span></dt>
+              <dd>Tilburg University · Empirical Finance, Panel Data Econometrics, Valuation &amp; Risk</dd>
+            </div>
+            <div>
+              <dt><strong>BSc Mathematics</strong><span>2026</span></dt>
+              <dd>Utrecht University · Bachelor's research in fractional-order differential systems</dd>
+            </div>
+            <div>
+              <dt><strong>HBO Applied Mathematics</strong></dt>
+              <dd>Earlier studies · Not completed; continued with university mathematics</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="academic-cv-section" aria-labelledby="cv-experience-title">
+          <h2 id="cv-experience-title">Research &amp; experience</h2>
+          <dl class="academic-cv-records">
+            <div>
+              <dt><strong>Industrial modelling and uncertainty quantification</strong><span>Six-month project</span></dt>
+              <dd>Independent mathematical research for a food-industry application. Adapted published two-phase-flow models, investigated uncertainty with Monte Carlo simulation and compared predictions with measurements. <a href="#projects">Case study</a></dd>
+            </div>
+            <div>
+              <dt><strong>Empirical finance analysis</strong><span>MSc coursework</span></dt>
+              <dd>Regression-based analysis of Fama–French factors and industry portfolio returns in Python. <a href="#projects">Project details</a></dd>
+            </div>
+            <div>
+              <dt><strong>Research Assistant</strong><span>2019</span></dt>
+              <dd>The Hague University of Applied Sciences · Student performance data analysis and research reporting</dd>
+            </div>
+            <div>
+              <dt><strong>Mathematics &amp; Physics Tutor</strong></dt>
+              <dd>Secondary-school tutoring and preparation of individual practice exercises</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="academic-cv-section" aria-labelledby="cv-skills-title">
+          <h2 id="cv-skills-title">Technical skills</h2>
+          <dl class="academic-cv-skills">
+            <div><dt>Programming</dt><dd>Python, Jupyter, Git, GitHub</dd></div>
+            <div><dt>Mathematical modelling</dt><dd>Numerical methods, simulations, Monte Carlo uncertainty propagation, model validation</dd></div>
+            <div><dt>Statistics &amp; finance</dt><dd>Probability, stochastic processes, econometrics, regression analysis and factor models</dd></div>
+          </dl>
+        </section>
+
+        <section class="academic-cv-section academic-cv-languages" aria-labelledby="cv-languages-title">
+          <h2 id="cv-languages-title">Languages</h2>
+          <p>Dutch (native) · English (proficient)</p>
+        </section>
+
+        <section class="academic-cv-section academic-cv-contact" aria-labelledby="cv-contact-title">
+          <h2 id="cv-contact-title">Contact</h2>
+          <p>For quantitative research internships, research collaborations or questions about my work:</p>
+          <dl class="academic-cv-contact-list">
+            <div><dt>Email</dt><dd><a href="mailto:schoutenkelvin@gmail.com">schoutenkelvin@gmail.com</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">github.com/zorromir</a></dd></div>
+            <div><dt>Location</dt><dd>Dussen, Netherlands</dd></div>
+          </dl>
+        </section>
+      </div>
     </article>
   </main>
 
-  <section class="closing-cta"><div class="shell closing-grid"><div><span class="kicker">A PORTFOLIO THAT GROWS WITH THE WORK</span><h2>From ideas to <em>evidence.</em></h2></div><div><p>Projects, research and the questions worth investigating next.</p><a href="mailto:schoutenkelvin@gmail.com" class="button button-light">Get in touch ↗</a></div></div></section>
-  <footer class="site-footer"><div class="shell footer-grid"><div><b>KS<span>.</span></b><p>Kelvin Schouten · Quantitative Finance</p></div><div><a href="#home">Back to home ↑</a><span>Research · Modelling · Econometrics</span></div></div></footer>
+
+  <footer class="site-footer"><div class="shell footer-grid"><div><p>© 2026 Kelvin Schouten · Mathematics &amp; Quantitative Finance</p></div><div><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:schoutenkelvin@gmail.com">Email</a></div></div></footer>
 </body>
 </html>
