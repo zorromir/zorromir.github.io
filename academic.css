@@ -769,3 +769,219 @@ body { background: var(--bg); color: var(--ink); font-family: Georgia, "Times Ne
   #projects .academic-industrial-project .industrial-gallery-copy h4,
   #projects .academic-industrial-project .industrial-stage-intro h4 { font-size: 21px; }
 }
+
+
+/*
+ * Phase 6 — Exploring & Reading.
+ * A text-first working notebook and filterable bibliography, without cover art,
+ * carousel controls, large coloured bands or repeated feature-card containers.
+ */
+#engineering.academic-exploring { overflow: visible; }
+#engineering .academic-exploring-intro,
+#engineering .academic-exploring-section { max-width: 920px; }
+#engineering .academic-exploring-section {
+  padding-top: 35px;
+  padding-bottom: 37px;
+  border-bottom: 1px solid var(--line);
+}
+#engineering .academic-exploring-section:last-child {
+  border-bottom: 0;
+  padding-bottom: 66px;
+}
+#engineering .academic-exploring-section > h2,
+#engineering .academic-literature-header h2 {
+  color: var(--ink);
+  font: 400 clamp(24px, 2.6vw, 30px)/1.28 Georgia, "Times New Roman", serif;
+  letter-spacing: -.02em;
+  margin: 0 0 16px;
+}
+#engineering .academic-current-projects { border-top: 1px solid var(--line); }
+#engineering .academic-current-projects > article {
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+}
+#engineering .academic-current-projects > article:last-child { border-bottom: 0; }
+#engineering .academic-project-entry {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 160px;
+  gap: 14px 30px;
+  padding: 19px 0 18px;
+}
+#engineering .academic-project-entry h3 {
+  font: 400 21px/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+#engineering .academic-project-entry p {
+  max-width: 72ch;
+  color: var(--ink-dim);
+  font: 14px/1.72 Georgia, "Times New Roman", serif;
+  margin: 0 0 9px;
+}
+#engineering .academic-project-entry > span {
+  font: 12px/1.7 Georgia, "Times New Roman", serif;
+  color: var(--muted);
+  text-align: right;
+  padding-top: 4px;
+}
+#engineering .academic-entry-links {
+  display: flex; flex-wrap: wrap; gap: 7px 20px;
+  margin-bottom: 0 !important;
+}
+#engineering .academic-entry-links a,
+#engineering .academic-paper-entry a,
+#engineering .academic-literature-note a,
+#engineering .academic-current-learning-outro a,
+#engineering .academic-literature-fallback a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #a8c5b7;
+}
+#engineering .academic-entry-links a:hover,
+#engineering .academic-paper-entry a:hover,
+#engineering .academic-literature-note a:hover { text-decoration-color: currentColor; }
+
+/* The most recent readings heading is retained, but the source explicitly
+   distinguishes sample references from a confirmed completed-reading record. */
+#engineering .academic-literature-header > p {
+  max-width: 73ch;
+  color: var(--muted);
+  font: 13.5px/1.7 Georgia, "Times New Roman", serif;
+  margin: 0 0 18px;
+}
+#engineering .academic-literature-filters {
+  display: flex; flex-wrap: wrap; gap: 8px 17px;
+  border-top: 1px solid var(--line);
+  padding: 15px 0 11px;
+}
+#engineering .academic-paper-filter {
+  cursor: pointer;
+  color: var(--ink-dim);
+  font: 13px/1.5 Georgia, "Times New Roman", serif;
+  background: transparent; border: 0; border-bottom: 1px solid transparent;
+  border-radius: 0; padding: 3px 0 6px;
+  min-height: 36px;
+}
+#engineering .academic-paper-filter:hover,
+#engineering .academic-paper-filter.is-active,
+#engineering .academic-paper-filter[aria-pressed="true"] {
+  color: var(--teal); border-bottom-color: var(--teal);
+}
+#engineering .academic-literature-count {
+  color: var(--muted);
+  font: 12px/1.5 Georgia, "Times New Roman", serif;
+  margin: 0 0 9px;
+}
+#engineering .academic-literature-list {
+  margin: 0; padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+#engineering .academic-literature-list > li {
+  border-bottom: 1px solid var(--line);
+  padding: 19px 0 20px;
+}
+#engineering .academic-paper-title {
+  font: 400 19px/1.38 Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  margin: 0 0 4px;
+}
+#engineering .academic-literature-fallback li > a {
+  display: inline-block;
+  font: 400 19px/1.38 Georgia, "Times New Roman", serif;
+  margin-bottom: 4px;
+}
+#engineering .academic-paper-citation,
+#engineering .paper-citation {
+  color: var(--muted);
+  display: block;
+  font: 12.5px/1.65 Georgia, "Times New Roman", serif;
+  margin: 0 0 9px;
+}
+#engineering .academic-paper-relevance,
+#engineering .academic-literature-fallback li > p {
+  max-width: 76ch;
+  color: var(--ink-dim);
+  font: 13.5px/1.72 Georgia, "Times New Roman", serif;
+  margin: 0 0 10px;
+}
+#engineering .academic-paper-detail {
+  margin: 0; max-width: 76ch;
+}
+#engineering .academic-paper-detail summary {
+  display: list-item;
+  width: fit-content;
+  cursor: pointer;
+  color: var(--teal);
+  font: 12.5px/1.55 Georgia, "Times New Roman", serif;
+  padding: 2px 0;
+}
+#engineering .academic-paper-detail p {
+  font: 13px/1.7 Georgia, "Times New Roman", serif;
+  color: var(--ink-dim);
+  padding: 7px 0 0;
+  margin: 0;
+}
+#engineering .academic-paper-related,
+#engineering .academic-paper-status {
+  color: var(--muted);
+  font: 12px/1.6 Georgia, "Times New Roman", serif;
+  margin: 10px 0 0;
+}
+#engineering .academic-paper-related > span { margin-right: 2px; }
+#engineering .academic-literature-note {
+  max-width: 77ch;
+  color: var(--muted);
+  font: 12px/1.7 Georgia, "Times New Roman", serif;
+  margin: 13px 0 0;
+}
+#engineering .academic-literature-note a { margin-left: 5px; }
+
+/* Learning notes: modest two-column definitions, no cards or numbered badges. */
+#engineering .academic-learning-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  column-gap: 33px;
+}
+#engineering .academic-learning-list > div {
+  border-top: 1px solid var(--line);
+  padding: 15px 0 17px;
+  min-width: 0;
+}
+#engineering .academic-learning-list dt {
+  font: 600 15px/1.5 Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+#engineering .academic-learning-list dd {
+  margin: 0;
+  color: var(--ink-dim);
+  font: 13.5px/1.68 Georgia, "Times New Roman", serif;
+}
+#engineering .academic-current-learning-outro {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font: 13px/1.65 Georgia, "Times New Roman", serif;
+}
+@media (max-width: 810px) {
+  #engineering .academic-project-entry { grid-template-columns: minmax(0,1fr) 125px; }
+}
+@media (max-width: 620px) {
+  #engineering .academic-exploring-section { padding-top: 26px; padding-bottom: 29px; }
+  #engineering .academic-exploring-section:last-child { padding-bottom: 43px; }
+  #engineering .academic-exploring-section > h2,
+  #engineering .academic-literature-header h2 { font-size: 25px; }
+  #engineering .academic-project-entry { grid-template-columns: 1fr; gap: 3px; }
+  #engineering .academic-project-entry > span { grid-row: 1; text-align: left; padding: 0; }
+  #engineering .academic-project-entry h3 { font-size: 20px; }
+  #engineering .academic-project-entry p { font-size: 13.5px; }
+  #engineering .academic-paper-title,
+  #engineering .academic-literature-fallback li > a { font-size: 18px; }
+  #engineering .academic-learning-list { grid-template-columns: 1fr; }
+  #engineering .academic-literature-filters { gap: 4px 15px; }
+  #engineering .academic-paper-filter { font-size: 12px; }
+}
