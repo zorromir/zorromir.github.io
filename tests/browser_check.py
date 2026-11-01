@@ -57,6 +57,18 @@ def check_site(browser, base, device, width, height):
         check(not exceptions, f"{device}/{route}: JS exception: {exceptions}")
 
     page.goto(f"{base}/index.html#home", wait_until="load")
+    check(page.locator(".brand img").count() == 0,
+          f"{device}: header monogram still visible")
+    check(page.locator("#home .academic-home-links").count() == 0,
+          f"{device}: repeated homepage quick links remain")
+    if width > 810:
+        vertical = page.evaluate("""() => {
+          const title = document.querySelector('#home-title').getBoundingClientRect();
+          const label = document.querySelector('#home .academic-home-record span').getBoundingClientRect();
+          return {midpoint: title.top + title.height / 2, labelTop: label.top};
+        }""")
+        check(vertical["labelTop"] >= vertical["midpoint"] - 8,
+              f"{device}: current studies not lowered toward name midpoint: {vertical}")
     # Drive keyboard focus to the skip link explicitly after repeated route navigations.
     # The browser can retain an earlier focus target across page.goto calls.
     page.keyboard.press("Tab")
