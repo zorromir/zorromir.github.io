@@ -541,3 +541,231 @@ body { background: var(--bg); color: var(--ink); font-family: Georgia, "Times Ne
   #research .academic-article-subheading { font-size: 22px; margin-top: 30px; }
   #research .academic-research-finance { padding-top: 25px; padding-bottom: 43px; }
 }
+
+
+/* Phase 5 — projects: academically styled case studies, not landing-page cards.
+   Keep the four stage slides, five numerical figures, source links and caveats. */
+#projects .academic-projects-intro { max-width: 920px; }
+#projects .academic-industrial-project,
+#projects .academic-empirical-project,
+#projects .academic-project-thesis { padding-top: 34px; padding-bottom: 42px; }
+#projects .academic-industrial-project { border-bottom: 1px solid var(--line); }
+#projects .academic-empirical-project { border-bottom: 1px solid var(--line); }
+#projects .academic-project-thesis { padding-bottom: 65px; max-width: 920px; }
+#projects .academic-project-heading { margin-bottom: 20px; }
+#projects .academic-project-context {
+  color: var(--teal); margin: 0 0 8px;
+  font: 13px/1.6 Georgia, "Times New Roman", serif;
+}
+#projects .academic-project-heading h2,
+#projects .academic-project-thesis h2 {
+  color: var(--ink); max-width: 800px;
+  font: 400 clamp(27px, 3vw, 37px)/1.22 Georgia, "Times New Roman", serif;
+  letter-spacing: -.025em; margin: 0;
+}
+#projects .academic-project-description { max-width: 78ch; margin-bottom: 29px; }
+#projects .academic-project-description > p,
+#projects .academic-empirical-intro,
+#projects .academic-project-thesis > p {
+  color: var(--ink-dim); font: 15px/1.75 Georgia, "Times New Roman", serif;
+  max-width: 78ch; margin: 0 0 15px;
+}
+#projects .academic-project-description > p.academic-project-methods {
+  color: var(--ink-dim); font-size: 13.5px; margin: 0 0 10px;
+}
+#projects .academic-project-description-links a,
+#projects .academic-empirical-links a,
+#projects .academic-project-thesis a,
+#projects .academic-industrial-project .industrial-reference-links a {
+  color: var(--teal); font: 13px/1.55 Georgia, "Times New Roman", serif;
+  text-decoration: underline; text-underline-offset: 4px;
+}
+#projects .academic-project-demonstrations { max-width: 100%; min-width: 0; }
+#projects .academic-industrial-project .project-carousel {
+  margin: 23px 0 29px; background: transparent;
+  border: 1px solid var(--line); box-shadow: none; padding: 15px;
+}
+#projects .academic-industrial-project .project-carousel-header {
+  display: flex; align-items: start; justify-content: space-between;
+  gap: 20px; margin-bottom: 13px; padding: 0;
+}
+#projects .academic-industrial-project .project-carousel-header .meta { display: none; }
+#projects .academic-industrial-project .project-carousel-header h3 {
+  color: var(--ink); font: 400 22px/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: -.015em; margin: 0 0 5px;
+}
+#projects .academic-industrial-project .industrial-carousel-subtitle {
+  color: var(--muted); font: 13px/1.65 Georgia, "Times New Roman", serif;
+  max-width: 70ch; margin: 0;
+}
+#projects .academic-industrial-project .project-carousel-controls { flex: none; }
+#projects .academic-industrial-project .project-carousel-controls > span {
+  display: inline; color: var(--muted); font: 12px/1.5 Georgia, "Times New Roman", serif;
+}
+#projects .academic-industrial-project .project-carousel-controls button {
+  width: 42px; height: 42px; min-width: 42px; min-height: 42px;
+  color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 0; box-shadow: none;
+}
+#projects .academic-industrial-project .project-carousel-controls button:hover {
+  color: var(--teal); border-color: var(--teal); background: #fff;
+}
+#projects .academic-industrial-project .industrial-stage-tabs {
+  grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin-bottom: 9px;
+}
+#projects .academic-industrial-project .industrial-stage-tab {
+  min-height: 44px; padding: 10px 11px;
+  border: 1px solid var(--line); border-top: 1px solid var(--line);
+  color: var(--ink-dim); background: transparent;
+  font: 13px/1.3 Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+#projects .academic-industrial-project .industrial-stage-tab span {
+  display: inline; margin-right: 7px;
+  color: var(--muted); font: 11px/1.3 Georgia, "Times New Roman", serif;
+}
+#projects .academic-industrial-project .industrial-stage-tab.is-active,
+#projects .academic-industrial-project .industrial-stage-tab[aria-pressed="true"] {
+  color: var(--teal); border-color: var(--teal);
+  background: #f2f7f3; font-weight: 600;
+}
+#projects .academic-industrial-project .industrial-stage-tab.is-active span,
+#projects .academic-industrial-project .industrial-stage-tab[aria-pressed="true"] span {
+  color: var(--teal);
+}
+#projects .academic-industrial-project .industrial-stage-intro {
+  background: transparent; border-color: var(--line); padding: 22px;
+  gap: 13px;
+}
+#projects .academic-industrial-project .industrial-stage-number { display: none; }
+#projects .academic-industrial-project .industrial-stage-intro h4,
+#projects .academic-industrial-project .industrial-gallery-copy h4 {
+  color: var(--ink); font: 400 23px/1.27 Georgia, "Times New Roman", serif;
+  margin: 0 0 12px;
+}
+#projects .academic-industrial-project .industrial-stage-intro p,
+#projects .academic-industrial-project .industrial-stage-details p,
+#projects .academic-industrial-project .industrial-gallery-copy p {
+  font: 13px/1.72 Georgia, "Times New Roman", serif;
+  color: var(--ink-dim);
+}
+#projects .academic-industrial-project .industrial-stage-intro .meta,
+#projects .academic-industrial-project .industrial-stage-details .meta,
+#projects .academic-industrial-project .industrial-gallery-copy .meta {
+  font-size: 10px; letter-spacing: 0; color: var(--muted);
+}
+#projects .academic-industrial-project .industrial-stage-details {
+  background: #f8faf7; border-color: var(--line); padding: 20px;
+}
+#projects .academic-industrial-project .industrial-stage-equation {
+  background: transparent; color: var(--ink); border-color: var(--line);
+  box-shadow: none;
+}
+#projects .academic-industrial-project .industrial-gallery-figure {
+  background: #fff; border-color: var(--line); padding: 12px;
+}
+#projects .academic-industrial-project .industrial-gallery-figure a { padding: 0; }
+#projects .academic-industrial-project .industrial-gallery-copy {
+  background: transparent; padding: 20px 18px;
+}
+#projects .academic-industrial-project .industrial-gallery-reading,
+#projects .academic-industrial-project .industrial-gallery-insight,
+#projects .academic-industrial-project .industrial-gallery-caveat {
+  background: transparent; border: 0; border-top: 1px solid var(--line);
+  padding: 11px 0 0; margin: 10px 0 0; box-shadow: none;
+}
+#projects .academic-industrial-project .industrial-gallery-links a {
+  color: var(--teal); font: 12.5px/1.5 Georgia, "Times New Roman", serif;
+  text-decoration: underline; text-underline-offset: 4px;
+}
+#projects .academic-industrial-project .project-carousel-foot {
+  background: transparent; border-top: 1px solid var(--line);
+  color: var(--muted); font: 11px/1.55 Georgia, "Times New Roman", serif;
+  margin-top: 13px; padding-top: 11px;
+}
+#projects .academic-industrial-project .industrial-reference-strip {
+  display: block; background: transparent; border: 0; border-top: 1px solid var(--line);
+  padding: 21px 0 0; margin: 28px 0 0; box-shadow: none;
+}
+#projects .academic-industrial-project .industrial-reference-strip .meta {
+  display: block; font-size: 11px; color: var(--muted); margin-bottom: 7px;
+}
+#projects .academic-industrial-project .industrial-reference-strip p {
+  max-width: 85ch; color: var(--muted);
+  font: 12.5px/1.72 Georgia, "Times New Roman", serif;
+}
+#projects .academic-industrial-project .industrial-reference-links {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px;
+}
+/* Empirical: chart and scientific conclusions replace metrics and three panels. */
+#projects .academic-empirical-intro { max-width: 76ch; margin-bottom: 23px; }
+#projects .academic-empirical-layout {
+  display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr);
+  gap: clamp(20px,4vw,45px); align-items: start;
+}
+#projects .academic-empirical-layout .empirical-figure {
+  margin: 0; padding: 12px; min-width: 0;
+  border: 1px solid var(--line); background: #fff; box-shadow: none;
+}
+#projects .academic-empirical-layout .empirical-figure img { width: 100%; height: auto; display: block; }
+#projects .academic-empirical-layout .empirical-figure figcaption {
+  padding: 9px 0 0; color: var(--muted);
+  font: 12px/1.65 Georgia, "Times New Roman", serif;
+}
+#projects .academic-empirical-copy h3,
+#projects .academic-empirical-findings h3 {
+  color: var(--ink); margin: 0 0 12px;
+  font: 400 22px/1.3 Georgia, "Times New Roman", serif;
+}
+#projects .academic-empirical-copy p {
+  margin: 0 0 13px; color: var(--ink-dim);
+  font: 14px/1.72 Georgia, "Times New Roman", serif;
+}
+#projects .academic-empirical-links {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px 19px;
+  margin: 16px 0 0;
+}
+#projects .academic-empirical-findings {
+  border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px;
+}
+#projects .academic-empirical-findings ul {
+  padding: 0; margin: 0; list-style: none; max-width: 85ch;
+}
+#projects .academic-empirical-findings li {
+  color: var(--ink-dim); font: 14px/1.73 Georgia, "Times New Roman", serif;
+  border-bottom: 1px solid var(--line); padding: 11px 0;
+}
+#projects .academic-empirical-findings li strong { color: var(--ink); }
+#projects .academic-empirical-provenance {
+  color: var(--muted); font: 12.5px/1.75 Georgia, "Times New Roman", serif;
+  max-width: 85ch; margin: 17px 0 0;
+}
+#projects .academic-project-thesis > p { max-width: 75ch; margin-top: 15px; }
+@media (max-width: 810px) {
+  #projects .academic-empirical-layout { grid-template-columns: 1fr; gap: 23px; }
+  #projects .academic-empirical-layout .empirical-figure { max-width: 680px; }
+  #projects .academic-industrial-project .project-carousel-header { flex-wrap: wrap; }
+  #projects .academic-industrial-project .industrial-stage-slide,
+  #projects .academic-industrial-project .industrial-gallery-slide { grid-template-columns: 1fr; }
+  #projects .academic-industrial-project .industrial-stage-intro,
+  #projects .academic-industrial-project .industrial-gallery-figure {
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+}
+@media (max-width: 620px) {
+  #projects .academic-industrial-project,
+  #projects .academic-empirical-project,
+  #projects .academic-project-thesis { padding-top: 25px; padding-bottom: 34px; }
+  #projects .academic-project-heading h2 { font-size: 27px; }
+  #projects .academic-project-description > p, #projects .academic-empirical-intro { font-size: 14.5px; }
+  #projects .academic-industrial-project .project-carousel { padding: 11px; margin: 19px 0 24px; }
+  #projects .academic-industrial-project .industrial-stage-intro,
+  #projects .academic-industrial-project .industrial-stage-details { padding: 16px; }
+  #projects .academic-industrial-project .industrial-gallery-copy { padding: 16px; }
+  #projects .academic-industrial-project .industrial-stage-tab { font-size: 12px; padding: 9px 3px; }
+  #projects .academic-industrial-project .industrial-stage-tab span { display: none; }
+  #projects .academic-industrial-project .project-carousel-controls > span { display: none; }
+  #projects .academic-industrial-project .project-carousel-header h3 { font-size: 21px; }
+  #projects .academic-industrial-project .industrial-gallery-copy h4,
+  #projects .academic-industrial-project .industrial-stage-intro h4 { font-size: 21px; }
+}
