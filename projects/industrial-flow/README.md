@@ -26,6 +26,14 @@ The examples illustrate model behaviour and numerical consistency, **not** exper
 - Tijsseling et al. (2016), *Improved One-Dimensional Models for Rapid Emptying and Filling of Pipelines* — https://doi.org/10.1115/1.4031508
 - Chen et al. (2024), *Experimental data on filling and emptying of a large-scale pipeline* — https://doi.org/10.1038/s41597-024-03441-7
 
+I also used three articles to study low-holdup pressure losses, gas void fractions and circumferential liquid-film thickness:
+
+- Hart, Hamersma & Fortuin (1989), *Correlations predicting frictional pressure drop and liquid holdup during horizontal gas–liquid pipe flow with a small liquid holdup* — https://doi.org/10.1016/0301-9322(89)90023-2
+- Cioncolini & Thome (2012), *Void fraction prediction in annular two-phase flow* — https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003
+- Cioncolini & Thome (2013), *Liquid film circumferential asymmetry prediction in horizontal annular two-phase flow* — https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003
+
+Their full correlations are not implemented or validated in this simplified public reconstruction. More detail is in the [standalone repository's reference list](https://github.com/zorromir/pipeline-flow-modelling/blob/main/references/sources.md).
+
 The publications are external scientific sources, not work authored by the portfolio owner. Source-code reuse and publication of further industrial material require the relevant permissions.
 
 **Publication status:** This directory contains small standalone examples retained for the website. The dedicated [pipeline-flow-modelling](https://github.com/zorromir/pipeline-flow-modelling) repository is the main public demonstration. Neither source is the original industrial codebase, and neither validates performance against confidential measurements.
