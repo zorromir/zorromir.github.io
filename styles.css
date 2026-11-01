@@ -134,3 +134,24 @@ html{scroll-padding-top:100px}
   #projects .empirical-insights>div{padding:16px}
   #projects .projects-repo-strip{padding:20px}
 }
+
+
+/* Project illustrations: constrain the newer industrial source figures to the case-study column. */
+#projects .industrial-figure{margin:0 0 23px;min-width:0;width:100%}
+#projects .industrial-figure img{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--line);background:#edf3ef;object-fit:contain}
+#projects .industrial-figure figcaption{margin:9px 0 0;font-size:11px;line-height:1.65;color:var(--ink-dim)}
+#projects .industrial-chart{margin-top:25px}
+#projects .industrial-explainer{padding:21px 23px;background:#f0f5f1;border:1px solid var(--line);margin:25px 0 24px}
+#projects .industrial-explainer h4{margin:9px 0 10px;font-family:var(--title);font-size:clamp(19px,2vw,24px);font-weight:500;line-height:1.35}
+#projects .industrial-explainer p{font-size:13px;line-height:1.75;color:var(--ink-dim);margin:0 0 13px}
+#projects .industrial-explainer .small-copy{font-size:11px;margin-bottom:0}
+#projects .industrial-equation{padding:13px 14px;margin:13px 0;background:#fff;border-left:2px solid var(--teal);font-family:var(--mono);font-size:12px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:nowrap;max-width:100%}
+#projects .industrial-source{margin:17px 0 21px;border-top:1px solid var(--line);padding-top:16px}
+#projects .industrial-source p{font-size:12px;line-height:1.7;color:var(--ink-dim)}
+#projects .industrial-source a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#a4bcb0;color:var(--teal)}
+#projects .industrial-source .small-copy{font-size:11px}
+@media(max-width:620px){
+  #projects .industrial-figure{margin-bottom:17px}
+  #projects .industrial-explainer{padding:16px 15px;margin-block:18px}
+  #projects .industrial-equation{font-size:11px}
+}
