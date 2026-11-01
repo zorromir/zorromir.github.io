@@ -531,3 +531,6 @@ html{scroll-padding-top:100px}
  #cv .cv-contact-grid{grid-template-columns:1fr;gap:20px}
  #cv .cv-contact-link strong{font-size:16px}
 }
+
+/* Phase 5: preserve the generated QMC plot proportions and responsive sizing. */
+#projects .industrial-phase5-figure img{aspect-ratio:1000 / 447;object-fit:contain}
