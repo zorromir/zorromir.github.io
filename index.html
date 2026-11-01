@@ -38,8 +38,7 @@
         <a href="#projects" data-nav="projects">Projects</a>
         <a href="#research" data-nav="research">Research</a>
         <a href="#engineering" data-nav="engineering">Exploring &amp; Reading</a>
-        <a href="#about" data-nav="about">About</a>
-        <a href="#cv" data-nav="cv">CV & Contact</a>
+        <a href="#about" data-nav="about">Profile &amp; CV</a>
       </nav>
     </div>
   </header>
@@ -430,19 +429,20 @@
       </section>
     </article>
 
-    <!-- PAGE 5: ABOUT -->
-    <article class="page academic-about" data-page="about" id="about" aria-labelledby="about-title" hidden>
+    <!-- PAGE 5: PROFILE & CV (former About and CV & Contact) -->
+    <article class="page academic-about academic-profile" data-page="about" id="about" aria-labelledby="about-title" hidden>
+      <span id="cv" class="legacy-route-anchor" aria-hidden="true"></span>
       <header class="shell academic-page-intro">
-        <h1 id="about-title">About</h1>
-        <p>Background, education and research experience.</p>
+        <h1 id="about-title">Profile &amp; CV</h1>
+        <p>Background, education, experience and research interests.</p>
+        <p class="academic-profile-pdf"><a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener noreferrer" type="application/pdf">View CV (PDF)</a></p>
       </header>
 
       <div class="shell academic-about-content">
         <section class="academic-about-section academic-about-biography" aria-labelledby="about-story-title">
           <h2 id="about-story-title">Biography</h2>
-          <p>I studied Mathematics at Utrecht University and am currently completing an MSc in Quantitative Finance at Tilburg University. I have always been interested in understanding how things work. Conversations with my father about financial markets and their effects on his business prompted me to look more closely at the mathematics behind economic decisions.</p>
-          <p>In a six-month industrial project, I developed and adapted mathematical models for two-phase flow in pipelines. I used numerical simulations and Monte Carlo methods to study uncertain quantities, and compared model predictions with available measurements.</p>
-          <p>My bachelor's thesis examined periodicity and non-periodicity in fractional differential systems. More recently, I have been applying statistical methods to financial return data, including factor-model regressions and questions about robust inference and backtesting.</p>
+          <p>I studied Mathematics at Utrecht University and am now studying MSc Quantitative Finance at Tilburg University. I have always been interested in understanding how things work. Conversations with my father about financial markets and their effects on his business prompted me to look more closely at the mathematics behind economic decisions.</p>
+          <p>My work combines mathematical modelling, numerical methods and empirical analysis. I have researched industrial pipeline flow and fractional differential equations, and I am now studying statistical methods for testing financial models.</p>
         </section>
 
         <section class="academic-about-section" aria-labelledby="about-education-title">
@@ -451,6 +451,7 @@
             <div class="academic-record">
               <dt><strong>MSc Quantitative Finance</strong><span>Current</span></dt>
               <dd>Tilburg University</dd>
+              <dd class="academic-record-detail">Empirical Finance, Panel Data Econometrics, Valuation &amp; Risk</dd>
             </div>
             <div class="academic-record">
               <dt><strong>BSc Mathematics</strong><span>2026</span></dt>
@@ -465,119 +466,51 @@
         </section>
 
         <section class="academic-about-section" aria-labelledby="about-timeline-heading">
-          <h2 id="about-timeline-heading">Experience</h2>
+          <h2 id="about-timeline-heading">Research &amp; experience</h2>
           <dl class="academic-record-list">
             <div class="academic-record">
               <dt><strong>Industrial mathematical modelling</strong><span>Six-month project</span></dt>
               <dd>Independent applied research for a company in the food industry.</dd>
-              <dd class="academic-record-detail">Two-phase pipeline flow, model adaptation, uncertainty analysis and comparison with measurements. <a href="#projects">Project details</a></dd>
+              <dd class="academic-record-detail">Adapted published two-phase pipeline flow models, used numerical simulations and Monte Carlo uncertainty analysis, and compared predictions with measurements. <a href="#projects">Case study</a></dd>
+            </div>
+            <div class="academic-record">
+              <dt><strong>Empirical finance analysis</strong><span>MSc coursework</span></dt>
+              <dd>Python analysis of industry portfolios, factor models, pricing errors and robust inference. <a href="#projects">Project details</a></dd>
             </div>
             <div class="academic-record">
               <dt><strong>Research Assistant</strong><span>2019</span></dt>
               <dd>The Hague University of Applied Sciences</dd>
-              <dd class="academic-record-detail">Analysis and reporting of student performance data.</dd>
+              <dd class="academic-record-detail">Analysed student performance data and presented research findings.</dd>
             </div>
             <div class="academic-record">
               <dt><strong>Mathematics and Physics Tutor</strong></dt>
-              <dd>Secondary-school tutoring, including preparation of exercises and individual explanations.</dd>
+              <dd>Secondary-school tutoring, including individual explanations and preparation of practice exercises.</dd>
             </div>
           </dl>
         </section>
 
         <section class="academic-about-section academic-about-interests" aria-labelledby="about-interests-title">
           <h2 id="about-interests-title">Research interests</h2>
-          <p>Mathematical modelling, stochastic processes, numerical methods, econometrics, asset pricing and the reliability of empirical testing. I am particularly interested in machine learning, factor models and ways of evaluating backtests without overstating what the data can show.</p>
+          <p>Mathematical modelling, stochastic processes, numerical methods, econometrics and asset pricing. I am particularly interested in machine learning, factor models, and ways of evaluating backtests without overstating what historical data can show.</p>
         </section>
 
         <section class="academic-about-section academic-about-methods" aria-labelledby="about-methods-title">
-          <h2 id="about-methods-title">Technical methods</h2>
-          <p>Python, numerical simulation, Monte Carlo uncertainty analysis, regression methods, model validation, scientific computing and reproducible research. Selected code and project documentation are available on <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
-        </section>
-      </div>
-    </article>
-
-        <!-- PAGE 6: CV & CONTACT -->
-    <article class="page academic-cv" data-page="cv" id="cv" aria-labelledby="cv-title" hidden>
-      <header class="shell academic-page-intro academic-cv-intro">
-        <h1 id="cv-title">CV &amp; Contact</h1>
-        <p>A short overview of my education, research experience and technical skills. The complete CV is available as a PDF.</p>
-      </header>
-
-      <div class="shell academic-cv-content">
-        <div class="academic-cv-download" aria-label="Curriculum vitae documents">
-          <div>
-            <h2 id="cv-overview-title">Curriculum vitae</h2>
-            <p>Kelvin Schouten · MSc Quantitative Finance · BSc Mathematics</p>
-          </div>
-          <div class="academic-cv-download-links">
-            <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener" type="application/pdf">View CV (PDF)</a>
-            <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" download="Kelvin_Schouten_CV.pdf" type="application/pdf">Download CV</a>
-          </div>
-        </div>
-
-        <section class="academic-cv-section" aria-labelledby="cv-profile-title">
-          <h2 id="cv-profile-title">Profile</h2>
-          <p>I study Quantitative Finance at Tilburg University after completing a BSc in Mathematics at Utrecht University. My experience includes six months of independent industrial modelling research, numerical simulation and Monte Carlo uncertainty analysis. I am currently applying mathematical and statistical methods to financial data.</p>
-        </section>
-
-        <section class="academic-cv-section" aria-labelledby="cv-education-title">
-          <h2 id="cv-education-title">Education</h2>
-          <dl class="academic-cv-records">
-            <div>
-              <dt><strong>MSc Quantitative Finance</strong><span>Current</span></dt>
-              <dd>Tilburg University · Empirical Finance, Panel Data Econometrics, Valuation &amp; Risk</dd>
-            </div>
-            <div>
-              <dt><strong>BSc Mathematics</strong><span>2026</span></dt>
-              <dd>Utrecht University · Bachelor's research in fractional-order differential systems</dd>
-            </div>
-            <div>
-              <dt><strong>HBO Applied Mathematics</strong></dt>
-              <dd>Earlier studies · Not completed; continued with university mathematics</dd>
-            </div>
+          <h2 id="about-methods-title">Technical skills</h2>
+          <dl class="academic-profile-skills">
+            <div><dt>Programming</dt><dd>Python, Jupyter, Git and GitHub</dd></div>
+            <div><dt>Modelling</dt><dd>Numerical simulation, Monte Carlo uncertainty propagation and model validation</dd></div>
+            <div><dt>Statistics &amp; finance</dt><dd>Probability, stochastic processes, econometrics, regressions and factor models</dd></div>
           </dl>
         </section>
 
-        <section class="academic-cv-section" aria-labelledby="cv-experience-title">
-          <h2 id="cv-experience-title">Research &amp; experience</h2>
-          <dl class="academic-cv-records">
-            <div>
-              <dt><strong>Industrial modelling and uncertainty quantification</strong><span>Six-month project</span></dt>
-              <dd>Independent mathematical research for a food-industry application. Adapted published two-phase-flow models, investigated uncertainty with Monte Carlo simulation and compared predictions with measurements. <a href="#projects">Case study</a></dd>
-            </div>
-            <div>
-              <dt><strong>Empirical finance analysis</strong><span>MSc coursework</span></dt>
-              <dd>Regression-based analysis of Fama–French factors and industry portfolio returns in Python. <a href="#projects">Project details</a></dd>
-            </div>
-            <div>
-              <dt><strong>Research Assistant</strong><span>2019</span></dt>
-              <dd>The Hague University of Applied Sciences · Student performance data analysis and research reporting</dd>
-            </div>
-            <div>
-              <dt><strong>Mathematics &amp; Physics Tutor</strong></dt>
-              <dd>Secondary-school tutoring and preparation of individual practice exercises</dd>
-            </div>
-          </dl>
-        </section>
-
-        <section class="academic-cv-section" aria-labelledby="cv-skills-title">
-          <h2 id="cv-skills-title">Technical skills</h2>
-          <dl class="academic-cv-skills">
-            <div><dt>Programming</dt><dd>Python, Jupyter, Git, GitHub</dd></div>
-            <div><dt>Mathematical modelling</dt><dd>Numerical methods, simulations, Monte Carlo uncertainty propagation, model validation</dd></div>
-            <div><dt>Statistics &amp; finance</dt><dd>Probability, stochastic processes, econometrics, regression analysis and factor models</dd></div>
-          </dl>
-        </section>
-
-        <section class="academic-cv-section academic-cv-languages" aria-labelledby="cv-languages-title">
-          <h2 id="cv-languages-title">Languages</h2>
+        <section class="academic-about-section academic-about-languages" aria-labelledby="about-languages-title">
+          <h2 id="about-languages-title">Languages</h2>
           <p>Dutch (native) · English (proficient)</p>
         </section>
 
-        <section class="academic-cv-section academic-cv-contact" aria-labelledby="cv-contact-title">
-          <h2 id="cv-contact-title">Contact</h2>
-          <p>For quantitative research internships, research collaborations or questions about my work:</p>
-          <dl class="academic-cv-contact-list">
+        <section class="academic-about-section academic-about-contact" aria-labelledby="about-contact-title">
+          <h2 id="about-contact-title">Contact</h2>
+          <dl class="academic-profile-contact">
             <div><dt>Email</dt><dd><a href="mailto:schoutenkelvin@gmail.com">schoutenkelvin@gmail.com</a></dd></div>
             <div><dt>GitHub</dt><dd><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">github.com/zorromir</a></dd></div>
             <div><dt>Location</dt><dd>Dussen, Netherlands</dd></div>
@@ -585,9 +518,10 @@
         </section>
       </div>
     </article>
+
   </main>
 
 
-  <footer class="site-footer"><div class="shell footer-grid"><div><p>© 2026 Kelvin Schouten · Mathematics &amp; Quantitative Finance</p></div><div><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:schoutenkelvin@gmail.com">Email</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-grid"><div><p>© 2026 Kelvin Schouten · Mathematics &amp; Quantitative Finance</p></div><div><a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:schoutenkelvin@gmail.com">Email</a><a class="footer-cv-link" href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener noreferrer" type="application/pdf">CV (PDF)</a></div></div></footer>
 </body>
 </html>
