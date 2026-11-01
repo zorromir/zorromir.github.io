@@ -1483,3 +1483,22 @@ button:disabled { cursor: not-allowed; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* Recruitment review links — explicit evidence without adding a new landing-page section. */
+#home .home-feature-actions {
+  display: flex; align-items: center; justify-content: flex-end;
+  flex-wrap: wrap; gap: 8px 17px; min-width: 0; text-align: right;
+}
+#home .home-feature-actions a {
+  color: var(--teal); font-size: 12px; font-weight: 750; line-height: 1.55;
+  text-decoration: underline; text-decoration-color: #aac8ba; text-underline-offset: 4px;
+}
+#home .home-feature-actions a:hover { text-decoration-color: currentColor; }
+#home .home-feature-footer { flex-wrap: wrap; }
+#home .home-research-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
+#home .home-research-actions .text-link { font-size: 12px; }
+@media (max-width: 620px) {
+  #home .home-feature-footer { flex-direction: column; align-items: flex-start; }
+  #home .home-feature-actions { text-align: left; justify-content: flex-start; gap: 10px 16px; }
+}
