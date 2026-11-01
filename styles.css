@@ -674,3 +674,113 @@ html{scroll-padding-top:100px}
 
 /* Portfolio chart is reproduced exactly from the public research repository. */
 #projects .industrial-phase5-figure img{aspect-ratio:706.79952 / 346.79952;object-fit:contain}
+
+/* INDUSTRIAL CASE STUDY — compact, accessible stage + evidence carousels.
+   Visual language follows the editorial Reading carousel. */
+#projects .industrial-case .section-heading{margin-bottom:23px}
+#projects .industrial-summary{align-items:start;margin-bottom:28px}
+#projects .industrial-summary .case-main>p{max-width:71ch}
+#projects .industrial-summary .case-main>p:last-of-type{margin-bottom:0}
+#projects .industrial-summary-aside{padding:22px 23px}
+#projects .industrial-summary-aside .aside-block{padding-bottom:12px;margin-bottom:12px}
+#projects .industrial-summary-aside .aside-block:last-child{padding:0;margin:0}
+#projects .industrial-summary-aside .aside-block strong{font-size:12.5px}
+#projects .industrial-summary-aside .aside-block p{font-size:11.5px;line-height:1.65}
+#projects .industrial-inline-link{color:var(--teal);text-decoration:underline;text-decoration-color:#b0c8be;text-underline-offset:3px}
+#projects .industrial-case .project-carousel{background:#edf3ee;border:1px solid #ceded2;padding:22px 24px 18px;margin:24px 0}
+#projects .project-carousel-header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:16px}
+#projects .project-carousel-header .meta{font:700 10px/1.4 var(--mono);letter-spacing:.1em;color:var(--teal)}
+#projects .project-carousel-header h3{font:400 clamp(23px,2.1vw,29px)/1.16 var(--title);letter-spacing:-.035em;margin:6px 0 0;color:var(--ink)}
+#projects .project-carousel-controls{display:flex;align-items:center;gap:7px;flex-shrink:0}
+#projects .project-carousel-controls>span{color:#577469;font:11px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;margin-right:7px}
+#projects .project-carousel-controls button{width:36px;height:36px;display:grid;place-items:center;background:white;border:1px solid #b9d0c4;border-radius:0;color:#24594f;font-size:18px;line-height:1;transition:background .15s,border-color .15s}
+#projects .project-carousel-controls button:hover:not(:disabled){background:#dcebe1;border-color:#7da99a}
+#projects .project-carousel-controls button:disabled{opacity:.4;cursor:default}
+#projects .project-viewport{overflow:hidden;min-width:0;background:white;border:1px solid #d6e3da}
+#projects .project-track{display:flex;min-width:0;align-items:stretch;transition:transform .34s cubic-bezier(.2,.7,.2,1);will-change:transform}
+#projects .project-slide{flex:0 0 100%;width:100%;min-width:0}
+#projects .project-slide[aria-hidden="true"]{pointer-events:none}
+#projects .project-carousel:not(.is-enhanced) .project-slide:not(:first-child){display:none}
+#projects .industrial-stage-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-bottom:10px}
+#projects .industrial-stage-tab{padding:12px 11px;border:1px solid #cadcd0;border-top:2px solid #b5cdc0;background:#f8faf7;color:#435f59;text-align:left;font:600 12px/1.3 var(--sans);transition:background .16s,border-color .16s}
+#projects .industrial-stage-tab span{font:10px var(--mono);color:#6b8d82;margin-right:8px}
+#projects .industrial-stage-tab:hover{background:white;border-color:#87b0a1}
+#projects .industrial-stage-tab.is-active,#projects .industrial-stage-tab[aria-pressed="true"]{border-top-color:var(--teal);background:#dfece3;color:#1f544a}
+#projects .industrial-stage-slide{display:grid;grid-template-columns:minmax(0,.89fr) minmax(0,1.11fr);min-height:250px}
+#projects .industrial-stage-intro{background:#e6efe9;border-right:1px solid #d4e2d8;padding:29px 30px;display:flex;gap:19px;align-items:flex-start;min-width:0}
+#projects .industrial-stage-number{font:400 58px/.94 var(--title);letter-spacing:-.06em;color:#71a093;flex-shrink:0}
+#projects .industrial-stage-intro .meta{font-size:9px;letter-spacing:.045em}
+#projects .industrial-stage-intro h4{font:400 clamp(24px,2.2vw,30px)/1.19 var(--title);letter-spacing:-.035em;margin:9px 0 13px}
+#projects .industrial-stage-intro p{font-size:12px;line-height:1.75;margin:0;color:var(--ink-dim)}
+#projects .industrial-stage-details{padding:27px 30px;display:flex;flex-direction:column;gap:13px;justify-content:center;min-width:0}
+#projects .industrial-stage-detail .meta{font-size:9px;letter-spacing:.09em}
+#projects .industrial-stage-detail p{font-size:12px;line-height:1.7;color:var(--ink-dim);margin:4px 0 0}
+#projects .industrial-stage-equation{font:15px/1.65 var(--title);color:#20574d;background:#f1f6f2;border-left:2px solid var(--teal);padding:9px 12px;overflow-x:auto;white-space:nowrap}
+#projects .industrial-stage-limit{padding-top:5px;border-top:1px solid var(--line)}
+#projects .project-carousel-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;color:#61796f;font:10px/1.6 var(--mono)}
+#projects .industrial-gallery{margin-top:24px}
+#projects .industrial-gallery-slide{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);background:white;min-height:365px}
+#projects .industrial-gallery-figure{display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0;margin:0;background:#f3f7f3;padding:20px 21px;border-right:1px solid #d6e3da}
+#projects .industrial-gallery-figure a{display:block;line-height:0}
+#projects .industrial-gallery-figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;background:#f8faf8;border:1px solid #dce5df}
+#projects .industrial-gallery-figure a:hover img{border-color:#91b4a7}
+#projects .industrial-gallery-figure figcaption{font:10px/1.6 var(--mono);color:#667f74}
+#projects .industrial-gallery-copy{min-width:0;display:flex;flex-direction:column;padding:30px 30px 23px}
+#projects .industrial-gallery-copy>.meta{font-size:10px}
+#projects .industrial-gallery-copy h4{font:400 clamp(25px,2.2vw,32px)/1.2 var(--title);letter-spacing:-.035em;margin:12px 0}
+#projects .industrial-gallery-copy>p{font-size:13px;line-height:1.74;color:var(--ink-dim);margin:0 0 16px}
+#projects .industrial-gallery-insight,#projects .industrial-gallery-caveat{margin-bottom:12px}
+#projects .industrial-gallery-insight .meta,#projects .industrial-gallery-caveat .meta{font-size:9px;letter-spacing:.1em}
+#projects .industrial-gallery-insight p,#projects .industrial-gallery-caveat p{font-size:12px;line-height:1.67;color:var(--ink-dim);margin:4px 0 0}
+#projects .industrial-gallery-insight p{color:var(--ink)}
+#projects .industrial-gallery-caveat{padding-top:10px;border-top:1px solid var(--line)}
+#projects .industrial-gallery-links{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:10px 20px}
+#projects .industrial-gallery-links a{font-size:12px;color:var(--teal);text-decoration:underline;text-decoration-color:#bad0c3;text-underline-offset:3px}
+#projects .project-gallery-dots{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#projects .project-gallery-dots button{width:10px;height:10px;padding:0;border-radius:50%;background:transparent;border:1px solid #7eada0}
+#projects .project-gallery-dots button.is-active{background:var(--teal);border-color:var(--teal)}
+#projects .industrial-reference-strip{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.85fr);gap:28px;align-items:start;border-top:1px solid var(--line);padding:21px 0 0;margin-top:22px}
+#projects .industrial-reference-strip .meta{font-size:10px}
+#projects .industrial-reference-strip p{font-size:12px;line-height:1.72;color:var(--ink-dim);margin:7px 0 0;max-width:80ch}
+#projects .industrial-reference-links{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;padding-top:4px}
+#projects .industrial-reference-links a{font-size:12px;line-height:1.8;color:var(--teal);text-decoration:underline;text-decoration-color:#b5cfc1;text-underline-offset:3px}
+@media(max-width:1040px){
+ #projects .industrial-gallery-slide{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
+ #projects .industrial-gallery-copy{padding:24px 22px 20px}
+ #projects .industrial-stage-intro{padding:24px 21px;gap:14px}
+ #projects .industrial-stage-details{padding:22px 23px}
+}
+@media(max-width:860px){
+ #projects .industrial-gallery-slide{grid-template-columns:1fr}
+ #projects .industrial-gallery-figure{border-right:0;border-bottom:1px solid #d6e3da}
+ #projects .industrial-gallery-figure img{max-height:365px}
+ #projects .industrial-gallery-copy{padding:23px 25px 24px}
+ #projects .industrial-stage-slide{grid-template-columns:1fr}
+ #projects .industrial-stage-intro{border-right:0;border-bottom:1px solid #d6e3da}
+ #projects .industrial-stage-details{gap:12px}
+}
+@media(max-width:620px){
+ #projects .industrial-case .project-carousel{padding:15px 13px 13px;margin:19px 0}
+ #projects .project-carousel-header{gap:10px}
+ #projects .project-carousel-header h3{font-size:23px}
+ #projects .project-carousel-controls>span{font-size:10px;margin-right:0}
+ #projects .project-carousel-controls button{width:33px;height:33px}
+ #projects .industrial-stage-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+ #projects .industrial-stage-tab{font-size:10.5px;text-align:center;padding:10px 1px}
+ #projects .industrial-stage-tab span{display:block;font-size:9px;margin:0 0 3px}
+ #projects .industrial-stage-intro{padding:21px 17px;gap:14px}
+ #projects .industrial-stage-number{font-size:46px}
+ #projects .industrial-stage-intro h4{font-size:25px}
+ #projects .industrial-stage-details{padding:20px 18px}
+ #projects .industrial-gallery-figure{padding:12px 10px 10px}
+ #projects .industrial-gallery-figure img{max-height:none}
+ #projects .industrial-gallery-copy{padding:21px 18px}
+ #projects .industrial-gallery-copy h4{font-size:26px}
+ #projects .industrial-reference-strip{grid-template-columns:1fr;gap:12px}
+ #projects .project-carousel-foot{align-items:flex-start;font-size:9px}
+ #projects .project-carousel-foot>span:last-child{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ #projects .project-track{transition:none}
+ #projects .industrial-stage-tab,#projects .project-carousel-controls button{transition:none}
+}
