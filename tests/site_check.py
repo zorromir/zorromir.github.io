@@ -89,6 +89,14 @@ assert 'id="projects-thesis-title"' in projects
 assert projects.count("data-project-carousel") == 2
 assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
 assert projects.count('data-project-go=') == 4
+# All four industrial stages use semantic, browser-native mathematical notation.
+assert projects.count('class="industrial-stage-equation"') == 4
+assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
+assert projects.count("<mfrac>") == 3
+assert projects.count("<msup>") == 1
+assert projects.count("<msub>") >= 9
+assert 'industrial-stage-equation">dx' not in projects
+assert 'industrial-stage-equation math' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
 for marker in ("AI-assisted reconstruction", "No company measurements",
                "Hansen J-test", "four of five industries", "p = 0.311",
