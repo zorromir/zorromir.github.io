@@ -1021,3 +1021,17 @@ summary:focus-visible,
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
+
+
+/* Match selected gallery pagination to the subtle unselected dots. */
+#projects .academic-industrial-project .project-gallery-dots button,
+#projects .academic-industrial-project .project-gallery-dots button.is-active {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#projects .academic-industrial-project .project-gallery-dots button.is-active::before {
+  background: var(--teal);
+  border-color: var(--teal);
+}
