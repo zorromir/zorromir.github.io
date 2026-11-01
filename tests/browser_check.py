@@ -76,8 +76,8 @@ def check_site(browser, base, device, width, height):
         check(toggle.get_attribute("aria-expanded") == "true",
               f"{device}: menu did not expand")
         page.locator('[data-nav="research"]').click()
-        check(page.locator("#research").is_visible(),
-              f"{device}: mobile navigation did not activate Research")
+        # Hashchange dispatch is asynchronous after the menu link click.
+        page.locator("#research").wait_for(state="visible", timeout=5000)
         check(toggle.get_attribute("aria-expanded") == "false",
               f"{device}: menu did not close after navigation")
 
