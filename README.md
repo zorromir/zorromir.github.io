@@ -1,24 +1,48 @@
-# Kelvin Schouten — Portfolio Website
+# Kelvin Schouten — Portfolio website
 
-Production source for https://zorromir.github.io/. Static HTML, CSS and JavaScript; GitHub Pages deployment.
+Source for [zorromir.github.io](https://zorromir.github.io/), a static portfolio about mathematical modelling, academic research and quantitative finance.
 
-## Site structure
+## Pages and structure
 
-- index.html — Home, Projects, Research, Engineering & Making, About, CV & Contact.
-- app.js — hash navigation, accessible skip link and mobile menu.
-- styles.css — responsive styling.
-- assets/cv — publicly accessible English and Dutch CV PDFs.
-- CONTENT_GAPS.md — review requirements and Phase 2 project priorities.
-- tests/site_check.py — dependency-free structural smoke test.
+The six sections are Home, Projects, Research, Exploring & Reading, About, and CV & Contact. These are views in `index.html`; the original `#engineering` URL for Exploring & Reading is kept so existing links continue working.
 
-## Local checks
+| Path | Purpose |
+| --- | --- |
+| `index.html` | All six pages, project descriptions, figures and links |
+| `styles.css` | Shared editorial design, page styles and responsive rules |
+| `app.js` | Navigation, mobile menu, project carousels and paper filters |
+| `data/reading-list.json` | Publication bibliography and project connections |
+| `assets/research/` | Computed fractional-oscillator figures |
+| `assets/industrial-*.svg` | Independent synthetic pipeline-model reproductions |
+| `assets/empirical-finance-fit.svg` | Historical, in-sample MSc group analysis figure |
+| `assets/cv/` | Publicly downloadable CV PDFs |
+| `tests/site_check.py` | Dependency-free structural checks |
 
-Run `python -m http.server 8000` then visit http://localhost:8000/. Run `python tests/site_check.py` and `node --check app.js`. Manually review navigation, keyboard focus, mobile screens and PDF links.
+## Work locally
+
+Start a local web server because the reading carousel loads JSON:
+
+```sh
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000/`. No framework or build step is required.
+
+Check the repository before publishing:
+
+```sh
+python3 tests/site_check.py
+node --check app.js
+```
+
+GitHub Actions runs both checks on pull requests and pushes to `main`. Also review the actual layout, carousel buttons, keyboard interaction and PDF downloads in a browser before major releases.
+
+## Research integrity
+
+Industrial graphics are **synthetic, non-confidential reproductions**, not measurements from the company or its original code. Fractional-oscillator figures are computed mathematical model outputs, not empirical observations. The finance plot compares historical, in-sample regression results from a group study, not the performance of an investment strategy.
+
+Do not include confidential industrial inputs or unverified performance claims. The CV files are public: check personal details in the PDFs before sharing.
 
 ## Deployment
 
-Keep main as the existing publishing branch; develop in release branches and merge only after reviewing the PR, sensitive CV details and visual/accessibility checks. The site needs no framework or build step.
-
-## Accuracy
-
-Do not disclose confidential industrial data, unverified 98%/95% metrics or undocumented results. Distinguish academic research, completed coursework and ongoing learning. Engineering interests are not published as completed builds.
+GitHub Pages publishes the root of `main`. Prefer feature branches and review changes before merging.

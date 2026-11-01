@@ -1,0 +1,20 @@
+name: Portfolio integrity checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Check pages, assets and research figures
+        run: python3 tests/site_check.py
+      - name: Check JavaScript syntax
+        run: node --check app.js

@@ -339,24 +339,6 @@ html{scroll-padding-top:100px}
 
 /* ABOUT / editorial layout; scoped to the About article. */
 #about{overflow:hidden}
-#about .about-hero{position:relative;background:#1c363a;color:#f4f7f2;margin-top:34px;margin-bottom:0;padding:51px clamp(28px,5vw,70px) 0;overflow:hidden}
-#about .about-hero:after{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(190,223,208,.11);border-radius:50%;left:-145px;bottom:-220px;pointer-events:none}
-#about .about-hero-grid{display:grid;grid-template-columns:1.17fr .83fr;gap:clamp(30px,6vw,90px);align-items:end;padding-bottom:51px}
-#about .about-hero-eyebrow,#about .about-hero-overline,#about .about-hero-caption,#about .about-hero-bottom,#about .about-hero-facts span{font-family:var(--mono);font-size:10px;letter-spacing:.12em}
-#about .about-hero-eyebrow{color:#a6d0bf;display:flex;align-items:center;gap:11px;margin-bottom:29px;font-weight:700}
-#about .about-hero-dot{display:inline-block;width:7px;height:7px;background:#9cd6bc;border-radius:50%}
-#about .about-hero h1{font-size:clamp(48px,5.15vw,79px);line-height:1.07;letter-spacing:-.055em;max-width:750px;margin:0 0 24px;color:#f4f7f2}
-#about .about-hero h1 em{color:#a1cfbb;font-style:italic}
-#about .about-hero-caption{color:#bfd4cb;letter-spacing:.025em;font-size:12px;margin:0}
-#about .about-hero-side{border-left:1px solid rgba(170,207,190,.35);padding-left:28px;margin-bottom:4px;max-width:395px}
-#about .about-hero-overline{display:block;color:#9fd1ba;line-height:1.6;margin-bottom:19px}
-#about .about-hero-side>p{color:#e3ebe6;font-size:18px;line-height:1.65;letter-spacing:-.015em;margin:0 0 27px}
-#about .about-hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid rgba(180,210,199,.22);padding-top:18px}
-#about .about-hero-facts>div{display:flex;flex-direction:column;gap:2px}
-#about .about-hero-facts span{color:#a1cfbb;font-size:9px;margin-bottom:5px}
-#about .about-hero-facts strong{font-size:12px;font-weight:650;line-height:1.4;color:#f6faf7}
-#about .about-hero-facts small{font-size:11px;color:#b6cdc2}
-#about .about-hero-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(170,207,190,.2);padding:15px 0;color:#95b8aa;font-size:9px;gap:15px}
 #about .about-story-section{padding-top:73px;padding-bottom:83px}
 #about .about-story-label{margin-bottom:14px}
 #about .about-story-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(285px,.75fr);gap:clamp(35px,7vw,100px);align-items:start}
@@ -420,19 +402,11 @@ html{scroll-padding-top:100px}
 #about .about-principle h3{font-size:19px;margin:20px 0 9px}
 #about .about-principle p{font-size:13px;line-height:1.7;margin:0}
 @media(max-width:1000px){
- #about .about-hero-grid{grid-template-columns:1fr 1fr;gap:38px}
- #about .about-hero h1{font-size:clamp(42px,5.5vw,64px)}
  #about .about-story-grid{gap:40px}
  #about .about-timeline-layout{grid-template-columns:.65fr 1.35fr;gap:45px}
  #about .about-timeline-event{grid-template-columns:115px minmax(0,1fr);gap:16px}
 }
 @media(max-width:810px){
- #about .about-hero{margin-top:18px}
- #about .about-hero-grid{grid-template-columns:1fr;gap:27px;padding-bottom:31px}
- #about .about-hero h1{font-size:clamp(48px,8vw,68px)}
- #about .about-hero-side{max-width:none}
- #about .about-hero-side>p{max-width:600px}
- #about .about-hero-facts{max-width:540px}
  #about .about-story-grid{grid-template-columns:1fr;gap:30px}
  #about .about-thesis{margin-top:0;max-width:700px}
  #about .about-work-inner .section-heading{align-items:start}
@@ -442,14 +416,6 @@ html{scroll-padding-top:100px}
  #about .about-timeline-intro p{max-width:550px}
 }
 @media(max-width:620px){
- #about .about-hero{margin-top:10px;padding:28px 23px 0}
- #about .about-hero-eyebrow{margin-bottom:23px}
- #about .about-hero h1{font-size:clamp(39px,10vw,54px)}
- #about .about-hero-side{padding-left:16px}
- #about .about-hero-side>p{font-size:16px}
- #about .about-hero-facts{gap:12px}
- #about .about-hero-facts strong{font-size:11px}
- #about .about-hero-bottom{font-size:8px}
  #about .about-story-section{padding-top:50px;padding-bottom:54px}
  #about .about-copy h2{font-size:38px}
  #about .about-copy p,#about .about-copy .about-first-paragraph{font-size:14px;line-height:1.8}
@@ -477,26 +443,6 @@ html{scroll-padding-top:100px}
 
 /* CV & CONTACT — factual CV preview with editorial presentation */
 #cv{overflow:hidden}
-#cv .cv-intro{margin-top:34px;background:#1c363a;color:#f5f8f4;padding:48px clamp(28px,5vw,68px) 0}
-#cv .cv-intro-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.6fr);gap:clamp(38px,7vw,112px);align-items:end;padding-bottom:48px}
-#cv .cv-intro-eyebrow{font:700 10px var(--mono);letter-spacing:.13em;color:#9dceb9;display:flex;align-items:center;gap:10px;margin-bottom:27px}
-#cv .cv-intro-eyebrow>span{background:#9cd2b9;width:7px;height:7px;border-radius:50%;display:inline-block}
-#cv .cv-intro h1{font-size:clamp(46px,5.1vw,77px);line-height:1.1;letter-spacing:-.055em;margin:0 0 24px}
-#cv .cv-intro h1 em{color:#a3d0b9}
-#cv .cv-intro-main>p{font-size:16px;line-height:1.7;color:#d5e6dc;max-width:570px;margin:0}
-#cv .cv-intro-actions{display:flex;flex-wrap:wrap;gap:15px 22px;align-items:center;margin-top:28px}
-#cv .cv-download-button{background:#dcefe4;color:#213f3d;min-height:47px}
-#cv .cv-download-button:hover{background:#fff;color:#193431}
-#cv .cv-intro-contact{color:#d7e9dd;font-size:12px;font-weight:750;text-decoration:underline;text-underline-offset:6px}
-#cv .cv-intro-contact:hover{color:#fff}
-#cv .cv-intro-aside{border-left:1px solid rgba(190,220,205,.32);padding-left:24px}
-#cv .cv-intro-aside-label,#cv .cv-intro-footer{font:10px var(--mono);letter-spacing:.10em;color:#9fcbbb}
-#cv .cv-intro-aside-label{display:block;margin-bottom:19px}
-#cv .cv-intro-aside>div{display:flex;flex-direction:column;padding:12px 0;border-top:1px solid rgba(190,220,205,.18);gap:4px}
-#cv .cv-intro-aside>div>span{font:9px var(--mono);letter-spacing:.08em;color:#9cc5b6}
-#cv .cv-intro-aside strong{font-size:13px;color:#f0f6ef;font-weight:650}
-#cv .cv-intro-aside small{font-size:11px;color:#bad1c4}
-#cv .cv-intro-footer{border-top:1px solid rgba(190,220,205,.22);display:flex;justify-content:space-between;gap:20px;padding:16px 0}
 #cv .cv-main-section{padding-top:84px;padding-bottom:88px}
 #cv .cv-section-top{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:34px}
 #cv .cv-section-top h2{margin:13px 0 0}
@@ -557,32 +503,16 @@ html{scroll-padding-top:100px}
 #cv .cv-contact-place{display:flex;align-items:center;gap:17px;padding:20px 5px}
 #cv .cv-contact-place strong{font-size:13px;font-weight:650}
 @media(max-width:970px){
- #cv .cv-intro-grid{grid-template-columns:1fr .8fr;gap:32px}
- #cv .cv-intro h1{font-size:clamp(41px,5.7vw,61px)}
  #cv .cv-content-grid{grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);gap:24px}
  #cv .cv-paper{padding:28px 24px}
  #cv .cv-entry{gap:12px}
 }
 @media(max-width:810px){
- #cv .cv-intro{margin-top:18px}
- #cv .cv-intro-grid{grid-template-columns:1fr;gap:35px}
- #cv .cv-intro h1{font-size:clamp(47px,8vw,68px)}
- #cv .cv-intro-aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-left:0;border-left:0}
- #cv .cv-intro-aside-label{grid-column:1/-1;margin:0}
- #cv .cv-intro-aside>div{padding-top:13px}
  #cv .cv-content-grid{grid-template-columns:1fr}
  #cv .cv-sidebar{display:grid;grid-template-columns:1fr 1fr;align-items:start}
  #cv .cv-contact-grid{gap:36px}
 }
 @media(max-width:620px){
- #cv .cv-intro{margin-top:10px;padding:29px 23px 0}
- #cv .cv-intro-grid{gap:27px;padding-bottom:29px}
- #cv .cv-intro h1{font-size:clamp(39px,10vw,54px)}
- #cv .cv-intro-main>p{font-size:14px}
- #cv .cv-intro-actions{gap:17px}
- #cv .cv-intro-aside{grid-template-columns:1fr 1fr}
- #cv .cv-intro-aside>div:last-child{grid-column:1/-1}
- #cv .cv-intro-footer{font-size:8px}
  #cv .cv-main-section{padding-top:57px;padding-bottom:62px}
  #cv .cv-section-top{align-items:start;flex-direction:column;gap:12px}
  #cv .cv-paper{box-shadow:7px 7px 0 #e6ede7;padding:25px 19px}
@@ -796,26 +726,13 @@ html{scroll-padding-top:100px}
 /* Shared hero uses the same Explore & Reading layout across all six pages. */
 #about .explore-hero h1{font-size:clamp(48px,4.8vw,73px)}
 #cv .explore-hero h1{font-size:clamp(48px,4.7vw,73px)}
-#home .portfolio-home-actions{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:28px 0 29px}
-#home .portfolio-home-actions-copy{max-width:440px}
-#home .portfolio-home-actions-copy p{font-size:13px;line-height:1.7;margin:8px 0 0}
-#home .portfolio-home-actions-links{display:flex;align-items:center;justify-content:flex-end;gap:11px;flex-wrap:wrap}
-#home .portfolio-home-actions-links .button{min-height:42px;padding:10px 15px}
-#home .portfolio-home-github{font-size:12px;font-weight:750;color:var(--teal);text-decoration:underline;text-underline-offset:5px;padding:10px}
 #projects>.explore-hero+.section-pad,#research>.explore-hero+.section-pad{padding-top:75px}
 #about>.explore-hero+.about-story-section,#cv>.explore-hero+.cv-main-section{padding-top:75px}
-@media(max-width:900px){
- #home .portfolio-home-actions{align-items:flex-start;flex-direction:column;gap:15px}
- #home .portfolio-home-actions-links{justify-content:flex-start}
-}
 @media(max-width:810px){
  #about .explore-hero h1,#cv .explore-hero h1{font-size:clamp(47px,8vw,69px)}
 }
 @media(max-width:620px){
  #about .explore-hero h1,#cv .explore-hero h1{font-size:clamp(39px,10vw,56px)}
- #home .portfolio-home-actions{padding:23px 0}
- #home .portfolio-home-actions-links{gap:8px}
- #home .portfolio-home-actions-links .button{font-size:11px;padding:10px 11px}
  #projects>.explore-hero+.section-pad,#research>.explore-hero+.section-pad,
  #about>.explore-hero+.about-story-section,#cv>.explore-hero+.cv-main-section{padding-top:54px}
 }
