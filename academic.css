@@ -1062,3 +1062,73 @@ summary:focus-visible,
   background: var(--teal);
   border-color: var(--teal);
 }
+
+
+/* Unified Profile & CV: keep the biography and academic record compact. */
+#about .academic-profile-pdf {
+  margin: 15px 0 0;
+  font-size: 13px;
+}
+#about .academic-profile-pdf a {
+  color: var(--teal);
+  font: 13px/1.6 Georgia, "Times New Roman", serif;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#about .legacy-route-anchor { display: block; height: 0; }
+#about .academic-profile-skills,
+#about .academic-profile-contact { margin: 0; }
+#about .academic-profile-skills > div,
+#about .academic-profile-contact > div {
+  display: grid;
+  grid-template-columns: minmax(140px, .45fr) minmax(0, 1.55fr);
+  gap: 12px 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+#about .academic-profile-skills > div:first-child,
+#about .academic-profile-contact > div:first-child { padding-top: 0; }
+#about .academic-profile-skills > div:last-child,
+#about .academic-profile-contact > div:last-child { border-bottom: 0; padding-bottom: 0; }
+#about .academic-profile-skills dt,
+#about .academic-profile-contact dt {
+  color: var(--ink);
+  font: 600 14px/1.6 Georgia, "Times New Roman", serif;
+}
+#about .academic-profile-skills dd,
+#about .academic-profile-contact dd {
+  margin: 0;
+  color: var(--ink-dim);
+  font: 14px/1.7 Georgia, "Times New Roman", serif;
+  overflow-wrap: anywhere;
+}
+
+/* The shared footer ends every page with GitHub, Email and a quiet PDF button. */
+.site-footer .footer-grid > div:last-child {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 19px;
+}
+.site-footer .footer-grid .footer-cv-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--teal);
+  font: 12px/1.5 Georgia, "Times New Roman", serif;
+  text-decoration: none;
+}
+.site-footer .footer-grid .footer-cv-link:hover {
+  color: var(--ink);
+  border-color: var(--teal);
+}
+@media (max-width: 620px) {
+  #about .academic-profile-skills > div,
+  #about .academic-profile-contact > div { grid-template-columns: 1fr; gap: 2px; }
+  .site-footer .footer-grid > div:last-child { gap: 9px 16px; }
+}
