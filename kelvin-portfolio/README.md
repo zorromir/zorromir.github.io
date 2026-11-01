@@ -1,3 +1,9 @@
+# Archived portfolio scaffold
+
+This directory is an earlier website scaffold retained for reference. The **live GitHub Pages site** is maintained from the repository root (`../index.html`, `../styles.css` and `../app.js`). Do not deploy this folder over the current site.
+
+## Original scaffold instructions
+
 # Kelvin Schouten — Portfolio website
 
 A clean, responsive one-page portfolio website for quantitative finance, mathematical modelling and research. Built using plain HTML/CSS/JavaScript; **no build step, framework, backend or paid hosting required**.
