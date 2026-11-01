@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "library_state": "sample_references",
+  "collection_note": "These are example references related to the projects and methods described here. Reading progress and project-specific papers will be added after confirmation.",
+  "categories": [
+    {
+      "id": "all",
+      "label": "All papers"
+    },
+    {
+      "id": "asset-pricing",
+      "label": "Asset pricing"
+    },
+    {
+      "id": "econometrics",
+      "label": "Econometrics"
+    },
+    {
+      "id": "panel-data",
+      "label": "Panel data"
+    },
+    {
+      "id": "model-validation",
+      "label": "Backtesting & ML"
+    }
+  ],
+  "projects": [
+    {
+      "id": "empirical-finance",
+      "name": "Empirical asset pricing",
+      "url": "#projects"
+    },
+    {
+      "id": "panel-econometrics",
+      "name": "Panel data studies",
+      "url": "#engineering"
+    },
+    {
+      "id": "backtesting",
+      "name": "Backtesting and validation",
+      "url": "#engineering"
+    }
+  ],
+  "papers": [
+    {
+      "id": "hansen-1982-gmm",
+      "short_label": "GMM",
+      "topic": "Estimation / moment conditions",
+      "category_ids": [
+        "econometrics",
+        "asset-pricing"
+      ],
+      "title": "Large Sample Properties of Generalized Method of Moments Estimators",
+      "authors": "Lars Peter Hansen",
+      "year": 1982,
+      "journal": "Econometrica",
+      "url": "https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/",
+      "idea": "Generalized method of moments estimates parameters using sample moment restrictions and establishes large-sample properties under stated assumptions.",
+      "relevance": "Provides the theoretical basis for two-step GMM and Hansen J-tests used to evaluate the CAPM stochastic discount factor.",
+      "project_ids": [
+        "empirical-finance"
+      ],
+      "reading_status": null,
+      "cover_accent": "#2b746b"
+    },
+    {
+      "id": "newey-west-1987-hac",
+      "short_label": "HAC",
+      "topic": "Statistical inference / dependence",
+      "category_ids": [
+        "econometrics"
+      ],
+      "title": "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",
+      "authors": "Whitney K. Newey & Kenneth D. West",
+      "year": 1987,
+      "journal": "Econometrica",
+      "url": "https://www.nber.org/papers/t0055",
+      "idea": "Develops a covariance-matrix estimator for heteroskedasticity and autocorrelation in time-series settings under suitable conditions.",
+      "relevance": "Clarifies why conventional OLS inference can be misleading for financial returns and how HAC errors change alpha tests.",
+      "project_ids": [
+        "empirical-finance"
+      ],
+      "reading_status": null,
+      "cover_accent": "#607c93"
+    },
+    {
+      "id": "fama-french-2015-ff5",
+      "short_label": "FF5",
+      "topic": "Asset pricing / factor models",
+      "category_ids": [
+        "asset-pricing"
+      ],
+      "title": "A Five-Factor Asset Pricing Model",
+      "authors": "Eugene F. Fama & Kenneth R. French",
+      "year": 2015,
+      "journal": "Journal of Financial Economics",
+      "url": "https://doi.org/10.1016/j.jfineco.2014.10.010",
+      "idea": "Extends factor asset pricing to include profitability and investment alongside market, size and value factors.",
+      "relevance": "Provides the five-factor benchmark compared with CAPM and clarifies why stronger regression fit need not mean smaller pricing errors.",
+      "project_ids": [
+        "empirical-finance"
+      ],
+      "reading_status": null,
+      "cover_accent": "#8b785b"
+    },
+    {
+      "id": "carhart-1997-momentum",
+      "short_label": "MOM",
+      "topic": "Momentum / performance",
+      "category_ids": [
+        "asset-pricing"
+      ],
+      "title": "On Persistence in Mutual Fund Performance",
+      "authors": "Mark M. Carhart",
+      "year": 1997,
+      "journal": "The Journal of Finance",
+      "url": "https://doi.org/10.1111/j.1540-6261.1997.tb03808.x",
+      "idea": "Uses a momentum factor with market, size and value factors to study patterns in mutual fund performance.",
+      "relevance": "Motivates examining momentum as a missing dimension in models that otherwise explain significant return variation.",
+      "project_ids": [
+        "empirical-finance"
+      ],
+      "reading_status": null,
+      "cover_accent": "#9b7669"
+    },
+    {
+      "id": "arellano-bond-1991",
+      "short_label": "PANEL",
+      "topic": "Panel data / dynamic GMM",
+      "category_ids": [
+        "panel-data",
+        "econometrics"
+      ],
+      "title": "Some Tests of Specification for Panel Data: Monte Carlo Evidence and an Application to Employment Equations",
+      "authors": "Manuel Arellano & Stephen Bond",
+      "year": 1991,
+      "journal": "The Review of Economic Studies",
+      "url": "https://doi.org/10.2307/2297968",
+      "idea": "Studies dynamic panel GMM specification tests, including serial-correlation checks and tests of overidentifying restrictions.",
+      "relevance": "Connects panel instruments and moment restrictions to the principles of consistent GMM estimation.",
+      "project_ids": [
+        "panel-econometrics"
+      ],
+      "reading_status": null,
+      "cover_accent": "#517b73"
+    },
+    {
+      "id": "bailey-lopez-de-prado-2014",
+      "short_label": "DSR",
+      "topic": "Model validation / backtesting",
+      "category_ids": [
+        "model-validation"
+      ],
+      "title": "The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality",
+      "authors": "David H. Bailey & Marcos López de Prado",
+      "year": 2014,
+      "journal": "The Journal of Portfolio Management",
+      "url": "https://doi.org/10.3905/jpm.2014.40.5.094",
+      "idea": "Examines how repeated strategy testing, selection bias and non-normal returns may exaggerate backtest performance.",
+      "relevance": "Provides a framework for assessing model selection and overfitting before interpreting historical signals as useful strategies.",
+      "project_ids": [
+        "backtesting"
+      ],
+      "reading_status": null,
+      "cover_accent": "#657488"
+    }
+  ]
+}
