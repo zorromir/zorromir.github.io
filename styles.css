@@ -405,3 +405,6 @@ html{scroll-padding-top:100px}
  #about .about-principle{min-height:0;padding:22px}
 }
 @media(prefers-reduced-motion:reduce){#about .about-experience-card{transition:none}}
+
+/* Match the actual Phase 4 code-generated SVG aspect ratio. */
+#projects .industrial-phase4-figure img{aspect-ratio:1000 / 443;object-fit:contain}
