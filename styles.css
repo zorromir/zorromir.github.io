@@ -266,3 +266,6 @@ html{scroll-padding-top:100px}
 #engineering .reading-dots[hidden]{display:none}
 #engineering .reading-slide[aria-hidden="true"]{pointer-events:none}
 @media(max-width:760px){#engineering .reading-filters{gap:6px}#engineering .reading-filter{font-size:11px;padding:8px 10px}#engineering .reading-paper-copy .reading-paper-link{margin-top:12px}}
+
+/* Phase 2: preserve the actual 1000 × 440 numerical SVG proportions. */
+#projects .industrial-phase2-figure img{aspect-ratio:1000 / 440;object-fit:contain}
