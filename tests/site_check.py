@@ -107,6 +107,23 @@ assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
 assert "not a validated investment strategy" in research
+# CV & Contact: confirm the actual PDF and contacts, without dashboard cards.
+cv = html.split("<!-- PAGE 6: CV & CONTACT -->", 1)[1].split("  </main>", 1)[0]
+assert 'class="page academic-cv"' in cv
+for section_id in ("cv-title", "cv-overview-title", "cv-education-title",
+                   "cv-experience-title", "cv-skills-title", "cv-contact-title"):
+    assert f'id="{section_id}"' in cv, f"Missing CV section: {section_id}"
+assert cv.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv") == 2
+assert 'download="Kelvin_Schouten_CV.pdf"' in cv
+assert "mailto:schoutenkelvin@gmail.com" in cv
+assert "https://github.com/zorromir" in cv
+assert "The Hague University of Applied Sciences" in cv
+assert "Tilburg University" in cv and "Utrecht University" in cv
+assert "Monte Carlo" in cv and "Panel Data Econometrics" in cv
+for legacy_class in ("cv-paper", "cv-sidebar", "cv-download-panel",
+                     "cv-areas-panel", "cv-contact-band"):
+    assert f'class="{legacy_class}"' not in cv
+assert "Phase 7 — CV & Contact." in editorial_css
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
