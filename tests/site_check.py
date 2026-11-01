@@ -70,6 +70,12 @@ assert count_class("home-feature-actions") == 2
 home = html.split("<!-- PAGE 1: HOME -->", 1)[1].split("<!-- PAGE 2: PROJECTS -->", 1)[0]
 assert 'class="shell academic-home-intro"' in home
 assert 'class="academic-home-work-list"' in home
+# Header is text-only and homepage no longer repeats the site navigation.
+assert 'class="brand-symbol"' not in html
+assert 'class="brand-label"' in html
+assert 'class="academic-home-links"' not in home
+assert 'class="academic-home-record"' in home
+assert "padding-top: clamp(56px, 6.2vw, 72px)" in editorial_css
 assert "The Fractional Harmonic Oscillator" in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
