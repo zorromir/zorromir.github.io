@@ -53,7 +53,7 @@ for reference in site.links + site.assets:
         path = reference.split("#", 1)[0].split("?", 1)[0]
         assert path and (ROOT / path).is_file(), f"Missing local asset: {reference}"
 
-for marker in ("Paul Zegeling", "Monte Carlo", "fractional order differential systems",
+for marker in ("Paul Zegeling", "Monte Carlo", "The Fractional Harmonic Oscillator",
                "schoutenkelvin@gmail.com", "Synthetic reproduction shown"):
     assert marker in html, f"Expected scientific context missing: {marker}"
 assert not re.search(r"98%|95%|WIREFRAME / CONCEPT|lorem ipsum", html, re.I)
