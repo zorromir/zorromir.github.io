@@ -842,3 +842,391 @@ html{scroll-padding-top:100px}
  #projects .industrial-gallery-reading p{font-size:11.5px}
  #projects .industrial-equation-explain{font-size:11px}
 }
+
+/* 2026-11-01 · Editorial refinement of the industrial project case study.
+   Scoped to Projects: no visual changes to Research, CV or Reading. */
+#projects .industrial-case{--project-navy:#1d373a;--project-ink:#263c3e;--project-mist:#eef3ef;--project-border:#cddcd3}
+#projects .industrial-case .section-heading{
+  border-bottom:1px solid var(--line);
+  padding-bottom:22px;
+  margin-bottom:31px;
+}
+#projects .industrial-case .section-heading h2{
+  font-size:clamp(39px,3.65vw,53px);
+  letter-spacing:-.045em;
+  line-height:1.08;
+}
+#projects .industrial-case .section-heading .badge-outline{
+  padding:9px 12px;letter-spacing:.09em;
+  border-color:#9bb9ac;color:#326c60;background:#f5f8f4;
+}
+#projects .industrial-case .industrial-summary{
+  grid-template-columns:minmax(0,1.65fr) minmax(240px,.64fr);
+  column-gap:clamp(30px,4vw,58px);
+  margin-bottom:34px;
+  align-items:start;
+}
+#projects .industrial-case .industrial-summary .case-main>.meta{
+  letter-spacing:.1em;color:#2b7669;font-size:10px;
+}
+#projects .industrial-case .industrial-summary .case-main>h3{
+  max-width:27ch;
+  font-size:clamp(28px,2.8vw,36px);
+  line-height:1.16;letter-spacing:-.04em;
+  margin:13px 0 19px;
+}
+#projects .industrial-case .industrial-summary .case-main>p{
+  max-width:70ch;font-size:14px;line-height:1.78;
+  color:#4e6667;
+}
+#projects .industrial-case .industrial-summary .case-main>p+p{
+  margin-top:13px;
+}
+#projects .industrial-case .industrial-summary .case-main>p strong{
+  color:#243b3c;
+}
+#projects .industrial-case .industrial-summary-aside{
+  padding:23px 24px 20px;
+  background:#e9f0eb;
+  border:1px solid #d2dfd7;
+  border-top:3px solid #2c776d;
+}
+#projects .industrial-case .industrial-summary-aside .aside-block{
+  padding-bottom:14px;margin-bottom:15px;
+  border-color:#cfddd4;
+}
+#projects .industrial-case .industrial-summary-aside .aside-block:last-child{
+  padding-bottom:0;margin-bottom:0;
+}
+#projects .industrial-case .industrial-summary-aside .aside-block .meta{
+  font-size:9px;letter-spacing:.1em;
+}
+#projects .industrial-case .industrial-summary-aside .aside-block strong{
+  font-size:13px;line-height:1.45;color:#203c39;
+}
+#projects .industrial-case .industrial-summary-aside .aside-block p{
+  color:#4b665d;font-size:12.5px;line-height:1.6;
+  margin:7px 0 0;
+}
+
+/* Carousels are editorial frames; the content panels are the visual focus. */
+#projects .industrial-case .project-carousel{
+  background:#f0f5f1;
+  border:1px solid #cbded1;
+  padding:27px 28px 21px;
+  margin:24px 0 30px;
+  box-shadow:0 2px 0 rgba(32,52,58,.035);
+}
+#projects .industrial-case .industrial-gallery{
+  background:#f5f8f5;
+  margin-top:27px;
+}
+#projects .industrial-case .project-carousel-header{
+  margin-bottom:19px;gap:20px;align-items:center;
+}
+#projects .industrial-case .project-carousel-header .meta{
+  color:#2d786b;letter-spacing:.13em;font-size:10px;
+}
+#projects .industrial-case .project-carousel-header h3{
+  font-size:clamp(27px,2.45vw,35px);
+  line-height:1.14;margin:8px 0 0;letter-spacing:-.045em;
+}
+#projects .industrial-case .industrial-carousel-subtitle{
+  font-size:12.5px;line-height:1.66;margin:8px 0 0;
+  color:#536d65;
+}
+#projects .industrial-case .project-carousel-controls>span{
+  background:rgba(255,255,255,.55);
+  padding:8px 11px;border:1px solid #d5e2d9;
+  font-size:11px;margin-right:2px;color:#37685f;
+}
+#projects .industrial-case .project-carousel-controls button{
+  width:43px;height:43px;
+  border:1px solid #aecbbb;
+  background:#fff;color:#1e554b;
+  font-size:21px;
+}
+#projects .industrial-case .project-carousel-controls button:not(:disabled):hover{
+  background:#244f49;color:white;border-color:#244f49;
+}
+#projects .industrial-case .project-carousel-controls button:focus-visible,
+#projects .industrial-case .industrial-stage-tab:focus-visible,
+#projects .industrial-case .project-gallery-dots button:focus-visible{
+  outline:2px solid var(--teal);outline-offset:3px;
+}
+#projects .industrial-case .project-viewport{
+  border-color:#cbdcd1;
+}
+#projects .industrial-case .project-carousel-foot{
+  border-top:1px solid #d8e5dc;
+  margin-top:17px;padding-top:12px;
+  color:#5a7569;font-size:10px;
+}
+
+/* A clear selected state makes the four physical processes easier to scan. */
+#projects .industrial-case .industrial-stage-tabs{
+  gap:8px;margin-bottom:13px;
+}
+#projects .industrial-case .industrial-stage-tab{
+  min-height:47px;
+  padding:12px 17px;
+  border:1px solid #cbdcd0;
+  border-top:2px solid #9ebfb0;
+  background:#f9fbf8;
+  color:#4a625d;
+  font-size:13px;
+}
+#projects .industrial-case .industrial-stage-tab span{
+  color:#628b7d;font-size:10px;margin-right:11px;
+}
+#projects .industrial-case .industrial-stage-tab.is-active,
+#projects .industrial-case .industrial-stage-tab[aria-pressed="true"]{
+  border-color:#245e55;border-top-color:#245e55;
+  background:#245e55;color:#fff;
+}
+#projects .industrial-case .industrial-stage-tab.is-active span,
+#projects .industrial-case .industrial-stage-tab[aria-pressed="true"] span{
+  color:#bedbd0;
+}
+#projects .industrial-case .industrial-stage-slide{
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  min-height:338px;
+}
+#projects .industrial-case .industrial-stage-intro{
+  gap:23px;background:#e6f0e9;
+  padding:34px 35px;
+  border-right-color:#d0e0d5;
+}
+#projects .industrial-case .industrial-stage-number{
+  font-size:68px;color:#63998a;line-height:.9;
+}
+#projects .industrial-case .industrial-stage-intro .meta{
+  font-size:10px;letter-spacing:.1em;
+}
+#projects .industrial-case .industrial-stage-intro h4{
+  font-size:clamp(26px,2.4vw,34px);
+  line-height:1.12;max-width:18ch;
+  margin:11px 0 18px;
+}
+#projects .industrial-case .industrial-stage-intro p{
+  color:#4b6660;font-size:13.5px;line-height:1.75;
+}
+#projects .industrial-case .industrial-stage-question{
+  border-top-color:#bbd5c5;
+  font-size:13.5px;
+  padding-top:14px;margin-top:19px!important;
+}
+#projects .industrial-case .industrial-stage-details{
+  padding:34px 37px;gap:15px;
+}
+#projects .industrial-case .industrial-stage-detail .meta{
+  font-size:10px;letter-spacing:.11em;
+}
+#projects .industrial-case .industrial-stage-detail p{
+  color:#526865;font-size:13px;line-height:1.72;
+}
+#projects .industrial-case .industrial-stage-equation{
+  padding:13px 16px;
+  font-size:17px;line-height:1.7;
+  color:#24574e;background:#eef5ef;
+  border-left:3px solid #2b8777;
+}
+#projects .industrial-case .industrial-equation-explain{
+  font-size:12px;line-height:1.7;margin:-6px 0 2px;
+}
+#projects .industrial-case .industrial-stage-limit{
+  border-top-color:#dae5df;
+  padding-top:12px;
+}
+
+/* The plot is the primary object, with a quieter explanatory side panel. */
+#projects .industrial-case .industrial-gallery-slide{
+  grid-template-columns:minmax(0,1.11fr) minmax(0,.89fr);
+  min-height:440px;
+}
+#projects .industrial-case .industrial-gallery-figure{
+  background:#fff;
+  padding:28px 25px;
+  gap:14px;
+  border-right:1px solid #d7e4db;
+}
+#projects .industrial-case .industrial-gallery-figure a{
+  padding:9px;background:#f9fbf8;
+  border:1px solid #e2e9e3;
+}
+#projects .industrial-case .industrial-gallery-figure img{
+  width:100%;height:auto;
+  background:transparent;
+  border:0;
+}
+#projects .industrial-case .industrial-gallery-figure figcaption{
+  margin:0;color:#657d73;
+  line-height:1.6;font-size:10.5px;
+}
+#projects .industrial-case .industrial-gallery-copy{
+  padding:32px 32px 27px;
+  background:#fbfcfa;
+}
+#projects .industrial-case .industrial-gallery-copy>.meta{
+  font-size:10px;letter-spacing:.09em;
+}
+#projects .industrial-case .industrial-gallery-copy h4{
+  font-size:clamp(26px,2.4vw,35px);
+  line-height:1.14;
+  margin:12px 0 16px;
+}
+#projects .industrial-case .industrial-gallery-copy>p{
+  font-size:13px;line-height:1.75;color:#4d6661;
+  margin-bottom:14px;
+}
+#projects .industrial-case .industrial-gallery-reading{
+  padding:14px 16px;margin:0 0 15px;
+  border-left:3px solid #459382;
+  background:#edf5ef;
+}
+#projects .industrial-case .industrial-gallery-reading .meta{
+  font-size:10px;
+}
+#projects .industrial-case .industrial-gallery-reading p{
+  margin:6px 0 0;
+  font-size:12.5px;line-height:1.72;
+  color:#365b51;
+}
+#projects .industrial-case .industrial-gallery-insight p{
+  font-size:12.5px;line-height:1.65;
+  color:#304b44;font-weight:600;
+}
+#projects .industrial-case .industrial-gallery-caveat{
+  margin-top:1px;padding-top:12px;
+}
+#projects .industrial-case .industrial-gallery-caveat p{
+  font-size:12px;color:#687773;
+}
+#projects .industrial-case .industrial-gallery-links{
+  gap:10px 17px;
+  padding-top:13px;
+}
+#projects .industrial-case .industrial-gallery-links a{
+  color:#226e61;font-size:12px;font-weight:650;
+  text-underline-offset:4px;
+}
+#projects .industrial-case .project-gallery-dots button{
+  width:30px;height:30px;
+}
+#projects .industrial-case .project-gallery-dots button::before{
+  width:9px;height:9px;
+  border-color:#689e8c;
+}
+#projects .industrial-case .project-gallery-dots button.is-active::before{
+  background:#245e55;border-color:#245e55;
+}
+
+/* More deliberate closing CTA, with quiet source citations. */
+#projects .industrial-case .industrial-reference-strip{
+  padding:24px 0 6px;
+  margin-top:31px;
+  gap:40px;
+  border-top:1px solid #cfdcd4;
+}
+#projects .industrial-case .industrial-reference-strip .meta{
+  font-size:10px;letter-spacing:.12em;
+}
+#projects .industrial-case .industrial-reference-strip p{
+  font-size:12.5px;line-height:1.73;
+}
+#projects .industrial-case .industrial-reference-links{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:7px;padding:0;
+}
+#projects .industrial-case .industrial-reference-links a{
+  font-size:12px;line-height:1.55;
+}
+#projects .industrial-case .industrial-reference-links a:first-child{
+  display:inline-flex;
+  min-height:42px;align-items:center;
+  background:#234e48;border:1px solid #234e48;
+  color:#fff;text-decoration:none;
+  padding:10px 15px;
+  margin:0 0 5px;
+  font-weight:650;
+}
+#projects .industrial-case .industrial-reference-links a:first-child:hover{
+  background:#193d39;border-color:#193d39;
+}
+
+@media(max-width:1040px){
+ #projects .industrial-case .industrial-summary{
+   grid-template-columns:minmax(0,1.6fr) minmax(230px,.7fr);
+   gap:25px;
+ }
+ #projects .industrial-case .industrial-gallery-slide{
+   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+ }
+ #projects .industrial-case .industrial-stage-intro{padding:28px 24px}
+ #projects .industrial-case .industrial-stage-details{padding:27px 26px}
+ #projects .industrial-case .industrial-gallery-copy{padding:27px 25px 23px}
+}
+@media(max-width:860px){
+ #projects .industrial-case .industrial-gallery-slide{
+   grid-template-columns:1fr;
+ }
+ #projects .industrial-case .industrial-stage-slide{
+   grid-template-columns:1fr;
+ }
+ #projects .industrial-case .industrial-stage-intro{
+   border-right:0;border-bottom:1px solid #d0e0d5;
+ }
+ #projects .industrial-case .industrial-gallery-figure{
+   border-right:0;border-bottom:1px solid #d7e4db;
+ }
+}
+@media(max-width:810px){
+ #projects .industrial-case .industrial-summary{grid-template-columns:1fr;gap:24px}
+ #projects .industrial-case .industrial-summary-aside{
+   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;
+ }
+ #projects .industrial-case .industrial-summary-aside .aside-block{
+   margin:0;padding:0;border:0;
+ }
+ #projects .industrial-case .industrial-summary-aside .aside-block:last-child{
+   grid-column:1/-1;border-top:1px solid #cdded4;padding-top:13px;
+ }
+}
+@media(max-width:620px){
+ #projects .industrial-case .section-heading{padding-bottom:18px;margin-bottom:24px}
+ #projects .industrial-case .section-heading h2{font-size:40px}
+ #projects .industrial-case .industrial-summary{margin-bottom:26px}
+ #projects .industrial-case .industrial-summary .case-main>h3{font-size:27px;line-height:1.19}
+ #projects .industrial-case .industrial-summary .case-main>p{font-size:13px;line-height:1.76}
+ #projects .industrial-case .industrial-summary-aside{padding:18px;gap:12px}
+ #projects .industrial-case .industrial-case .project-carousel,
+ #projects .industrial-case .project-carousel{padding:19px 15px 15px;margin:20px 0 23px}
+ #projects .industrial-case .project-carousel-header{align-items:flex-start;gap:12px}
+ #projects .industrial-case .project-carousel-header h3{font-size:26px}
+ #projects .industrial-case .industrial-carousel-subtitle{font-size:11.5px}
+ #projects .industrial-case .project-carousel-controls{gap:5px}
+ #projects .industrial-case .project-carousel-controls>span{display:none}
+ #projects .industrial-case .project-carousel-controls button{width:39px;height:39px;font-size:19px}
+ #projects .industrial-case .industrial-stage-tabs{gap:5px}
+ #projects .industrial-case .industrial-stage-tab{
+   padding:10px 3px;min-height:47px;
+   font-size:11px;text-align:center;
+ }
+ #projects .industrial-case .industrial-stage-tab span{
+   display:block;font-size:9px;margin:0 0 3px;
+ }
+ #projects .industrial-case .industrial-stage-intro{padding:24px 20px;gap:16px}
+ #projects .industrial-case .industrial-stage-number{font-size:52px}
+ #projects .industrial-case .industrial-stage-intro h4{font-size:27px}
+ #projects .industrial-case .industrial-stage-intro p,
+ #projects .industrial-case .industrial-stage-question{font-size:12.5px}
+ #projects .industrial-case .industrial-stage-details{padding:24px 22px}
+ #projects .industrial-case .industrial-gallery-figure{padding:15px 12px}
+ #projects .industrial-case .industrial-gallery-figure a{padding:6px}
+ #projects .industrial-case .industrial-gallery-copy{padding:25px 20px}
+ #projects .industrial-case .industrial-gallery-copy h4{font-size:29px}
+ #projects .industrial-case .industrial-gallery-reading{padding:12px 13px}
+ #projects .industrial-case .industrial-reference-strip{
+   grid-template-columns:1fr;gap:19px;
+ }
+}
