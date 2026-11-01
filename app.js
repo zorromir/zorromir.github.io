@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const validPages = new Set(['home', 'projects', 'research', 'engineering', 'about', 'cv']);
+  const validPages = new Set(['home', 'projects', 'research', 'engineering', 'about']);
   const pages = [...document.querySelectorAll('[data-page]')];
   const links = [...document.querySelectorAll('[data-nav]')];
   const menu = document.getElementById('main-nav');
@@ -13,7 +13,7 @@
   // That fragment is reserved for the accessible skip link, not for a seventh page.
   function renderPage() {
     const hash = location.hash.slice(1);
-    const name = hash === 'main-content' ? currentPage : (validPages.has(hash) ? hash : 'home');
+    const name = hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home'));
     const changed = name !== currentPage;
     currentPage = name;
 
@@ -27,7 +27,7 @@
 
     closeMenu();
     if (changed && hash !== 'main-content') window.scrollTo({ top: 0, behavior: 'instant' });
-    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Exploring & Reading',about:'About',cv:'CV & Contact'}[name];
+    const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Exploring & Reading',about:'Profile & CV'}[name];
     document.title = label === 'Home'
       ? 'Kelvin Schouten | Quantitative Finance & Mathematical Modelling'
       : label + ' | Kelvin Schouten';
