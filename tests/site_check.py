@@ -197,6 +197,13 @@ assert html.count("data-project-carousel") == 2
 # Reading is a bibliography, not a one-paper-at-a-time carousel.
 reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
+assert 'class="academic-coursework-heading"' in reading_page
+assert reading_page.count('class="academic-current-projects academic-coursework-projects"') == 1
+for title in ("Panel-data estimation and dynamic models", "Stochastic interest rates and derivative pricing", "Supplier decisions under uncertainty", "Hedging and pricing hybrid insurance claims"):
+    assert title in reading_page, f"Missing course project: {title}"
+assert "the problems and methods I am studying, rather than completed results" in reading_page
+assert "2026) · OR Spectrum · Currently reading" in reading_page
+assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Most recent readings",
                "Reading progress has not been confirmed", "Currently studying",
@@ -221,6 +228,11 @@ for paper in reading["papers"]:
     assert paper["title"].replace("&", "&amp;") in reading_page
     assert paper["url"] in reading_page
 assert "sample_references" == reading["library_state"]
+assert reading["papers"][0]["id"] == "merzifonluoglu-et-al-2026-supplier-risk"
+assert reading["papers"][0]["reading_status"] == "reading"
+assert "optimization" in reading["papers"][0]["category_ids"]
+assert any(p["id"] == "supplier-optimization" for p in reading["projects"])
+assert len({p["id"] for p in reading["papers"]}) == len(reading["papers"])
 
 print(f"PASS: {len(site.pages)} pages, {len(site.images)} images, anchors, scientific figures, data and responsive styles.")
 print("NOTE: Browser viewport tests, external URLs and CV personal details need manual review.")
