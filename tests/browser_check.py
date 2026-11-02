@@ -178,6 +178,15 @@ def check_site(browser, base, device, width, height):
           f"{device}: missing supplier reading link")
     check(page.locator('#explore-backtesting').bounding_box()["y"] < page.locator('#now-projects-title').bounding_box()["y"],
           f"{device}: exploration topics should appear before projects")
+    current_projects = page.locator('#engineering .academic-current-projects').first
+    check(current_projects.locator('.academic-project-entry').count() == 3,
+          f"{device}: unexpected number of current project cards")
+    check(current_projects.get_by_text('Fama–French factor extensions').count() == 1
+          and current_projects.get_by_text('Machine learning for asset pricing').count() == 1,
+          f"{device}: new current projects missing")
+    check(current_projects.get_by_text('Fractional harmonic oscillator').count() == 0
+          and current_projects.get_by_text('Two-phase flow modelling').count() == 0,
+          f"{device}: previous projects still in current projects")
     page.locator('[data-paper-filters] button', has_text="Econometrics").click()
     check(page.locator('[data-paper-list] > li').count() >= 2,
           f"{device}: bibliography filter did not work")

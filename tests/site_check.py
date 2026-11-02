@@ -198,6 +198,21 @@ assert html.count("data-project-carousel") == 2
 reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
 assert 'class="academic-coursework-heading"' in reading_page
+current_project_section = reading_page.split('<h2 id="now-projects-title">', 1)[1].split('class="academic-coursework-heading"', 1)[0]
+assert current_project_section.count('class="academic-project-entry"') == 3
+assert "Empirical asset pricing" in current_project_section
+assert "Fama–French factor extensions" in current_project_section
+assert "Machine learning for asset pricing" in current_project_section
+assert "Fractional harmonic oscillator" not in current_project_section
+assert "Two-phase flow modelling" not in current_project_section
+assert "Asset pricing · Quantitative research" in current_project_section
+assert "Machine Learning · Asset pricing" in current_project_section
+assert current_project_section.count(">Project scope</a>") == 2
+assert current_project_section.count(">Related papers</a>") == 2
+for path in ("projects/current-research/fama-french-factor-extensions.md", "projects/current-research/machine-learning-asset-pricing.md"):
+    content = (ROOT / path).read_text(encoding="utf-8")
+    assert "## Research question" in content and "## Project scope" in content and "## Related papers" in content
+    assert path in current_project_section
 assert reading_page.count('class="academic-current-projects academic-coursework-projects"') == 1
 for title in ("Panel-data estimation and dynamic models", "Stochastic interest rates and derivative pricing", "Supplier decisions under uncertainty", "Hedging and pricing hybrid insurance claims"):
     assert title in reading_page, f"Missing course project: {title}"
@@ -210,8 +225,7 @@ assert "How reliable is a backtest?" in reading_page
 assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Other papers &amp; references",
-               "not a record of completed reading", "Currently studying",
-               "not establish predictive accuracy against company measurements"):
+               "not a record of completed reading", "Currently studying"):
     assert marker in reading_page, f"Reading-page content missing: {marker}"
 assert "data-paper-carousel" not in html
 assert "coverFor(" not in js and "makeSlide(" not in js
