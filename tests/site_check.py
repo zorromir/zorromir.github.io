@@ -111,7 +111,7 @@ assert 'Phase 4 — model-to-figure navigation' in editorial_css
 assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
 assert "industrial-gallery .project-gallery-dots button" in editorial_css
 assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
-assert 'academic.css?v=industrial-qa-mobile-20261102' in html
+assert 'academic.css?v=project-conclusion-20261102' in html
 assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
 assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
 assert 'independently coded examples' not in projects
@@ -136,6 +136,16 @@ for marker in ("AI-assisted reconstruction", "No company measurements",
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' in projects
+# The gallery keeps five full-size figures but no per-slide Python source links.
+industrial_figures = projects.split('<section id="industrial-numerical-figures"', 1)[1].split('<section class="industrial-project-conclusion"', 1)[0]
+assert industrial_figures.count('Expand figure ↗') == 5
+assert 'View Python source' not in industrial_figures
+assert 'blob/main/examples/' not in industrial_figures
+assert projects.count('class="industrial-project-conclusion"') == 1
+assert projects.index('class="industrial-project-conclusion"') < projects.index('id="industrial-literature-title"')
+assert 'id="industrial-project-conclusion-title"' in projects
+assert 'The links open the publishers' + chr(39) + ' pages.' not in projects
+assert '.industrial-project-conclusion h3' in editorial_css
 assert 'Fluivac — Push, Blow, Rinse &amp; Dry' in projects
 assert 'Public Python reconstruction and tests' not in projects
 assert 'industrial-process-photos' in projects
