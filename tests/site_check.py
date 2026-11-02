@@ -89,6 +89,26 @@ assert 'id="projects-thesis-title"' in projects
 assert projects.count("data-project-carousel") == 2
 assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
 assert projects.count('data-project-go=') == 4
+# Phase 4: the two existing carousels link to their matching examples.
+assert projects.count('data-project-carousel=') == 2
+assert 'id="industrial-model-stages"' in projects
+assert 'id="industrial-numerical-figures"' in projects
+assert projects.count('class="industrial-stage-figure-links"') == 4
+assert projects.count('class="industrial-gallery-stage-links"') == 5
+assert projects.count('data-project-jump="figures"') == 6
+assert projects.count('data-project-jump="stages"') == 6
+for target in ("stages", "figures"):
+    assert f'data-project-carousel="{target}"' in projects
+for link_target in ("industrial-model-stages", "industrial-numerical-figures"):
+    assert f'href="#{link_target}"' in projects
+assert 'const projectCarouselControllers = new Map()' in js
+assert "document.querySelectorAll('a[data-project-jump]')" in js
+assert 'controller.show(index)' in js
+assert 'controller.carousel.focus({ preventScroll: true })' in js
+assert 'prefers-reduced-motion: reduce' in js
+assert 'Phase 4 — model-to-figure navigation' in editorial_css
+assert 'academic.css?v=industrial-links-20261102' in html
+assert 'app.js?v=industrial-links-20261102' in html
 # All four industrial stages use semantic, browser-native mathematical notation.
 assert projects.count('class="industrial-stage-equation"') == 4
 assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
