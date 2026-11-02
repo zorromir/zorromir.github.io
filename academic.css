@@ -1345,3 +1345,262 @@ summary:focus-visible,
   #projects .industrial-photos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
   #projects .industrial-process-photos { margin: 22px 0 24px; }
 }
+
+/* Phase 3 — industrial carousel layout refinement (2026-11-02).
+   Editorial layout only: no changes to slider controls, content or other pages.
+   Designed for the longer research explanations introduced in Phases 1 and 2. */
+#projects .academic-industrial-project .project-carousel {
+  padding: clamp(12px, 1.8vw, 20px);
+  margin-block: 22px 28px;
+}
+#projects .academic-industrial-project .project-carousel-header {
+  gap: 18px;
+  margin-bottom: 16px;
+  align-items: start;
+}
+#projects .academic-industrial-project .project-carousel-header > div:first-child {
+  min-width: 0;
+  max-width: 70ch;
+}
+#projects .academic-industrial-project .project-carousel-header h3 {
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+#projects .academic-industrial-project .industrial-carousel-subtitle {
+  line-height: 1.55;
+}
+#projects .academic-industrial-project .project-carousel-controls {
+  flex-shrink: 0;
+  gap: 6px;
+}
+#projects .academic-industrial-project .industrial-stage-tabs {
+  gap: 6px;
+  margin-bottom: 10px;
+}
+#projects .academic-industrial-project .industrial-stage-tab {
+  min-height: 44px;
+  padding: 9px 10px;
+  line-height: 1.35;
+}
+#projects .academic-industrial-project .industrial-stage-slide {
+  grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  min-height: 0;
+  align-items: stretch;
+}
+#projects .academic-industrial-project .industrial-stage-intro,
+#projects .academic-industrial-project .industrial-stage-details {
+  min-width: 0;
+  padding: clamp(18px, 2.35vw, 27px);
+}
+#projects .academic-industrial-project .industrial-stage-intro {
+  align-items: stretch;
+}
+#projects .academic-industrial-project .industrial-stage-intro > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+}
+#projects .academic-industrial-project .industrial-stage-intro h4 {
+  max-width: 22ch;
+  margin: 6px 0 13px;
+  font-size: clamp(22px, 2.4vw, 26px);
+  line-height: 1.24;
+}
+#projects .academic-industrial-project .industrial-stage-intro p,
+#projects .academic-industrial-project .industrial-stage-details p,
+#projects .academic-industrial-project .industrial-gallery-copy p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+#projects .academic-industrial-project .industrial-stage-intro p {
+  margin: 0 0 11px;
+}
+#projects .academic-industrial-project .industrial-stage-question {
+  align-self: stretch;
+  width: 100%;
+  margin: auto 0 0 !important;
+  padding-top: 13px;
+  line-height: 1.6;
+}
+#projects .academic-industrial-project .industrial-stage-details {
+  justify-content: flex-start;
+  gap: 14px;
+}
+#projects .academic-industrial-project .industrial-stage-detail p {
+  margin-top: 6px;
+}
+#projects .academic-industrial-project .industrial-stage-equation {
+  min-height: 88px;
+  padding: 17px 14px;
+}
+#projects .academic-industrial-project .industrial-stage-equation math {
+  font-size: clamp(21px, 2.2vw, 26px);
+}
+#projects .academic-industrial-project .industrial-equation-explain {
+  margin: 0;
+  line-height: 1.6;
+}
+#projects .academic-industrial-project .industrial-stage-limit {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+#projects .academic-industrial-project .industrial-gallery-slide {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  min-height: 0;
+  align-items: stretch;
+}
+#projects .academic-industrial-project .industrial-gallery-figure {
+  min-width: 0;
+  gap: 11px;
+  padding: clamp(11px, 1.7vw, 18px);
+  justify-content: center;
+}
+#projects .academic-industrial-project .industrial-gallery-figure a {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+}
+#projects .academic-industrial-project .industrial-gallery-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+#projects .academic-industrial-project .industrial-gallery-figure figcaption {
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+#projects .academic-industrial-project .industrial-gallery-copy {
+  min-width: 0;
+  padding: clamp(18px, 2.1vw, 25px);
+  gap: 0;
+}
+#projects .academic-industrial-project .industrial-gallery-copy h4 {
+  font-size: clamp(21px, 2.3vw, 25px);
+  line-height: 1.26;
+  margin: 6px 0 12px;
+}
+#projects .academic-industrial-project .industrial-gallery-copy > p {
+  margin: 0 0 11px;
+}
+#projects .academic-industrial-project .industrial-gallery-reading,
+#projects .academic-industrial-project .industrial-gallery-insight,
+#projects .academic-industrial-project .industrial-gallery-caveat {
+  margin: 9px 0 0;
+  padding: 10px 0 0;
+}
+#projects .academic-industrial-project .industrial-gallery-reading .meta,
+#projects .academic-industrial-project .industrial-gallery-insight .meta,
+#projects .academic-industrial-project .industrial-gallery-caveat .meta {
+  display: block;
+  margin-bottom: 3px;
+}
+#projects .academic-industrial-project .industrial-gallery-reading p,
+#projects .academic-industrial-project .industrial-gallery-insight p,
+#projects .academic-industrial-project .industrial-gallery-caveat p {
+  margin: 0;
+}
+#projects .academic-industrial-project .industrial-gallery-links {
+  padding-top: 14px;
+  margin-top: auto;
+}
+#projects .academic-industrial-project .project-carousel-foot {
+  margin-top: 13px;
+  padding-top: 10px;
+}
+@media (max-width: 900px) {
+  #projects .academic-industrial-project .industrial-stage-slide,
+  #projects .academic-industrial-project .industrial-gallery-slide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #projects .academic-industrial-project .industrial-stage-intro,
+  #projects .academic-industrial-project .industrial-gallery-figure {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  #projects .academic-industrial-project .industrial-stage-question,
+  #projects .academic-industrial-project .industrial-stage-limit {
+    margin-top: 13px !important;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure {
+    padding: 14px;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure img {
+    max-height: 380px;
+  }
+}
+@media (max-width: 620px) {
+  #projects .academic-industrial-project .project-carousel {
+    padding: 11px;
+    margin-block: 18px 24px;
+  }
+  #projects .academic-industrial-project .project-carousel-header {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  #projects .academic-industrial-project .project-carousel-header h3 {
+    font-size: 21px;
+  }
+  #projects .academic-industrial-project .industrial-carousel-subtitle {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  #projects .academic-industrial-project .project-carousel-controls button {
+    width: 42px;
+    height: 42px;
+  }
+  #projects .academic-industrial-project .industrial-stage-intro,
+  #projects .academic-industrial-project .industrial-stage-details,
+  #projects .academic-industrial-project .industrial-gallery-copy {
+    padding: 17px 15px;
+  }
+  #projects .academic-industrial-project .industrial-stage-intro h4,
+  #projects .academic-industrial-project .industrial-gallery-copy h4 {
+    font-size: 22px;
+  }
+  #projects .academic-industrial-project .industrial-stage-intro p,
+  #projects .academic-industrial-project .industrial-stage-details p,
+  #projects .academic-industrial-project .industrial-gallery-copy p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  #projects .academic-industrial-project .industrial-stage-equation {
+    min-height: 76px;
+    padding: 14px 9px;
+  }
+  #projects .academic-industrial-project .industrial-stage-equation math {
+    font-size: 19px;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure {
+    padding: 10px;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure img {
+    max-height: none;
+  }
+  #projects .academic-industrial-project .project-carousel-foot {
+    align-items: center;
+    gap: 8px;
+  }
+}
+@media (max-width: 380px) {
+  #projects .academic-industrial-project .project-carousel-controls {
+    gap: 4px;
+  }
+  #projects .academic-industrial-project .project-carousel-controls button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  #projects .academic-industrial-project .industrial-stage-tab {
+    padding: 9px 2px;
+    font-size: 11px;
+  }
+}
