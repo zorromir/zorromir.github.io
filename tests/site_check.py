@@ -228,6 +228,9 @@ assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · Englis
 assert 'Open CV <span aria-hidden="true">↗</span>' in about
 assert 'View CV (PDF)' not in about
 assert '#about .academic-profile-pdf-label' in editorial_css
+profile_cv_rule = editorial_css.split('#about .academic-profile-pdf {', 1)[1].split('}', 1)[0]
+assert 'max-width: 380px;' in profile_cv_rule
+assert 'academic.css?v=profile-cv-alignment-20261102' in html
 assert about.count("id=\"about-education-title\"") == 1
 assert "The Hague University of Applied Sciences" in about
 assert "Tilburg University" in about and "Utrecht University" in about
