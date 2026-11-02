@@ -1604,3 +1604,79 @@ summary:focus-visible,
     font-size: 11px;
   }
 }
+
+/* Phase 4 — model-to-figure navigation (2026-11-02).
+   Keep cross-references as quiet editorial links inside existing slides. */
+#projects .academic-industrial-project #industrial-model-stages,
+#projects .academic-industrial-project #industrial-numerical-figures {
+  scroll-margin-top: 88px;
+}
+#projects .academic-industrial-project .industrial-stage-figure-links {
+  margin-top: 2px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  min-width: 0;
+}
+#projects .academic-industrial-project .industrial-stage-figure-links .meta {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+#projects .academic-industrial-project .industrial-stage-figure-link-list,
+#projects .academic-industrial-project .industrial-gallery-stage-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 16px;
+  min-width: 0;
+}
+#projects .academic-industrial-project .industrial-stage-figure-links a,
+#projects .academic-industrial-project .industrial-gallery-stage-links a {
+  color: var(--teal);
+  font: 12.5px/1.55 Georgia, "Times New Roman", serif;
+  text-decoration: underline;
+  text-decoration-color: #acc8b9;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+#projects .academic-industrial-project .industrial-stage-figure-links a:hover,
+#projects .academic-industrial-project .industrial-gallery-stage-links a:hover {
+  text-decoration-color: currentColor;
+}
+#projects .academic-industrial-project .industrial-stage-figure-links a:focus-visible,
+#projects .academic-industrial-project .industrial-gallery-stage-links a:focus-visible,
+#projects .academic-industrial-project [data-project-carousel]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+#projects .academic-industrial-project .industrial-gallery-stage-links {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+#projects .academic-industrial-project .industrial-gallery-links {
+  margin-top: 0;
+  padding-top: 11px;
+}
+@media (max-width: 900px) {
+  #projects .academic-industrial-project .industrial-gallery-stage-links {
+    margin-top: 13px;
+  }
+}
+@media (max-width: 620px) {
+  #projects .academic-industrial-project #industrial-model-stages,
+  #projects .academic-industrial-project #industrial-numerical-figures {
+    scroll-margin-top: 74px;
+  }
+  #projects .academic-industrial-project .industrial-stage-figure-links a,
+  #projects .academic-industrial-project .industrial-gallery-stage-links a {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  #projects .academic-industrial-project .industrial-stage-figure-link-list,
+  #projects .academic-industrial-project .industrial-gallery-stage-links {
+    gap: 7px 15px;
+  }
+}
