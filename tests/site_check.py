@@ -107,6 +107,14 @@ assert 'controller.show(index)' in js
 assert 'controller.carousel.focus({ preventScroll: true })' in js
 assert 'prefers-reduced-motion: reduce' in js
 assert 'Phase 4 — model-to-figure navigation' in editorial_css
+# Phase 5: mobile fixes follow the live narrow-screen interaction audit.
+assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
+assert "industrial-gallery .project-gallery-dots button" in editorial_css
+assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
+assert 'academic.css?v=industrial-qa-mobile-20261102' in html
+assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
+assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
+assert 'independently coded examples' not in projects
 assert 'academic.css?v=industrial-links-20261102' in html
 assert 'app.js?v=industrial-links-20261102' in html
 # All four industrial stages use semantic, browser-native mathematical notation.
