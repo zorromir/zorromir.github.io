@@ -209,6 +209,9 @@ assert 'id="cv" class="legacy-route-anchor"' in about
 assert 'data-page="cv"' not in html and 'data-nav="cv"' not in html
 assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
+assert "document.title = name === 'engineering'" in js
+assert "? 'Exploring & Reading'" in js
+assert 'app.js?v=exploring-tab-title-20261102' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
