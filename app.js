@@ -14,7 +14,8 @@
   // That fragment is reserved for the accessible skip link, not for a seventh page.
   function renderPage() {
     const hash = location.hash.slice(1);
-    const name = hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home'));
+    const detailTarget = hash === 'empirical-heading' ? document.getElementById('empirical-heading') : null;
+    const name = detailTarget ? 'projects' : (hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home')));
     const changed = name !== currentPage;
     currentPage = name;
 
@@ -27,7 +28,13 @@
     });
 
     closeMenu();
-    if (changed && hash !== 'main-content') window.scrollTo({ top: 0, behavior: 'instant' });
+    if (detailTarget) {
+      // The target belongs to a routed (initially hidden) page, so reveal it
+      // before scrolling. Works both from Home and on direct link/page reload.
+      detailTarget.scrollIntoView({ block: 'start', behavior: 'instant' });
+    } else if (changed && hash !== 'main-content') {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
     const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Exploring & Reading',about:'Profile & CV'}[name];
     document.title = name === 'engineering'
       ? 'Exploring & Reading'
