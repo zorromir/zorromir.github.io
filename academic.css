@@ -1226,14 +1226,37 @@ summary:focus-visible,
 
 /* Unified Profile & CV: keep the biography and academic record compact. */
 #about .academic-profile-pdf {
-  margin: 15px 0 0;
-  font-size: 13px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 7px 24px;
+  max-width: 440px;
+  margin: 20px 0 0;
+}
+#about .academic-profile-pdf-label {
+  color: var(--ink);
+  font: 14px/1.55 Georgia, "Times New Roman", serif;
+}
+#about .academic-profile-pdf-label small {
+  display: block;
+  color: var(--muted);
+  font: 11px/1.6 Georgia, "Times New Roman", serif;
 }
 #about .academic-profile-pdf a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-height: 30px;
   color: var(--teal);
   font: 13px/1.6 Georgia, "Times New Roman", serif;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+#about .academic-profile-pdf a:hover { color: var(--ink); }
+#about .academic-profile-pdf a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
 }
 #about .legacy-route-anchor { display: block; height: 0; }
 #about .academic-profile-skills,
