@@ -92,7 +92,7 @@ assert projects.count('data-project-go=') == 4
 # All four industrial stages use semantic, browser-native mathematical notation.
 assert projects.count('class="industrial-stage-equation"') == 4
 assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
-assert projects.count("<mfrac>") == 3
+assert projects.count("<mfrac>") == 5
 assert projects.count("<msup>") == 1
 assert projects.count("<msub>") >= 9
 assert 'industrial-stage-equation">dx' not in projects
@@ -121,7 +121,7 @@ assert "left: 0;" in intro_rule and "right: 0;" in intro_rule
 assert "border-bottom: 1px solid var(--line);" in intro_rule
 assert "#home .academic-home-record > div:last-child { margin-bottom: 0; border-bottom: 0; }" in editorial_css
 assert "#home .academic-home-intro::after { bottom: 27px; }" in editorial_css
-assert 'rather than one coupled simulator' in projects
+assert 'Four stages of product recovery and the mathematical ideas used to describe them.' in projects
 assert projects.count('class="industrial-literature-citation"') == 5
 assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
 assert projects.count('href="https://doi.org/10.1038/s41597-024-03441-7"') == 1
