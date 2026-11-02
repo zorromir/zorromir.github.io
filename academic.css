@@ -625,8 +625,8 @@ body {
   margin-top: 13px; padding-top: 11px;
 }
 #projects .academic-industrial-project .industrial-reference-strip {
-  display: block; background: transparent; border: 0; border-top: 1px solid var(--line);
-  padding: 21px 0 0; margin: 28px 0 0; box-shadow: none;
+  display: block; background: transparent; border: 0;
+  padding: 0; margin: 20px 0 0; box-shadow: none;
 }
 #projects .academic-industrial-project .industrial-reference-strip .meta {
   display: block; font-size: 11px; color: var(--muted); margin-bottom: 7px;
