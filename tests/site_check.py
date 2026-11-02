@@ -112,7 +112,7 @@ assert 'Phase 4 — model-to-figure navigation' in editorial_css
 assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
 assert "industrial-gallery .project-gallery-dots button" in editorial_css
 assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
-assert 'academic.css?v=project-conclusion-20261102' in html
+assert 'academic.css?v=industrial-link-spacing-20261102' in html
 assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
 assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
 assert 'independently coded examples' not in projects
@@ -138,6 +138,8 @@ for marker in ("without company measurements", "Hansen J-test",
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' in projects
 assert 'SCOPE &amp; REPRODUCIBILITY' not in projects
+reference_rule = editorial_css.split("#projects .academic-industrial-project .industrial-reference-strip {", 1)[1].split("}", 1)[0]
+assert "border: 0;" in reference_rule and "border-top:" not in reference_rule
 assert 'Numerical verification is not experimental validation.' not in projects
 assert '>View code and technical documentation ↗</a>' in projects
 # The gallery keeps five full-size figures but no per-slide Python source links.
