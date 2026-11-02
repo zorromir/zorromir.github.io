@@ -176,6 +176,9 @@ def check_site(browser, base, device, width, height):
           f"{device}: missing backtesting reading links")
     check(page.locator('#explore-suppliers .academic-focus-paper').count() == 1,
           f"{device}: missing supplier reading link")
+    check(page.locator('#explore-backtesting .academic-focus-related').count() == 0
+          and page.locator('#explore-suppliers .academic-focus-related').count() == 0,
+          f"{device}: redundant research-scope links remain")
     check(page.locator('#explore-backtesting').bounding_box()["y"] < page.locator('#now-projects-title').bounding_box()["y"],
           f"{device}: exploration topics should appear before projects")
     check(page.locator('#engineering .academic-projects-section').count() == 1

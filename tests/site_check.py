@@ -211,8 +211,9 @@ assert "Fractional harmonic oscillator" not in current_project_section
 assert "Two-phase flow modelling" not in current_project_section
 assert "Asset pricing · Quantitative research" in current_project_section
 assert "Machine Learning · Asset pricing" in current_project_section
-assert current_project_section.count(">Project scope</a>") == 2
-assert current_project_section.count(">Related papers</a>") == 2
+assert current_project_section.count(">Project</a>") == 2
+assert ">Related papers</a>" not in current_project_section
+assert ">Project scope</a>" not in current_project_section
 for path in ("projects/current-research/fama-french-factor-extensions.md", "projects/current-research/machine-learning-asset-pricing.md"):
     content = (ROOT / path).read_text(encoding="utf-8")
     assert "## Research question" in content and "## Project scope" in content and "## Related papers" in content
@@ -236,6 +237,10 @@ assert 'id="explore-backtesting"' in reading_page
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
 assert reading_page.count('class="academic-focus-paper"') == 4
 assert "How reliable is a backtest?" in reading_page
+focus_section = reading_page.split('id="exploring-now-title"', 1)[1].split('id="now-projects-title"', 1)[0]
+assert "Related empirical-finance work" not in focus_section
+assert "Course project scope" not in focus_section
+assert 'class="academic-focus-related"' not in focus_section
 assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Other papers &amp; references",
