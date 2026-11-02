@@ -1680,3 +1680,94 @@ summary:focus-visible,
     gap: 7px 15px;
   }
 }
+
+/* Phase 5 — narrow-screen fixes from live QA (2026-11-02). */
+@media (max-width: 620px) {
+  /* Reserve a complete row for gallery pagination instead of squeezing the
+     five targets alongside the long provenance sentence. */
+  #projects .academic-industrial-project .project-carousel-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    min-width: 0;
+  }
+  #projects .academic-industrial-project .project-carousel-foot > span {
+    display: block;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  #projects .academic-industrial-project .industrial-gallery .project-gallery-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: none;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  #projects .academic-industrial-project .industrial-gallery .project-gallery-dots button {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  /* The four stage tabs must stay inside their available grid tracks. */
+  #projects .academic-industrial-project .industrial-stage-tabs {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    min-width: 0;
+  }
+  #projects .academic-industrial-project .industrial-stage-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+    padding: 10px 2px;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  #projects .academic-industrial-project .industrial-stage-tab span {
+    display: none;
+  }
+
+  /* Keep the complete chart inside a constrained slide; the image already
+     opens a full-resolution copy for detailed axis labels. */
+  #projects .academic-industrial-project .industrial-gallery-slide,
+  #projects .academic-industrial-project .industrial-gallery-figure,
+  #projects .academic-industrial-project .industrial-gallery-figure a {
+    min-width: 0;
+    max-width: 100%;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure {
+    overflow: hidden;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure a,
+  #projects .academic-industrial-project .industrial-gallery-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  #projects .academic-industrial-project .industrial-gallery-figure figcaption {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* MathML remains on one visual line, scrollable inside its own frame,
+     rather than breaking the equation across the narrow column. */
+  #projects .academic-industrial-project .industrial-stage-equation {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  #projects .academic-industrial-project .industrial-stage-equation math {
+    white-space: nowrap;
+    max-width: none;
+    flex-shrink: 0;
+  }
+}
