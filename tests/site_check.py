@@ -130,12 +130,15 @@ assert 'academic.css?v=industrial-layout-20261102' in html
 assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
 assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
-for marker in ("AI-assisted reconstruction", "No company measurements",
-               "Hansen J-test", "four of five industries", "p = 0.311",
+for marker in ("without company measurements", "Hansen J-test",
+               "four of five industries", "p = 0.311",
                "not a validated trading strategy"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' in projects
+assert 'SCOPE &amp; REPRODUCIBILITY' not in projects
+assert 'Numerical verification is not experimental validation.' not in projects
+assert '>View code and technical documentation ↗</a>' in projects
 # The gallery keeps five full-size figures but no per-slide Python source links.
 industrial_figures = projects.split('<section id="industrial-numerical-figures"', 1)[1].split('<section class="industrial-project-conclusion"', 1)[0]
 assert industrial_figures.count('Expand figure ↗') == 5
@@ -230,7 +233,7 @@ assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
 assert "four of five industries" in html
 assert "independent public python reconstruction" in html.lower()
-assert "AI-assisted reconstruction" in html
+assert "Python-generated illustration · synthetic inputs" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
