@@ -178,6 +178,17 @@ def check_site(browser, base, device, width, height):
           f"{device}: missing supplier reading link")
     check(page.locator('#explore-backtesting').bounding_box()["y"] < page.locator('#now-projects-title').bounding_box()["y"],
           f"{device}: exploration topics should appear before projects")
+    check(page.locator('#engineering .academic-projects-section').count() == 1
+          and page.locator('#engineering .academic-coursework-section').count() == 1,
+          f"{device}: project/coursework sections missing")
+    project_section = page.locator('#engineering .academic-projects-section')
+    course_section = page.locator('#engineering .academic-coursework-section')
+    check(project_section.bounding_box()["y"] < course_section.bounding_box()["y"],
+          f"{device}: coursework does not start after projects")
+    check(course_section.get_by_role("heading", name="MSc coursework").count() == 1,
+          f"{device}: distinct MSc coursework heading missing")
+    check(page.locator('#engineering .academic-courses-list > li').count() == 5,
+          f"{device}: expected five listed MSc courses")
     current_projects = page.locator('#engineering .academic-current-projects').first
     check(current_projects.locator('.academic-project-entry').count() == 3,
           f"{device}: unexpected number of current project cards")

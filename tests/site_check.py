@@ -197,7 +197,12 @@ assert html.count("data-project-carousel") == 2
 reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
 assert 'class="academic-coursework-heading"' in reading_page
-current_project_section = reading_page.split('<h2 id="now-projects-title">', 1)[1].split('class="academic-coursework-heading"', 1)[0]
+assert reading_page.count('class="shell academic-exploring-section academic-projects-section"') == 1
+assert reading_page.count('class="shell academic-exploring-section academic-coursework-section"') == 1
+assert reading_page.index('id="now-projects-title"') < reading_page.index('id="coursework-title"')
+assert 'Research &amp; continuing work' in reading_page
+assert 'Tilburg University · MSc Quantitative Finance' in reading_page
+current_project_section = reading_page.split('<h2 id="now-projects-title">', 1)[1].split('id="coursework-title"', 1)[0]
 assert current_project_section.count('class="academic-project-entry"') == 3
 assert "Empirical asset pricing" in current_project_section
 assert "Fama–French factor extensions" in current_project_section
@@ -215,7 +220,17 @@ for path in ("projects/current-research/fama-french-factor-extensions.md", "proj
 assert reading_page.count('class="academic-current-projects academic-coursework-projects"') == 1
 for title in ("Panel-data estimation and dynamic models", "Stochastic interest rates and derivative pricing", "Supplier decisions under uncertainty", "Hedging and pricing hybrid insurance claims"):
     assert title in reading_page, f"Missing course project: {title}"
-assert "the problems and methods I am studying, rather than completed results" in reading_page
+assert "not completed results" in reading_page
+assert '<h2 id="now-projects-title">My projects</h2>' in reading_page
+assert '<h2 id="coursework-title" class="academic-coursework-heading">MSc coursework</h2>' in reading_page
+assert '<h2 id="learning-title">Courses I\'m taking</h2>' in reading_page
+course_list = reading_page.split('<ul class="academic-learning-list academic-courses-list"', 1)[1].split('</ul>', 1)[0]
+for course in ("Panel Data", "Empirical Finance", "Risk &amp; Regulation", "Valuation &amp; Risk", "Decision Making Under Uncertainty"):
+    assert f"<li>{course}</li>" in course_list
+assert course_list.count("<li>") == 5
+assert "data-paper-collection-note" not in reading_page
+assert "data-paper-collection-note" not in js
+assert "These are additional references connected to my projects" not in html
 assert 'id="explore-suppliers"' in reading_page
 assert 'id="explore-backtesting"' in reading_page
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
@@ -224,7 +239,7 @@ assert "How reliable is a backtest?" in reading_page
 assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Other papers &amp; references",
-               "not a record of completed reading", "Currently studying"):
+               "not a record of completed reading", "Courses I'm taking"):
     assert marker in reading_page, f"Reading-page content missing: {marker}"
 assert "data-paper-carousel" not in html
 assert "coverFor(" not in js and "makeSlide(" not in js

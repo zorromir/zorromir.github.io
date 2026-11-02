@@ -160,7 +160,6 @@
     const filters = library.querySelector('[data-paper-filters]');
     const fallback = library.querySelector('[data-paper-fallback]');
     const counter = library.querySelector('[data-paper-count]');
-    const collectionNote = library.querySelector('[data-paper-collection-note]');
 
     function node(tag, className, text) {
       const el = document.createElement(tag);
@@ -269,7 +268,6 @@
           button.addEventListener('click', () => render(data, category.id));
           return button;
         }));
-        if (typeof data.collection_note === 'string') collectionNote.textContent = data.collection_note;
         render(data, 'all');
         list.hidden = false;
         counter.hidden = false;

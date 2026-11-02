@@ -844,18 +844,34 @@ body {
   #engineering .academic-focus-description > p:not(.academic-focus-kicker) { font-size: 13.5px; }
 }
 
-/* Coursework uses the same editorial rows as the existing project list. */
-#engineering .academic-coursework-heading {
-  color: var(--ink);
-  font: 400 23px/1.3 Georgia, "Times New Roman", serif;
-  letter-spacing: -.012em;
-  margin: 28px 0 7px;
+/* A full-width section break distinguishes research projects from MSc assignments. */
+#engineering .academic-section-kicker {
+  color: var(--muted);
+  font: 11px/1.65 Georgia, "Times New Roman", serif;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
 }
+#engineering .academic-section-intro,
 #engineering .academic-coursework-intro {
   color: var(--ink-dim);
   max-width: var(--academic-copy-measure);
   font: 13.5px/1.7 Georgia, "Times New Roman", serif;
-  margin: 0 0 16px;
+  margin: -5px 0 19px;
+}
+#engineering .academic-coursework-section {
+  padding-top: 44px;
+}
+#engineering .academic-projects-section {
+  padding-bottom: 42px;
+}
+#engineering .academic-projects-section > h2,
+#engineering .academic-coursework-section > h2 {
+  margin-bottom: 14px;
+}
+/* Coursework shares the same clean row treatment, within its own section. */
+#engineering .academic-coursework-heading {
+  color: var(--ink);
 }
 #engineering .academic-coursework-projects .academic-project-entry > span {
   max-width: 160px;
@@ -1027,6 +1043,17 @@ body {
   color: var(--ink-dim);
   font: 13.5px/1.68 Georgia, "Times New Roman", serif;
 }
+#engineering .academic-courses-list {
+  list-style: none;
+  padding: 0;
+}
+#engineering .academic-courses-list > li {
+  min-width: 0;
+  padding: 15px 0 17px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font: 600 15px/1.6 Georgia, "Times New Roman", serif;
+}
 #engineering .academic-current-learning-outro {
   margin: 18px 0 0;
   color: var(--muted);
@@ -1040,7 +1067,11 @@ body {
   #engineering .academic-exploring-section:last-child { padding-bottom: 43px; }
   #engineering .academic-exploring-section > h2,
   #engineering .academic-literature-header h2 { font-size: 25px; }
-  #engineering .academic-coursework-heading { font-size: 21px; margin-top: 24px; }
+  #engineering .academic-projects-section { padding-bottom: 32px; }
+  #engineering .academic-coursework-section { padding-top: 34px; }
+  #engineering .academic-section-kicker { font-size: 10.5px; }
+  #engineering .academic-section-intro, #engineering .academic-coursework-intro { margin-top: -4px; }
+  #engineering .academic-coursework-heading { font-size: 25px; }
   #engineering .academic-coursework-projects .academic-project-entry > span { max-width: none; }
   #engineering .academic-project-entry { grid-template-columns: 1fr; gap: 3px; }
   #engineering .academic-project-entry > span { grid-row: 1; text-align: left; padding: 0; }

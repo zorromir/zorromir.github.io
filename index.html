@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=recruiter-evidence-20261101">
-  <link rel="stylesheet" href="academic.css?v=exploration-topics-20261102">
+  <link rel="stylesheet" href="academic.css?v=coursework-sections-20261102">
   <script defer src="app.js?v=exploration-topics-20261102"></script>
   <noscript>
     <style>
@@ -440,8 +440,10 @@
         </div>
       </section>
 
-      <section class="shell academic-exploring-section" aria-labelledby="now-projects-title">
-        <h2 id="now-projects-title">Projects &amp; coursework</h2>
+      <section class="shell academic-exploring-section academic-projects-section" aria-labelledby="now-projects-title">
+        <p class="academic-section-kicker">Research &amp; continuing work</p>
+        <h2 id="now-projects-title">My projects</h2>
+        <p class="academic-section-intro">Research questions and implementations I am developing beyond the assignments listed below.</p>
         <div class="academic-current-projects">
           <article>
             <div class="academic-project-entry">
@@ -474,8 +476,12 @@
             </div>
           </article>
         </div>
-        <h3 class="academic-coursework-heading">Current MSc coursework</h3>
-        <p class="academic-coursework-intro">Four ongoing course projects in econometrics, financial modelling and optimization. The descriptions outline the problems and methods I am studying, rather than completed results.</p>
+      </section>
+
+      <section class="shell academic-exploring-section academic-coursework-section" aria-labelledby="coursework-title">
+        <p class="academic-section-kicker">Tilburg University · MSc Quantitative Finance</p>
+        <h2 id="coursework-title" class="academic-coursework-heading">MSc coursework</h2>
+        <p class="academic-coursework-intro">University assignments in econometrics, financial modelling and optimization. The descriptions cover the methods I am studying, not completed results.</p>
         <div class="academic-current-projects academic-coursework-projects">
           <article>
             <div class="academic-project-entry">
@@ -538,19 +544,19 @@
               <li><a href="https://doi.org/10.2307/2297968" target="_blank" rel="noopener noreferrer">Some Tests of Specification for Panel Data: Monte Carlo Evidence and an Application to Employment Equations</a><span class="paper-citation">Manuel Arellano &amp; Stephen Bond (1991) · The Review of Economic Studies</span><p>Connects panel instruments and moment restrictions to the principles of consistent GMM estimation.</p></li>
             </ol>
           </div>
-          <p class="academic-literature-note"><span data-paper-collection-note>These are additional study references; the four papers I am reading now are grouped above by topic.</span> <a href="data/reading-list.json">Bibliography data</a></p>
+          <p class="academic-literature-note"><a href="data/reading-list.json">Bibliography data</a></p>
         </div>
       </section>
 
       <section class="shell academic-exploring-section academic-current-learning" aria-labelledby="learning-title">
-        <h2 id="learning-title">Currently studying</h2>
-        <dl class="academic-learning-list">
-          <div><dt>Panel data and identification</dt><dd>Fixed and random effects, strict exogeneity, dynamic panels and moment restrictions.</dd></div>
-          <div><dt>Asset pricing</dt><dd>Risk premia, factor models, stochastic discount factors and GMM estimation.</dd></div>
-          <div><dt>Machine learning and backtesting</dt><dd>Out-of-sample validation, leakage, multiple testing and overfitting.</dd></div>
-          <div><dt>Scientific Python</dt><dd>Reproducible data pipelines, numerical simulations and verification checks.</dd></div>
-        </dl>
-        <p class="academic-current-learning-outro">Selected implementations and research notes are available on <a href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+        <h2 id="learning-title">Courses I'm taking</h2>
+        <ul class="academic-learning-list academic-courses-list" aria-label="Current MSc courses">
+          <li>Panel Data</li>
+          <li>Empirical Finance</li>
+          <li>Risk &amp; Regulation</li>
+          <li>Valuation &amp; Risk</li>
+          <li>Decision Making Under Uncertainty</li>
+        </ul>
       </section>
     </article>
 
