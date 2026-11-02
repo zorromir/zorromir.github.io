@@ -85,7 +85,8 @@ projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RES
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects
 assert 'id="empirical-heading"' in projects
-assert 'id="projects-thesis-title"' in projects
+assert 'id="projects-thesis-title"' not in projects
+assert 'class="shell academic-project-thesis"' not in projects
 assert projects.count("data-project-carousel") == 2
 assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
 assert projects.count('data-project-go=') == 4
