@@ -116,12 +116,10 @@ assert 'Phase 4 — model-to-figure navigation' in editorial_css
 assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
 assert "industrial-gallery .project-gallery-dots button" in editorial_css
 assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
-assert 'academic.css?v=industrial-link-spacing-20261102' in html
+assert 'academic.css?v=profile-cv-row-20261102' in html
 assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
 assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
 assert 'independently coded examples' not in projects
-assert 'academic.css?v=industrial-links-20261102' in html
-assert 'app.js?v=industrial-links-20261102' in html
 # All four industrial stages use semantic, browser-native mathematical notation.
 assert projects.count('class="industrial-stage-equation"') == 4
 assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
@@ -131,7 +129,6 @@ assert projects.count("<msub>") >= 5
 assert 'industrial-stage-equation">dx' not in projects
 assert 'industrial-stage-equation math' in editorial_css
 assert 'Phase 3 — industrial carousel layout refinement' in editorial_css
-assert 'academic.css?v=industrial-layout-20261102' in html
 assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
 assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
@@ -217,6 +214,11 @@ for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-languages-title", "about-contact-title"):
     assert f'id="{section_id}"' in about, f"Missing merged profile section: {section_id}"
 assert about.count("<h1") == 1
+assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
+assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
+assert 'Open CV <span aria-hidden="true">↗</span>' in about
+assert 'View CV (PDF)' not in about
+assert '#about .academic-profile-pdf-label' in editorial_css
 assert about.count("id=\"about-education-title\"") == 1
 assert "The Hague University of Applied Sciences" in about
 assert "Tilburg University" in about and "Utrecht University" in about
