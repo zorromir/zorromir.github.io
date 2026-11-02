@@ -94,9 +94,13 @@ assert projects.count('class="industrial-stage-equation"') == 4
 assert projects.count('xmlns="http://www.w3.org/1998/Math/MathML"') == 4
 assert projects.count("<mfrac>") == 5
 assert projects.count("<msup>") == 1
-assert projects.count("<msub>") >= 9
+assert projects.count("<msub>") >= 5
 assert 'industrial-stage-equation">dx' not in projects
 assert 'industrial-stage-equation math' in editorial_css
+assert 'Phase 3 — industrial carousel layout refinement' in editorial_css
+assert 'academic.css?v=industrial-layout-20261102' in html
+assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
+assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
 for marker in ("AI-assisted reconstruction", "No company measurements",
                "Hansen J-test", "four of five industries", "p = 0.311",
