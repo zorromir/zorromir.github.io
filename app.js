@@ -29,9 +29,11 @@
     closeMenu();
     if (changed && hash !== 'main-content') window.scrollTo({ top: 0, behavior: 'instant' });
     const label = {home:'Home',projects:'Projects',research:'Research',engineering:'Exploring & Reading',about:'Profile & CV'}[name];
-    document.title = label === 'Home'
-      ? 'Kelvin Schouten | Quantitative Finance & Mathematical Modelling'
-      : label + ' | Kelvin Schouten';
+    document.title = name === 'engineering'
+      ? 'Exploring & Reading'
+      : label === 'Home'
+        ? 'Kelvin Schouten | Quantitative Finance & Mathematical Modelling'
+        : label + ' | Kelvin Schouten';
   }
 
   function closeMenu() {
