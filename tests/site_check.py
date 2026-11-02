@@ -217,8 +217,15 @@ assert ">Project scope</a>" not in current_project_section
 for path in ("projects/current-research/fama-french-factor-extensions.md", "projects/current-research/machine-learning-asset-pricing.md"):
     content = (ROOT / path).read_text(encoding="utf-8")
     assert "## Research question" in content and "## Project scope" in content
-    assert ("### Main research references" if "fama-french" in path else "## Related papers") in content
+    assert "### Main research references" in content
     assert path in current_project_section
+ml_scope = (ROOT / "projects/current-research/machine-learning-asset-pricing.md").read_text(encoding="utf-8")
+ml_stages = ml_scope.split("### Planned stages", 1)[1].split("### Main research references", 1)[0]
+assert len([line for line in ml_stages.splitlines() if line.lstrip().split(".", 1)[0].isdigit() and line.lstrip().startswith(tuple(f"{n}." for n in range(1, 12)))]) == 11
+for reference in ("Empirical Asset Pricing via Machine Learning", "Machine Learning Goes Global", "The Probability of Backtest Overfitting", "The Deflated Sharpe Ratio"):
+    assert reference in ml_scope
+assert "chronological training, validation and test samples" in ml_scope
+
 factor_scope = (ROOT / "projects/current-research/fama-french-factor-extensions.md").read_text(encoding="utf-8")
 assert "### Planned stages" in factor_scope
 assert len([line for line in factor_scope.split("### Planned stages", 1)[1].split("### Main research references", 1)[0].splitlines() if line[:2] in ("1.", "2.", "3.", "4.", "5.", "6.", "7.")]) == 7
