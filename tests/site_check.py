@@ -89,6 +89,12 @@ projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RES
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects
 assert 'id="empirical-heading"' in projects
+# Homepage card targets the correct section, while the industrial card opens Projects.
+assert home.count('href="#empirical-heading">Read the case study</a>') == 1
+assert home.count('href="#projects">Read the case study</a>') == 1
+assert "hash === 'empirical-heading'" in js
+assert "const name = detailTarget ? 'projects'" in js
+assert "detailTarget.scrollIntoView({ block: 'start', behavior: 'instant' })" in js
 assert 'id="projects-thesis-title"' not in projects
 assert 'class="shell academic-project-thesis"' not in projects
 assert projects.count("data-project-carousel") == 2
@@ -208,7 +214,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=exploring-tab-title-20261102' in html
+assert 'app.js?v=empirical-deeplink-20261102' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
