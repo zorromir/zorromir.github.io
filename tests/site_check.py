@@ -216,8 +216,14 @@ assert ">Related papers</a>" not in current_project_section
 assert ">Project scope</a>" not in current_project_section
 for path in ("projects/current-research/fama-french-factor-extensions.md", "projects/current-research/machine-learning-asset-pricing.md"):
     content = (ROOT / path).read_text(encoding="utf-8")
-    assert "## Research question" in content and "## Project scope" in content and "## Related papers" in content
+    assert "## Research question" in content and "## Project scope" in content
+    assert ("### Main research references" if "fama-french" in path else "## Related papers") in content
     assert path in current_project_section
+factor_scope = (ROOT / "projects/current-research/fama-french-factor-extensions.md").read_text(encoding="utf-8")
+assert "### Planned stages" in factor_scope
+assert len([line for line in factor_scope.split("### Planned stages", 1)[1].split("### Main research references", 1)[0].splitlines() if line[:2] in ("1.", "2.", "3.", "4.", "5.", "6.", "7.")]) == 7
+for reference in ("A Five-Factor Asset Pricing Model", "Resurrecting the Value Premium", "Residual Momentum", "The Volatility Effect", "Settling the Size Matter"):
+    assert reference in factor_scope
 assert reading_page.count('class="academic-current-projects academic-coursework-projects"') == 1
 for title in ("Panel-data estimation and dynamic models", "Stochastic interest rates and derivative pricing", "Supplier decisions under uncertainty", "Hedging and pricing hybrid insurance claims"):
     assert title in reading_page, f"Missing course project: {title}"

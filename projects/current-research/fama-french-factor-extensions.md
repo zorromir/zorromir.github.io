@@ -8,27 +8,32 @@ Do published refinements to value, momentum and low-volatility signals contain i
 
 ## Project scope
 
-I am reproducing Fama–French factor models and comparing conventional factors with enhanced value, residual momentum and low-volatility signals. The research will examine both statistical factor exposures and the performance of strategies constructed from the signals.
+The idea behind this project is to reproduce the standard Fama–French asset-pricing models and investigate extensions that could improve the robustness of traditional factors.
 
-The planned comparisons cover:
+I will first look at the basic CAPM, Fama–French three-factor, five-factor and momentum benchmarks. After that, I will study three extensions: enhanced value measures beyond book-to-market, residual momentum based on stock-specific returns, and a low-volatility factor. Each extension will be tested separately before being combined with the standard model.
 
-- **Factor baselines:** reproduce the Fama–French three- and five-factor specifications, with momentum as an additional benchmark where appropriate.
-- **Enhanced value:** examine value measures that use timelier prices when forming book-to-price ratios, rather than relying on stale price observations.
-- **Residual momentum:** compare conventional total-return momentum with momentum derived from factor-model residuals.
-- **Low volatility / low beta:** compare low-risk stock signals with conventional market and factor exposures.
-- **Econometric evaluation:** estimate factor regressions and alphas using appropriate standard errors, and study whether candidate signals add information through spanning tests.
-- **Out-of-sample evaluation:** compare performance using strictly time-ordered testing, transparent portfolio construction and attention to trading costs, turnover, look-ahead bias and repeated model selection.
+The empirical analysis will compare models using factor-spanning regressions, pricing errors, HAC inference, factor correlations, drawdowns and out-of-sample performance. I also want to investigate data leakage, survivorship bias, multiple testing and the distinction between in-sample fit and genuine predictive improvement, although these checks may be too much for the initial scope.
 
-These are research questions and methods **under investigation**, not claims of completed factor replications or positive investment results.
+The broader objective is to understand whether these modifications contain additional information beyond the standard Fama–French models, rather than simply constructing a model with more factors.
 
-## Related papers
+### Planned stages
 
-- Fama, E. F. & French, K. R. (2015), [*A Five-Factor Asset Pricing Model*](https://doi.org/10.1016/j.jfineco.2014.10.010). Baseline profitability, investment and traditional factor exposures.
-- Carhart, M. M. (1997), [*On Persistence in Mutual Fund Performance*](https://doi.org/10.1111/j.1540-6261.1997.tb03808.x). Momentum as an additional conventional return factor.
-- Asness, C. S. & Frazzini, A. (2013), [*The Devil in HML's Details*](https://doi.org/10.3905/jpm.2013.39.4.049). More current price information in value factor construction.
-- Blitz, D., Huij, J. & Martens, M. (2011), [*Residual Momentum*](https://doi.org/10.1016/j.jempfin.2011.01.003). Ranking stocks by their residual, rather than raw, past returns.
-- Frazzini, A. & Pedersen, L. H. (2014), [*Betting Against Beta*](https://doi.org/10.1016/j.jfineco.2013.10.005). Low-beta portfolio returns and funding constraints.
+1. Reproduce CAPM, FF3, FF5 and FF5 + momentum.
+2. Reproduce conventional value and momentum factors.
+3. Construct enhanced value, residual momentum and low-volatility signals.
+4. Test whether the new factors are spanned by existing factors.
+5. Compare nested factor-model specifications.
+6. Evaluate stability across subperiods and out-of-sample data.
+7. Investigate a later nonlinear or machine-learning extension.
 
-These are reference papers to guide the exploration. Listing a paper here does not mean its full analysis has already been reproduced.
+### Main research references
+
+- Fama & French — [*A Five-Factor Asset Pricing Model*](https://doi.org/10.1016/j.jfineco.2014.10.010).
+- Blitz & Hanauer — [*Resurrecting the Value Premium*](https://ssrn.com/abstract=3705218).
+- Blitz, Huij & Martens — [*Residual Momentum*](https://doi.org/10.1016/j.jempfin.2011.01.003).
+- Blitz & van Vliet — [*The Volatility Effect: Lower Risk Without Lower Return*](https://ssrn.com/abstract=980865).
+- Blitz & Hanauer — [*Settling the Size Matter*](https://ssrn.com/abstract=3686583).
+
+These are papers guiding the project, not completed replications or verified empirical findings.
 
 [Back to Exploring & Reading](https://zorromir.github.io/#engineering)
