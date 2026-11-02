@@ -216,10 +216,13 @@ assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
 assert 'app.js?v=empirical-deeplink-20261102' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
-                   "about-timeline-heading", "about-interests-title", "about-methods-title",
+                   "about-timeline-heading", "about-interests-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
     assert f'id="{section_id}"' in about, f"Missing merged profile section: {section_id}"
 assert about.count("<h1") == 1
+assert about.count('id="about-other-interests-title"') == 1
+assert about.index('id="about-interests-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
+assert 'chess, 3D printing, reading, climbing, strategy games and meditation.' in about
 assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
 assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
 assert 'Open CV <span aria-hidden="true">↗</span>' in about
