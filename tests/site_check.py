@@ -77,6 +77,10 @@ assert 'class="academic-home-links"' not in home
 assert 'class="academic-home-record"' in home
 assert "padding-top: clamp(56px, 6.2vw, 72px)" in editorial_css
 assert "The Fractional Harmonic Oscillator" in home
+assert "how reliable backtests are" in home
+assert "Fama–French factor extensions" in home
+assert "value, residual momentum and low-volatility signals" in home
+assert '<a href="#engineering">Exploring &amp; Reading</a>' in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
