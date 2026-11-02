@@ -747,6 +747,103 @@ body {
   letter-spacing: -.02em;
   margin: 0 0 16px;
 }
+/* Current questions take precedence over the project archive and reading shelf. */
+#engineering .academic-focus-section-header h2 {
+  color: var(--ink);
+  font: 400 clamp(24px, 2.6vw, 30px)/1.28 Georgia, "Times New Roman", serif;
+  letter-spacing: -.02em;
+  margin: 0 0 6px;
+}
+#engineering .academic-focus-section-header > p {
+  color: var(--muted);
+  font: 13.5px/1.7 Georgia, "Times New Roman", serif;
+  max-width: 70ch;
+  margin: 0 0 22px;
+}
+#engineering .academic-focus-list {
+  border-top: 1px solid var(--line);
+}
+#engineering .academic-focus-topic {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  gap: 25px clamp(26px, 5vw, 65px);
+  padding: 26px 0 30px;
+  border-bottom: 1px solid var(--line);
+}
+#engineering .academic-focus-topic:last-child { border-bottom: 0; padding-bottom: 0; }
+#engineering .academic-focus-kicker {
+  font: 11px/1.55 Georgia, "Times New Roman", serif;
+  color: var(--muted); letter-spacing: .045em;
+  margin: 0 0 11px;
+}
+#engineering .academic-focus-description h3 {
+  color: var(--ink);
+  font: 400 clamp(21px, 2.4vw, 27px)/1.33 Georgia, "Times New Roman", serif;
+  letter-spacing: -.015em;
+  margin: 0 0 11px;
+}
+#engineering .academic-focus-description > p:not(.academic-focus-kicker) {
+  color: var(--ink-dim);
+  font: 14px/1.76 Georgia, "Times New Roman", serif;
+  max-width: 48ch;
+  margin: 0 0 12px;
+}
+#engineering .academic-focus-description .academic-focus-methods {
+  color: var(--muted) !important;
+  font-size: 12.5px !important;
+}
+#engineering .academic-focus-description .academic-focus-related { margin-top: 19px !important; }
+#engineering .academic-focus-related a,
+#engineering .academic-focus-paper a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: #a8c5b7;
+  text-underline-offset: 3px;
+}
+#engineering .academic-focus-related a:hover,
+#engineering .academic-focus-paper a:hover { text-decoration-color: currentColor; }
+#engineering .academic-focus-reading { min-width: 0; }
+#engineering .academic-focus-reading h4 {
+  color: var(--muted);
+  font: 12px/1.65 Georgia, "Times New Roman", serif;
+  margin: 0 0 5px;
+  font-weight: 400;
+}
+#engineering .academic-focus-reading-list {
+  list-style: none; padding: 0; margin: 0;
+}
+#engineering .academic-focus-paper {
+  padding: 12px 0 13px;
+  border-top: 1px solid var(--line);
+}
+#engineering .academic-focus-paper a {
+  display: inline-block;
+  color: var(--ink);
+  font: 400 16px/1.4 Georgia, "Times New Roman", serif;
+  text-decoration-color: #a8c5b7;
+}
+#engineering .academic-focus-paper > span {
+  display: block; color: var(--muted);
+  font: 11.5px/1.65 Georgia, "Times New Roman", serif;
+  margin: 4px 0 5px;
+}
+#engineering .academic-focus-paper > p {
+  max-width: 56ch;
+  color: var(--ink-dim);
+  font: 12.8px/1.68 Georgia, "Times New Roman", serif;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  #engineering .academic-focus-topic { grid-template-columns: minmax(0,1fr); gap: 17px; padding: 23px 0 26px; }
+  #engineering .academic-focus-reading h4 { margin-bottom: 9px; }
+}
+@media (max-width: 620px) {
+  #engineering .academic-focus-section-header h2 { font-size: 25px; }
+  #engineering .academic-focus-section-header > p { font-size: 13px; margin-bottom: 17px; }
+  #engineering .academic-focus-description h3 { font-size: 23px; }
+  #engineering .academic-focus-description > p:not(.academic-focus-kicker) { font-size: 13.5px; }
+}
+
 /* Coursework uses the same editorial rows as the existing project list. */
 #engineering .academic-coursework-heading {
   color: var(--ink);

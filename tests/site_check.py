@@ -202,11 +202,15 @@ assert reading_page.count('class="academic-current-projects academic-coursework-
 for title in ("Panel-data estimation and dynamic models", "Stochastic interest rates and derivative pricing", "Supplier decisions under uncertainty", "Hedging and pricing hybrid insurance claims"):
     assert title in reading_page, f"Missing course project: {title}"
 assert "the problems and methods I am studying, rather than completed results" in reading_page
-assert "2026) · OR Spectrum · Currently reading" in reading_page
+assert 'id="explore-suppliers"' in reading_page
+assert 'id="explore-backtesting"' in reading_page
+assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
+assert reading_page.count('class="academic-focus-paper"') == 4
+assert "How reliable is a backtest?" in reading_page
 assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
-               "data-paper-fallback", "data-paper-count", "Most recent readings",
-               "Reading progress has not been confirmed", "Currently studying",
+               "data-paper-fallback", "data-paper-count", "Other papers &amp; references",
+               "not a record of completed reading", "Currently studying",
                "not establish predictive accuracy against company measurements"):
     assert marker in reading_page, f"Reading-page content missing: {marker}"
 assert "data-paper-carousel" not in html
@@ -222,13 +226,20 @@ assert "--layout-max: 960px" in editorial_css
 reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
-# Verify that the no-JavaScript bibliography matches the JSON source list.
-assert len(reading["papers"]) == reading_page.count("class=\"paper-citation\"")
+# Current readings appear in topic groups; only other references are repeated in the fallback shelf.
+current_papers = [p for p in reading["papers"] if p["reading_status"] == "reading"]
+reference_papers = [p for p in reading["papers"] if p["reading_status"] != "reading"]
+assert len(current_papers) == 4
+assert len(reference_papers) == reading_page.count("class=\"paper-citation\"")
 for paper in reading["papers"]:
     assert paper["title"].replace("&", "&amp;") in reading_page
     assert paper["url"] in reading_page
+for paper in current_papers:
+    assert f'href="{paper["url"]}"' in reading_page
+assert all(p["reading_status"] == "reading" for p in current_papers)
 assert "sample_references" == reading["library_state"]
 assert reading["papers"][0]["id"] == "merzifonluoglu-et-al-2026-supplier-risk"
+assert {p["id"] for p in current_papers} == {"merzifonluoglu-et-al-2026-supplier-risk", "bailey-lopez-de-prado-2014", "white-2000-reality-check", "bailey-borwein-prado-zhu-pbo"}
 assert reading["papers"][0]["reading_status"] == "reading"
 assert "optimization" in reading["papers"][0]["category_ids"]
 assert any(p["id"] == "supplier-optimization" for p in reading["projects"])

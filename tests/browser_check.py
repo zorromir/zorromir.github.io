@@ -13,7 +13,7 @@ from urllib.request import urlopen
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_PAPERS = len(json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))["papers"])
+EXPECTED_PAPERS = sum(p["reading_status"] != "reading" for p in json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))["papers"])
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
 ROUTES = ("home", "projects", "research", "engineering", "about")
@@ -170,11 +170,14 @@ def check_site(browser, base, device, width, height):
     page.locator('[data-paper-list]:not([hidden])').wait_for(timeout=12000)
     check(page.locator('[data-paper-list] > li').count() == EXPECTED_PAPERS,
           f"{device}: expected {EXPECTED_PAPERS} bibliography entries")
-    check("Managing unreliable suppliers" in page.locator('[data-paper-list] > li').first.inner_text(),
-          f"{device}: current-reading article missing")
-    page.locator('[data-paper-filters] button', has_text="Optimization & Risk").click()
-    check(page.locator('[data-paper-list] > li').count() == 1,
-          f"{device}: optimization filter did not isolate the current article")
+    check("Large Sample Properties" in page.locator('[data-paper-list] > li').first.inner_text(),
+          f"{device}: reference shelf did not load")
+    check(page.locator('#explore-backtesting .academic-focus-paper').count() == 3,
+          f"{device}: missing backtesting reading links")
+    check(page.locator('#explore-suppliers .academic-focus-paper').count() == 1,
+          f"{device}: missing supplier reading link")
+    check(page.locator('#explore-backtesting').bounding_box()["y"] < page.locator('#now-projects-title').bounding_box()["y"],
+          f"{device}: exploration topics should appear before projects")
     page.locator('[data-paper-filters] button', has_text="Econometrics").click()
     check(page.locator('[data-paper-list] > li').count() >= 2,
           f"{device}: bibliography filter did not work")
@@ -184,7 +187,7 @@ def check_site(browser, base, device, width, height):
 
 def check_without_javascript(browser, base):
     # With JavaScript disabled, all five sections must remain reachable and
-    # the hand-written bibliography must still list all entries.
+    # the hand-written reference shelf must match the unpublished-reading subset.
     context = browser.new_context(java_script_enabled=False,
                                   viewport={"width": 390, "height": 844})
     page = context.new_page()

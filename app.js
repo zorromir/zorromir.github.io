@@ -151,7 +151,7 @@
     show(0);
   });
 
-  // A filterable bibliography is more useful here than one-paper-at-a-time slides.
+  // Current readings appear beside their exploration topics; this searchable shelf holds the remaining references.
   // The HTML contains a usable bibliography if JavaScript or the JSON fetch fails.
   // data/reading-list.json remains the maintained source for enhanced entries.
   const library = document.querySelector('[data-paper-library]');
@@ -239,7 +239,7 @@
     }
 
     function render(data, category) {
-      const papers = data.papers.filter(p => category === 'all' || p.category_ids.includes(category));
+      const papers = data.papers.filter(p => p.reading_status !== 'reading' && (category === 'all' || p.category_ids.includes(category)));
       const projectMap = new Map(data.projects.map(p => [p.id, p]));
       list.replaceChildren(...papers.map(p => makeEntry(p, projectMap)));
       if (!papers.length) list.append(node('li', 'academic-paper-empty', 'No references in this category.'));
@@ -259,7 +259,7 @@
       .then(data => {
         if (!validData(data)) throw new Error('Invalid reading-list data');
         const usedCategories = data.categories.filter(c =>
-          c.id === 'all' || data.papers.some(p => p.category_ids.includes(c.id))
+          c.id === 'all' || data.papers.some(p => p.reading_status !== 'reading' && p.category_ids.includes(c.id))
         );
         filters.replaceChildren(...usedCategories.map(category => {
           const button = node('button', 'academic-paper-filter', category.id === 'all' ? 'All' : category.label);

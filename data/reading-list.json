@@ -1,11 +1,11 @@
 {
   "version": 1,
   "library_state": "sample_references",
-  "collection_note": "The supplier-optimization article is my current reading. The remaining entries are study references, not a list of completed readings.",
+  "collection_note": "These are additional references connected to my projects; their reading status is unconfirmed. Papers I am reading now appear above, grouped by exploration topic.",
   "categories": [
     {
       "id": "all",
-      "label": "Most recent readings"
+      "label": "All references"
     },
     {
       "id": "asset-pricing",
@@ -70,6 +70,52 @@
       ],
       "reading_status": "reading",
       "cover_accent": "#517b73"
+    },
+    {
+      "id": "white-2000-reality-check",
+      "title": "A Reality Check for Data Snooping",
+      "authors": "Halbert White",
+      "year": 2000,
+      "journal": "Econometrica",
+      "url": "https://doi.org/10.1111/1468-0262.00152",
+      "blurb": "Testing the best result from a specification search against a benchmark, using a bootstrap that accounts for data reuse.",
+      "idea": "Develops a bootstrap-based Reality Check for the joint null that no candidate forecast or trading rule is superior to a benchmark after a specification search.",
+      "relevance": "A statistical check on apparent improvements that may have been found only because many models were tried.",
+      "short_label": "RC",
+      "topic": "Data snooping / multiple model comparisons",
+      "category_ids": [
+        "model-validation",
+        "econometrics"
+      ],
+      "project_ids": [
+        "backtesting",
+        "empirical-finance"
+      ],
+      "reading_status": "reading",
+      "cover_accent": "#517b73"
+    },
+    {
+      "id": "bailey-borwein-prado-zhu-pbo",
+      "title": "The Probability of Backtest Overfitting",
+      "authors": "David H. Bailey, Jonathan M. Borwein, Marcos López de Prado & Qiji Jim Zhu",
+      "year": 2014,
+      "journal": "Working-paper revision (later published in the Journal of Computational Finance)",
+      "url": "https://ssrn.com/abstract=2326253",
+      "blurb": "Using combinatorially symmetric cross-validation to estimate how often the in-sample winner falls below the median out of sample.",
+      "idea": "Formalizes the Probability of Backtest Overfitting (PBO) and estimates it with combinatorially symmetric cross-validation (CSCV), using in-sample and out-of-sample rankings of strategy trials.",
+      "relevance": "A way to assess whether the process of choosing a best-performing backtest tends to select noise.",
+      "short_label": "PBO",
+      "topic": "CSCV / out-of-sample strategy selection",
+      "category_ids": [
+        "model-validation",
+        "econometrics"
+      ],
+      "project_ids": [
+        "backtesting",
+        "empirical-finance"
+      ],
+      "reading_status": "reading",
+      "cover_accent": "#617b8f"
     },
     {
       "id": "hansen-1982-gmm",
@@ -185,12 +231,13 @@
       "year": 2014,
       "journal": "The Journal of Portfolio Management",
       "url": "https://doi.org/10.3905/jpm.2014.40.5.094",
-      "idea": "Examines how repeated strategy testing, selection bias and non-normal returns may exaggerate backtest performance.",
-      "relevance": "Provides a framework for assessing model selection and overfitting before interpreting historical signals as useful strategies.",
+      "idea": "Introduces the Deflated Sharpe Ratio, adjusting Sharpe-ratio significance for multiple strategy trials and non-normal returns.",
+      "relevance": "Helps examine whether a high reported Sharpe ratio still looks compelling after allowing for selection bias, sample length, skewness and kurtosis.",
       "project_ids": [
-        "backtesting"
+        "backtesting",
+        "empirical-finance"
       ],
-      "reading_status": null,
+      "reading_status": "reading",
       "cover_accent": "#657488"
     }
   ]

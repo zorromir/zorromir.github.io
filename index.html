@@ -14,8 +14,8 @@
   <meta name="twitter:card" content="summary">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=recruiter-evidence-20261101">
-  <link rel="stylesheet" href="academic.css?v=msc-projects-20261101">
-  <script defer src="app.js?v=thesis-direct-pdf-20261101"></script>
+  <link rel="stylesheet" href="academic.css?v=exploration-topics-20261102">
+  <script defer src="app.js?v=exploration-topics-20261102"></script>
   <noscript>
     <style>
       /* Progressive fallback: show all six document sections when routing JS is off. */
@@ -380,11 +380,68 @@
     <article class="page academic-exploring" data-page="engineering" id="engineering" aria-labelledby="engineering-title" hidden>
       <header class="shell academic-page-intro academic-exploring-intro">
         <h1 id="engineering-title">Exploring &amp; Reading</h1>
-        <p>Current projects, papers related to my work and mathematical methods I am studying.</p>
+        <p>Research questions, the papers guiding them, and the projects I am working on.</p>
       </header>
 
+      <section class="shell academic-exploring-section academic-focus-section" aria-labelledby="exploring-now-title">
+        <div class="academic-focus-section-header">
+          <h2 id="exploring-now-title">What I'm exploring now</h2>
+          <p>Questions I am working through, alongside the papers I am using to understand them.</p>
+        </div>
+        <div class="academic-focus-list">
+          <article class="academic-focus-topic" id="explore-backtesting" aria-labelledby="explore-backtesting-title">
+            <div class="academic-focus-description">
+              <p class="academic-focus-kicker">01 / QUANTITATIVE RESEARCH</p>
+              <h3 id="explore-backtesting-title">How reliable is a backtest?</h3>
+              <p>I'm looking at how trying many trading strategies on the same data can produce convincing results by chance. The question is how to assess a selected strategy without confusing a good historical fit with evidence of predictive ability.</p>
+              <p class="academic-focus-methods">Multiple testing · Bootstrap inference · CSCV · Sharpe ratios</p>
+              <p class="academic-focus-related"><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Related empirical-finance work</a></p>
+            </div>
+            <div class="academic-focus-reading">
+              <h4>Reading for this question</h4>
+              <ol class="academic-focus-reading-list">
+                  <li class="academic-focus-paper">
+                    <a href="https://doi.org/10.1111/1468-0262.00152" target="_blank" rel="noopener noreferrer">A Reality Check for Data Snooping</a>
+                    <span>Halbert White · 2000</span>
+                    <p>Testing the best result from a specification search against a benchmark, using a bootstrap that accounts for data reuse.</p>
+                  </li>
+                  <li class="academic-focus-paper">
+                    <a href="https://ssrn.com/abstract=2326253" target="_blank" rel="noopener noreferrer">The Probability of Backtest Overfitting</a>
+                    <span>David H. Bailey, Jonathan M. Borwein, Marcos López de Prado &amp; Qiji Jim Zhu · 2014</span>
+                    <p>Using combinatorially symmetric cross-validation to estimate how often the in-sample winner falls below the median out of sample.</p>
+                  </li>
+                  <li class="academic-focus-paper">
+                    <a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality</a>
+                    <span>David H. Bailey &amp; Marcos López de Prado · 2014</span>
+                    <p>Adjusting a reported Sharpe ratio for multiple testing and non-normal returns before treating it as convincing evidence.</p>
+                  </li>
+              </ol>
+            </div>
+          </article>
+          <article class="academic-focus-topic" id="explore-suppliers" aria-labelledby="explore-suppliers-title">
+            <div class="academic-focus-description">
+              <p class="academic-focus-kicker">02 / DECISIONS UNDER UNCERTAINTY</p>
+              <h3 id="explore-suppliers-title">How should a firm choose unreliable suppliers?</h3>
+              <p>I'm studying how disruption probabilities, partial deliveries and risk preferences change supplier selection and order sizes. This connects the newsvendor model to Monte Carlo simulation and stochastic optimization.</p>
+              <p class="academic-focus-methods">Supplier selection · Monte Carlo · CVaR · Stochastic optimization</p>
+              <p class="academic-focus-related"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/coursework/README.md#supplier-decisions-under-uncertainty" target="_blank" rel="noopener noreferrer">Course project scope</a></p>
+            </div>
+            <div class="academic-focus-reading">
+              <h4>Reading for this question</h4>
+              <ol class="academic-focus-reading-list">
+                  <li class="academic-focus-paper">
+                    <a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Managing unreliable suppliers under varying risk preferences: all-or-nothing versus fractional delivery guarantees</a>
+                    <span>Yasemin Merzifonluoglu, Ismail Serdar Bakal, Marie Versteeg &amp; Arnout den Hollander · 2026</span>
+                    <p>Studying the cost-based supplier ranking result, fractional delivery guarantees and the distinction between full and weighted profit variance.</p>
+                  </li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="shell academic-exploring-section" aria-labelledby="now-projects-title">
-        <h2 id="now-projects-title">Current projects</h2>
+        <h2 id="now-projects-title">Projects &amp; coursework</h2>
         <div class="academic-current-projects">
           <article>
             <div class="academic-project-entry">
@@ -465,8 +522,8 @@
 
       <section class="shell academic-exploring-section academic-literature" aria-labelledby="reading-title">
         <div class="academic-literature-header">
-          <h2 id="reading-title">Most recent readings</h2>
-          <p>I'm currently reading a paper on unreliable suppliers and risk preferences for my decision-making project. The other papers are references connected to my studies. Reading progress has not been confirmed for those references.</p>
+          <h2 id="reading-title">Other papers &amp; references</h2>
+          <p>Additional papers connected to my studies in finance, econometrics and statistical methods. These are reference notes, not a record of completed reading.</p>
         </div>
         <div class="academic-literature-library" data-paper-library>
           <div class="academic-literature-filters" data-paper-filters role="group" aria-label="Filter papers by research area"></div>
@@ -474,16 +531,14 @@
           <ol class="academic-literature-list" data-paper-list aria-label="Filtered research bibliography" hidden></ol>
           <div class="academic-literature-fallback" data-paper-fallback>
             <ol class="academic-literature-list" aria-label="Selected research bibliography">
-              <li><a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Managing unreliable suppliers under varying risk preferences: all-or-nothing versus fractional delivery guarantees</a><span class="paper-citation">Yasemin Merzifonluoglu, Ismail Serdar Bakal, Marie Versteeg &amp; Arnout den Hollander (2026) · OR Spectrum · Currently reading</span><p>Explains why supplier activation follows procurement cost in the risk-neutral problem, while partial delivery guarantees and risk aversion affect ordering decisions. This is the main article for my supplier-optimization coursework.</p></li>
               <li><a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Large Sample Properties of Generalized Method of Moments Estimators</a><span class="paper-citation">Lars Peter Hansen (1982) · Econometrica</span><p>Provides the theoretical basis for two-step GMM and Hansen J-tests used to evaluate the CAPM stochastic discount factor.</p></li>
               <li><a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix</a><span class="paper-citation">Whitney K. Newey &amp; Kenneth D. West (1987) · Econometrica</span><p>Clarifies why conventional OLS inference can be misleading for financial returns and how HAC errors change alpha tests.</p></li>
               <li><a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">A Five-Factor Asset Pricing Model</a><span class="paper-citation">Eugene F. Fama &amp; Kenneth R. French (2015) · Journal of Financial Economics</span><p>Provides the five-factor benchmark compared with CAPM and clarifies why stronger regression fit need not mean smaller pricing errors.</p></li>
               <li><a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">On Persistence in Mutual Fund Performance</a><span class="paper-citation">Mark M. Carhart (1997) · The Journal of Finance</span><p>Motivates examining momentum as a missing dimension in models that otherwise explain significant return variation.</p></li>
               <li><a href="https://doi.org/10.2307/2297968" target="_blank" rel="noopener noreferrer">Some Tests of Specification for Panel Data: Monte Carlo Evidence and an Application to Employment Equations</a><span class="paper-citation">Manuel Arellano &amp; Stephen Bond (1991) · The Review of Economic Studies</span><p>Connects panel instruments and moment restrictions to the principles of consistent GMM estimation.</p></li>
-              <li><a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality</a><span class="paper-citation">David H. Bailey &amp; Marcos López de Prado (2014) · The Journal of Portfolio Management</span><p>Provides a framework for assessing model selection and overfitting before interpreting historical signals as useful strategies.</p></li>
             </ol>
           </div>
-          <p class="academic-literature-note"><span data-paper-collection-note>The supplier-optimization paper is my current reading. The remaining entries are study references, not a list of completed readings.</span> <a href="data/reading-list.json">Bibliography data</a></p>
+          <p class="academic-literature-note"><span data-paper-collection-note>These are additional study references; the four papers I am reading now are grouped above by topic.</span> <a href="data/reading-list.json">Bibliography data</a></p>
         </div>
       </section>
 
