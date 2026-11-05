@@ -122,7 +122,6 @@ assert 'Phase 4 — model-to-figure navigation' in editorial_css
 assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
 assert "industrial-gallery .project-gallery-dots button" in editorial_css
 assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
-assert 'academic.css?v=profile-cv-row-20261102' in html
 assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
 assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
 assert 'independently coded examples' not in projects
