@@ -2,7 +2,7 @@
 
 For a visual explanation of the industry process that provides context for this work, see [Fluivac — Push, Blow, Rinse & Dry](https://fluivac.com/the-process/). The images on the portfolio case study are from that website, not measurements from this reconstruction. The stage descriptions are simplified process context, not a statement that the public scripts reproduce or validate Fluivac's installation.
 
-Small public demonstrations of published fluid-mechanics equations, written to accompany the [portfolio case study](https://zorromir.github.io/#projects). The [standalone pipeline-flow repository](https://github.com/zorromir/pipeline-flow-modelling) is now published with a modular Python package, tests, five example figures and modelling notes. That repository explicitly documents its AI-assisted reconstruction of selected methods.
+Small public demonstrations of published fluid-mechanics equations, written to accompany the [portfolio case study](https://zorromir.github.io/#projects). The [standalone pipeline-flow repository](https://github.com/zorromir/pipeline-flow-modelling) is now published with a modular Python package, tests, five example figures and modelling notes. The standalone repository explains the simplified public implementation and its distinction from the confidential industrial work.
 
 All inputs are **synthetic**. There are no employer datasets, internal reports, calibrated parameters, installation diagrams or original company source files here.
 

@@ -1,48 +1,45 @@
-# Kelvin Schouten — Portfolio website
+# Quantitative finance and mathematical modelling — portfolio
 
-Source for [zorromir.github.io](https://zorromir.github.io/), a static portfolio about mathematical modelling, academic research and quantitative finance.
+Source for [zorromir.github.io](https://zorromir.github.io/), a static portfolio presenting research, selected coursework, modelling projects and technical writing.
 
-## Pages and structure
+The site has five views: Home, Projects, Research, Exploring & Reading, and Profile & CV. They are implemented in `index.html`; the `#engineering` URL is retained for Exploring & Reading.
 
-The six sections are Home, Projects, Research, Exploring & Reading, About, and CV & Contact. These are views in `index.html`; the original `#engineering` URL for Exploring & Reading is kept so existing links continue working.
+## Structure
 
-| Path | Purpose |
+| File or directory | Purpose |
 | --- | --- |
-| `index.html` | All six pages, project descriptions, figures and links |
-| `styles.css` | Shared editorial design, page styles and responsive rules |
-| `app.js` | Navigation, mobile menu, project carousels and paper filters |
-| `data/reading-list.json` | Publication bibliography and project connections |
-| `assets/research/` | Computed fractional-oscillator figures |
-| `assets/industrial-*.svg` | Independent synthetic pipeline-model reproductions |
-| `assets/empirical-finance-fit.svg` | Historical, in-sample MSc group analysis figure |
-| `assets/cv/` | Publicly downloadable CV PDFs |
-| `tests/site_check.py` | Dependency-free structural checks |
+| `index.html`, `styles.css`, `academic.css` | Page content, layout and responsive styles |
+| `app.js` | Navigation, project carousels and bibliography filters |
+| `data/reading-list.json` | Research references and their project connections |
+| `projects/` | Project scopes, methods and small illustrative simulations |
+| `assets/` | Figures, CV PDFs and other website assets |
+| `tests/` | Structural and browser checks |
 
-## Work locally
+## Running locally
 
-Start a local web server because the reading carousel loads JSON:
+No build framework is required. From the repository root:
 
-```sh
+```bash
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/`. No framework or build step is required.
+Open `http://localhost:8000/`. The bibliography is loaded from a local JSON file, so the browser should access the site through a local server rather than a `file://` URL.
 
-Check the repository before publishing:
+Basic checks:
 
-```sh
+```bash
 python3 tests/site_check.py
 node --check app.js
 ```
 
-GitHub Actions runs both checks on pull requests and pushes to `main`. Also review the actual layout, carousel buttons, keyboard interaction and PDF downloads in a browser before major releases.
+GitHub Actions also checks the site at desktop and mobile viewport sizes.
 
-## Research integrity
+## Research and data scope
 
-Industrial graphics are **synthetic, non-confidential reproductions**, not measurements from the company or its original code. Fractional-oscillator figures are computed mathematical model outputs, not empirical observations. The finance plot compares historical, in-sample regression results from a group study, not the performance of an investment strategy.
+- Pipeline-model illustrations use published equations and hypothetical inputs, not original employer code, measurements or validated industrial results.
+- Fractional-oscillator graphics are numerical simulations based on mathematical models, not experimental measurements.
+- The empirical-finance results are historical analyses connected to a group study. They do not establish a tradable strategy.
 
-Do not include confidential industrial inputs or unverified performance claims. The CV files are public: check personal details in the PDFs before sharing.
+The [industrial modelling repository](https://github.com/zorromir/pipeline-flow-modelling), [fractional-oscillator repository](https://github.com/zorromir/fractional-harmonic-oscillator) and [empirical-finance repository](https://github.com/zorromir/Empirical-Finance) provide the technical context.
 
-## Deployment
-
-GitHub Pages publishes the root of `main`. Prefer feature branches and review changes before merging.
+GitHub Pages serves the published website from `main`.
