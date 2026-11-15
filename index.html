@@ -425,32 +425,59 @@
         <div class="academic-current-projects">
           <article>
             <div class="academic-project-entry">
-              <div>
+              <div class="academic-project-narrative">
                 <h3>Empirical asset pricing</h3>
-                <p>Reproducing factor-model tests in Python, with HAC inference, GMM and out-of-sample diagnostics. The historical results do not establish a profitable trading strategy.</p>
+                <p>In a five-person MSc study, we tested CAPM against the five-factor model of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a> using U.S. industry portfolios. The additional factors improved explanatory fit, but the tests still found pricing errors. That made me interested in the difference between explaining past returns and evaluating a model's restrictions.</p>
+                <p>The statistical side matters just as much: <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a> motivates autocorrelation-robust inference, while <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a> provides the GMM framework used for stochastic discount factor tests. I am exploring these questions further through an independent Python reconstruction and robustness checks, without treating historical results as a validated trading strategy.</p>
                 <p class="academic-entry-links"><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python repository</a><a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness checks</a></p>
               </div>
-              <span>Econometrics</span>
+              <aside class="academic-project-learning" aria-label="Learning questions for empirical asset pricing">
+                <span class="academic-project-area">Econometrics</span>
+                <h4>What I want to understand</h4>
+                <ul>
+                  <li>When do extra factors reduce pricing errors, rather than only improve fit?</li>
+                  <li>How sensitive are conclusions to inference and multiple testing?</li>
+                  <li>Which findings survive genuinely new data?</li>
+                </ul>
+              </aside>
             </div>
           </article>
           <article>
             <div class="academic-project-entry">
-              <div>
+              <div class="academic-project-narrative">
                 <h3>Fama–French factor extensions</h3>
-                <p>Starting from the five-factor benchmark of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a> and the momentum model discussed by <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">Carhart (1997)</a>, I am reproducing asset-pricing models and investigating extensions to value, residual momentum and low-volatility signals. Planned comparisons use factor regressions, spanning tests and out-of-sample evaluation.</p>
-                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/current-research/fama-french-factor-extensions.md" target="_blank" rel="noopener noreferrer">Project</a></p>
+                <p>I want to find out whether refinements to familiar investment factors contain information that standard models miss. Starting from <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a>, I am investigating improved value measures suggested by <a href="https://ssrn.com/abstract=3705218" target="_blank" rel="noopener noreferrer">Blitz and Hanauer</a>, stock-specific momentum in <a href="https://doi.org/10.1016/j.jempfin.2011.01.003" target="_blank" rel="noopener noreferrer">Blitz, Huij and Martens</a>, and low-volatility signals studied by <a href="https://ssrn.com/abstract=980865" target="_blank" rel="noopener noreferrer">Blitz and van Vliet</a>. I also plan to examine size-related effects discussed in <a href="https://ssrn.com/abstract=3686583" target="_blank" rel="noopener noreferrer">Settling the Size Matter</a>.</p>
+                <p>I plan to reproduce the conventional factors before constructing each extension. Factor-spanning tests, pricing errors and out-of-sample comparisons should help determine whether an apparent improvement represents new information or an additional way of fitting the same historical returns.</p>
+                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/current-research/fama-french-factor-extensions.md" target="_blank" rel="noopener noreferrer">Research plan</a></p>
               </div>
-              <span>Asset pricing · Quantitative research</span>
+              <aside class="academic-project-learning" aria-label="Learning questions for Fama–French factor extensions">
+                <span class="academic-project-area">Asset pricing · Factor research</span>
+                <h4>What I want to understand</h4>
+                <ul>
+                  <li>Are refined factors independent of existing risk exposures?</li>
+                  <li>Does low volatility provide distinct explanatory information?</li>
+                  <li>Are apparent premiums stable across periods and markets?</li>
+                </ul>
+              </aside>
             </div>
           </article>
           <article>
             <div class="academic-project-entry">
-              <div>
+              <div class="academic-project-narrative">
                 <h3>Machine learning for asset pricing</h3>
-                <p>Comparing linear asset-pricing models with regularized regression and nonlinear machine-learning methods for cross-sectional stock-return prediction. The project studies whether interactions and nonlinearities improve out-of-sample forecasts and whether better predictions translate into stronger portfolio performance.</p>
-                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/current-research/machine-learning-asset-pricing.md" target="_blank" rel="noopener noreferrer">Project</a></p>
+                <p>Can a more flexible model find useful structure in stock returns that a linear factor model misses? <a href="https://doi.org/10.1093/rfs/hhaa009" target="_blank" rel="noopener noreferrer">Gu, Kelly and Xiu</a> motivates comparing linear baselines with regularized and nonlinear methods. The studies by <a href="https://doi.org/10.1016/j.jedc.2023.104725" target="_blank" rel="noopener noreferrer">Cakici et al.</a> and <a href="https://doi.org/10.1057/s41260-021-00237-x" target="_blank" rel="noopener noreferrer">Drobetz and Otto</a> make me interested in whether the relationships extend beyond the U.S. market.</p>
+                <p>I plan to build the models from simple regressions toward tree-based approaches using chronological training and test periods. <a href="https://doi.org/10.21314/JCF.2016.322" target="_blank" rel="noopener noreferrer">Bailey et al.</a> on backtest overfitting and the <a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">Deflated Sharpe Ratio</a> help frame how to interpret a strong selected result. I want to evaluate not just forecast accuracy but also portfolio performance, turnover, costs and factor exposures.</p>
+                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/current-research/machine-learning-asset-pricing.md" target="_blank" rel="noopener noreferrer">Research plan</a></p>
               </div>
-              <span>Machine Learning · Asset pricing</span>
+              <aside class="academic-project-learning" aria-label="Learning questions for machine-learning asset pricing">
+                <span class="academic-project-area">Machine learning · Asset pricing</span>
+                <h4>What I want to understand</h4>
+                <ul>
+                  <li>When do nonlinear methods improve out-of-sample forecasts?</li>
+                  <li>Can predictive gains survive trading costs and risk adjustment?</li>
+                  <li>How can I prevent leakage and interpret what a model learns?</li>
+                </ul>
+              </aside>
             </div>
           </article>
         </div>
@@ -582,9 +609,10 @@
           </dl>
         </section>
 
-        <section class="academic-about-section academic-about-interests" aria-labelledby="about-interests-title">
-          <h2 id="about-interests-title">Research interests</h2>
-          <p>Mathematical modelling, stochastic processes, numerical methods, econometrics and asset pricing. I am particularly interested in machine learning, factor models, and ways of evaluating backtests without overstating what historical data can show.</p>
+        <section class="academic-about-section academic-about-learning" aria-labelledby="about-learning-title">
+          <h2 id="about-learning-title">How I learn</h2>
+          <p>I like to begin with a question and follow it until I understand not just the answer, but why it works. I look for the assumptions behind an argument, try counterexamples, and ask what changes when those assumptions are relaxed. What I enjoy most is finding the natural successor of a problem: the next question that follows from what I have just understood, rather than a topic that feels disconnected.</p>
+          <p>Socratic dialogue is an important part of this process. I learn by questioning explanations, making connections and working through ideas for myself. I have also started using AI as a discussion partner to challenge my reasoning, suggest different perspectives and uncover questions I might otherwise miss. It helps me make this exploratory way of learning more natural, while leaving the responsibility for understanding and checking the arguments with me.</p>
         </section>
 
         <section class="academic-about-section academic-about-other-interests" aria-labelledby="about-other-interests-title">
