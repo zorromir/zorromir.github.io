@@ -17,8 +17,9 @@ EXPECTED_PAPERS = sum(p["reading_status"] != "reading" for p in json.loads((ROOT
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
 ROUTES = ("home", "projects", "research", "engineering", "about")
-VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080),
-             ("mobile", 390, 844), ("narrow-mobile", 320, 720))
+VIEWPORTS = (("desktop", 1440, 900), ("desktop-1280", 1280, 900),
+             ("tablet", 768, 1080), ("mobile", 390, 844),
+             ("narrow-mobile", 360, 780))
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -133,6 +134,16 @@ def check_site(browser, base, device, width, height):
               f"{device}: menu did not close after navigation")
 
     page.goto(f"{base}/index.html#projects", wait_until="load")
+    check(page.locator("#projects .project-process-steps li").count() == 4,
+          f"{device}: missing process overview steps")
+    check(not page.locator("#industrial-detail").evaluate("node => node.open"),
+          f"{device}: technical details should start collapsed")
+    header_height = page.locator(".site-header").bounding_box()["height"]
+    check(page.locator("#projects-title").bounding_box()["y"] >= header_height - 4,
+          f"{device}: Projects heading overlaps navigation")
+    page.locator("#industrial-detail > summary").click()
+    check(page.locator("#industrial-detail").evaluate("node => node.open"),
+          f"{device}: technical disclosure did not expand")
     carousels = page.locator('[data-project-carousel]')
     check(carousels.count() == 2, f"{device}: missing project carousels")
     equations = page.locator("#projects .industrial-stage-equation math")
@@ -249,7 +260,7 @@ def main():
                 browser.close()
     finally:
         server.shutdown()
-    print("PASS: browser QA, 10 screenshots and fallback in artifacts/qa")
+    print("PASS: browser QA at five requested widths, screenshots and fallback in artifacts/qa")
 
 
 if __name__ == "__main__":
