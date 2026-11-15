@@ -10,6 +10,7 @@ html = (ROOT / "index.html").read_text(encoding="utf-8")
 css = (ROOT / "styles.css").read_text(encoding="utf-8")
 editorial_css = (ROOT / "academic.css").read_text(encoding="utf-8")
 js = (ROOT / "app.js").read_text(encoding="utf-8")
+cv_theme = (ROOT / "cv-theme.css").read_text(encoding="utf-8")
 
 class SiteParser(HTMLParser):
     def __init__(self):
@@ -73,11 +74,26 @@ assert 'class="academic-home-work-list"' in home
 # Header is text-only and homepage no longer repeats the site navigation.
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
+# Refined CV / motivation-letter design spans all five routed pages.
+assert 'cv-theme.css?v=cv-refined-20261115' in html
+assert 'family=Lato' in html
+assert 'class="brand-mark"' in html
+assert 'class="site-contact"' in html
+assert html.count('class="cv-page-eyebrow"') == 4
+assert "Academic record / Background" in html
+assert "Mathematical modelling / Empirical analysis" in html
+assert "Mathematics / Numerical methods" in html
+assert "Ongoing questions / Literature" in html
+assert "#193347" in cv_theme and "#a18c68" in cv_theme
+assert "var(--cv-rule)" in cv_theme
+assert "math { font-family:inherit" not in cv_theme
+
 assert 'class="academic-home-links"' not in home
 assert 'class="academic-home-record"' in home
 assert "padding-top: clamp(56px, 6.2vw, 72px)" in editorial_css
 assert "The Fractional Harmonic Oscillator" in home
 assert "how reliable backtests are" in home
+assert home.count('class="academic-work-year"') == 3
 assert "Fama–French factor extensions" in home
 assert "value, residual momentum and low-volatility signals" in home
 assert '<a href="#engineering">Exploring &amp; Reading</a>' in home
@@ -223,6 +239,8 @@ assert about.count('id="about-other-interests-title"') == 1
 assert about.index('id="about-interests-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
 assert 'chess, 3D printing, reading, climbing, strategy games and meditation.' in about
 assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
+assert 'class="academic-page-intro academic-profile-intro"' in about
+assert 'class="academic-profile-intro-copy"' in about
 assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
 assert 'Open CV <span aria-hidden="true">↗</span>' in about
 assert 'View CV (PDF)' not in about
