@@ -41,7 +41,8 @@ def check_site(browser, base, device, width, height):
         page.goto(f"{base}/index.html#{route}", wait_until="load", timeout=30000)
         page.locator("#" + route).wait_for(state="visible")
         if route == "projects":
-            page.wait_for_function("window.scrollY < 2", timeout=5000)
+            check(page.locator(".site-header").evaluate("el => getComputedStyle(el).position") == "relative",
+                  f"{device}: Projects navigation should not overlay project titles")
         check(page.locator(f'[data-page="{route}"] h1:visible').count() == 1,
               f"{device}/{route}: missing or duplicate visible page heading")
         check(page.locator('h1:visible').count() == 1,
@@ -136,7 +137,8 @@ def check_site(browser, base, device, width, height):
               f"{device}: menu did not close after navigation")
 
     page.goto(f"{base}/index.html#projects", wait_until="load")
-    page.wait_for_function("window.scrollY < 2", timeout=5000)
+    check(page.locator(".site-header").evaluate("el => getComputedStyle(el).position") == "relative",
+          f"{device}: sticky Projects header can overlap the first heading")
     check(page.locator("#projects .project-paper-provenance").count() == 1,
           f"{device}: panel paper provenance note missing")
     check(page.locator("#projects .project-paper-reference").count() == 0,
