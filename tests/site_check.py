@@ -364,7 +364,7 @@ assert 'id="explore-backtesting"' in reading_page
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="explore-suppliers"')
 assert reading_page.count('class="academic-focus-topic"') == 2
-focus_section = reading_page.split('id="exploring-now-title"', 1)[1].split('id="now-projects-title"', 1)[0]
+focus_section = reading_page.split('class="shell academic-exploring-section academic-focus-section"', 1)[1].split('id="now-projects-title"', 1)[0]
 focus_learning_panels = re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', focus_section, re.S)
 assert len(focus_learning_panels) == 2
 assert all(panel.count("<li>") == 3 for panel in focus_learning_panels)
@@ -378,7 +378,10 @@ assert reading_page.count('class="academic-project-learning"') == 5
 assert 'class="academic-focus-reading"' not in reading_page
 assert 'class="academic-focus-paper"' not in reading_page
 assert "How reliable is a backtest?" in reading_page
-focus_section = reading_page.split('id="exploring-now-title"', 1)[1].split('id="now-projects-title"', 1)[0]
+focus_section = reading_page.split('class="shell academic-exploring-section academic-focus-section"', 1)[1].split('id="now-projects-title"', 1)[0]
+assert "What I'm exploring now" not in reading_page
+assert "Questions I am working through, alongside the papers I am using to understand them." not in reading_page
+assert 'aria-label="Current research questions"' in reading_page
 assert "Related empirical-finance work" not in focus_section
 assert "Course project scope" not in focus_section
 assert 'class="academic-focus-related"' not in focus_section
