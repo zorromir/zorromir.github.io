@@ -178,15 +178,10 @@ def check_site(browser, base, device, width, height):
               f"{device}: next arrow did not work")
 
     page.goto(f"{base}/index.html#engineering", wait_until="load")
-    page.locator('[data-paper-list]:not([hidden])').wait_for(timeout=12000)
-    check(page.locator('[data-paper-list] > li').count() == EXPECTED_PAPERS,
-          f"{device}: expected {EXPECTED_PAPERS} bibliography entries")
-    check("Large Sample Properties" in page.locator('[data-paper-list] > li').first.inner_text(),
-          f"{device}: reference shelf did not load")
-    check(page.locator('#explore-backtesting .academic-focus-paper').count() == 3,
-          f"{device}: missing backtesting reading links")
-    check(page.locator('#explore-suppliers .academic-focus-paper').count() == 1,
-          f"{device}: missing supplier reading link")
+    check(page.locator('#explore-backtesting a[href*="doi.org"]').count() >= 2,
+          f"{device}: research references missing from backtesting narrative")
+    check(page.locator('#explore-suppliers a[href*="doi.org"]').count() >= 1,
+          f"{device}: supplier research references missing")
     check(page.locator('#explore-backtesting .academic-focus-related').count() == 0
           and page.locator('#explore-suppliers .academic-focus-related').count() == 0,
           f"{device}: redundant research-scope links remain")
@@ -212,9 +207,8 @@ def check_site(browser, base, device, width, height):
     check(current_projects.get_by_text('Fractional harmonic oscillator').count() == 0
           and current_projects.get_by_text('Two-phase flow modelling').count() == 0,
           f"{device}: previous projects still in current projects")
-    page.locator('[data-paper-filters] button', has_text="Econometrics").click()
-    check(page.locator('[data-paper-list] > li').count() >= 2,
-          f"{device}: bibliography filter did not work")
+    check(page.locator('#engineering [data-paper-library]').count() == 0,
+          f"{device}: obsolete paper library unexpectedly rendered")
     check(not exceptions, f"{device}: JS exception: {exceptions}")
     page.close()
 
@@ -229,8 +223,8 @@ def check_without_javascript(browser, base):
     for route in ROUTES:
         check(page.locator("#" + route).is_visible(),
               "No-JS page hidden: " + route)
-    check(page.locator("[data-paper-fallback] li").count() == EXPECTED_PAPERS,
-          "No-JS bibliography missing")
+    check(page.locator('#explore-backtesting').count() == 1,
+          "No-JS research references section missing")
     check(page.locator("#cv").count() == 1,
           "No-JS legacy #cv anchor missing")
     check(page.locator("#main-nav").is_visible(),
