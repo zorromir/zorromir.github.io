@@ -123,7 +123,8 @@ assert 'projects/panel-estimators/Panel_Estimators_Refined.tex' in projects
 assert 'class="project-paper-provenance"' in projects
 assert 'class="project-paper-reference"' not in projects
 assert "'panel-simulation-heading': 'panel-simulation-heading'" in js
-assert "window.addEventListener('load'" in js
+assert "document.body.classList.toggle('is-projects-page'" in js
+assert "body.is-projects-page .site-header" in cv_theme
 assert '#projects .project-paper-provenance' in cv_theme
 assert projects.count('<aside class="project-paper-questions"') == 3
 for panel in re.findall(r'<aside class="project-paper-questions"[^>]*>(.*?)</aside>', projects, re.S):

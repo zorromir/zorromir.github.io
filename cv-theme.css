@@ -932,6 +932,9 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline
 }
 
 /* Projects: same editorial rhythm and two-column hierarchy as the Research page. */
+/* On this long editorial page the header stays in normal document flow,
+   avoiding overlap with report titles and full-page browser captures. */
+body.is-projects-page .site-header { position:relative; top:auto; }
 #projects .academic-projects-intro {
   padding-top:55px; padding-bottom:27px;
 }

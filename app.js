@@ -28,6 +28,7 @@
     const name = detailTarget ? 'projects' : (hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home')));
     const changed = name !== currentPage;
     currentPage = name;
+    document.body.classList.toggle('is-projects-page', name === 'projects');
 
     pages.forEach(page => { page.hidden = page.dataset.page !== name; });
     links.forEach(link => {
@@ -60,18 +61,6 @@
 
   window.addEventListener('hashchange', renderPage);
   renderPage();
-
-  // With hash-based pages, the browser can perform its native fragment
-  // scrolling after the page router has hidden the other sections.
-  // Re-anchor top-level page routes after load so the sticky navigation
-  // never sits over the first case-study heading in a full-page capture.
-  window.addEventListener('load', () => {
-    if (validPages.has(window.location.hash.slice(1))) {
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => window.scrollTo({top: 0, behavior: 'instant'}));
-      });
-    }
-  }, {once: true});
 
   if (menu && menuBtn) {
     menuBtn.addEventListener('click', () => {
