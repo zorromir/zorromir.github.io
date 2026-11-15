@@ -75,13 +75,13 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-editorial-20261115' in html
+assert 'cv-theme.css?v=projects-paper-first-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
 assert html.count('class="cv-page-eyebrow"') == 4
 assert "Academic record / Background" in html
-assert "Selected work / Mathematical &amp; empirical research" in html
+assert "Selected research / Mathematics &amp; quantitative finance" in html
 assert "Mathematics / Numerical methods" in html
 assert "Ongoing questions / Literature" in html
 assert "#193347" in cv_theme and "#a18c68" in cv_theme
@@ -100,11 +100,11 @@ assert '<a href="#engineering">Exploring &amp; Reading</a>' in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
-# Preserve all project demonstrations while simplifying their presentation.
+# Preserve clear project summaries and working links to the public reports.
 projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RESEARCH -->", 1)[0]
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects and 'id="empirical-heading"' in projects
-assert projects.count('class="project-paper-entry"') == 2
+assert count_class("project-paper-entry") == 2
 assert projects.count('class="project-paper-reference"') == 2
 assert '<details' not in projects and 'data-project-carousel' not in projects
 assert "How can a physical model describe a pipeline process" in projects
@@ -113,7 +113,12 @@ assert "The paper is group work." in projects
 assert "not an official company report" in projects.lower()
 assert "not a validated industrial simulator" in projects
 assert 'assets/reports/fluivac-public-technical-excerpt.pdf' in projects
-assert 'https://github.com/zorromir/Empirical-Finance/blob/main/docs/Empirical_finance.pdf' in projects
+for filename in ("fluivac-public-technical-excerpt.pdf", "Empirical_finance.pdf"):
+    report_bytes = (ROOT / "assets" / "reports" / filename).read_bytes()
+    assert report_bytes.startswith(b"%PDF-") and len(report_bytes) > 50_000, (
+        f"Missing, invalid or unexpectedly short public report: {filename}"
+    )
+assert 'assets/reports/Empirical_finance.pdf' in projects
 assert 'https://github.com/zorromir/pipeline-flow-modelling' in projects
 assert 'https://github.com/zorromir/Empirical-Finance' in projects
 assert "Open CV" not in projects
@@ -335,7 +340,8 @@ assert "data-paper-carousel" not in html
 assert "coverFor(" not in js and "makeSlide(" not in js
 assert "academic-paper-filter" not in js and "academic-paper-detail" not in js
 assert "data-paper-library" not in js and "fetch('data/reading-list.json')" not in js
-assert "aria-current" in js and "aria-expanded" in js and "inert" in js
+assert "aria-current" in js and "aria-expanded" in js
+assert "pages.forEach(page => { page.hidden = page.dataset.page !== name; });" in js
 assert "Integrated literature references" in cv_theme
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
 assert css.count("{") == css.count("}"), "Unbalanced stylesheet blocks"
@@ -348,8 +354,10 @@ assert all(p.get("title") and p.get("url", "").startswith("https://") for p in r
 current_papers = [p for p in reading["papers"] if p["reading_status"] == "reading"]
 reference_papers = [p for p in reading["papers"] if p["reading_status"] != "reading"]
 assert len(current_papers) == 4 and len(reference_papers) == 5
-for paper in reading["papers"]:
-    assert f'href="{paper["url"]}"' in html, f"Reference not integrated: {paper['id']}"
+# Only actively discussed papers need a direct inline link; the remaining
+# literature records stay in the JSON catalogue and supporting PDFs.
+for paper in current_papers:
+    assert f'href="{paper["url"]}"' in reading_page, f"Reading reference not linked: {paper['id']}"
 assert all(p["url"] in reading_page for p in current_papers)
 assert all(p["reading_status"] == "reading" for p in current_papers)
 assert "sample_references" == reading["library_state"]
