@@ -104,7 +104,7 @@ assert "assets/research/01_fractional_oscillator_time.svg" in home
 projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RESEARCH -->", 1)[0]
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects and 'id="empirical-heading"' in projects
-assert projects.count('class="project-paper-entry"') == 2
+assert count_class("project-paper-entry") == 2
 assert projects.count('class="project-paper-reference"') == 2
 assert '<details' not in projects and 'data-project-carousel' not in projects
 assert "How can a physical model describe a pipeline process" in projects
