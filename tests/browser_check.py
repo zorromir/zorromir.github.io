@@ -104,6 +104,12 @@ def check_site(browser, base, device, width, height):
           f"{device}: header monogram still visible")
     check(page.locator("#home .academic-home-links").count() == 0,
           f"{device}: repeated homepage quick links remain")
+    check(page.locator("#home .academic-home-work a").count() == 0,
+          f"{device}: Selected work should not contain links")
+    check(page.locator("#home .academic-home-current").count() == 0,
+          f"{device}: Currently exploring section should be removed")
+    check(page.locator("#home .academic-home-summary").inner_text().startswith("I like starting with a question"),
+          f"{device}: new personal introduction missing")
     if width > 810:
         vertical = page.evaluate("""() => {
           const title = document.querySelector('#home-title').getBoundingClientRect();
@@ -149,8 +155,10 @@ def check_site(browser, base, device, width, height):
           f"{device}: investigation sidebars missing")
     check(page.locator("#projects .project-paper-copy p").count() == 9,
           f"{device}: expected three research-story paragraphs for each project")
-    check(page.locator("#projects .project-paper-credentials a").count() == 7,
-          f"{device}: direct paper/code links missing")
+    check(page.locator("#projects .project-paper-credentials a").count() == 6,
+          f"{device}: unexpected project paper/code link count")
+    check(page.locator("#projects .project-paper-credentials a", has_text="LaTeX source").count() == 0,
+          f"{device}: removed LaTeX source link still shown")
     if width > 820:
         layout = page.locator("#projects .project-paper-layout").first.evaluate("""node => {
             const summary = node.querySelector('.project-paper-copy').getBoundingClientRect();
@@ -222,7 +230,17 @@ def check_site(browser, base, device, width, height):
         check(result_layout["figureTop"] >= result_layout["textBottom"] - 2,
               f"{device}: result figure should stack beneath its explanation: {result_layout}")
 
+    page.goto(f"{base}/index.html#about", wait_until="load")
+    page.locator("#about").wait_for(state="visible")
+    check(page.locator('#about .academic-record-detail a[href$="fluivac-public-technical-excerpt.pdf"]').count() == 1,
+          f"{device}: industrial report not linked from Profile & CV")
+    check(page.locator("#about .academic-record-detail a", has_text="Case study").count() == 0,
+          f"{device}: old Case study link remains")
+
     page.goto(f"{base}/index.html#engineering", wait_until="load")
+    page.locator("#engineering").wait_for(state="visible")
+    check(page.locator("#engineering a", has_text="Robustness checks").count() == 0,
+          f"{device}: Exploring & Reading robustness link remains")
     check(page.locator('#explore-backtesting a[href*="doi.org"]').count() >= 2,
           f"{device}: research references missing from backtesting narrative")
     check(page.locator('#explore-suppliers a[href*="doi.org"]').count() >= 1,
