@@ -1,0 +1,45 @@
+name: Build panel-data research note
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/panel-estimators/**'
+      - '.github/workflows/build-panel-estimators.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate Monte Carlo plots
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy matplotlib
+          python projects/panel-estimators/panel_monte_carlo_minimal.py
+      - name: Compile research note
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Panel_Estimators_Refined.tex
+          working_directory: projects/panel-estimators
+          work_in_root_file_dir: true
+      - name: Copy and publish PDF
+        run: |
+          mkdir -p assets/reports
+          cp projects/panel-estimators/Panel_Estimators_Refined.pdf assets/reports/panel-estimators-monte-carlo.pdf
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/reports/panel-estimators-monte-carlo.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish reproducible panel-estimator research note PDF"
+            git push
+          fi
