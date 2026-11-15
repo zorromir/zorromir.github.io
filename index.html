@@ -61,7 +61,7 @@
         <div class="academic-home-profile">
           <p class="academic-home-affiliation">Mathematics · Quantitative Finance</p>
           <h1 id="home-title">Kelvin Schouten</h1>
-          <p class="academic-home-summary">I work with mathematical models, numerical methods and financial data. My recent work includes industrial flow modelling, a thesis on fractional differential equations, and empirical tests of asset-pricing models.</p>
+          <p class="academic-home-summary">I like starting with a question and following it until I understand why the answer works. That has led me from modelling changing flows in industrial pipelines to studying how memory affects an oscillator, and more recently to testing what financial factor models actually explain. I enjoy moving between the mathematics, Python calculations and the assumptions behind a result.</p>
         </div>
         <aside class="academic-home-record" aria-label="Academic background">
           <div>
@@ -80,7 +80,6 @@
       <section class="shell academic-home-work" aria-labelledby="home-featured-title">
         <div class="academic-home-section-head">
           <h2 id="home-featured-title">Selected work</h2>
-          <a href="#projects">All projects</a>
         </div>
         <div class="academic-home-work-list">
           <article class="home-feature-card academic-work-row" aria-label="Industrial pipeline modelling project">
@@ -90,10 +89,6 @@
               <h3>Two-phase flow in industrial pipelines</h3>
               <p>During a six-month project, I adapted published models to industrial operating conditions, studied uncertainty with Monte Carlo simulations and compared predictions with measurements.</p>
               <p class="academic-work-note">Synthetic reproduction shown · No company data</p>
-              <div class="home-feature-actions">
-                <a href="#projects">Read the case study</a>
-                <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Python &amp; tests</a>
-              </div>
             </div>
             <figure class="academic-work-figure">
               <img src="assets/industrial-push-phase2-discharge.svg" width="1000" height="440" loading="lazy" decoding="async" alt="Illustrative computed discharge curves for two pressure scenarios in a pipeline.">
@@ -108,11 +103,6 @@
               <h3>Testing financial factor models</h3>
               <p>Our group compared CAPM and Fama–French models using industry portfolio returns. We examined model fit, pricing errors, robust inference and moment conditions.</p>
               <p class="academic-work-note">Historical data · In-sample results</p>
-              <div class="home-feature-actions">
-                <a href="#empirical-heading">Read the case study</a>
-                <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python &amp; tests</a>
-                <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group findings</a>
-              </div>
             </div>
             <figure class="academic-work-figure">
               <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" decoding="async" alt="CAPM and Fama-French five-factor adjusted R-squared comparison for five industry portfolios.">
@@ -126,10 +116,6 @@
               <p class="academic-work-type">Bachelor's thesis · Utrecht University</p>
               <h3>The Fractional Harmonic Oscillator</h3>
               <p>I studied how fractional-order derivatives affect oscillations, using Laplace transforms, Mittag-Leffler functions and numerical calculations.</p>
-              <div class="academic-work-links">
-                <a href="#research">Read about the thesis</a>
-                <a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Numerical code</a>
-              </div>
             </div>
             <figure class="academic-work-figure">
               <img src="assets/research/01_fractional_oscillator_time.svg" width="960" height="420" loading="lazy" decoding="async" alt="Displacement over time for fractional oscillator orders 1.2, 1.5, 1.8 and 2.">
@@ -139,10 +125,6 @@
         </div>
       </section>
 
-      <section class="shell academic-home-current" aria-labelledby="home-current-title">
-        <h2 id="home-current-title">Currently exploring</h2>
-        <p>I'm currently exploring how reliable backtests are when many strategies are tested on the same data, and how to distinguish overfitting from genuine predictive ability. I'm also working on Fama–French factor extensions, studying value, residual momentum and low-volatility signals. I collect the related papers and project notes on the <a href="#engineering">Exploring &amp; Reading</a> page.</p>
-      </section>
     </article>
 
     <!-- PAGE 2: PROJECTS -->
@@ -218,8 +200,6 @@
             <a href="assets/reports/panel-estimators-monte-carlo.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Research note (PDF)</a>
             <span aria-hidden="true"> · </span>
             <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/panel-estimators/panel_monte_carlo_minimal.py" target="_blank" rel="noopener noreferrer">Python simulation</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/panel-estimators/Panel_Estimators_Refined.tex" target="_blank" rel="noopener noreferrer">LaTeX source</a>
           </p>
         </header>
         <div class="project-paper-layout">
@@ -415,7 +395,7 @@
                 <h3>Empirical asset pricing</h3>
                 <p>In a five-person MSc study, we tested CAPM against the five-factor model of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a> using U.S. industry portfolios. The additional factors improved explanatory fit, but the tests still found pricing errors. That made me interested in the difference between explaining past returns and evaluating a model's restrictions.</p>
                 <p>The statistical side matters just as much: <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a> motivates autocorrelation-robust inference, while <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a> provides the GMM framework used for stochastic discount factor tests. I am exploring these questions further through an independent Python reconstruction and robustness checks, without treating historical results as a validated trading strategy.</p>
-                <p class="academic-entry-links"><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python repository</a><a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness checks</a></p>
+                <p class="academic-entry-links"><a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Python repository</a></p>
               </div>
               <aside class="academic-project-learning" aria-label="Learning questions for empirical asset pricing">
                 <span class="academic-project-area">Econometrics</span>
@@ -577,7 +557,7 @@
             <div class="academic-record">
               <dt><strong>Industrial mathematical modelling</strong><span>Six-month project</span></dt>
               <dd>Independent applied research for a company in the food industry.</dd>
-              <dd class="academic-record-detail">Adapted published two-phase pipeline flow models, used numerical simulations and Monte Carlo uncertainty analysis, and compared predictions with measurements. <a href="#projects">Case study</a></dd>
+              <dd class="academic-record-detail">Adapted published two-phase pipeline flow models, used numerical simulations and Monte Carlo uncertainty analysis, and compared predictions with measurements. <a href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Technical report (PDF)</a></dd>
             </div>
             <div class="academic-record">
               <dt><strong>Empirical finance analysis</strong><span>MSc coursework</span></dt>
