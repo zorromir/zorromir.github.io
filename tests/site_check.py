@@ -340,7 +340,8 @@ assert "data-paper-carousel" not in html
 assert "coverFor(" not in js and "makeSlide(" not in js
 assert "academic-paper-filter" not in js and "academic-paper-detail" not in js
 assert "data-paper-library" not in js and "fetch('data/reading-list.json')" not in js
-assert "aria-current" in js and "aria-expanded" in js and "inert" in js
+assert "aria-current" in js and "aria-expanded" in js
+assert "pages.forEach(page => { page.hidden = page.dataset.page !== name; });" in js
 assert "Integrated literature references" in cv_theme
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
 assert css.count("{") == css.count("}"), "Unbalanced stylesheet blocks"
