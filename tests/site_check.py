@@ -48,7 +48,7 @@ assert all("alt" in img for img in site.images), "Missing image alt text"
 assert len(site.images) >= 6, "Project/research images missing"
 
 # The favicon is a compact, scalable version of the site's navy/gold identity.
-favicon_href = "assets/favicon.svg?v=20261115-navy"
+favicon_href = "assets/favicon.svg?v=20261115-regression"
 assert f'rel="icon" type="image/svg+xml" sizes="any" href="{favicon_href}"' in html
 favicon_path = ROOT / "assets/favicon.svg"
 favicon = favicon_path.read_text(encoding="utf-8")
@@ -57,7 +57,9 @@ assert favicon_root.tag == "{http://www.w3.org/2000/svg}svg"
 assert favicon_root.get("viewBox") == "0 0 64 64"
 assert all(color in favicon for color in ("#193347", "#ffffff", "#a18c68"))
 assert "#69c6b0" not in favicon and "#112d34" not in favicon
-assert 'aria-labelledby="title"' in favicon
+assert 'aria-labelledby="title desc"' in favicon
+assert favicon.count('<circle ') == 5
+assert 'Observed data points and a fitted regression line.' in favicon
 
 for reference in site.links + site.assets:
     if reference.startswith("#"):
