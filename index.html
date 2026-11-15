@@ -173,6 +173,24 @@
           </aside>
         </div>
 
+        <div class="project-case-highlight">
+          <div class="project-highlight-copy">
+            <p class="project-highlight-kicker">01 / ILLUSTRATIVE NUMERICAL RESULT</p>
+            <h3>How the pressure source changes discharge</h3>
+            <p>To isolate the role of compressed air, I compared a constant-pressure assumption with an initially pressurised volume that expands as liquid leaves the pipe. The second assumption produces a different discharge trajectory, even with the same pipeline.</p>
+            <p class="project-highlight-caveat">This public Python illustration uses synthetic inputs, not company measurements or a validated industrial prediction.</p>
+          </div>
+          <figure class="project-highlight-figure">
+            <a href="assets/industrial-gallery-push.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size pressure-source comparison plot">
+              <img src="assets/industrial-gallery-push.svg" width="700" height="325" loading="lazy" alt="Illustrative comparison of discharge under constant pressure and expanding compressed air.">
+            </a>
+            <figcaption>Pressure-source comparison · Synthetic inputs · Select the figure to enlarge</figcaption>
+          </figure>
+        </div>
+        <p class="project-key-lesson"><strong>What I learned.</strong> A useful flow model requires more than a solution to its equations: assumptions, regime changes, sensitivity and checks against measurements are essential.</p>
+        <details class="project-technical-details" id="industrial-detail">
+          <summary><span>Explore the modelling stages and numerical figures</span><small>Process photographs · Four modelling stages · Five interactive figures · Model evaluation</small></summary>
+          <div class="project-technical-content">
         <section class="industrial-process-photos" aria-labelledby="industrial-photos-title">
           <h3 id="industrial-photos-title">The process in practice</h3>
           <div class="industrial-photos-grid">
@@ -298,11 +316,13 @@
     <p>The main lesson was that solving the equations is only part of building a useful model. The assumptions, uncertain inputs and comparison with measurements matter just as much. During the original project, I compared calculations with available measurements and investigated sensitivity to uncertain parameters. The figures above are simplified public reconstructions, not the original company simulations or validated predictions for an installation.</p>
   </section>
 
-  <div class="industrial-reference-strip">
+        </div>
+          </div>
+        </details>
+        <div class="industrial-reference-strip">
     <div class="industrial-reference-links"><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">View code and technical documentation ↗</a></div>
   </div>
-  <noscript><p>To browse all stages and figures without JavaScript, see the <a href="https://github.com/zorromir/pipeline-flow-modelling">full public research repository</a>.</p></noscript>
-        </div>
+
       </section>
 
       <section class="shell academic-empirical-project" aria-labelledby="empirical-heading">
@@ -324,22 +344,33 @@
             </ul>
           </aside>
         </div>
-        <div class="academic-empirical-layout">
-          <figure class="empirical-figure">
-              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison for CAPM and Fama–French five-factor regressions across Oil, Banks, Textiles, Toys and Retail. FF5 explains more time-series variation for each industry.">
-              <figcaption>Figure 01 · Adjusted R², July 1963–June 2026. FF5 improves explanatory fit for every industry, but fit and pricing are different measures.</figcaption>
-            </figure>
-          <div class="academic-empirical-copy">
-            <h3>Model fit and pricing errors</h3>
-            <p>The five-factor model improved adjusted R² across all five industries, but it did not eliminate pricing errors. Textiles and Toys retained statistically significant alphas after correction for multiple tests.</p>
-            <p>To assess inference in financial return series, we used heteroskedasticity and autocorrelation consistent standard errors following <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a>. We also evaluated stochastic discount factor restrictions using GMM specification tests based on <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a>. These methods helped us distinguish explanatory fit from evidence about pricing restrictions.</p>
-            <p>A separate public Python reconstruction includes robustness checks. In a lagged-factor walk-forward diagnostic, four of five industries underperformed a historical-mean forecast. This diagnostic is not a point-in-time trading backtest.</p>
-            <div class="academic-empirical-links">
-              <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Public Python analysis</a>
-              <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness results</a>
-              <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group methods and findings</a>
-            </div>
+        <div class="project-case-highlight project-empirical-highlight">
+          <div class="project-highlight-copy">
+            <p class="project-highlight-kicker">02 / FACTOR-MODEL EVALUATION</p>
+            <h3>Better fit does not mean better pricing</h3>
+            <p>Across five U.S. industries, the Fama–French five-factor model improved adjusted R² relative to CAPM. However, Textiles and Toys retained statistically significant pricing errors after correcting for multiple tests.</p>
+            <p class="project-highlight-caveat">These are historical, predominantly in-sample findings—not the performance of an investment strategy.</p>
           </div>
+          <figure class="project-highlight-figure project-empirical-figure">
+            <a href="assets/empirical-finance-fit.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size CAPM and Fama-French factor model comparison">
+              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared for CAPM and Fama–French five-factor regressions across five U.S. industries.">
+            </a>
+            <figcaption>Adjusted R², July 1963–June 2026 · Model fit is not a pricing test</figcaption>
+          </figure>
+        </div>
+        <details class="project-technical-details project-empirical-details">
+          <summary><span>Explore the methods and robustness checks</span><small>HAC inference · GMM specification tests · Walk-forward diagnostics</small></summary>
+          <div class="project-technical-content">
+            <h3>Inference and model restrictions</h3>
+            <p>To assess inference in financial return series, we used heteroskedasticity and autocorrelation consistent standard errors following <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a>. We also evaluated stochastic discount factor restrictions using GMM specification tests based on <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a>. These methods helped us distinguish explanatory fit from evidence about pricing restrictions.</p>
+            <h3>Robustness beyond in-sample fit</h3>
+            <p>A separate public Python reconstruction includes robustness checks. In a lagged-factor walk-forward diagnostic, four of five industries underperformed a historical-mean forecast. This diagnostic is not a point-in-time trading backtest.</p>
+          </div>
+        </details>
+        <div class="academic-empirical-links">
+          <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Public Python analysis</a>
+          <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness results</a>
+          <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group methods and findings</a>
         </div>
 
       </section>
