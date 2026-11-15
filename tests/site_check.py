@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=integrated-references-20261115' in html
+assert 'cv-theme.css?v=learning-questions-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -241,12 +241,17 @@ assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
 assert 'app.js?v=inline-references-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
-                   "about-timeline-heading", "about-interests-title", "about-other-interests-title", "about-methods-title",
+                   "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
     assert f'id="{section_id}"' in about, f"Missing merged profile section: {section_id}"
 assert about.count("<h1") == 1
 assert about.count('id="about-other-interests-title"') == 1
-assert about.index('id="about-interests-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
+assert about.index('id="about-learning-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
+assert 'id="about-interests-title"' not in about
+assert 'natural successor of a problem' in about
+assert 'Socratic dialogue' in about
+assert 'AI as a discussion partner' in about
+assert "Background, education, experience and my approach to learning." in about
 assert 'chess, 3D printing, reading, climbing, strategy games and meditation.' in about
 assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
 assert html.count("Kelvin_Schouten_CV_EN.pdf?v=20261115-replacement") == 2
@@ -310,9 +315,27 @@ assert "Fama–French factor extensions" in current_project_section
 assert "Machine learning for asset pricing" in current_project_section
 assert "Fractional harmonic oscillator" not in current_project_section
 assert "Two-phase flow modelling" not in current_project_section
-assert "Asset pricing · Quantitative research" in current_project_section
-assert "Machine Learning · Asset pricing" in current_project_section
-assert current_project_section.count(">Project</a>") == 2
+assert "Asset pricing · Factor research" in current_project_section
+assert "Machine learning · Asset pricing" in current_project_section
+assert current_project_section.count(">Research plan</a>") == 2
+learning_panels = re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', current_project_section, re.S)
+assert len(learning_panels) == 3
+assert all(panel.count("<li>") == 3 for panel in learning_panels)
+assert current_project_section.count('<h4>What I want to understand</h4>') == 3
+assert "Research project narratives + learning-question sidebars" in cv_theme
+assert "grid-template-columns:minmax(0, 1fr) minmax(215px, .45fr)" in cv_theme
+assert "@media(max-width:820px)" in cv_theme
+for url in ("https://ssrn.com/abstract=3705218",
+            "https://doi.org/10.1016/j.jempfin.2011.01.003",
+            "https://ssrn.com/abstract=980865",
+            "https://ssrn.com/abstract=3686583",
+            "https://doi.org/10.1093/rfs/hhaa009",
+            "https://doi.org/10.1016/j.jedc.2023.104725",
+            "https://doi.org/10.1057/s41260-021-00237-x",
+            "https://doi.org/10.21314/JCF.2016.322",
+            "https://doi.org/10.3905/jpm.2014.40.5.094"):
+    assert f'href="{url}"' in current_project_section, f"Missing project source: {url}"
+
 assert ">Related papers</a>" not in current_project_section
 assert ">Project scope</a>" not in current_project_section
 for path in ("projects/current-research/fama-french-factor-extensions.md", "projects/current-research/machine-learning-asset-pricing.md"):
