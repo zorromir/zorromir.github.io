@@ -197,7 +197,7 @@ assert projects.count('class="project-highlight-figure') == 2
 assert 'aria-label="Open full-size pressure-source comparison plot"' in projects
 assert 'aria-label="Open full-size CAPM and Fama-French factor model comparison"' in projects
 assert projects.index('class="project-case-highlight"') < projects.index('id="industrial-model-stages"')
-assert projects.index('class="project-empirical-highlight"') < projects.index('class="project-empirical-details"')
+assert projects.index('project-empirical-highlight"') < projects.index('project-empirical-details"')
 assert 'id="industrial-detail"' in projects
 assert "Projects — editorial research case studies" in cv_theme
 assert "#projects .project-technical-details[open]" in cv_theme
