@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=exploring-learning-questions-20261115' in html
+assert 'cv-theme.css?v=projects-reading-layout-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -116,30 +116,28 @@ assert 'class="shell academic-project-thesis"' not in projects
 assert projects.count("data-project-carousel") == 2
 assert projects.count('class="project-slide ') == 9, "Missing process stage or numerical plot"
 assert projects.count('data-project-go=') == 4
-# Phase 4: the two existing carousels link to their matching examples.
+# Carousel tabs, arrows, dots, touch and keyboard navigation remain usable.
+# Redundant cross-carousel links and their event handlers have been removed.
 assert projects.count('data-project-carousel=') == 2
 assert 'id="industrial-model-stages"' in projects
 assert 'id="industrial-numerical-figures"' in projects
-assert projects.count('class="industrial-stage-figure-links"') == 4
-assert projects.count('class="industrial-gallery-stage-links"') == 5
-assert projects.count('data-project-jump="figures"') == 6
-assert projects.count('data-project-jump="stages"') == 6
+assert projects.count('class="industrial-stage-figure-links"') == 0
+assert projects.count('class="industrial-gallery-stage-links"') == 0
+assert 'data-project-jump' not in projects
+assert 'data-project-jump' not in js
 for target in ("stages", "figures"):
     assert f'data-project-carousel="{target}"' in projects
-for link_target in ("industrial-model-stages", "industrial-numerical-figures"):
-    assert f'href="#{link_target}"' in projects
-assert 'const projectCarouselControllers = new Map()' in js
-assert "document.querySelectorAll('a[data-project-jump]')" in js
-assert 'controller.show(index)' in js
-assert 'controller.carousel.focus({ preventScroll: true })' in js
-assert 'prefers-reduced-motion: reduce' in js
-assert 'Phase 4 — model-to-figure navigation' in editorial_css
+assert "document.querySelectorAll('[data-project-carousel]')" in js
+assert "data-project-prev" in js and "data-project-next" in js
+assert "data-project-dots" in js and "touchend" in js
+assert "projectCarouselControllers" not in js
+assert "@media(prefers-reduced-motion:reduce)" in cv_theme
 # Phase 5: mobile fixes follow the live narrow-screen interaction audit.
 assert "Phase 5 — narrow-screen fixes from live QA" in editorial_css
 assert "industrial-gallery .project-gallery-dots button" in editorial_css
 assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in editorial_css
 assert projects.count('Python-generated illustration · synthetic inputs · Select plot to enlarge') == 5
-assert 'Published relationships · public Python reconstructions · illustrative assumptions' in projects
+assert 'Published relationships · public Python reconstructions · illustrative assumptions' not in projects
 assert 'independently coded examples' not in projects
 # All four industrial stages use semantic, browser-native mathematical notation.
 assert projects.count('class="industrial-stage-equation"') == 4
@@ -153,10 +151,13 @@ assert 'Phase 3 — industrial carousel layout refinement' in editorial_css
 assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
 assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
-for marker in ("without company measurements", "Hansen J-test",
-               "four of five industries", "p = 0.311",
-               "not a validated trading strategy"):
+for marker in ("without company measurements", "four of five industries",
+               "Hansen (1982)", "not a point-in-time trading backtest"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
+assert '<h3>Selected findings</h3>' not in projects
+assert 'academic-empirical-findings' not in projects
+assert 'academic-empirical-provenance' not in projects
+assert '<strong>Scope:</strong>' not in projects
 assert "academic-empirical-layout" in editorial_css
 assert 'industrial-literature-title' not in projects
 assert 'class="industrial-literature-citation"' not in projects
@@ -169,7 +170,9 @@ assert 'Numerical verification is not experimental validation.' not in projects
 assert '>View code and technical documentation ↗</a>' in projects
 # The gallery keeps five full-size figures but no per-slide Python source links.
 industrial_figures = projects.split('<section id="industrial-numerical-figures"', 1)[1].split('<section class="industrial-model-evaluation"', 1)[0]
-assert industrial_figures.count('Expand figure ↗') == 5
+assert industrial_figures.count('Expand figure ↗') == 0
+assert industrial_figures.count('aria-label="Open full-size ') == 5
+assert '<div class="industrial-gallery-links">' not in industrial_figures
 assert 'View Python source' not in industrial_figures
 assert 'blob/main/examples/' not in industrial_figures
 assert projects.count('class="industrial-project-conclusion"') == 1
@@ -177,7 +180,18 @@ assert projects.index('class="industrial-model-evaluation"') < projects.index('c
 assert 'id="industrial-project-conclusion-title"' in projects
 assert 'The links open the publishers' + chr(39) + ' pages.' not in projects
 assert '.industrial-project-conclusion h3' in editorial_css
-assert 'Fluivac — Push, Blow, Rinse &amp; Dry' in projects
+assert 'Fluivac — Push, Blow, Rinse &amp; Dry' not in projects
+assert '<strong>Methods:</strong>' not in projects
+assert 'For an illustrated explanation' not in projects
+assert 'SEE IN THE NUMERICAL FIGURES' not in projects
+assert 'class="academic-project-overview"' in projects
+assert projects.count('class="academic-project-overview"') == 2
+assert projects.count('class="academic-project-learning"') == 2
+for sidebar in re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', projects, re.S):
+    assert sidebar.count("<li>") == 3
+assert projects.count('<h3>What I want to understand</h3>') == 2
+assert "Projects now share the reading-page research narrative" in cv_theme
+assert "#projects .academic-project-overview" in cv_theme
 assert 'Public Python reconstruction and tests' not in projects
 assert 'industrial-process-photos' in projects
 assert projects.count('class="industrial-photos-grid"') == 1
@@ -187,7 +201,7 @@ for caption in ("Push", "Blow", "Rinse", "Dry"):
     assert projects.count(f"<figcaption>{caption}</figcaption>") == 1, f"Missing photo stage: {caption}"
 assert "industrial-photos-credit" not in projects
 assert "Use the arrows or select a stage" not in projects
-assert "The process follows four stages." in projects
+assert "The process follows four stages." not in projects
 assert "border-bottom: 0;" in editorial_css.split("#home .academic-home-intro {", 1)[1].split("}", 1)[0]
 intro_rule = editorial_css.split("#home .academic-home-intro::after {", 1)[1].split("}", 1)[0]
 assert "left: 0;" in intro_rule and "right: 0;" in intro_rule
@@ -239,7 +253,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=inline-references-20261115' in html
+assert 'app.js?v=projects-simplified-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
