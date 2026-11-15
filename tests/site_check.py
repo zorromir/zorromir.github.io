@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=research-overview-20261115' in html
+assert 'cv-theme.css?v=projects-compact-overview-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -108,7 +108,9 @@ assert 'id="empirical-heading"' in projects
 # Homepage card targets the correct section, while the industrial card opens Projects.
 assert home.count('href="#empirical-heading">Read the case study</a>') == 1
 assert home.count('href="#projects">Read the case study</a>') == 1
-assert "hash === 'empirical-heading'" in js
+assert "'empirical-heading', 'industrial-detail', 'industrial-model-stages', 'industrial-numerical-figures'" in js
+assert "if (disclosure) disclosure.open = true" in js
+assert "detailTarget.closest('details')" in js
 assert "const name = detailTarget ? 'projects'" in js
 assert "detailTarget.scrollIntoView({ block: 'start', behavior: 'instant' })" in js
 assert 'id="projects-thesis-title"' not in projects
@@ -187,6 +189,22 @@ assert 'SEE IN THE NUMERICAL FIGURES' not in projects
 assert 'class="academic-project-overview"' in projects
 assert projects.count('class="academic-project-overview"') == 2
 assert projects.count('class="academic-project-learning"') == 2
+# Match Research's recruiter-first overview and opt-in technical detail.
+assert projects.count('class="project-case-highlight') == 2
+assert projects.count('<details class="project-technical-details') == 2
+assert projects.count('<summary>') == 2
+assert projects.count('class="project-highlight-figure') == 2
+assert 'aria-label="Open full-size pressure-source comparison plot"' in projects
+assert 'aria-label="Open full-size CAPM and Fama-French factor model comparison"' in projects
+assert projects.index('class="project-case-highlight"') < projects.index('id="industrial-model-stages"')
+assert projects.index('class="project-empirical-highlight"') < projects.index('class="project-empirical-details"')
+assert 'id="industrial-detail"' in projects
+assert "Recruiter-first Projects overview — compact evidence" in cv_theme
+assert "#projects .project-technical-details[open]" in cv_theme
+assert '#projects .project-case-highlight' in cv_theme
+assert 'max-width:520px' in cv_theme
+assert "Hansen (1982)" in projects
+assert 'Public Python analysis' in projects
 for sidebar in re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', projects, re.S):
     assert sidebar.count("<li>") == 3
 assert projects.count('<h3>What I want to understand</h3>') == 2
@@ -266,7 +284,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=projects-simplified-20261115' in html
+assert 'app.js?v=projects-details-links-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
