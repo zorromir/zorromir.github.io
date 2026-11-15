@@ -160,14 +160,12 @@
           <p class="project-paper-byline">Fluid mechanics · Numerical modelling · Python</p>
           <p class="project-paper-credentials">
             <a href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Technical report (PDF)</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public Python examples</a>
           </p>
         </header>
         <div class="project-paper-layout">
           <div class="project-paper-copy">
-            <p>I started from a practical question: how can you estimate what happens inside a pipeline when product is pushed out with compressed air and later removed through rinsing and drying? At first this sounded like a standard pressure-loss problem, but while working on it I found that the real difficulty was that the physical situation keeps changing. The amount of liquid in the pipe changes, the flow regime changes, and the output of one stage becomes the starting point of the next.</p>
-            <p>To work on this, I read published models from fluid mechanics, translated the main ideas into Python, and adapted them to the process I was studying. That led me to think about the pipeline in stages—Push, Blow, Rinse and Dry—instead of trying to force everything into one model. A large part of the work was not just solving equations, but deciding which assumptions still made sense in each stage and where they started to break down.</p>
+            <p>I spent six months on this project, working on it two days a week. I started from a practical question: how can you estimate what happens inside a pipeline when product is pushed out with compressed air and later removed through rinsing and drying? At first this sounded like a standard pressure-loss problem, but while working on it I found that the real difficulty was that the physical situation keeps changing. The amount of liquid in the pipe changes, the flow regime changes, and the output of one stage becomes the starting point of the next.</p>
+            <p>To work on this, I read published models from fluid mechanics, translated the main ideas into Python, and adapted them to the process I was studying. That led me to think about the pipeline in stages Push, Blow, Rinse and Dry instead of trying to force everything into one model. A large part of the work was not just solving equations, but deciding which assumptions still made sense in each stage and where they started to break down.</p>
             <p>What I learned most from this project is that a model can look convincing long before it becomes physically reliable. Numerical output by itself is not enough. You have to ask whether the assumptions match the process, whether the transitions between stages are sensible, and what comparison with measurements really tells you. That made the project much more interesting to me than a simple calculator: it became a question about how mathematical models stay useful in messy physical systems.</p>
           </div>
           <aside class="project-paper-questions" aria-label="Questions investigated in industrial pipeline modelling">
@@ -179,7 +177,6 @@
             </ul>
           </aside>
         </div>
-        <p class="project-paper-note">The linked report is a redacted, independently reconstructed technical excerpt, not an official company report. The public Python simulations use hypothetical inputs and are not validated industrial predictions.</p>
       </section>
 
       <section class="shell academic-empirical-project project-paper-entry" aria-labelledby="empirical-heading">
@@ -210,7 +207,6 @@
             </ul>
           </aside>
         </div>
-        <p class="project-paper-note">The original paper is a five-person group study. The later Python implementation and robustness checks are my separate public reconstruction, not the group's original code or a validated investment strategy.</p>
       </section>
     </article>
 
