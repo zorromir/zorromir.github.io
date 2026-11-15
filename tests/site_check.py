@@ -249,6 +249,11 @@ assert about.count('id="about-other-interests-title"') == 1
 assert about.index('id="about-interests-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
 assert 'chess, 3D printing, reading, climbing, strategy games and meditation.' in about
 assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
+assert html.count("Kelvin_Schouten_CV_EN.pdf?v=20261115-replacement") == 2
+assert "Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" not in html
+cv_bytes = (ROOT / "assets/cv/Kelvin_Schouten_CV_EN.pdf").read_bytes()
+assert cv_bytes.startswith(b"%PDF-") and len(cv_bytes) > 50_000
+
 assert 'class="academic-page-intro academic-profile-intro"' in about
 assert 'class="academic-profile-intro-copy"' in about
 assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
@@ -271,12 +276,12 @@ assert "footer-cv-link" in editorial_css
 # link is available from every routed page, beside GitHub and Email.
 footer = html.split('<footer class="site-footer">', 1)[1]
 assert footer.count('class="footer-cv-link"') == 1
-assert footer.count('href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv"') == 1
+assert footer.count('href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261115-replacement"') == 1
 assert 'type="application/pdf"' in footer
 assert 'target="_blank"' in footer
 assert 'mailto:schoutenkelvin@gmail.com' in footer
 assert 'https://github.com/zorromir' in footer
-assert html.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv") == 2
+assert html.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261115-replacement") == 2
 assert "https://github.com/zorromir/pipeline-flow-modelling" in html
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
