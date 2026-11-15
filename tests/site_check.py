@@ -262,9 +262,10 @@ assert about.count("<h1") == 1
 assert about.count('id="about-other-interests-title"') == 1
 assert about.index('id="about-learning-title"') < about.index('id="about-other-interests-title"') < about.index('id="about-methods-title"')
 assert 'id="about-interests-title"' not in about
-assert 'natural successor of a problem' in about
-assert 'Socratic dialogue' in about
-assert 'AI as a discussion partner' in about
+assert 'when one question naturally leads to another' in about
+assert 'learning through conversation works particularly well for me' in about
+assert 'almost like a Socratic discussion partner' in about
+assert 'more like following my own curiosity' in about
 assert "Background, education, experience and my approach to learning." in about
 assert 'chess, 3D printing, reading, climbing, strategy games and meditation.' in about
 assert 'class="academic-profile-pdf" aria-label="Curriculum vitae document"' in about
