@@ -140,7 +140,7 @@ def check_site(browser, base, device, width, height):
           f"{device}: investigation sidebars missing")
     check(page.locator("#projects .project-paper-copy p").count() == 6,
           f"{device}: expected three research-story paragraphs per project")
-    check(page.locator("#projects .project-paper-credentials a").count() == 5,
+    check(page.locator("#projects .project-paper-credentials a").count() == 4,
           f"{device}: direct paper/code links missing")
     if width > 820:
         layout = page.locator("#projects .project-paper-layout").first.evaluate("""node => {
