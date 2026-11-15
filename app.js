@@ -67,7 +67,9 @@
   // never sits over the first case-study heading in a full-page capture.
   window.addEventListener('load', () => {
     if (validPages.has(window.location.hash.slice(1))) {
-      window.requestAnimationFrame(() => window.scrollTo({top: 0, behavior: 'instant'}));
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => window.scrollTo({top: 0, behavior: 'instant'}));
+      });
     }
   }, {once: true});
 
