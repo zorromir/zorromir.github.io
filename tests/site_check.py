@@ -291,7 +291,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=projects-details-links-20261115' in html
+assert 'app.js?v=projects-anchor-fix-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
