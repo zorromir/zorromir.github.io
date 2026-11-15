@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=cv-refined-20261115' in html
+assert 'cv-theme.css?v=integrated-references-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -158,19 +158,22 @@ for marker in ("without company measurements", "Hansen J-test",
                "not a validated trading strategy"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert "academic-empirical-layout" in editorial_css
-assert 'industrial-literature-title' in projects
+assert 'industrial-literature-title' not in projects
+assert 'class="industrial-literature-citation"' not in projects
+assert 'class="industrial-model-evaluation"' in projects
+assert '#projects .industrial-model-evaluation' in cv_theme
 assert 'SCOPE &amp; REPRODUCIBILITY' not in projects
 reference_rule = editorial_css.split("#projects .academic-industrial-project .industrial-reference-strip {", 1)[1].split("}", 1)[0]
 assert "border: 0;" in reference_rule and "border-top:" not in reference_rule
 assert 'Numerical verification is not experimental validation.' not in projects
 assert '>View code and technical documentation ↗</a>' in projects
 # The gallery keeps five full-size figures but no per-slide Python source links.
-industrial_figures = projects.split('<section id="industrial-numerical-figures"', 1)[1].split('<section class="industrial-project-conclusion"', 1)[0]
+industrial_figures = projects.split('<section id="industrial-numerical-figures"', 1)[1].split('<section class="industrial-model-evaluation"', 1)[0]
 assert industrial_figures.count('Expand figure ↗') == 5
 assert 'View Python source' not in industrial_figures
 assert 'blob/main/examples/' not in industrial_figures
 assert projects.count('class="industrial-project-conclusion"') == 1
-assert projects.index('class="industrial-project-conclusion"') < projects.index('id="industrial-literature-title"')
+assert projects.index('class="industrial-model-evaluation"') < projects.index('class="industrial-project-conclusion"')
 assert 'id="industrial-project-conclusion-title"' in projects
 assert 'The links open the publishers' + chr(39) + ' pages.' not in projects
 assert '.industrial-project-conclusion h3' in editorial_css
@@ -192,12 +195,19 @@ assert "border-bottom: 1px solid var(--line);" in intro_rule
 assert "#home .academic-home-record > div:last-child { margin-bottom: 0; border-bottom: 0; }" in editorial_css
 assert "#home .academic-home-intro::after { bottom: 27px; }" in editorial_css
 assert 'Four stages of product recovery and the mathematical ideas used to describe them.' in projects
-assert projects.count('class="industrial-literature-citation"') == 5
+assert projects.count('class="industrial-literature-citation"') == 0
 assert projects.count('href="https://doi.org/10.1115/1.4031508"') == 1
 assert projects.count('href="https://doi.org/10.1038/s41597-024-03441-7"') == 1
 assert 'Tijsseling et al. (2016) ↗' not in projects
 assert 'Chen et al. (2024) ↗' not in projects
-assert 'industrial-literature-list' in editorial_css
+assert 'industrial-literature-list' not in projects
+assert 'Tijsseling et al. (2016)' in projects
+assert 'Chen et al. (2024)' in projects
+assert 'Fama and French (2015)' in projects
+assert 'Newey and West (1987)' in projects
+assert 'Hansen (1982)' in projects
+assert "Cioncolini and Thome (2012)" in projects
+assert '#engineering .academic-focus-topic' in cv_theme
 for doi in ("https://doi.org/10.1016/0301-9322(89)90023-2", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003", "https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003"):
     assert doi in projects, f"Missing journal link: {doi}"
 # Academic About and Research must keep their distinct content and source notes.
@@ -229,7 +239,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=empirical-deeplink-20261102' in html
+assert 'app.js?v=inline-references-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-interests-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
@@ -279,7 +289,7 @@ assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
 assert html.count("data-project-carousel") == 2
-# Reading is a bibliography, not a one-paper-at-a-time carousel.
+# Research questions and project descriptions now carry their own linked sources.
 reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
 assert 'class="academic-coursework-heading"' in reading_page
@@ -334,7 +344,10 @@ assert "These are additional references connected to my projects" not in html
 assert 'id="explore-suppliers"' in reading_page
 assert 'id="explore-backtesting"' in reading_page
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
-assert reading_page.count('class="academic-focus-paper"') == 4
+assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="explore-suppliers"')
+assert reading_page.count('class="academic-focus-topic"') == 2
+assert 'class="academic-focus-reading"' not in reading_page
+assert 'class="academic-focus-paper"' not in reading_page
 assert "How reliable is a backtest?" in reading_page
 focus_section = reading_page.split('id="exploring-now-title"', 1)[1].split('id="now-projects-title"', 1)[0]
 assert "Related empirical-finance work" not in focus_section
@@ -343,14 +356,19 @@ assert 'class="academic-focus-related"' not in focus_section
 assert "https://doi.org/10.1007/s00291-026-00869-8" in reading_page
 for marker in ("data-paper-library", "data-paper-filters", "data-paper-list",
                "data-paper-fallback", "data-paper-count", "Other papers &amp; references",
-               "not a record of completed reading", "Courses I'm taking"):
-    assert marker in reading_page, f"Reading-page content missing: {marker}"
+               "Reading for this question", "Selected research papers"):
+    assert marker not in reading_page, f"Unused paper list still visible: {marker}"
+for source in ("White (2000)", "Bailey et al. (2014)",
+               "Bailey and López de Prado (2014)", "Merzifonluoglu et al. (2026)",
+               "Arellano and Bond (1991)", "Fama and French (2015)"):
+    assert source in reading_page, f"Missing inline research source: {source}"
+assert "Courses I'm taking" in reading_page
 assert "data-paper-carousel" not in html
 assert "coverFor(" not in js and "makeSlide(" not in js
-assert "academic-paper-filter" in js and "academic-paper-detail" in js
-assert "academic-literature-list" in editorial_css
+assert "academic-paper-filter" not in js and "academic-paper-detail" not in js
+assert "data-paper-library" not in js and "fetch('data/reading-list.json')" not in js
 assert "aria-current" in js and "aria-expanded" in js and "inert" in js
-assert "fetch('data/reading-list.json')" in js
+assert "Integrated literature references" in cv_theme
 assert "prefers-reduced-motion" in css and "--layout-gutter" in css
 assert css.count("{") == css.count("}"), "Unbalanced stylesheet blocks"
 assert editorial_css.count("{") == editorial_css.count("}"), "Unbalanced editorial stylesheet"
@@ -358,16 +376,13 @@ assert "--layout-max: 960px" in editorial_css
 reading = json.loads((ROOT / "data/reading-list.json").read_text(encoding="utf-8"))
 assert reading["papers"] and reading["categories"] and reading["projects"]
 assert all(p.get("title") and p.get("url", "").startswith("https://") for p in reading["papers"])
-# Current readings appear in topic groups; only other references are repeated in the fallback shelf.
+# Keep the JSON catalogue as a source of record, but show papers contextually.
 current_papers = [p for p in reading["papers"] if p["reading_status"] == "reading"]
 reference_papers = [p for p in reading["papers"] if p["reading_status"] != "reading"]
-assert len(current_papers) == 4
-assert len(reference_papers) == reading_page.count("class=\"paper-citation\"")
+assert len(current_papers) == 4 and len(reference_papers) == 5
 for paper in reading["papers"]:
-    assert paper["title"].replace("&", "&amp;") in reading_page
-    assert paper["url"] in reading_page
-for paper in current_papers:
-    assert f'href="{paper["url"]}"' in reading_page
+    assert f'href="{paper["url"]}"' in html, f"Reference not integrated: {paper['id']}"
+assert all(p["url"] in reading_page for p in current_papers)
 assert all(p["reading_status"] == "reading" for p in current_papers)
 assert "sample_references" == reading["library_state"]
 assert reading["papers"][0]["id"] == "merzifonluoglu-et-al-2026-supplier-risk"
