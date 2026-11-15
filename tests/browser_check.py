@@ -36,6 +36,10 @@ def check_site(browser, base, device, width, height):
     page = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
     exceptions = []
     page.on("pageerror", lambda error: exceptions.append(str(error)))
+    icon = page.request.get(f"{base}/assets/favicon.svg?v=20261115-navy")
+    check(icon.status == 200, f"{device}: new favicon is unavailable")
+    check(b"#193347" in icon.body() and b"#a18c68" in icon.body(),
+          f"{device}: favicon does not use the academic navy and gold palette")
 
     for route in ROUTES:
         page.goto(f"{base}/index.html#{route}", wait_until="load", timeout=30000)
