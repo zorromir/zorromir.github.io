@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Kelvin Schouten</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Kelvin Schouten — Econometrics</title>
+  <desc id="desc">Observed data points and a fitted regression line.</desc>
   <rect width="64" height="64" rx="6" fill="#193347"/>
-  <path d="M17 14h9v16l14-16h11L34 33l18 20H40L26 37v16h-9V14z" fill="#ffffff"/>
-  <rect x="8" y="58" width="48" height="3" rx="1.5" fill="#a18c68"/>
+  <path d="M13 11V51H54" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M17 46L50 17" fill="none" stroke="#a18c68" stroke-width="3.5" stroke-linecap="round"/>
+  <g fill="#ffffff">
+    <circle cx="21" cy="39" r="3.2"/>
+    <circle cx="28" cy="41" r="3.2"/>
+    <circle cx="34" cy="28" r="3.2"/>
+    <circle cx="42" cy="29" r="3.2"/>
+    <circle cx="49" cy="14" r="3.2"/>
+  </g>
 </svg>
