@@ -312,7 +312,7 @@ assert "Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" not in html
 cv_bytes = (ROOT / "assets/cv/Kelvin_Schouten_CV_EN.pdf").read_bytes()
 assert cv_bytes.startswith(b"%PDF-") and len(cv_bytes) > 50_000
 
-assert 'class="academic-page-intro academic-profile-intro"' in about
+assert 'class="shell academic-page-intro academic-profile-intro"' in about
 assert 'class="academic-profile-intro-copy"' in about
 assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
 assert 'Open CV <span aria-hidden="true">↗</span>' in about
