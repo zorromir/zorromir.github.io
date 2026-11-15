@@ -36,7 +36,7 @@ def check_site(browser, base, device, width, height):
     page = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
     exceptions = []
     page.on("pageerror", lambda error: exceptions.append(str(error)))
-    icon = page.request.get(f"{base}/assets/favicon.svg?v=20261115-navy")
+    icon = page.request.get(f"{base}/assets/favicon.svg?v=20261115-regression")
     check(icon.status == 200, f"{device}: new favicon is unavailable")
     check(b"#193347" in icon.body() and b"#a18c68" in icon.body(),
           f"{device}: favicon does not use the academic navy and gold palette")
