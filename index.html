@@ -15,6 +15,10 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=recruiter-evidence-20261101">
   <link rel="stylesheet" href="academic.css?v=profile-cv-alignment-20261102">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cv-theme.css?v=cv-refined-20261115">
   <script defer src="app.js?v=empirical-deeplink-20261102"></script>
   <noscript>
     <style>
@@ -31,7 +35,7 @@
   <a href="#main-content" class="skip">Skip to content</a>
   <header class="site-header">
     <div class="shell header-row">
-      <a href="#home" class="brand" aria-label="Kelvin Schouten — Home"><span class="brand-label">Kelvin Schouten<small>Mathematics / Modelling / Research</small></span></a>
+      <a href="#home" class="brand" aria-label="Kelvin Schouten — Home"><span class="brand-mark" aria-hidden="true"><small>RESEARCH</small></span><span class="brand-label">Kelvin Schouten<small>Quantitative Finance / Research</small></span></a>
       <button id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu" class="menu-toggle">Menu <span aria-hidden="true">☰</span></button>
       <nav class="main-nav" id="main-nav" aria-label="Website pages">
         <a href="#home" data-nav="home">Home</a>
@@ -42,6 +46,13 @@
       </nav>
     </div>
   </header>
+  <div class="site-contact" aria-label="Professional links">
+    <div class="shell">
+      <span class="site-contact-item">Mathematics &amp; quantitative finance</span>
+      <a class="site-contact-item" href="mailto:schoutenkelvin@gmail.com">schoutenkelvin@gmail.com</a>
+      <a class="site-contact-item" href="https://github.com/zorromir" target="_blank" rel="noopener noreferrer">github.com/zorromir</a>
+    </div>
+  </div>
 
   <main id="main-content">
     <!-- PAGE 1: HOME -->
@@ -73,6 +84,7 @@
         </div>
         <div class="academic-home-work-list">
           <article class="home-feature-card academic-work-row" aria-label="Industrial pipeline modelling project">
+            <span class="academic-work-year">2026</span>
             <div class="academic-work-copy">
               <p class="academic-work-type">Industrial research · Mathematical modelling</p>
               <h3>Two-phase flow in industrial pipelines</h3>
@@ -90,6 +102,7 @@
           </article>
 
           <article class="home-feature-card academic-work-row" aria-label="Empirical asset pricing MSc group study">
+            <span class="academic-work-year">2026</span>
             <div class="academic-work-copy">
               <p class="academic-work-type">MSc group project · Empirical finance</p>
               <h3>Testing financial factor models</h3>
@@ -108,6 +121,7 @@
           </article>
 
           <article class="academic-work-row academic-work-thesis" aria-label="Bachelor's mathematics thesis">
+            <span class="academic-work-year">2025</span>
             <div class="academic-work-copy">
               <p class="academic-work-type">Bachelor's thesis · Utrecht University</p>
               <h3>The Fractional Harmonic Oscillator</h3>
@@ -134,6 +148,7 @@
     <!-- PAGE 2: PROJECTS -->
     <article class="page academic-projects" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
       <header class="shell academic-page-intro academic-projects-intro">
+        <p class="cv-page-eyebrow">Mathematical modelling / Empirical analysis</p>
         <h1 id="projects-title">Projects</h1>
         <p>Selected work in applied mathematical modelling, empirical finance and numerical research. Detailed figures and code are included where a public reproduction is available.</p>
       </header>
@@ -329,6 +344,7 @@
     <!-- PAGE 3: RESEARCH -->
     <article class="page academic-research" data-page="research" id="research" aria-labelledby="research-title" hidden>
       <header class="shell academic-page-intro">
+        <p class="cv-page-eyebrow">Mathematics / Numerical methods</p>
         <h1 id="research-title">Research</h1>
         <p>My work includes fractional differential equations, numerical modelling and empirical financial analysis.</p>
       </header>
@@ -374,6 +390,7 @@
     <!-- PAGE 4: EXPLORING & READING (legacy #engineering link retained) -->
     <article class="page academic-exploring" data-page="engineering" id="engineering" aria-labelledby="engineering-title" hidden>
       <header class="shell academic-page-intro academic-exploring-intro">
+        <p class="cv-page-eyebrow">Ongoing questions / Literature</p>
         <h1 id="engineering-title">Exploring &amp; Reading</h1>
         <p>Research questions, the papers guiding them, and the projects I am working on.</p>
       </header>
@@ -556,9 +573,12 @@
     <!-- PAGE 5: PROFILE & CV (former About and CV & Contact) -->
     <article class="page academic-about academic-profile" data-page="about" id="about" aria-labelledby="about-title" hidden>
       <span id="cv" class="legacy-route-anchor" aria-hidden="true"></span>
-      <header class="shell academic-page-intro">
-        <h1 id="about-title">Profile &amp; CV</h1>
-        <p>Background, education, experience and research interests.</p>
+      <header class="shell academic-page-intro academic-profile-intro">
+        <div class="academic-profile-intro-copy">
+          <p class="cv-page-eyebrow">Academic record / Background</p>
+          <h1 id="about-title">Profile &amp; CV</h1>
+          <p>Background, education, experience and research interests.</p>
+        </div>
         <div class="academic-profile-pdf" aria-label="Curriculum vitae document">
           <span class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small></span>
           <a href="assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" target="_blank" rel="noopener noreferrer" type="application/pdf" aria-label="Open curriculum vitae PDF in a new tab">Open CV <span aria-hidden="true">↗</span></a>
