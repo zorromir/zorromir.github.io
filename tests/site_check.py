@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-editorial-consistency-20261115' in html
+assert 'cv-theme.css?v=research-inline-results-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -152,7 +152,7 @@ assert 'data-project-next' not in js
 assert '#projects .project-paper-layout' in cv_theme
 assert '#projects .project-paper-questions' in cv_theme
 assert 'app.js?v=projects-editorial-consistency-20261115' in html
-assert 'cv-theme.css?v=projects-editorial-consistency-20261115' in html
+assert 'cv-theme.css?v=research-inline-results-20261115' in html
 
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
@@ -167,11 +167,22 @@ research = html.split("<!-- PAGE 3: RESEARCH -->", 1)[1].split("<!-- PAGE 4: EXP
 assert 'class="page academic-research"' in research
 assert 'class="academic-thesis-article thesis-main"' in research
 assert research.count('class="thesis-equation"') == 2
-assert research.count('class="thesis-figure"') == 2
+assert research.count('class="thesis-figure research-result-figure"') == 2
+assert research.count('class="research-result-row') == 3
+for number, label in (("02", "RESULT"), ("03", "RESULT"), ("04", "EXPLANATION")):
+    assert f"{number} / {label}" in research
+for title in ("From classical motion to fractional memory", "The Mittag-Leffler connection", "Why earlier motion still matters", "What I learned"):
+    assert title in research
+assert 'class="research-learning-summary"' in research
+assert 'class="research-figure-note"' not in research
+assert 'class="research-method-grid thesis-methods"' not in research
+assert "From proof techniques to simulations" not in research
+assert "The thesis made me" not in research
+assert "I became more confident with fractional differential equations" in research
 assert research.count('class="thesis-figure thesis-figure-feature"') == 1
-assert research.count('<details class="research-technical-details">') == 1
-assert research.count('<summary>') == 1
-assert research.index('class="research-thesis-overview"') < research.index('class="research-visual-summary"') < research.index('<details class="research-technical-details">')
+assert '<details class="research-technical-details">' not in research
+assert '<summary>' not in research
+assert research.index('class="research-thesis-overview"') < research.index('class="research-visual-summary"') < research.index('class="research-inline-results"')
 assert '<aside class="research-thesis-questions"' in research
 assert research.count('What I investigated</h3>') == 1
 assert 'aria-label="Open full-size fractional oscillator displacement figure"' in research
@@ -179,11 +190,11 @@ assert 'research-finance-overview' in research
 assert 'href="#empirical-heading"' in research
 assert "Research overview — recruiter-first" in cv_theme
 assert "grid-template-columns:minmax(0,1fr) minmax(260px,360px)" in cv_theme
-assert "research-technical-details[open]" in cv_theme
-assert "max-width:690px" in cv_theme
+assert "research-technical-details[open]" not in cv_theme
+assert "#research .research-result-row" in cv_theme
 assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
-assert "thesis-source" in research and "Paul Zegeling" in research
+assert "thesis-source" not in research and "Paul Zegeling" in research
 assert 'href="assets/research/The_Fractional_Harmonic_Oscillator__Analysis_and_Computations.pdf"' in research, "Thesis must link directly to the published PDF"
 assert 'type="application/pdf">Thesis (PDF)</a>' in research
 assert "data-thesis-pdf-path" not in html and "method: 'HEAD'" not in js

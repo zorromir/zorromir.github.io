@@ -723,109 +723,92 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline
   color:var(--cv-muted);
   margin-top:8px;
 }
-#research .research-technical-details {
-  border-top:0;
+/* Four visible research findings; the equations and supporting figures are
+   part of the article rather than a hidden disclosure panel. */
+#research .research-inline-results {
+  margin-top:0;
+}
+#research .research-result-row {
+  display:grid;
+  grid-template-columns:minmax(0,.79fr) minmax(0,1.21fr);
+  gap:clamp(26px,3.5vw,46px);
+  align-items:center;
+  padding:30px 0;
   border-bottom:1px solid var(--cv-rule);
+}
+#research .research-result-row .research-visual-copy {
+  align-self:start;
+  padding-top:5px;
+}
+#research .research-result-equation-visual {
+  min-width:0;
+  align-self:center;
+}
+#research .research-result-row .thesis-equation {
+  max-width:100%;
+  min-width:0;
+  padding:19px 17px;
+  margin:14px 0 15px;
+  border:1px solid var(--cv-rule);
+  background:#f8fafb;
+}
+#research .research-result-row .thesis-equation > span {
+  font-size:clamp(20px,2.1vw,25px);
+  overflow-wrap:anywhere;
+}
+#research .research-result-row .thesis-equation small {
+  display:block;
+  color:var(--cv-muted);
+  font:12px/1.6 'Lato',Arial,sans-serif;
+}
+#research .research-result-equation-visual > p {
+  max-width:56ch;
+  margin:0;
+  color:var(--cv-muted);
+  font:12.5px/1.7 'Lato',Arial,sans-serif;
+}
+#research .research-result-row .research-result-figure {
+  width:100%;
+  max-width:640px;
+  min-width:0;
   margin:0;
 }
-#research .research-technical-details summary {
-  display:flex;
-  align-items:center;
-  gap:6px 22px;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  cursor:pointer;
-  padding:17px 30px 17px 0;
-  position:relative;
-  list-style:none;
-  color:var(--cv-navy);
-  font:600 15.5px/1.55 'Lato',Arial,sans-serif;
+#research .research-result-row .research-result-figure a {
+  display:block;
+  width:100%;
 }
-#research .research-technical-details summary::-webkit-details-marker {display:none;}
-#research .research-technical-details summary::after {
-  content:"+";
-  position:absolute;
-  right:3px;
-  top:14px;
-  color:var(--cv-blue);
-  font:400 23px/1.2 'Lato',Arial,sans-serif;
-}
-#research .research-technical-details[open] summary::after {content:"−";}
-#research .research-technical-details summary:hover span {text-decoration:underline;text-underline-offset:4px;}
-#research .research-technical-details summary:focus-visible {outline:2px solid var(--cv-blue);outline-offset:4px;}
-#research .research-technical-details summary small {
-  color:var(--cv-muted);
-  font:12px/1.55 'Lato',Arial,sans-serif;
-}
-#research .research-technical-content {
-  padding:8px 0 28px;
-  max-width:840px;
-}
-#research .research-technical-content > p {
-  max-width:74ch;
-  color:#40515d;
-  font:15px/1.74 'Lato',Arial,sans-serif;
-  margin:0 0 14px;
-}
-#research .research-technical-content .academic-article-subheading {
-  max-width:730px;
-  color:var(--cv-navy);
-  font:500 21px/1.33 'Lato',Arial,sans-serif;
-  border-top:1px solid var(--cv-faint);
-  margin:23px 0 13px;
-  padding:22px 0 0;
-}
-#research .research-technical-content .thesis-equation,
-#research .research-technical-content .thesis-figure {
-  max-width:690px;
-}
-#research .research-technical-content .thesis-equation {
-  padding:12px;
-  background:#f6f8f9;
+#research .research-result-row .research-result-figure img {
+  display:block;
+  width:100%;
+  height:auto;
   border:1px solid var(--cv-rule);
-  margin:17px 0 21px;
+  background:#fff;
 }
-#research .research-technical-content .thesis-equation > span {
-  font-size:clamp(20px,2.3vw,25px);
-}
-#research .research-technical-content .thesis-figure {
-  margin:17px 0 25px;
-}
-#research .research-technical-content .thesis-figure img {
-  border-color:var(--cv-rule);
-}
-#research .research-technical-content .thesis-figure figcaption {
-  margin-top:8px;
-  font:11.5px/1.6 'Lato',Arial,sans-serif;
+#research .research-result-row .research-result-figure figcaption {
+  margin-top:9px;
   color:var(--cv-muted);
+  font:11.5px/1.62 'Lato',Arial,sans-serif;
 }
-#research .research-technical-content .research-method-grid {
-  max-width:790px;
-  margin:10px 0 15px;
+#research .research-learning-summary {
+  padding:30px 0 36px;
+  max-width:79ch;
 }
-#research .research-technical-content .research-method-grid > div {
-  border-top:1px solid var(--cv-rule);
+#research .research-learning-summary .research-learning-kicker {
+  margin:0 0 9px;
+  color:var(--cv-slate);
+  font:700 11px/1.5 'Lato',Arial,sans-serif;
+  letter-spacing:.09em;
+  text-transform:uppercase;
 }
-#research .research-technical-content .research-method-grid h3 {
+#research .research-learning-summary h3 {
+  margin:0 0 12px;
   color:var(--cv-navy);
-  font:600 14px/1.5 'Lato',Arial,sans-serif;
+  font:500 21px/1.35 'Lato',Arial,sans-serif;
 }
-#research .research-technical-content .research-method-grid p {
+#research .research-learning-summary p:not(.research-learning-kicker) {
+  margin:0 0 13px;
   color:#40515d;
-  font:13px/1.68 'Lato',Arial,sans-serif;
-}
-#research .research-technical-content > p.thesis-source {
-  color:var(--cv-muted);
-  font:11.5px/1.68 'Lato',Arial,sans-serif !important;
-  border-top:1px solid var(--cv-faint);
-  margin-top:18px;
-  padding-top:15px;
-}
-#research .academic-thesis-article > .research-figure-note {
-  max-width:80ch;
-  margin:12px 0 0;
-  color:var(--cv-muted);
-  font:11.5px/1.6 'Lato',Arial,sans-serif;
+  font:14.5px/1.78 'Lato',Arial,sans-serif;
 }
 #research .academic-research-finance {
   padding:30px 0 60px;
@@ -916,6 +899,10 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline
     gap:17px;
   }
   #research .research-visual-summary .thesis-figure-feature {max-width:650px;}
+  #research .research-result-row {grid-template-columns:1fr;gap:18px;align-items:start;}
+  #research .research-result-row .research-visual-copy {padding-top:0;}
+  #research .research-result-row .research-result-figure {max-width:650px;}
+  #research .research-result-equation-visual {max-width:650px;}
   #research .research-finance-overview {
     grid-template-columns:minmax(0,1fr);
     gap:20px;
@@ -925,9 +912,9 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline
 @media(max-width:540px) {
   #research .research-thesis-questions ul {display:block;}
   #research .research-visual-summary {padding:18px 0;}
-  #research .research-technical-details summary {display:block;padding-right:28px;}
-  #research .research-technical-details summary small {display:block;margin-top:4px;}
-  #research .research-technical-content .research-method-grid {grid-template-columns:1fr;}
+  #research .research-result-row {padding:23px 0;}
+  #research .research-result-row .thesis-equation {padding:16px 12px;}
+  #research .research-learning-summary {padding:25px 0 30px;}
   #research .research-finance-overview .research-finance-figure {max-width:100%;}
 }
 
