@@ -345,8 +345,8 @@ assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
-assert "four of five industries" in html
-assert "independent public python reconstruction" in html.lower()
+assert "four industries performed worse" in html
+assert "separate public Python implementation" in html
 assert "Python-generated illustration · synthetic inputs" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
