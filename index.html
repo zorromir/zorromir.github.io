@@ -351,7 +351,7 @@
       <header class="shell academic-page-intro">
         <p class="cv-page-eyebrow">Mathematics / Numerical methods</p>
         <h1 id="research-title">Research</h1>
-        <p>My work includes fractional differential equations, numerical modelling and empirical financial analysis.</p>
+        <p>Selected mathematical and empirical research, with a clear overview of the questions, methods and results.</p>
       </header>
       <section class="shell academic-research-thesis" aria-labelledby="research-thesis-title">
         <header class="academic-research-thesis-heading">
@@ -361,13 +361,39 @@
           <p class="academic-research-credentials"><a href="https://webspace.science.uu.nl/~zegel101/STUDENTEN.html" target="_blank" rel="noopener noreferrer">University research listing</a> · <a href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">Numerical code</a> · <a href="assets/research/The_Fractional_Harmonic_Oscillator__Analysis_and_Computations.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Thesis (PDF)</a></p>
         </header>
         <div class="academic-thesis-article thesis-main">
-<p class="lead">Classical differential equations use integer-order derivatives. Fractional calculus extends differentiation to noninteger orders, allowing dynamical models to incorporate memory. My thesis examined how this affects oscillations, decay and phase-space behaviour.</p>
-<div class="thesis-research-question"><h3>Research question</h3><p>How can fractional differential equations model the fractional harmonic oscillator, and what are the implications for accuracy, stability and physical interpretation?</p></div>
-<h3 class="academic-article-subheading">From classical motion to fractional memory</h3>
+          <div class="research-thesis-overview">
+            <div class="research-thesis-summary">
+              <p>I investigated what happens when the ordinary derivative in a harmonic oscillator is replaced by a fractional derivative. Unlike the classical oscillator, the resulting model depends on its past behaviour, changing how its motion decays and whether it remains periodic.</p>
+              <p>I combined analytical methods, including Laplace transforms and Mittag-Leffler functions, with numerical approximations in Python. An important part of the work was checking what the calculations reveal—and where the model's assumptions limit their interpretation.</p>
+              <p class="research-skills-line">Analytical modelling · Fractional differential equations · Numerical computation · Python</p>
+            </div>
+            <aside class="research-thesis-questions" aria-label="Research questions investigated in the thesis">
+              <h3>What I investigated</h3>
+              <ul>
+                <li>How does fractional order change oscillation and decay?</li>
+                <li>What does memory mean for a dynamical system?</li>
+                <li>How can analytical solutions help check numerical approximations?</li>
+              </ul>
+            </aside>
+          </div>
+          <div class="research-visual-summary">
+            <div class="research-visual-copy">
+              <p class="research-visual-kicker">01 / MAIN RESULT</p>
+              <h3>When the oscillator remembers</h3>
+              <p>Changing the derivative order changes the trajectory. The classical system keeps oscillating, while the illustrated fractional cases show decay that depends on the order. The graph makes this difference visible without requiring the derivation first.</p>
+              <p class="research-visual-hint">Select the figure to enlarge it.</p>
+            </div>
+            <figure class="thesis-figure thesis-figure-feature"><a href="assets/research/01_fractional_oscillator_time.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size fractional oscillator displacement figure"><img src="assets/research/01_fractional_oscillator_time.svg" alt="Computed displacement over time for fractional orders alpha equal to 1.2, 1.5, 1.8, and classical order 2; the classical system continues to oscillate with constant amplitude." width="960" height="420" loading="lazy"></a><figcaption><strong>Figure 01 — Displacement over time.</strong> Calculated solutions for four fractional orders. The classical case remains periodic; the fractional cases display order-dependent decay.</figcaption></figure>
+          </div>
+          <details class="research-technical-details">
+            <summary><span>Explore the mathematics and additional figures</span><small>Equations, analytical solutions, phase portraits and numerical methods</small></summary>
+            <div class="research-technical-content">
+              <h3 class="academic-article-subheading">From classical motion to fractional memory</h3>
 <p>In the simple oscillator, the ordinary second derivative is replaced by the Caputo derivative of order α. For 1 &lt; α ≤ 2, the model retains familiar initial conditions for displacement and velocity.</p>
 <div class="thesis-equation" role="img" aria-label="Caputo derivative of order alpha of x of t plus omega squared times x of t equals zero"><span><sup>C</sup>D<sup>α</sup>x(t) + ω<sup>2</sup>x(t) = 0</span><small>1 &lt; α ≤ 2 · x(0) = 1 · x′(0) = 0 · ω = 1 in the figures</small></div>
 <p>At α = 2, the classical harmonic oscillator is recovered. For noninteger orders, the derivative depends on previous values of the system, changing its response even without a separate damping term.</p>
-<figure class="thesis-figure"><img src="assets/research/01_fractional_oscillator_time.svg" alt="Computed displacement over time for fractional orders alpha equal to 1.2, 1.5, 1.8, and classical order 2; the classical system continues to oscillate with constant amplitude." width="960" height="420" loading="lazy"><figcaption><strong>Figure 01 — Displacement over time.</strong> Calculated solutions for four fractional orders. The classical case remains periodic; the fractional cases display order-dependent decay.</figcaption></figure>
+
+              
 <h3 class="academic-article-subheading">The Mittag-Leffler connection</h3>
 <p>The thesis uses Laplace transforms and Mittag-Leffler functions to construct exact solutions in tractable linear cases. For the illustrated initial conditions, the solution is:</p>
 <div class="thesis-equation" role="img" aria-label="x of t equals Mittag-Leffler E alpha comma one of minus omega squared t raised to alpha"><span>x(t) = E<sub>α,1</sub>(−ω<sup>2</sup>t<sup>α</sup>)</span><small>For arbitrary initial values, a second term involving t E<sub>α,2</sub> is needed.</small></div>
@@ -378,17 +404,36 @@
 <figure class="thesis-figure"><img src="assets/research/03_caputo_memory_kernel.svg" alt="Caputo power-law memory weights for fractional orders 1.2, 1.5, and 1.8, against elapsed time lag." width="960" height="410" loading="lazy"><figcaption><strong>Figure 03 — The memory kernel.</strong> K<sub>α</sub>(u) = u<sup>1−α</sup>/Γ(2−α), with lag u &gt; 0. This is a kernel illustration, not measured data or an oscillator trajectory.</figcaption></figure>
 <h3 class="academic-article-subheading">From proof techniques to simulations</h3>
 <div class="research-method-grid thesis-methods"><div><h3>Analytical methods</h3><p>Laplace transforms, Mittag-Leffler functions and fractional power series for solution construction and limiting-case analysis.</p></div><div><h3>Numerical methods</h3><p>L1 and L2 weighted-difference schemes for approximating Caputo derivatives; comparisons of simulated trajectories.</p></div><div><h3>Oscillator models</h3><p>Simple, nonlinear, damped and periodically driven fractional oscillators, including changes in the derivative orders.</p></div><div><h3>Further directions</h3><p>The thesis outlines potential fractional extensions of Van der Pol and Lotka–Volterra systems; these extensions were not completed in the thesis.</p></div></div>
-<p class="thesis-code-link"><a class="text-link" href="https://github.com/zorromir/fractional-harmonic-oscillator" target="_blank" rel="noopener noreferrer">View the reproducible thesis code on GitHub ↗</a></p>
-<div class="thesis-takeaway"><h3>Methods and skills</h3><p>Mathematical modelling, special functions, Laplace transforms, numerical discretization, scientific Python, and the interpretation of computational results.</p></div>
-<p class="thesis-source">Figures on this page were newly computed from the simple fractional oscillator and Caputo kernel formulas discussed in the 2025 thesis. They are illustrative model outputs, not empirical datasets. The thesis manuscript contains some formula and caption inconsistencies; the figures use the stated Caputo initial-value problem.</p>
+
+
+
+              <p class="thesis-source">Figures on this page were newly computed from the simple fractional oscillator and Caputo kernel formulas discussed in the 2025 thesis. They are illustrative model outputs, not empirical datasets. The thesis manuscript contains some formula and caption inconsistencies; the figures use the stated Caputo initial-value problem.</p>
+            </div>
+          </details>
+          <p class="research-figure-note">The figures are calculated illustrations of the fractional oscillator model, not experimental measurements.</p>
         </div>
       </section>
       <section class="shell academic-research-finance" aria-labelledby="research-finance-title">
         <header class="academic-research-finance-heading">
+          <p class="academic-research-context">MSc group study · Tilburg University · 2026</p>
           <h2 id="research-finance-title">Empirical finance</h2>
-          <p>MSc group research on industry returns and factor-model testing.</p>
+          <p>Testing asset-pricing models against historical industry returns.</p>
         </header>
-        <div class="split-feature"><figure class="research-finance-figure"><div class="research-finance-figure-label"><span>EMPIRICAL FINANCE / MSC GROUP STUDY</span><span>2026</span></div><img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison between CAPM and Fama–French five-factor regressions for five industry portfolios."><figcaption>Computed regression results · Historical industry returns · Not a trading backtest</figcaption></figure><div class="research-finance-copy"><span class="meta">FINANCIAL ECONOMETRICS / MODEL VALIDATION</span><h3>Industry returns and factor-model testing</h3><p>In an MSc group study, we compared CAPM and Fama–French factor models across five U.S. industry portfolios. The figure shows improved adjusted R² under the five-factor model; this does not imply that all pricing errors disappear.</p><p>My ongoing work focuses on reproducible Python analysis, robust inference, machine learning and the reliability of backtesting.</p><p class="small-copy">The figure presents historical, in-sample results from the group analysis, not a validated investment strategy.</p><a href="#projects" class="text-link">Explore the empirical study ↗</a> <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" class="text-link" target="_blank" rel="noopener noreferrer">Review robustness results ↗</a></div></div>
+        <div class="research-finance-overview">
+          <div class="research-finance-copy">
+            <h3>Does a better-fitting model also price assets better?</h3>
+            <p>In a five-person MSc group project, we compared CAPM with Fama–French factor models across five U.S. industry portfolios. The five-factor model explained more historical variation, but greater explanatory fit did not eliminate pricing errors.</p>
+            <p>This work brought together econometric testing, statistical inference and model interpretation. I later investigated robustness through a separate public Python reconstruction. These historical diagnostics are not a validated investment strategy.</p>
+            <div class="research-finance-links">
+              <a href="#empirical-heading" class="text-link">View the full empirical study</a>
+              <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" class="text-link" target="_blank" rel="noopener noreferrer">Robustness checks</a>
+            </div>
+          </div>
+          <figure class="research-finance-figure">
+            <a href="assets/empirical-finance-fit.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size empirical finance regression comparison"><img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared comparison between CAPM and Fama–French five-factor regressions for five industry portfolios."></a>
+            <figcaption>Adjusted R² across five industry portfolios. Historical in-sample model fit, not investment performance.</figcaption>
+          </figure>
+        </div>
       </section>
     </article>
 
