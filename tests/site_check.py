@@ -75,13 +75,13 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-compact-overview-20261115' in html
+assert 'cv-theme.css?v=projects-editorial-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
 assert html.count('class="cv-page-eyebrow"') == 4
 assert "Academic record / Background" in html
-assert "Mathematical modelling / Empirical analysis" in html
+assert "Selected work / Mathematical &amp; empirical research" in html
 assert "Mathematics / Numerical methods" in html
 assert "Ongoing questions / Literature" in html
 assert "#193347" in cv_theme and "#a18c68" in cv_theme
@@ -199,15 +199,22 @@ assert 'aria-label="Open full-size CAPM and Fama-French factor model comparison"
 assert projects.index('class="project-case-highlight"') < projects.index('id="industrial-model-stages"')
 assert projects.index('class="project-empirical-highlight"') < projects.index('class="project-empirical-details"')
 assert 'id="industrial-detail"' in projects
-assert "Recruiter-first Projects overview — compact evidence" in cv_theme
+assert "Projects — editorial research case studies" in cv_theme
 assert "#projects .project-technical-details[open]" in cv_theme
 assert '#projects .project-case-highlight' in cv_theme
-assert 'max-width:520px' in cv_theme
+assert 'max-width:560px' in cv_theme
 assert "Hansen (1982)" in projects
 assert 'Public Python analysis' in projects
 for sidebar in re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', projects, re.S):
     assert sidebar.count("<li>") == 3
-assert projects.count('<h3>What I want to understand</h3>') == 2
+assert '<h3>Key modelling decisions</h3>' in projects
+assert '<h3>What this work involved</h3>' in projects
+assert '<h3>What I want to understand</h3>' not in projects
+assert projects.count('class="project-process-steps"') == 1
+for stage in ('Push', 'Blow', 'Rinse', 'Dry'):
+    assert f'<strong>{stage}</strong>' in projects
+assert 'original company code, measured data or an independently validated' in projects
+assert 'The group paper used different regression-inference conventions' in projects
 assert "Projects now share the reading-page research narrative" in cv_theme
 assert "#projects .academic-project-overview" in cv_theme
 assert 'Public Python reconstruction and tests' not in projects
