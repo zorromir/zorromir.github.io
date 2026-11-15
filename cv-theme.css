@@ -1,0 +1,234 @@
+/*
+ * CV-inspired website theme, November 2026.
+ * Based on the refined CV / motivation-letter design.
+ * Loaded after academic.css: layout and visual overrides only.
+ * Research content, MathML and carousel behavior remain unchanged.
+ */
+:root {
+  --cv-navy:#193347;
+  --cv-ink:#202e3a;
+  --cv-slate:#536c80;
+  --cv-muted:#647784;
+  --cv-rule:#d9e2e7;
+  --cv-faint:#edf1f3;
+  --cv-gold:#a18c68;
+  --cv-blue:#315d79;
+  --cv-paper:#fff;
+  --cv-tint:#f6f8f9;
+  --ink:var(--cv-navy);
+  --ink-dim:#40515d;
+  --muted:var(--cv-muted);
+  --teal:var(--cv-blue);
+  --line:var(--cv-rule);
+  --bg:var(--cv-paper);
+  --paper:var(--cv-paper);
+  --soft:var(--cv-tint);
+  --warm:var(--cv-gold);
+  --title:'Lato',Arial,sans-serif;
+  --sans:'Lato',Arial,sans-serif;
+  --layout-max:1080px;
+  --academic-copy-measure:78ch;
+}
+html { scroll-padding-top:110px; }
+body { background:#fff; color:var(--cv-ink); font:15px/1.68 'Lato',Arial,sans-serif; }
+body,button,input,select,textarea { font-family:'Lato',Arial,sans-serif; }
+.page :is(h1,h2,h3,h4,h5,p,a,span,small,li,dd,dt,figcaption,strong,em,label,blockquote),
+.site-header :is(a,span,small,button),
+.site-contact :is(a,span),
+.site-footer :is(a,p,span) { font-family:'Lato',Arial,sans-serif !important; }
+.page :is(h1,h2,h3,h4),.site-header .brand-label { color:var(--cv-navy); }
+.page p { color:var(--cv-ink); }
+.page a { color:var(--cv-blue); text-underline-offset:4px; }
+.page a:hover { color:var(--cv-navy); }
+a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline-offset:4px; }
+.shell { width:min(1080px,calc(100% - 96px)); max-width:1080px; margin-inline:auto; }
+.page { background:#fff; min-width:0; }
+.page img,.page svg { max-width:100%; }
+.site-header { position:sticky;top:0;z-index:50;background:rgba(255,255,255,.98);border-bottom:1px solid var(--cv-rule);backdrop-filter:none; }
+.header-row { min-height:109px;gap:24px; }
+.site-header .brand { display:flex;align-items:center;gap:24px;min-width:0;text-decoration:none; }
+.site-header .brand-mark { width:69px;height:72px;background:var(--cv-navy);position:relative;display:block;flex:0 0 69px; }
+.site-header .brand-mark::after { content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--cv-gold); }
+.site-header .brand-mark small { position:absolute;right:8px;bottom:9px;font:700 8px/1.1 'Lato',Arial,sans-serif;letter-spacing:.12em;color:#fff; }
+.site-header .brand-label { display:block;white-space:nowrap;font:300 clamp(25px,2.6vw,34px)/1.2 'Lato',Arial,sans-serif;letter-spacing:-.016em; }
+.site-header .brand-label small { display:block;color:var(--cv-slate);margin-top:6px;font:700 9.5px/1.4 'Lato',Arial,sans-serif;letter-spacing:.105em;text-transform:uppercase; }
+.site-header .main-nav { display:flex;align-items:center;justify-content:flex-end;gap:clamp(11px,1.65vw,21px); }
+.site-header .main-nav a { position:relative;display:inline-block;white-space:nowrap;padding:8px 0;font:600 12px/1.5 'Lato',Arial,sans-serif;color:var(--cv-slate);border:0;background:none; }
+.site-header .main-nav a:hover,.site-header .main-nav a.is-active { color:var(--cv-navy);background:none; }
+.site-header .main-nav a.is-active::after { content:"";position:absolute;bottom:3px;left:0;right:0;height:2px;background:var(--cv-gold); }
+.site-contact { background:#fff; }
+.site-contact .shell { display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;min-height:43px;padding:11px 0;border-bottom:1px solid var(--cv-rule); }
+.site-contact span,.site-contact a { font:12px/1.5 'Lato',Arial,sans-serif;color:var(--cv-slate);text-decoration:none; }
+.site-contact .site-contact-item:not(:last-child) { border-right:1px solid var(--cv-rule);padding-right:21px; }
+.site-contact a:hover { color:var(--cv-navy);text-decoration:underline; }
+.site-footer { background:#fff;border-top:1px solid var(--cv-rule);padding:22px 0; }
+.site-footer .footer-grid { color:var(--cv-muted); }
+.site-footer .footer-grid p,.site-footer .footer-grid a { font:12px/1.5 'Lato',Arial,sans-serif;color:var(--cv-muted); }
+.site-footer .footer-grid a:hover { color:var(--cv-navy); }
+.site-footer .footer-grid .footer-cv-link { border-color:var(--cv-rule);border-radius:0;color:var(--cv-blue); }
+
+/* Shared page introductions: the small uppercase document kicker is reused on every page. */
+.page .academic-page-intro { padding:55px 0 29px;border-bottom:1px solid var(--cv-rule); }
+.page .academic-page-intro h1 { margin:0 0 10px;font:400 clamp(36px,4vw,43px)/1.17 'Lato',Arial,sans-serif;letter-spacing:-.018em;color:var(--cv-navy); }
+.page .academic-page-intro > p:not(.cv-page-eyebrow),
+.page .academic-profile-intro-copy > p:not(.cv-page-eyebrow) { max-width:76ch;color:var(--cv-muted);font:15px/1.65 'Lato',Arial,sans-serif;margin:0; }
+.page .cv-page-eyebrow { color:var(--cv-slate);font:700 11px/1.5 'Lato',Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:0 0 11px; }
+.page .academic-page-intro .cv-page-eyebrow { max-width:none; }
+.page .academic-page-intro .academic-page-intro-title { color:var(--cv-navy); }
+.page h2,.page h3 { color:var(--cv-navy); }
+
+/* Home: document-like identity, academic facts and dated selected-work rows. */
+#home .academic-home-intro { grid-template-columns:minmax(0,1.48fr) minmax(245px,.62fr);align-items:start;gap:clamp(40px,6vw,78px);padding-top:69px;padding-bottom:48px;border-bottom:1px solid var(--cv-rule); }
+#home .academic-home-intro::after { content:none; }
+#home .academic-home-affiliation { color:var(--cv-slate);font:700 11px/1.5 'Lato',Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:0 0 17px; }
+#home .academic-home-profile h1 { font:300 clamp(41px,4.7vw,56px)/1.13 'Lato',Arial,sans-serif;letter-spacing:-.023em;color:var(--cv-navy);margin:0 0 20px; }
+#home .academic-home-summary { max-width:66ch;color:#30414c;font:16px/1.78 'Lato',Arial,sans-serif;margin:0; }
+#home .academic-home-record { padding-top:26px; }
+#home .academic-home-record > div { border-top:1px solid var(--cv-rule);border-bottom:0;margin:0;padding:15px 0 16px; }
+#home .academic-home-record > div:last-child { border-bottom:0;padding-bottom:0; }
+#home .academic-home-record span { color:var(--cv-slate);font:700 11px/1.5 'Lato',Arial,sans-serif; }
+#home .academic-home-record strong { font:700 14px/1.48 'Lato',Arial,sans-serif;color:var(--cv-navy);margin-top:5px; }
+#home .academic-home-record p { font:12.5px/1.58 'Lato',Arial,sans-serif;color:var(--cv-muted); }
+#home .academic-home-work { padding-top:39px; }
+#home .academic-home-section-head { border-bottom:1px solid var(--cv-rule);padding-bottom:11px;align-items:baseline; }
+#home .academic-home-section-head h2 { color:var(--cv-navy);font:400 25px/1.3 'Lato',Arial,sans-serif;letter-spacing:-.01em; }
+#home .academic-home-section-head a { font:700 12px/1.6 'Lato',Arial,sans-serif;color:var(--cv-blue); }
+#home .academic-home-work-list { border-bottom:0; }
+#home .academic-work-row,#home .home-feature-card.academic-work-row { grid-template-columns:80px minmax(0,1fr) minmax(195px,260px);gap:20px 24px;border-top:0;border-bottom:1px solid var(--cv-faint);padding:26px 0 27px;align-items:start; }
+#home .academic-work-year { color:var(--cv-slate);font:700 13px/1.5 'Lato',Arial,sans-serif;padding-top:3px; }
+#home .academic-work-type { color:var(--cv-slate);font:600 11.5px/1.55 'Lato',Arial,sans-serif;margin:0 0 5px; }
+#home .academic-work-copy h3 { color:var(--cv-navy);font:700 18.5px/1.3 'Lato',Arial,sans-serif;letter-spacing:-.005em;margin:0 0 9px; }
+#home .academic-work-copy > p:not(.academic-work-type):not(.academic-work-note) { color:#40515d;font:14px/1.68 'Lato',Arial,sans-serif; }
+#home .academic-work-note { color:var(--cv-muted);font:11px/1.6 'Lato',Arial,sans-serif; }
+#home .academic-work-row .home-feature-actions a,#home .academic-work-links a { color:var(--cv-blue);font:700 12px/1.5 'Lato',Arial,sans-serif;text-decoration:none; }
+#home .academic-work-row .home-feature-actions a:hover,#home .academic-work-links a:hover { color:var(--cv-navy);text-decoration:underline; }
+#home .academic-work-figure { padding:0; }
+#home .academic-work-figure img { width:100%;height:auto;border:1px solid var(--cv-rule);padding:9px;background:#fbfcfd; }
+#home .academic-work-figure figcaption { font:11px/1.5 'Lato',Arial,sans-serif;color:var(--cv-muted); }
+#home .academic-home-current { padding:39px 0 77px; }
+#home .academic-home-current h2 { color:var(--cv-navy);font:400 24px/1.3 'Lato',Arial,sans-serif;letter-spacing:-.005em;border-bottom:1px solid var(--cv-rule);padding-bottom:10px;margin:0 0 14px; }
+#home .academic-home-current p { color:#334654;font:14.5px/1.74 'Lato',Arial,sans-serif;max-width:78ch; }
+
+/* Profile & CV: the document link sits beside the introduction, and entries read like dated CV rows. */
+#about .academic-profile-intro { display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:clamp(30px,6vw,68px);align-items:end; }
+#about .academic-profile-intro-copy { min-width:0; }
+#about .academic-profile-pdf { width:100%;max-width:none;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--cv-rule);border-bottom:1px solid var(--cv-rule);padding:12px 0;margin:0 0 2px; }
+#about .academic-profile-pdf-label { color:var(--cv-navy);font:700 13.5px/1.45 'Lato',Arial,sans-serif; }
+#about .academic-profile-pdf-label small { margin-top:2px;color:var(--cv-muted);font:11px/1.35 'Lato',Arial,sans-serif; }
+#about .academic-profile-pdf a { min-height:0;font:700 12.5px/1.5 'Lato',Arial,sans-serif;color:var(--cv-blue); }
+#about .academic-about-content { padding-top:14px;padding-bottom:82px; }
+#about .academic-about-section { padding:30px 0 21px;border-bottom:1px solid var(--cv-faint); }
+#about .academic-about-section:last-child { border-bottom:0; }
+#about .academic-about-section h2 { color:var(--cv-navy);font:400 24px/1.3 'Lato',Arial,sans-serif;letter-spacing:-.005em;border-bottom:1px solid var(--cv-rule);padding-bottom:10px;margin:0 0 14px; }
+#about .academic-about-section p { color:#2e3942;font:15px/1.75 'Lato',Arial,sans-serif;max-width:78ch; }
+#about .academic-record-list { margin:0; }
+#about .academic-record { position:relative;border-top:0;min-height:53px;padding:11px 0 13px 193px; }
+#about .academic-record:first-child { padding-top:11px; }
+#about .academic-record dt { display:block;color:var(--cv-navy); }
+#about .academic-record dt strong { color:var(--cv-navy);font:700 15px/1.4 'Lato',Arial,sans-serif; }
+#about .academic-record dt span { position:absolute;top:13px;left:0;max-width:176px;white-space:normal;color:var(--cv-slate);font:700 13px/1.45 'Lato',Arial,sans-serif; }
+#about .academic-record dd { margin:4px 0 0;color:#40515d;font:14px/1.66 'Lato',Arial,sans-serif; }
+#about .academic-record .academic-record-detail { color:var(--cv-muted);font:13.5px/1.67 'Lato',Arial,sans-serif; }
+#about .academic-profile-skills > div,#about .academic-profile-contact > div { grid-template-columns:178px minmax(0,1fr);gap:20px;border-bottom:1px solid var(--cv-faint);padding:10px 0; }
+#about .academic-profile-skills dt,#about .academic-profile-contact dt { color:var(--cv-slate);font:700 13px/1.5 'Lato',Arial,sans-serif; }
+#about .academic-profile-skills dd,#about .academic-profile-contact dd { color:#40515d;font:14px/1.65 'Lato',Arial,sans-serif; }
+
+/* Projects: preserve every original model, slider and scientific result. */
+#projects .academic-projects-intro { max-width:var(--layout-max); }
+#projects .academic-industrial-project,#projects .academic-empirical-project { padding-top:35px;padding-bottom:48px;border-bottom:1px solid var(--cv-rule); }
+#projects .academic-project-heading { border-bottom:1px solid var(--cv-rule);padding-bottom:15px;margin-bottom:20px; }
+#projects .academic-project-context { color:var(--cv-slate);font:700 11px/1.5 'Lato',Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 9px; }
+#projects .academic-project-heading h2 { color:var(--cv-navy);font:400 clamp(27px,3vw,34px)/1.28 'Lato',Arial,sans-serif;letter-spacing:-.01em; }
+#projects .academic-project-description > p,#projects .academic-empirical-intro { color:#40515d;font:14.7px/1.74 'Lato',Arial,sans-serif; }
+#projects .academic-industrial-project :is(h3,h4),#projects .academic-empirical-project :is(h3,h4) { color:var(--cv-navy); }
+#projects .academic-industrial-project .industrial-stage-intro h4,#projects .academic-industrial-project .industrial-gallery-copy h4 { font:600 21px/1.3 'Lato',Arial,sans-serif;color:var(--cv-navy); }
+#projects .academic-industrial-project .industrial-stage-intro p,#projects .academic-industrial-project .industrial-stage-details p,#projects .academic-industrial-project .industrial-gallery-copy p { font:13.5px/1.72 'Lato',Arial,sans-serif;color:#40515d; }
+#projects .academic-industrial-project .industrial-stage-details { background:#f8fafb;border-color:var(--cv-rule); }
+#projects .academic-industrial-project .industrial-stage-equation { background:#fff; }
+#projects .academic-industrial-project .project-carousel-foot { color:var(--cv-muted);border-color:var(--cv-rule); }
+#projects .academic-industrial-project .industrial-literature h3,#projects .industrial-project-conclusion h3 { font:400 23px/1.3 'Lato',Arial,sans-serif;color:var(--cv-navy); }
+#projects .academic-empirical-copy h3,#projects .academic-empirical-findings h3 { color:var(--cv-navy);font:600 21px/1.35 'Lato',Arial,sans-serif; }
+#projects figure figcaption { color:var(--cv-muted);font:11.5px/1.6 'Lato',Arial,sans-serif; }
+#projects .academic-empirical-layout .empirical-figure { background:#fbfcfd;border-color:var(--cv-rule); }
+
+/* Research: document typography for mathematical exposition, not decorative cards. */
+#research .academic-research-thesis,#research .academic-research-finance { max-width:var(--layout-max); }
+#research .academic-research-context { color:var(--cv-slate);font:700 11px/1.5 'Lato',Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase; }
+#research .academic-research-thesis-heading { border-bottom:1px solid var(--cv-rule);padding-bottom:20px; }
+#research .academic-research-thesis-heading h2,#research .academic-research-finance h2 { color:var(--cv-navy);font:400 clamp(27px,3vw,34px)/1.28 'Lato',Arial,sans-serif;letter-spacing:-.01em; }
+#research .academic-research-byline,#research .academic-research-credentials { color:var(--cv-muted);font:12.5px/1.65 'Lato',Arial,sans-serif; }
+#research .academic-thesis-article :is(h3,h4),#research .academic-research-finance :is(h3,h4) { color:var(--cv-navy);font-family:'Lato',Arial,sans-serif; }
+#research .academic-thesis-article p,#research .academic-research-finance p { color:#40515d;font-family:'Lato',Arial,sans-serif; }
+#research figure figcaption { color:var(--cv-muted);font:11.5px/1.6 'Lato',Arial,sans-serif; }
+#research .academic-thesis-article :is(pre,code,kbd),#research math,#projects math { font-family:inherit; }
+
+/* Exploring & Reading: thin CV-like row dividers and clear source metadata. */
+#engineering .academic-exploring-intro,#engineering .academic-exploring-section { max-width:var(--layout-max); }
+#engineering .academic-exploring-section { padding-top:34px;padding-bottom:38px;border-bottom:1px solid var(--cv-rule); }
+#engineering .academic-exploring-section > h2,#engineering .academic-literature-header h2,#engineering .academic-focus-section-header h2 { color:var(--cv-navy);font:400 clamp(24px,2.7vw,29px)/1.3 'Lato',Arial,sans-serif;letter-spacing:-.01em; }
+#engineering .academic-focus-list,#engineering .academic-current-projects { border-top:1px solid var(--cv-rule); }
+#engineering .academic-focus-topic,#engineering .academic-current-projects > article { border-bottom-color:var(--cv-faint); }
+#engineering .academic-focus-kicker,#engineering .academic-section-kicker { color:var(--cv-slate);font:700 11px/1.55 'Lato',Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase; }
+#engineering .academic-focus-description h3,#engineering .academic-project-entry h3 { color:var(--cv-navy);font:600 21px/1.35 'Lato',Arial,sans-serif;letter-spacing:-.005em; }
+#engineering .academic-focus-description > p:not(.academic-focus-kicker),#engineering .academic-project-entry p { color:#40515d;font:14.5px/1.75 'Lato',Arial,sans-serif; }
+#engineering .academic-project-entry > span { color:var(--cv-slate);font:700 12px/1.55 'Lato',Arial,sans-serif; }
+#engineering .academic-focus-paper,#engineering .academic-literature :is(li,article) { border-color:var(--cv-faint); }
+#engineering .academic-focus-paper a,#engineering .academic-project-entry a { color:var(--cv-blue); }
+#engineering .academic-literature :is(h3,h4),#engineering .academic-current-learning :is(h3,h4) { color:var(--cv-navy); }
+
+/* Responsive: prevent the long navigation labels and academic rows from overflowing. */
+@media(max-width:1080px) {
+  .site-header .brand { gap:15px; }
+  .site-header .brand-mark { width:58px;height:65px;flex-basis:58px; }
+  .site-header .brand-label { font-size:27px; }
+  .site-header .main-nav { gap:10px; }
+  .site-header .main-nav a { font-size:11.5px; }
+  #home .academic-work-row,#home .home-feature-card.academic-work-row { grid-template-columns:69px minmax(0,1fr) minmax(170px,220px);gap:18px; }
+}
+@media(max-width:810px) {
+  .header-row { min-height:82px; }
+  .site-header .brand-mark { width:54px;height:61px;flex-basis:54px; }
+  .site-header .brand-label { font-size:26px; }
+  .site-header .main-nav { display:none;position:absolute;top:100%;right:20px;left:20px;z-index:55;flex-direction:column;align-items:stretch;gap:0;padding:12px 16px;background:white;border:1px solid var(--cv-rule);box-shadow:0 12px 20px rgba(25,51,71,.08); }
+  .site-header .main-nav.is-open { display:flex;background:#fff;border-color:var(--cv-rule); }
+  .site-header .main-nav a { padding:11px 0;font-size:13px; }
+  .site-header .main-nav a.is-active::after { bottom:5px;right:auto;width:50px; }
+  .site-header .menu-toggle { color:var(--cv-navy); }
+  #home .academic-home-intro { grid-template-columns:minmax(0,1fr) minmax(210px,.72fr);gap:25px; }
+  #home .academic-work-row,#home .home-feature-card.academic-work-row { grid-template-columns:62px minmax(0,1fr) 180px;gap:14px; }
+  #about .academic-profile-intro { grid-template-columns:minmax(0,1fr) 245px;gap:25px; }
+}
+@media(max-width:700px) {
+  .shell { width:calc(100% - 38px); }
+  html { scroll-padding-top:92px; }
+  .site-contact .shell { gap:5px 13px;min-height:0;padding:10px 0; }
+  .site-contact .site-contact-item:not(:last-child) { border-right:0;padding-right:0; }
+  #home .academic-home-intro { display:block;padding:39px 0 28px; }
+  #home .academic-home-profile h1 { font-size:39px; }
+  #home .academic-home-summary { font-size:15px; }
+  #home .academic-home-record { display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px 0 0; }
+  #home .academic-work-row,#home .home-feature-card.academic-work-row { grid-template-columns:1fr;gap:7px;padding:22px 0; }
+  #home .academic-work-year { padding:0; }
+  #home .academic-work-figure { max-width:390px;margin-top:5px; }
+  #home .academic-home-section-head h2 { font-size:23px; }
+  #about .academic-profile-intro { grid-template-columns:1fr;gap:22px; }
+  #about .academic-profile-pdf { max-width:440px; }
+  #about .academic-about-content { padding-top:5px; }
+  #about .academic-record { padding-left:134px; }
+  #about .academic-record dt span { max-width:124px;font-size:12px; }
+  #about .academic-profile-skills > div,#about .academic-profile-contact > div { grid-template-columns:120px minmax(0,1fr);gap:12px; }
+  .page .academic-page-intro { padding:37px 0 25px; }
+  #engineering .academic-project-entry { grid-template-columns:minmax(0,1fr); }
+  #engineering .academic-project-entry > span { text-align:left; }
+}
+@media(max-width:390px) {
+  .site-header .brand { gap:11px; }
+  .site-header .brand-label { font-size:23px; }
+  .site-header .brand-label small { font-size:8px; }
+  .site-header .brand-mark { width:46px;height:55px;flex-basis:46px; }
+  #home .academic-home-record { grid-template-columns:1fr;gap:0; }
+  #about .academic-record { padding-left:0; }
+  #about .academic-record dt span { position:static;display:block;margin:0 0 4px;max-width:none; }
+  #about .academic-profile-skills > div,#about .academic-profile-contact > div { grid-template-columns:1fr;gap:2px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
