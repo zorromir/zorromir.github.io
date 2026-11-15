@@ -67,7 +67,7 @@ def count_class(name):
     return sum(name in classes.split() for classes in re.findall(r'class="([^"]+)"', html))
 
 assert count_class("home-feature-card") == 2
-assert count_class("home-feature-actions") == 2
+assert count_class("home-feature-actions") == 0
 home = html.split("<!-- PAGE 1: HOME -->", 1)[1].split("<!-- PAGE 2: PROJECTS -->", 1)[0]
 assert 'class="shell academic-home-intro"' in home
 assert 'class="academic-home-work-list"' in home
@@ -92,11 +92,11 @@ assert 'class="academic-home-links"' not in home
 assert 'class="academic-home-record"' in home
 assert "padding-top: clamp(56px, 6.2vw, 72px)" in editorial_css
 assert "The Fractional Harmonic Oscillator" in home
-assert "how reliable backtests are" in home
+assert "I like starting with a question and following it until I understand why the answer works." in home
 assert home.count('class="academic-work-year"') == 3
-assert "Fama–French factor extensions" in home
-assert "value, residual momentum and low-volatility signals" in home
-assert '<a href="#engineering">Exploring &amp; Reading</a>' in home
+assert "Currently exploring" not in home
+assert "academic-home-current" not in home
+assert "<a " not in home and "All projects" not in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
@@ -119,7 +119,7 @@ assert "What I learned most from this project" in projects
 assert 'id="panel-simulation-heading"' in projects
 assert 'assets/reports/panel-estimators-monte-carlo.pdf' in projects
 assert 'projects/panel-estimators/panel_monte_carlo_minimal.py' in projects
-assert 'projects/panel-estimators/Panel_Estimators_Refined.tex' in projects
+assert 'href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/panel-estimators/Panel_Estimators_Refined.tex"' not in projects
 assert 'class="project-paper-provenance"' in projects
 assert 'class="project-paper-reference"' not in projects
 assert "'panel-simulation-heading': 'panel-simulation-heading'" in js
@@ -146,6 +146,8 @@ assert 'assets/reports/Empirical_finance.pdf' in projects
 assert 'https://github.com/zorromir/pipeline-flow-modelling' not in projects
 assert 'https://github.com/zorromir/Empirical-Finance' in projects
 assert "Open CV" not in projects
+assert projects.count('class="project-paper-credentials"') == 3
+assert '>LaTeX source</a>' not in projects
 assert "'industrial-model-stages': 'industrial-project-title'" in js
 assert "'empirical-heading': 'empirical-heading'" in js
 assert 'data-project-next' not in js
@@ -162,6 +164,8 @@ assert 'id="about-story-title"' in about
 assert 'id="about-education-title"' in about
 assert 'id="about-timeline-heading"' in about
 assert "Tilburg University" in about and "Utrecht University" in about
+assert 'href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Technical report (PDF)</a>' in about
+assert '>Case study</a>' not in about
 assert "<blockquote" not in about
 research = html.split("<!-- PAGE 3: RESEARCH -->", 1)[1].split("<!-- PAGE 4: EXPLORING & READING", 1)[0]
 assert 'class="page academic-research"' in research
@@ -256,7 +260,7 @@ assert 'target="_blank"' in footer
 assert 'mailto:schoutenkelvin@gmail.com' in footer
 assert 'https://github.com/zorromir' in footer
 assert html.count("assets/cv/Kelvin_Schouten_CV_EN.pdf?v=20261115-replacement") == 2
-assert "https://github.com/zorromir/pipeline-flow-modelling" in html
+assert "https://github.com/zorromir/pipeline-flow-modelling" not in home
 assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
@@ -271,6 +275,8 @@ assert html.count("data-project-carousel") == 0
 # Research questions and project descriptions now carry their own linked sources.
 reading_page = html.split("<!-- PAGE 4: EXPLORING & READING", 1)[1].split("<!-- PAGE 5: PROFILE & CV", 1)[0]
 assert 'class="page academic-exploring"' in reading_page
+assert '>Robustness checks</a>' not in reading_page
+assert '>Python repository</a>' in reading_page
 assert 'class="academic-coursework-heading"' in reading_page
 assert reading_page.count('class="shell academic-exploring-section academic-projects-section"') == 1
 assert reading_page.count('class="shell academic-exploring-section academic-coursework-section"') == 1
