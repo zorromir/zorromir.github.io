@@ -40,6 +40,8 @@ def check_site(browser, base, device, width, height):
     for route in ROUTES:
         page.goto(f"{base}/index.html#{route}", wait_until="load", timeout=30000)
         page.locator("#" + route).wait_for(state="visible")
+        if route == "projects":
+            page.wait_for_function("window.scrollY < 2", timeout=5000)
         check(page.locator(f'[data-page="{route}"] h1:visible').count() == 1,
               f"{device}/{route}: missing or duplicate visible page heading")
         check(page.locator('h1:visible').count() == 1,
