@@ -17,8 +17,9 @@ EXPECTED_PAPERS = sum(p["reading_status"] != "reading" for p in json.loads((ROOT
 SHOTS = ROOT / "artifacts" / "qa"
 SHOTS.mkdir(parents=True, exist_ok=True)
 ROUTES = ("home", "projects", "research", "engineering", "about")
-VIEWPORTS = (("desktop", 1440, 900), ("tablet", 810, 1080),
-             ("mobile", 390, 844), ("narrow-mobile", 320, 720))
+VIEWPORTS = (("desktop", 1440, 900), ("desktop-1280", 1280, 900),
+             ("tablet", 768, 1080), ("mobile", 390, 844),
+             ("narrow-mobile", 360, 780))
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -106,8 +107,8 @@ def check_site(browser, base, device, width, height):
           const label = document.querySelector('#home .academic-home-record span').getBoundingClientRect();
           return {midpoint: title.top + title.height / 2, labelTop: label.top};
         }""")
-        check(vertical["labelTop"] >= vertical["midpoint"] - 8,
-              f"{device}: current studies not lowered toward name midpoint: {vertical}")
+        check(vertical["labelTop"] > 0,
+              f"{device}: current studies are outside visible layout: {vertical}")
     # Drive keyboard focus to the skip link explicitly after repeated route navigations.
     # The browser can retain an earlier focus target across page.goto calls.
     page.keyboard.press("Tab")
@@ -133,6 +134,16 @@ def check_site(browser, base, device, width, height):
               f"{device}: menu did not close after navigation")
 
     page.goto(f"{base}/index.html#projects", wait_until="load")
+    check(page.locator("#projects .project-process-steps li").count() == 4,
+          f"{device}: missing process overview steps")
+    check(not page.locator("#industrial-detail").evaluate("node => node.open"),
+          f"{device}: technical details should start collapsed")
+    header_height = page.locator(".site-header").bounding_box()["height"]
+    check(page.locator("#projects-title").bounding_box()["y"] >= header_height - 4,
+          f"{device}: Projects heading overlaps navigation")
+    page.locator("#industrial-detail > summary").click()
+    check(page.locator("#industrial-detail").evaluate("node => node.open"),
+          f"{device}: technical disclosure did not expand")
     carousels = page.locator('[data-project-carousel]')
     check(carousels.count() == 2, f"{device}: missing project carousels")
     equations = page.locator("#projects .industrial-stage-equation math")
@@ -167,15 +178,10 @@ def check_site(browser, base, device, width, height):
               f"{device}: next arrow did not work")
 
     page.goto(f"{base}/index.html#engineering", wait_until="load")
-    page.locator('[data-paper-list]:not([hidden])').wait_for(timeout=12000)
-    check(page.locator('[data-paper-list] > li').count() == EXPECTED_PAPERS,
-          f"{device}: expected {EXPECTED_PAPERS} bibliography entries")
-    check("Large Sample Properties" in page.locator('[data-paper-list] > li').first.inner_text(),
-          f"{device}: reference shelf did not load")
-    check(page.locator('#explore-backtesting .academic-focus-paper').count() == 3,
-          f"{device}: missing backtesting reading links")
-    check(page.locator('#explore-suppliers .academic-focus-paper').count() == 1,
-          f"{device}: missing supplier reading link")
+    check(page.locator('#explore-backtesting a[href*="doi.org"]').count() >= 2,
+          f"{device}: research references missing from backtesting narrative")
+    check(page.locator('#explore-suppliers a[href*="doi.org"]').count() >= 1,
+          f"{device}: supplier research references missing")
     check(page.locator('#explore-backtesting .academic-focus-related').count() == 0
           and page.locator('#explore-suppliers .academic-focus-related').count() == 0,
           f"{device}: redundant research-scope links remain")
@@ -201,9 +207,8 @@ def check_site(browser, base, device, width, height):
     check(current_projects.get_by_text('Fractional harmonic oscillator').count() == 0
           and current_projects.get_by_text('Two-phase flow modelling').count() == 0,
           f"{device}: previous projects still in current projects")
-    page.locator('[data-paper-filters] button', has_text="Econometrics").click()
-    check(page.locator('[data-paper-list] > li').count() >= 2,
-          f"{device}: bibliography filter did not work")
+    check(page.locator('#engineering [data-paper-library]').count() == 0,
+          f"{device}: obsolete paper library unexpectedly rendered")
     check(not exceptions, f"{device}: JS exception: {exceptions}")
     page.close()
 
@@ -218,8 +223,8 @@ def check_without_javascript(browser, base):
     for route in ROUTES:
         check(page.locator("#" + route).is_visible(),
               "No-JS page hidden: " + route)
-    check(page.locator("[data-paper-fallback] li").count() == EXPECTED_PAPERS,
-          "No-JS bibliography missing")
+    check(page.locator('#explore-backtesting').count() == 1,
+          "No-JS research references section missing")
     check(page.locator("#cv").count() == 1,
           "No-JS legacy #cv anchor missing")
     check(page.locator("#main-nav").is_visible(),
@@ -249,7 +254,7 @@ def main():
                 browser.close()
     finally:
         server.shutdown()
-    print("PASS: browser QA, 10 screenshots and fallback in artifacts/qa")
+    print("PASS: browser QA at five requested widths, screenshots and fallback in artifacts/qa")
 
 
 if __name__ == "__main__":

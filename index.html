@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Kelvin Schouten | Quantitative Finance & Mathematical Modelling</title>
-  <meta name="description" content="Kelvin Schouten: Quantitative Finance MSc student and Mathematics graduate. Industrial modelling, Monte Carlo uncertainty analysis and academic research.">
+  <meta name="description" content="Kelvin Schouten’s research portfolio: industrial pipeline modelling, Python simulations, empirical asset pricing and careful model validation.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="canonical" href="https://zorromir.github.io/">
   <meta property="og:title" content="Kelvin Schouten | Quantitative Finance & Mathematical Modelling">
@@ -18,8 +18,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cv-theme.css?v=projects-compact-overview-20261115">
-  <script defer src="app.js?v=projects-details-links-20261115"></script>
+  <link rel="stylesheet" href="cv-theme.css?v=projects-editorial-20261115">
+  <script defer src="app.js?v=projects-anchor-fix-20261115"></script>
   <noscript>
     <style>
       /* Progressive fallback: show all six document sections when routing JS is off. */
@@ -148,46 +148,59 @@
     <!-- PAGE 2: PROJECTS -->
     <article class="page academic-projects" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
       <header class="shell academic-page-intro academic-projects-intro">
-        <p class="cv-page-eyebrow">Mathematical modelling / Empirical analysis</p>
+        <p class="cv-page-eyebrow">Selected work / Mathematical &amp; empirical research</p>
         <h1 id="projects-title">Projects</h1>
-        <p>Research problems, modelling choices and the questions they led me to explore.</p>
+        <p>Two research problems, approached through mathematics, computation and careful testing. Each case study begins with the problem and the decisions behind the work; the equations and numerical examples are available below.</p>
       </header>
 
       <section class="shell academic-industrial-project industrial-case" aria-labelledby="industrial-project-title">
         <header class="academic-project-heading">
           <p class="academic-project-context">Industrial research · Six-month project</p>
-          <h2 id="industrial-project-title">Two-phase flow in industrial pipelines</h2>
+          <h2 id="industrial-project-title">Two-phase flow modelling in industrial pipelines</h2>
+          <p class="project-research-question">How can you estimate what happens inside a pipeline when the fluid state changes throughout the process?</p>
+          <p class="project-method-line">Fluid mechanics <span aria-hidden="true">·</span> Conservation laws <span aria-hidden="true">·</span> Numerical modelling <span aria-hidden="true">·</span> Python</p>
         </header>
         <div class="academic-project-overview">
           <div class="academic-project-description academic-project-narrative">
-            <p>In food production, liquid product can remain inside pipelines after a production run. During a six-month industrial research project, I explored how compressed air and water can recover this product through four stages: Push, Blow, Rinse and Dry.</p>
-            <p>I adapted published flow models to the pipeline conditions, implemented numerical simulations in Python and compared calculations with available measurements. The research raised a broader question: how can a model remain useful when the flow regime changes, input parameters are uncertain and measurements are limited?</p>
+            <p>The original assignment was to calculate pressure losses in industrial product pipelines. But pressure loss describes only part of the problem: as compressed air displaces liquid, the amount and distribution of liquid in the pipe change. A calculation based on a fixed flow state cannot capture the whole process.</p>
+            <p>During a six-month industrial research project, I worked from published fluid-mechanics models toward separate descriptions of bulk displacement, remaining liquid and subsequent rinsing and drying. I adapted the mathematical models, implemented numerical calculations in Python and compared calculations with available measurements.</p>
+            <p>The central challenge was deciding which assumptions were suitable for each stage—and identifying where numerical consistency, agreement with measurements and genuine predictive validation were different claims.</p>
           </div>
-          <aside class="academic-project-learning" aria-label="Learning questions for two-phase flow modelling">
-            <h3>What I want to understand</h3>
+          <aside class="academic-project-learning" aria-label="Key modelling decisions in pipeline research">
+            <h3>Key modelling decisions</h3>
             <ul>
-              <li>How do pressure, pipe geometry and liquid holdup affect discharge?</li>
-              <li>When does a moving-column model need to change to a film-flow model?</li>
-              <li>How can measurements and uncertainty tests reveal weak assumptions?</li>
+              <li>Represent changing liquid inventories rather than relying on one pressure-drop formula.</li>
+              <li>Distinguish a moving liquid column from residual liquid and film behaviour.</li>
+              <li>Separate numerical checks, parameter calibration and predictive validation.</li>
             </ul>
           </aside>
+        </div>
+        <div class="project-process" aria-label="Four-stage modelling framework">
+          <h3>From one calculation to four physical stages</h3>
+          <ol class="project-process-steps">
+            <li><strong>Push</strong><span>Displace the main liquid column with compressed air.</span></li>
+            <li><strong>Blow</strong><span>Describe the remaining liquid as the flow regime changes.</span></li>
+            <li><strong>Rinse</strong><span>Track added water and the removal of residual product.</span></li>
+            <li><strong>Dry</strong><span>Consider the water remaining after rinsing.</span></li>
+          </ol>
+          <p>The final estimated state of one stage supplies the initial conditions for the next. This is a conceptual account of the work, not a claim that the public examples form a fully validated four-stage simulator.</p>
         </div>
 
         <div class="project-case-highlight">
           <div class="project-highlight-copy">
-            <p class="project-highlight-kicker">01 / ILLUSTRATIVE NUMERICAL RESULT</p>
-            <h3>How the pressure source changes discharge</h3>
-            <p>To isolate the role of compressed air, I compared a constant-pressure assumption with an initially pressurised volume that expands as liquid leaves the pipe. The second assumption produces a different discharge trajectory, even with the same pipeline.</p>
-            <p class="project-highlight-caveat">This public Python illustration uses synthetic inputs, not company measurements or a validated industrial prediction.</p>
+            <p class="project-highlight-kicker">01 / Independent public numerical example</p>
+            <h3>Why the pressure assumption matters</h3>
+            <p>The public Python example compares a fixed upstream pressure with a pressurised gas volume that expands as liquid leaves the pipe. Changing this boundary condition changes the simulated discharge, even when the geometry is unchanged.</p>
+            <p class="project-highlight-caveat">Hypothetical inputs; not original company code, measured data or an independently validated industrial prediction.</p>
           </div>
           <figure class="project-highlight-figure">
             <a href="assets/industrial-gallery-push.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size pressure-source comparison plot">
               <img src="assets/industrial-gallery-push.svg" width="700" height="325" loading="lazy" alt="Illustrative comparison of discharge under constant pressure and expanding compressed air.">
             </a>
-            <figcaption>Pressure-source comparison · Synthetic inputs · Select the figure to enlarge</figcaption>
+            <figcaption>Illustrative discharge comparison with hypothetical inputs. Open for the full-size figure.</figcaption>
           </figure>
         </div>
-        <p class="project-key-lesson"><strong>What I learned.</strong> A useful flow model requires more than a solution to its equations: assumptions, regime changes, sensitivity and checks against measurements are essential.</p>
+        <p class="project-key-lesson"><strong>What this demonstrated.</strong> A model is only as useful as its physical assumptions. A numerically stable calculation can still be misleading if the chosen flow regime, pressure source or calibration does not match the situation being modelled.</p>
         <details class="project-technical-details" id="industrial-detail">
           <summary><span>Explore the modelling stages and numerical figures</span><small>Process photographs · Four modelling stages · Five interactive figures · Model evaluation</small></summary>
           <div class="project-technical-content">
@@ -327,44 +340,47 @@
 
       <section class="shell academic-empirical-project" aria-labelledby="empirical-heading">
         <header class="academic-project-heading">
-          <p class="academic-project-context">MSc group study · Tilburg University · 2026</p>
+          <p class="academic-project-context">Five-person MSc group study · Tilburg University · 2026</p>
           <h2 id="empirical-heading">Empirical asset pricing</h2>
+          <p class="project-research-question">Does better explanatory fit imply better asset pricing?</p>
+          <p class="project-method-line">Factor regressions <span aria-hidden="true">·</span> Time-series inference <span aria-hidden="true">·</span> GMM <span aria-hidden="true">·</span> Python reconstruction</p>
         </header>
         <div class="academic-project-overview">
           <div class="academic-project-narrative">
-            <p class="academic-empirical-intro">In a five-person MSc study, we compared CAPM with the model of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a> using historical U.S. industry portfolios. We also investigated momentum motivated by <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">Carhart (1997)</a>, return seasonality and restrictions on a stochastic discount factor.</p>
-            <p>The central question became whether a model that explains more variation in past returns also prices those returns correctly. This distinction led us to compare factor regressions with formal specification tests.</p>
+            <p>Our five-person MSc group studied five U.S. industry portfolios, comparing CAPM with the five-factor model of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a>. The study also examined calendar effects, momentum motivated by <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">Carhart (1997)</a> and restrictions on a stochastic discount factor.</p>
+            <p>More factors explained more of the historical variation, but that did not settle whether the models priced returns correctly. Intercepts, covariance assumptions and specification tests answer different questions. Failing to reject a model, especially with only five related industry portfolios, is not proof that it is correct.</p>
+            <p>I subsequently built a separate public Python implementation to revisit inference, multiple-testing corrections and simple forecasts. These later diagnostics are not the group's original code or evidence of an investable strategy.</p>
           </div>
-          <aside class="academic-project-learning" aria-label="Learning questions for empirical asset pricing">
-            <h3>What I want to understand</h3>
+          <aside class="academic-project-learning" aria-label="What the empirical finance work involved">
+            <h3>What this work involved</h3>
             <ul>
-              <li>Why can a better-fitting factor model still have significant pricing errors?</li>
-              <li>How do covariance assumptions and specification tests change inference?</li>
-              <li>Which empirical patterns hold when tested on new observations?</li>
+              <li>Compare CAPM and five-factor regressions on a matched historical sample.</li>
+              <li>Assess intercepts separately from explanatory fit and GMM model restrictions.</li>
+              <li>Revisit inference and stability in a later, independent Python analysis.</li>
             </ul>
           </aside>
         </div>
         <div class="project-case-highlight project-empirical-highlight">
           <div class="project-highlight-copy">
-            <p class="project-highlight-kicker">02 / FACTOR-MODEL EVALUATION</p>
-            <h3>Better fit does not mean better pricing</h3>
-            <p>Across five U.S. industries, the Fama–French five-factor model improved adjusted R² relative to CAPM. However, Textiles and Toys retained statistically significant pricing errors after correcting for multiple tests.</p>
-            <p class="project-highlight-caveat">These are historical, predominantly in-sample findings—not the performance of an investment strategy.</p>
+            <p class="project-highlight-kicker">02 / Historical model comparison</p>
+            <h3>More explained variation, but nonzero alphas</h3>
+            <p>Across all five industry portfolios, the five-factor model improved adjusted R² relative to CAPM. In the later public Python analysis, the FF5 alphas for Textiles and Toys remained significant after HAC inference and a Holm correction across the five industry tests.</p>
+            <p class="project-highlight-caveat">The group paper used different regression-inference conventions. This plot shows in-sample fit, not pricing accuracy, predictive performance or investment returns.</p>
           </div>
           <figure class="project-highlight-figure project-empirical-figure">
             <a href="assets/empirical-finance-fit.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size CAPM and Fama-French factor model comparison">
               <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared for CAPM and Fama–French five-factor regressions across five U.S. industries.">
             </a>
-            <figcaption>Adjusted R², July 1963–June 2026 · Model fit is not a pricing test</figcaption>
+            <figcaption>Adjusted R² across five industries, July 1963–June 2026. Higher fit does not establish lower pricing errors.</figcaption>
           </figure>
         </div>
         <details class="project-technical-details project-empirical-details">
           <summary><span>Explore the methods and robustness checks</span><small>HAC inference · GMM specification tests · Walk-forward diagnostics</small></summary>
           <div class="project-technical-content">
             <h3>Inference and model restrictions</h3>
-            <p>To assess inference in financial return series, we used heteroskedasticity and autocorrelation consistent standard errors following <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a>. We also evaluated stochastic discount factor restrictions using GMM specification tests based on <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a>. These methods helped us distinguish explanatory fit from evidence about pricing restrictions.</p>
+            <p>The original group report and my later public reconstruction use different inference conventions for factor regressions. The independent Python checks apply heteroskedasticity-and-autocorrelation-consistent (HAC) inference following <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a>, then adjust the five alpha tests for multiple comparisons. Our group also examined CAPM stochastic-discount-factor restrictions through GMM in the framework of <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a>. The J test did not reject, but its power is limited by the selected portfolios and moment conditions.</p>
             <h3>Robustness beyond in-sample fit</h3>
-            <p>A separate public Python reconstruction includes robustness checks. In a lagged-factor walk-forward diagnostic, four of five industries underperformed a historical-mean forecast. This diagnostic is not a point-in-time trading backtest.</p>
+            <p>The later <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">public robustness analysis</a> varies HAC bandwidths and historical subperiods. In a separately defined expanding-window forecast with lagged factors, four industries performed worse than a historical-mean benchmark; Textiles improved only slightly. These inputs were not verified as historical point-in-time vintages, and there was no trading-cost backtest.</p>
           </div>
         </details>
         <div class="academic-empirical-links">

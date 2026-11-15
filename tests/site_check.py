@@ -75,13 +75,13 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-compact-overview-20261115' in html
+assert 'cv-theme.css?v=projects-editorial-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
 assert html.count('class="cv-page-eyebrow"') == 4
 assert "Academic record / Background" in html
-assert "Mathematical modelling / Empirical analysis" in html
+assert "Selected work / Mathematical &amp; empirical research" in html
 assert "Mathematics / Numerical methods" in html
 assert "Ongoing questions / Literature" in html
 assert "#193347" in cv_theme and "#a18c68" in cv_theme
@@ -153,8 +153,8 @@ assert 'Phase 3 — industrial carousel layout refinement' in editorial_css
 assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
 assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
-for marker in ("without company measurements", "four of five industries",
-               "Hansen (1982)", "not a point-in-time trading backtest"):
+for marker in ("without company measurements", "four industries performed worse",
+               "Hansen (1982)", "not verified as historical point-in-time vintages"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert '<h3>Selected findings</h3>' not in projects
 assert 'academic-empirical-findings' not in projects
@@ -197,17 +197,24 @@ assert projects.count('class="project-highlight-figure') == 2
 assert 'aria-label="Open full-size pressure-source comparison plot"' in projects
 assert 'aria-label="Open full-size CAPM and Fama-French factor model comparison"' in projects
 assert projects.index('class="project-case-highlight"') < projects.index('id="industrial-model-stages"')
-assert projects.index('class="project-empirical-highlight"') < projects.index('class="project-empirical-details"')
+assert projects.index('project-empirical-highlight"') < projects.index('project-empirical-details"')
 assert 'id="industrial-detail"' in projects
-assert "Recruiter-first Projects overview — compact evidence" in cv_theme
+assert "Projects — editorial research case studies" in cv_theme
 assert "#projects .project-technical-details[open]" in cv_theme
 assert '#projects .project-case-highlight' in cv_theme
-assert 'max-width:520px' in cv_theme
+assert 'max-width:560px' in cv_theme
 assert "Hansen (1982)" in projects
 assert 'Public Python analysis' in projects
 for sidebar in re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', projects, re.S):
     assert sidebar.count("<li>") == 3
-assert projects.count('<h3>What I want to understand</h3>') == 2
+assert '<h3>Key modelling decisions</h3>' in projects
+assert '<h3>What this work involved</h3>' in projects
+assert '<h3>What I want to understand</h3>' not in projects
+assert projects.count('class="project-process-steps"') == 1
+for stage in ('Push', 'Blow', 'Rinse', 'Dry'):
+    assert f'<strong>{stage}</strong>' in projects
+assert 'original company code, measured data or an independently validated' in projects
+assert 'The group paper used different regression-inference conventions' in projects
 assert "Projects now share the reading-page research narrative" in cv_theme
 assert "#projects .academic-project-overview" in cv_theme
 assert 'Public Python reconstruction and tests' not in projects
@@ -284,7 +291,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=projects-details-links-20261115' in html
+assert 'app.js?v=projects-anchor-fix-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):
@@ -305,7 +312,7 @@ assert "Kelvin_Schouten_CV_EN.pdf?v=20261101-newcv" not in html
 cv_bytes = (ROOT / "assets/cv/Kelvin_Schouten_CV_EN.pdf").read_bytes()
 assert cv_bytes.startswith(b"%PDF-") and len(cv_bytes) > 50_000
 
-assert 'class="academic-page-intro academic-profile-intro"' in about
+assert 'class="shell academic-page-intro academic-profile-intro"' in about
 assert 'class="academic-profile-intro-copy"' in about
 assert 'class="academic-profile-pdf-label">Curriculum vitae <small>PDF · English</small>' in about
 assert 'Open CV <span aria-hidden="true">↗</span>' in about
@@ -338,8 +345,8 @@ assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "projects/empirical-finance/README.md" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
-assert "four of five industries" in html
-assert "independent public python reconstruction" in html.lower()
+assert "four industries performed worse" in html
+assert "separate public Python implementation" in html
 assert "Python-generated illustration · synthetic inputs" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
