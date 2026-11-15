@@ -193,6 +193,35 @@ def check_site(browser, base, device, width, height):
     check(page.locator("#industrial-project-title").count() == 1,
           f"{device}: old industrial bookmark has no fallback")
 
+    page.goto(f"{base}/index.html#research", wait_until="load")
+    page.locator("#research").wait_for(state="visible")
+    check(page.locator("#research .research-technical-details").count() == 0,
+          f"{device}: removed thesis dropdown unexpectedly remains")
+    check(page.locator("#research .research-result-row").count() == 3,
+          f"{device}: thesis findings 02–04 are not all visible")
+    check(page.locator("#research .research-result-figure img").count() == 2,
+          f"{device}: supporting fractional-oscillator figures are missing")
+    check(page.locator("#research .thesis-equation").count() == 2,
+          f"{device}: analytical equations missing")
+    check(page.locator("#research .research-learning-summary").count() == 1,
+          f"{device}: thesis learning summary missing")
+    if width > 820:
+        result_layout = page.locator("#research .research-result-row").nth(1).evaluate("""node => {
+          const copy = node.querySelector('.research-visual-copy').getBoundingClientRect();
+          const figure = node.querySelector('.research-result-figure').getBoundingClientRect();
+          return {textLeft: copy.left, figureLeft: figure.left};
+        }""")
+        check(result_layout["figureLeft"] > result_layout["textLeft"],
+              f"{device}: result figure should sit beside its explanation: {result_layout}")
+    else:
+        result_layout = page.locator("#research .research-result-row").nth(1).evaluate("""node => {
+          const copy = node.querySelector('.research-visual-copy').getBoundingClientRect();
+          const figure = node.querySelector('.research-result-figure').getBoundingClientRect();
+          return {textBottom: copy.bottom, figureTop: figure.top};
+        }""")
+        check(result_layout["figureTop"] >= result_layout["textBottom"] - 2,
+              f"{device}: result figure should stack beneath its explanation: {result_layout}")
+
     page.goto(f"{base}/index.html#engineering", wait_until="load")
     check(page.locator('#explore-backtesting a[href*="doi.org"]').count() >= 2,
           f"{device}: research references missing from backtesting narrative")
