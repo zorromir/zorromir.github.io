@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-reading-layout-20261115' in html
+assert 'cv-theme.css?v=research-overview-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -237,7 +237,20 @@ research = html.split("<!-- PAGE 3: RESEARCH -->", 1)[1].split("<!-- PAGE 4: EXP
 assert 'class="page academic-research"' in research
 assert 'class="academic-thesis-article thesis-main"' in research
 assert research.count('class="thesis-equation"') == 2
-assert research.count('class="thesis-figure"') == 3
+assert research.count('class="thesis-figure"') == 2
+assert research.count('class="thesis-figure thesis-figure-feature"') == 1
+assert research.count('<details class="research-technical-details">') == 1
+assert research.count('<summary>') == 1
+assert research.index('class="research-thesis-overview"') < research.index('class="research-visual-summary"') < research.index('<details class="research-technical-details">')
+assert '<aside class="research-thesis-questions"' in research
+assert research.count('What I investigated</h3>') == 1
+assert 'aria-label="Open full-size fractional oscillator displacement figure"' in research
+assert 'research-finance-overview' in research
+assert 'href="#empirical-heading"' in research
+assert "Research overview — recruiter-first" in cv_theme
+assert "grid-template-columns:minmax(0,1fr) minmax(260px,360px)" in cv_theme
+assert "research-technical-details[open]" in cv_theme
+assert "max-width:690px" in cv_theme
 assert 'class="research-finance-figure"' in research
 assert "assets/research/03_caputo_memory_kernel.svg" in research
 assert "thesis-source" in research and "Paul Zegeling" in research
