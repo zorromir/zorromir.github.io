@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#112d34"/><text x="15" y="46" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="44" fill="#f2efe7">k</text><circle cx="48" cy="43" r="6" fill="#69c6b0"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Kelvin Schouten</title>
+  <rect width="64" height="64" rx="6" fill="#193347"/>
+  <path d="M17 14h9v16l14-16h11L34 33l18 20H40L26 37v16h-9V14z" fill="#ffffff"/>
+  <rect x="8" y="58" width="48" height="3" rx="1.5" fill="#a18c68"/>
+</svg>
