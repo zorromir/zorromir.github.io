@@ -76,7 +76,6 @@
 
   // Independent project carousels: process stages and Python-generated figures.
   // Their controllers also support direct links between relevant model and figure slides.
-  const projectCarouselControllers = new Map();
   document.querySelectorAll('[data-project-carousel]').forEach(carousel => {
     const track = carousel.querySelector('[data-project-track]');
     const slides = track ? [...track.querySelectorAll('.project-slide')] : [];
@@ -159,34 +158,8 @@
       viewport.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
     }
     show(0);
-    if (carousel.dataset.projectCarousel) {
-      projectCarouselControllers.set(carousel.dataset.projectCarousel, { carousel, slides, show });
-    }
   });
 
-  // Move between a process explanation and its relevant numerical example.
-  // Plain anchor links remain usable as section links when JavaScript is disabled.
-  document.querySelectorAll('a[data-project-jump]').forEach(link => {
-    link.addEventListener('click', event => {
-      const controller = projectCarouselControllers.get(link.dataset.projectJump);
-      const index = Number(link.dataset.projectIndex);
-      if (!controller || !Number.isInteger(index) ||
-          index < 0 || index >= controller.slides.length) return;
-
-      event.preventDefault();
-      controller.show(index);
-      controller.carousel.focus({ preventScroll: true });
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      controller.carousel.scrollIntoView({
-        behavior: reduceMotion ? 'auto' : 'smooth',
-        block: 'start'
-      });
-    });
-  });
-
-  // Current readings appear beside their exploration topics; this searchable shelf holds the remaining references.
-  // The HTML contains a usable bibliography if JavaScript or the JSON fetch fails.
-  // data/reading-list.json remains the maintained source for enhanced entries.
 
 
 })();
