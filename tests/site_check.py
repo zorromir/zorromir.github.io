@@ -75,13 +75,13 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-editorial-20261115' in html
+assert 'cv-theme.css?v=projects-paper-first-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
 assert html.count('class="cv-page-eyebrow"') == 4
 assert "Academic record / Background" in html
-assert "Selected work / Mathematical &amp; empirical research" in html
+assert "Selected research / Mathematics &amp; quantitative finance" in html
 assert "Mathematics / Numerical methods" in html
 assert "Ongoing questions / Literature" in html
 assert "#193347" in cv_theme and "#a18c68" in cv_theme
@@ -100,7 +100,7 @@ assert '<a href="#engineering">Exploring &amp; Reading</a>' in home
 assert "<blockquote" not in home
 assert "assets/industrial-push-phase2-discharge.svg" in home
 assert "assets/research/01_fractional_oscillator_time.svg" in home
-# Preserve all project demonstrations while simplifying their presentation.
+# Preserve clear project summaries and working links to the public reports.
 projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RESEARCH -->", 1)[0]
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects and 'id="empirical-heading"' in projects
@@ -113,7 +113,12 @@ assert "The paper is group work." in projects
 assert "not an official company report" in projects.lower()
 assert "not a validated industrial simulator" in projects
 assert 'assets/reports/fluivac-public-technical-excerpt.pdf' in projects
-assert 'https://github.com/zorromir/Empirical-Finance/blob/main/docs/Empirical_finance.pdf' in projects
+for filename in ("fluivac-public-technical-excerpt.pdf", "Empirical_finance.pdf"):
+    report_bytes = (ROOT / "assets" / "reports" / filename).read_bytes()
+    assert report_bytes.startswith(b"%PDF-") and len(report_bytes) > 50_000, (
+        f"Missing, invalid or unexpectedly short public report: {filename}"
+    )
+assert 'assets/reports/Empirical_finance.pdf' in projects
 assert 'https://github.com/zorromir/pipeline-flow-modelling' in projects
 assert 'https://github.com/zorromir/Empirical-Finance' in projects
 assert "Open CV" not in projects
