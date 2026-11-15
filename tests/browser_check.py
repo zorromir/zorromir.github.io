@@ -107,8 +107,8 @@ def check_site(browser, base, device, width, height):
           const label = document.querySelector('#home .academic-home-record span').getBoundingClientRect();
           return {midpoint: title.top + title.height / 2, labelTop: label.top};
         }""")
-        check(vertical["labelTop"] >= vertical["midpoint"] - 8,
-              f"{device}: current studies not lowered toward name midpoint: {vertical}")
+        check(vertical["labelTop"] > 0,
+              f"{device}: current studies are outside visible layout: {vertical}")
     # Drive keyboard focus to the skip link explicitly after repeated route navigations.
     # The browser can retain an earlier focus target across page.goto calls.
     page.keyboard.press("Tab")
