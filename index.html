@@ -18,8 +18,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cv-theme.css?v=projects-editorial-20261115">
-  <script defer src="app.js?v=projects-anchor-fix-20261115"></script>
+  <link rel="stylesheet" href="cv-theme.css?v=projects-paper-first-20261115">
+  <script defer src="app.js?v=projects-paper-first-20261115"></script>
   <noscript>
     <style>
       /* Progressive fallback: show all six document sections when routing JS is off. */
@@ -148,249 +148,57 @@
     <!-- PAGE 2: PROJECTS -->
     <article class="page academic-projects" data-page="projects" id="projects" aria-labelledby="projects-title" hidden>
       <header class="shell academic-page-intro academic-projects-intro">
-        <p class="cv-page-eyebrow">Selected work / Mathematical &amp; empirical research</p>
+        <p class="cv-page-eyebrow">Selected research / Mathematics &amp; quantitative finance</p>
         <h1 id="projects-title">Projects</h1>
-        <p>Two research problems, approached through mathematics, computation and careful testing. Each case study begins with the problem and the decisions behind the work; the equations and numerical examples are available below.</p>
+        <p>A brief account of the problem, my approach and what the work showed. The reports contain the technical detail.</p>
       </header>
 
-      <section class="shell academic-industrial-project industrial-case" aria-labelledby="industrial-project-title">
+      <section class="shell academic-industrial-project project-paper-entry" aria-labelledby="industrial-project-title">
         <header class="academic-project-heading">
           <p class="academic-project-context">Industrial research · Six-month project</p>
           <h2 id="industrial-project-title">Two-phase flow modelling in industrial pipelines</h2>
-          <p class="project-research-question">How can you estimate what happens inside a pipeline when the fluid state changes throughout the process?</p>
-          <p class="project-method-line">Fluid mechanics <span aria-hidden="true">·</span> Conservation laws <span aria-hidden="true">·</span> Numerical modelling <span aria-hidden="true">·</span> Python</p>
+          <p class="project-research-question">How can a physical model describe a pipeline process as its flow conditions change?</p>
         </header>
-        <div class="academic-project-overview">
-          <div class="academic-project-description academic-project-narrative">
-            <p>The original assignment was to calculate pressure losses in industrial product pipelines. But pressure loss describes only part of the problem: as compressed air displaces liquid, the amount and distribution of liquid in the pipe change. A calculation based on a fixed flow state cannot capture the whole process.</p>
-            <p>During a six-month industrial research project, I worked from published fluid-mechanics models toward separate descriptions of bulk displacement, remaining liquid and subsequent rinsing and drying. I adapted the mathematical models, implemented numerical calculations in Python and compared calculations with available measurements.</p>
-            <p>The central challenge was deciding which assumptions were suitable for each stage—and identifying where numerical consistency, agreement with measurements and genuine predictive validation were different claims.</p>
+        <div class="project-paper-layout">
+          <div class="project-paper-copy">
+            <p>The assignment began with estimating pressure losses in industrial pipelines. I found that this was only part of the problem: as air displaces liquid, the amount and distribution of liquid change. A single pressure-drop calculation cannot describe the complete process.</p>
+            <p>During the project, I studied and adapted published fluid-mechanics models, developed numerical simulations in Python and compared calculations with available measurements. The work evolved into separate descriptions of four successive stages—Push, Blow, Rinse and Dry—with particular attention to their assumptions, physical limitations and state transitions.</p>
+            <p class="project-paper-takeaway"><strong>What I took from the project:</strong> A numerical model is useful only when its assumptions are appropriate and its results are checked against the physical problem. A good fit to existing measurements is not automatically an independent predictive validation.</p>
           </div>
-          <aside class="academic-project-learning" aria-label="Key modelling decisions in pipeline research">
-            <h3>Key modelling decisions</h3>
-            <ul>
-              <li>Represent changing liquid inventories rather than relying on one pressure-drop formula.</li>
-              <li>Distinguish a moving liquid column from residual liquid and film behaviour.</li>
-              <li>Separate numerical checks, parameter calibration and predictive validation.</li>
-            </ul>
+          <aside class="project-paper-reference" aria-label="Industrial modelling technical report and source code">
+            <p class="project-paper-label">Technical report / Public excerpt</p>
+            <h3>Calculation model: Push, Blow, Rinse and Dry</h3>
+            <p>Selected pages from an independently reconstructed, redacted technical report. The public excerpt presents the research question, governing equations, modelling framework and limitations.</p>
+            <a class="project-paper-primary-link" href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Read the technical report (PDF) <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public Python examples and model scope <span aria-hidden="true">↗</span></a>
+            <p class="project-paper-disclaimer">This is not an official company report. The public Python examples are simplified reconstructions with hypothetical inputs, not a validated industrial simulator.</p>
           </aside>
         </div>
-        <div class="project-process" aria-label="Four-stage modelling framework">
-          <h3>From one calculation to four physical stages</h3>
-          <ol class="project-process-steps">
-            <li><strong>Push</strong><span>Displace the main liquid column with compressed air.</span></li>
-            <li><strong>Blow</strong><span>Describe the remaining liquid as the flow regime changes.</span></li>
-            <li><strong>Rinse</strong><span>Track added water and the removal of residual product.</span></li>
-            <li><strong>Dry</strong><span>Consider the water remaining after rinsing.</span></li>
-          </ol>
-          <p>The final estimated state of one stage supplies the initial conditions for the next. This is a conceptual account of the work, not a claim that the public examples form a fully validated four-stage simulator.</p>
-        </div>
-
-        <div class="project-case-highlight">
-          <div class="project-highlight-copy">
-            <p class="project-highlight-kicker">01 / Independent public numerical example</p>
-            <h3>Why the pressure assumption matters</h3>
-            <p>The public Python example compares a fixed upstream pressure with a pressurised gas volume that expands as liquid leaves the pipe. Changing this boundary condition changes the simulated discharge, even when the geometry is unchanged.</p>
-            <p class="project-highlight-caveat">Hypothetical inputs; not original company code, measured data or an independently validated industrial prediction.</p>
-          </div>
-          <figure class="project-highlight-figure">
-            <a href="assets/industrial-gallery-push.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size pressure-source comparison plot">
-              <img src="assets/industrial-gallery-push.svg" width="700" height="325" loading="lazy" alt="Illustrative comparison of discharge under constant pressure and expanding compressed air.">
-            </a>
-            <figcaption>Illustrative discharge comparison with hypothetical inputs. Open for the full-size figure.</figcaption>
-          </figure>
-        </div>
-        <p class="project-key-lesson"><strong>What this demonstrated.</strong> A model is only as useful as its physical assumptions. A numerically stable calculation can still be misleading if the chosen flow regime, pressure source or calibration does not match the situation being modelled.</p>
-        <details class="project-technical-details" id="industrial-detail">
-          <summary><span>Explore the modelling stages and numerical figures</span><small>Process photographs · Four modelling stages · Five interactive figures · Model evaluation</small></summary>
-          <div class="project-technical-content">
-        <section class="industrial-process-photos" aria-labelledby="industrial-photos-title">
-          <h3 id="industrial-photos-title">The process in practice</h3>
-          <div class="industrial-photos-grid">
-            <figure><a href="https://fluivac.com/the-process/" target="_blank" rel="noopener noreferrer" aria-label="View Fluivac's source for transparent demonstration pipeline"><img src="https://fluivac.com/wp-content/uploads/2021/10/Screenshot-2021-09-23-at-12.16.11.png.webp" alt="Transparent demonstration pipeline with straight sections, bends and flexible connections in a tiled room." width="585" height="325" loading="lazy" decoding="async"></a><figcaption>Push</figcaption></figure>
-            <figure><a href="https://fluivac.com/the-process/" target="_blank" rel="noopener noreferrer" aria-label="View Fluivac's source for air and liquid inside the pipe"><img src="https://fluivac.com/wp-content/uploads/2021/10/Step-image-2.png.webp" alt="Pink liquid visible in transparent horizontal pipe sections with air and liquid boundaries." width="585" height="325" loading="lazy" decoding="async"></a><figcaption>Blow</figcaption></figure>
-            <figure><a href="https://fluivac.com/the-process/" target="_blank" rel="noopener noreferrer" aria-label="View Fluivac's source for uneven liquid film along the wall"><img src="https://fluivac.com/wp-content/uploads/2021/10/Step-image-3.png.webp" alt="Pink residual liquid distributed as a thin, uneven film along the inside of a transparent pipe." width="585" height="325" loading="lazy" decoding="async"></a><figcaption>Rinse</figcaption></figure>
-            <figure><a href="https://fluivac.com/the-process/" target="_blank" rel="noopener noreferrer" aria-label="View Fluivac's source for pipe section with less visible product"><img src="https://fluivac.com/wp-content/uploads/2021/10/Step-image-1.png.webp" alt="Close-up of a nearly transparent horizontal pipe section with little visible pink product." width="585" height="325" loading="lazy" decoding="async"></a><figcaption>Dry</figcaption></figure>
-          </div>
-        </section>
-        <div class="academic-project-demonstrations">
-<section id="industrial-model-stages" class="project-carousel industrial-workflow" data-project-carousel="stages" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Explore four stages of pipeline modelling">
-    <div class="project-carousel-header"><div><span class="meta">01 / MODELLING WALKTHROUGH</span><h3>Modelling stages</h3><p class="industrial-carousel-subtitle">Four stages of product recovery and the mathematical ideas used to describe them.</p></div>
-      <div class="project-carousel-controls"><span data-project-count aria-live="polite">01 / 04</span><button type="button" data-project-prev aria-label="Previous modelling stage" disabled>←</button><button type="button" data-project-next aria-label="Next modelling stage" disabled>→</button></div></div>
-    <div class="industrial-stage-tabs" data-project-tabs role="group" aria-label="Select a modelling stage"><button class="industrial-stage-tab is-active" type="button" data-project-go="0" aria-pressed="true"><span>01</span>Push</button>
-<button class="industrial-stage-tab" type="button" data-project-go="1" aria-pressed="false"><span>02</span>Blow</button>
-<button class="industrial-stage-tab" type="button" data-project-go="2" aria-pressed="false"><span>03</span>Rinse</button>
-<button class="industrial-stage-tab" type="button" data-project-go="3" aria-pressed="false"><span>04</span>Dry</button></div>
-    <div class="project-viewport"><div class="project-track" data-project-track><article class="project-slide industrial-stage-slide" role="group" aria-roledescription="slide" aria-label="01 Push">
-  <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">01</span><div><span class="meta">MOVING-COLUMN DYNAMICS</span><h4>Displacing the liquid column</h4><p>Before Push, air in the pipeline is pressurised using an air tank. When the valve opens, the compressed air expands and pushes the liquid product towards the outlet.</p><p>As the liquid column becomes shorter, the gas occupies more space and the pressure changes. I wanted to understand how this pressure drop affects discharge, and how much product can remain behind.</p><p class="industrial-stage-question"><strong>Key question:</strong> How does expanding air affect the speed of the liquid and the amount left in the pipe?</p></div></div>
-  <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>I started from the one-dimensional filling and emptying models developed by <a href="https://doi.org/10.1115/1.4031508" target="_blank" rel="noopener noreferrer">Tijsseling et al. (2016)</a>. Their work connects driving pressure, friction, local resistance and liquid holdup with the movement of a liquid column. I adapted these ideas to investigate how expanding air affects discharge and the moving air–liquid interface under different pressure assumptions.</p></div><div class="industrial-stage-equation">
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="The derivative of x sub T with respect to t equals Q divided by the product of one minus beta and A sub T.">
-    <mrow>
-    <mfrac><mrow><mi mathvariant="normal">d</mi><msub><mi>x</mi><mi mathvariant="normal">T</mi></msub></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac>
-    <mo>=</mo>
-    <mfrac><mi>Q</mi><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mi>β</mi><mo>)</mo><msub><mi>A</mi><mi mathvariant="normal">T</mi></msub></mrow></mfrac>
-    </mrow>
-  </math>
-</div><p class="industrial-equation-explain">The interface speed depends on outlet flow Q, pipe area A and the assumed fraction β of liquid left behind.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">ASSUMPTIONS &amp; LIMITS</span><p>The public example compares fixed pressure with expansion of trapped air; it does not simulate additional air flowing from the tank.</p></div></div>
-</article>
-<article class="project-slide industrial-stage-slide" role="group" aria-roledescription="slide" aria-label="02 Blow">
-  <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">02</span><div><span class="meta">VOLUME CONSERVATION</span><h4>From liquid column to wall film</h4><p>After Push, a smaller liquid column and some residual product may still be inside the pipe. The compressor now supplies air to move this product towards the outlet.</p><p>As the full column disappears, the remaining liquid can form a film along the pipe wall. This changes the relevant flow physics, so the column and film cannot be described by exactly the same model.</p><p class="industrial-stage-question"><strong>Key question:</strong> How much product is discharged, and how much remains in the pipe?</p></div></div>
-  <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>I treated Blow as two regimes: a shrinking liquid column followed by gas–liquid film flow. I used <a href="https://doi.org/10.1016/0301-9322(89)90023-2" target="_blank" rel="noopener noreferrer">Hart et al. (1989)</a> to examine how small liquid holdup influences pressure losses, then studied <a href="https://doi.org/10.1016/j.ijmultiphaseflow.2012.03.003" target="_blank" rel="noopener noreferrer">Cioncolini and Thome (2012)</a> on void fraction and their <a href="https://doi.org/10.1016/j.ijmultiphaseflow.2012.12.003" target="_blank" rel="noopener noreferrer">2013 study</a> on uneven liquid-film distributions in horizontal pipes.</p><p>These references informed the later film-flow description. The public Python example checks the volume balance through the transition rather than predicting industrial film removal.</p></div><div class="industrial-stage-equation">
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="The derivative of remaining full-column length with respect to time equals negative U divided by alpha.">
-    <mrow>
-      <mfrac><mrow><mi mathvariant="normal">d</mi><mi>L</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac>
-      <mo>=</mo><mo>−</mo><mfrac><mi>U</mi><mi>α</mi></mfrac>
-    </mrow>
-  </math>
-</div><p class="industrial-equation-explain">The remaining column length L decreases with velocity U; α represents the assumed partition between discharge and liquid left behind.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">ASSUMPTIONS &amp; LIMITS</span><p>The public reconstruction demonstrates the transition and volume balance, not a validated annular-flow or industrial film-removal prediction.</p></div></div>
-</article>
-<article class="project-slide industrial-stage-slide" role="group" aria-roledescription="slide" aria-label="03 Rinse">
-  <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">03</span><div><span class="meta">MULTI-INVENTORY BALANCES</span><h4>Tracking water and remaining product</h4><p>Once most product has been removed, rinse water is added while the compressor continues supplying air. The water helps dilute and carry away residue that airflow alone may leave behind.</p><p>Some water and product leave the pipe, while some remain inside it. To understand this stage, these quantities must be tracked separately rather than treated as a single liquid volume.</p><p class="industrial-stage-question"><strong>Key question:</strong> How much water and product enter, leave and remain in the pipeline?</p></div></div>
-  <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>I used separate water and product balances. The public example also distinguishes product still on the wall from product being carried through the pipe, making it possible to check that the different inventories remain consistent.</p></div><div class="industrial-stage-equation">
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="The derivative of W with respect to time equals water inflow minus water outflow.">
-    <mrow>
-    <mfrac><mrow><mi mathvariant="normal">d</mi><mi>W</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac>
-    <mo>=</mo>
-    <msub><mi>Q</mi><mtext>water,in</mtext></msub><mo>−</mo>
-    <msub><mi>Q</mi><mtext>water,out</mtext></msub>
-    </mrow>
-  </math>
-</div><p class="industrial-equation-explain">The water remaining in the pipe rises with water inflow and falls as water is discharged.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">ASSUMPTIONS &amp; LIMITS</span><p>Product detachment and mixing in the public example use assumed rates; cleaning effectiveness and two-phase transport are not experimentally validated.</p></div></div>
-</article>
-<article class="project-slide industrial-stage-slide" role="group" aria-roledescription="slide" aria-label="04 Dry">
-  <div class="industrial-stage-intro"><span class="industrial-stage-number" aria-hidden="true">04</span><div><span class="meta">STATE TRANSFER</span><h4>Removing the remaining rinse water</h4><p>Water injection stops after Rinse, but the pipeline may still contain water on its walls or in low sections. The compressor continues moving air through the pipe to remove what remains.</p><p>Dry should begin with the water actually left at the end of Rinse, not the total amount previously injected.</p><p class="industrial-stage-question"><strong>Key question:</strong> How does the remaining water change with time, and when might the drying target be reached?</p></div></div>
-  <div class="industrial-stage-details"><div class="industrial-stage-detail"><span class="meta">MODEL</span><p>I carried the final Rinse water inventory into a separate Dry calculation. In the public example, a simple first-order removal law shows how the initial amount and an assumed removal rate affect the remaining water.</p></div><div class="industrial-stage-equation">
-  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="W of t equals the water remaining at the end of rinsing multiplied by e to the power minus k t.">
-    <mrow>
-    <mi>W</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo>
-    <msub><mi>W</mi><mtext>Rinse,end</mtext></msub>
-    <msup><mi>e</mi><mrow><mo>−</mo><mi>k</mi><mi>t</mi></mrow></msup>
-    </mrow>
-  </math>
-</div><p class="industrial-equation-explain">The water remaining at time t follows an illustrative exponential decline from the amount present after Rinse.</p><div class="industrial-stage-detail industrial-stage-limit"><span class="meta">ASSUMPTIONS &amp; LIMITS</span><p>The removal coefficient and stopping criterion are illustrative, not calibrated to industrial drying tests.</p></div></div>
-</article></div></div>
-  </section>
-
-  <section id="industrial-numerical-figures" class="project-carousel industrial-gallery" data-project-carousel="figures" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Five reproducible numerical modelling figures">
-    <div class="project-carousel-header"><div><span class="meta">02 / NUMERICAL FIGURES</span><h3>Numerical figures</h3><p class="industrial-carousel-subtitle">Five reproducible Python examples, using synthetic inputs and clearly stated assumptions.</p></div>
-      <div class="project-carousel-controls"><span data-project-count aria-live="polite">01 / 05</span><button type="button" data-project-prev aria-label="Previous numerical figure" disabled>←</button><button type="button" data-project-next aria-label="Next numerical figure" disabled>→</button></div></div>
-    <div class="project-viewport industrial-gallery-viewport"><div class="project-track" data-project-track><article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="01 Pressure-source comparison">
-  <figure class="industrial-gallery-figure"><a href="assets/industrial-gallery-push.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Pressure-source comparison plot"><img src="assets/industrial-gallery-push.svg" width="700" height="325" loading="lazy" alt="Numerically computed product discharge for constant upstream pressure and expanding isolated compressed air, using synthetic input values."></a><figcaption>Python-generated illustration · synthetic inputs · Select plot to enlarge</figcaption></figure>
-  <div class="industrial-gallery-copy"><span class="meta">PUSH / PRESSURE · 01 / 05</span><h4>How air expansion changes discharge</h4><p>I compared two pressure assumptions for the same hypothetical pipeline: a fixed upstream pressure and a trapped volume of compressed air that expands as product leaves.</p><div class="industrial-gallery-reading"><span class="meta">READ THE FIGURE</span><p>Time (s) runs horizontally; product discharge (L/s) runs vertically. In this example, the fixed-pressure case maintains a higher flow than the expanding-air case.</p></div>
-    <div class="industrial-gallery-insight"><span class="meta">KEY POINT</span><p>The pressure-source assumption changes the predicted discharge, even when the pipeline is unchanged.</p></div>
-    <div class="industrial-gallery-caveat"><span class="meta">SCOPE</span><p>One-dimensional synthetic Push calculation; not a validated prediction for an industrial installation.</p></div>
-    
-  </div>
-</article>
-<article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="02 Why pipe geometry matters">
-  <figure class="industrial-gallery-figure"><a href="assets/industrial-gallery-geometry.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Why pipe geometry matters plot"><img src="assets/industrial-gallery-geometry.svg" width="728" height="332" loading="lazy" alt="Flow-dependent friction and local-loss calculations for a hypothetical segmented pipeline compared with one volume-equivalent pipe."></a><figcaption>Python-generated illustration · synthetic inputs · Select plot to enlarge</figcaption></figure>
-  <div class="industrial-gallery-copy"><span class="meta">GEOMETRY / RESISTANCE · 02 / 05</span><h4>Same volume, different pressure losses</h4><p>I compared a segmented pipeline with a single volume-equivalent pipe. Both contain the same total volume, but their diameter changes and local resistances are different.</p><div class="industrial-gallery-reading"><span class="meta">READ THE FIGURE</span><p>Flow rate (L/s) is horizontal; calculated friction and local pressure losses (kPa) are vertical. The segmented pipe has higher losses at the same flow in this example.</p></div>
-    <div class="industrial-gallery-insight"><span class="meta">KEY POINT</span><p>Matching the total pipe volume does not make two pipelines hydraulically equivalent.</p></div>
-    <div class="industrial-gallery-caveat"><span class="meta">SCOPE</span><p>A steady single-phase illustration, not a pressure-loss model dynamically coupled to Push.</p></div>
-    
-  </div>
-</article>
-<article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="03 Where the liquid goes">
-  <figure class="industrial-gallery-figure"><a href="assets/industrial-gallery-blow.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Where the liquid goes plot"><img src="assets/industrial-gallery-blow.svg" width="786" height="361" loading="lazy" alt="Calculated partition of initial liquid volume between the remaining column, discharged liquid and liquid left behind in a simplified Blow transition."></a><figcaption>Python-generated illustration · synthetic inputs · Select plot to enlarge</figcaption></figure>
-  <div class="industrial-gallery-copy"><span class="meta">BLOW / CONSERVATION · 03 / 05</span><h4>Accounting for the remaining product</h4><p>As the liquid column shrinks, some product is discharged and some is left behind. I tracked all three volumes to check where the original product goes.</p><div class="industrial-gallery-reading"><span class="meta">READ THE FIGURE</span><p>Time (s) is horizontal; each curve is a fraction of the initial liquid volume. The full column, discharged volume and residual liquid add up to 100% throughout the example.</p></div>
-    <div class="industrial-gallery-insight"><span class="meta">KEY POINT</span><p>Checking volume conservation helps verify the numerical implementation, but does not by itself validate the flow physics.</p></div>
-    <div class="industrial-gallery-caveat"><span class="meta">SCOPE</span><p>The volume partition is illustrative; liquid-film removal has not been independently validated.</p></div>
-    
-  </div>
-</article>
-<article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="04 Discharge under uncertain inputs">
-  <figure class="industrial-gallery-figure"><a href="assets/industrial-phase5-qmc-uncertainty.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Discharge under uncertain inputs plot"><img src="assets/industrial-phase5-qmc-uncertainty.svg" width="707" height="347" loading="lazy" alt="Python-generated envelope of simulated outlet discharge across 256 scrambled Sobol scenarios with hypothetical parameter ranges, showing the sample median and 10th–90th percentiles."></a><figcaption>Python-generated illustration · synthetic inputs · Select plot to enlarge</figcaption></figure>
-  <div class="industrial-gallery-copy"><span class="meta">UNCERTAINTY / QMC · 04 / 05</span><h4>Discharge under uncertain inputs</h4><p>I ran the Push example with 256 hypothetical combinations of initial pressure, friction, outlet resistance and liquid holdup, sampled using a scrambled Sobol sequence.</p><div class="industrial-gallery-reading"><span class="meta">READ THE FIGURE</span><p>The horizontal axis is progress toward the 50% product-removal target, not time. The vertical axis is outlet flow (L/s); the line is the sample median and the band covers the 10th–90th sample percentiles.</p></div>
-    <div class="industrial-gallery-insight"><span class="meta">KEY POINT</span><p>Uncertainty in the chosen input parameters produces a range of simulated flow trajectories.</p></div>
-    <div class="industrial-gallery-caveat"><span class="meta">SCOPE</span><p>The shaded range is a conditional sample envelope, not a validated prediction or experimental confidence interval.</p></div>
-    
-  </div>
-</article>
-<article class="project-slide industrial-gallery-slide" role="group" aria-roledescription="slide" aria-label="05 Transferring residual water">
-  <figure class="industrial-gallery-figure"><a href="assets/industrial-gallery-rinse-dry.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Transferring residual water plot"><img src="assets/industrial-gallery-rinse-dry.svg" width="786" height="361" loading="lazy" alt="Python-calculated water inventory during a simplified Rinse simulation and a subsequent illustrative first-order Dry stage, continuous at the handoff."></a><figcaption>Python-generated illustration · synthetic inputs · Select plot to enlarge</figcaption></figure>
-  <div class="industrial-gallery-copy"><span class="meta">RINSE + DRY / INTEGRATION · 05 / 05</span><h4>Linking Rinse to Dry</h4><p>I used the water remaining at the end of the simplified Rinse calculation as the initial water volume for Dry, rather than starting the next stage from an empty pipe.</p><div class="industrial-gallery-reading"><span class="meta">READ THE FIGURE</span><p>Time since the start of Rinse (s) is horizontal; water remaining (L) is vertical. It rises during the rinse and falls after the marked handoff under an assumed removal rate.</p></div>
-    <div class="industrial-gallery-insight"><span class="meta">KEY POINT</span><p>Passing the remaining water forward keeps the two numerical stages consistent with the same water balance.</p></div>
-    <div class="industrial-gallery-caveat"><span class="meta">SCOPE</span><p>Synthetic water accounting only; the example does not establish cleaning effectiveness or industrial drying performance.</p></div>
-    
-  </div>
-</article></div></div>
-    <div class="project-carousel-foot"><span>Five plots reproduced from Python, without company measurements</span><div class="project-gallery-dots" data-project-dots aria-label="Choose a figure"></div></div>
-  </section>
-
-
-  <section class="industrial-model-evaluation" aria-labelledby="industrial-model-evaluation-title">
-    <h3 id="industrial-model-evaluation-title">Model evaluation</h3>
-    <p>During the original industrial research project, I compared model calculations with available measurements and investigated discrepancies. I also examined the experimental dataset published by <a href="https://doi.org/10.1038/s41597-024-03441-7" target="_blank" rel="noopener noreferrer">Chen et al. (2024)</a>, which documents pressure behaviour and air–water interface movement during pipeline filling and emptying. It provides useful experimental context for evaluating moving-column models.</p>
-  </section>
-
-  <section class="industrial-project-conclusion" aria-labelledby="industrial-project-conclusion-title">
-    <h3 id="industrial-project-conclusion-title">What I learned</h3>
-    <p>What started as a calculation of pressure losses grew into a much broader modelling problem. I investigated how compressed air moves a liquid column, why product remains inside the pipe, and how liquid and rinse water can be tracked through the later stages. This brought together conservation laws, differential equations, published research and numerical simulations.</p>
-    <p>The main lesson was that solving the equations is only part of building a useful model. The assumptions, uncertain inputs and comparison with measurements matter just as much. During the original project, I compared calculations with available measurements and investigated sensitivity to uncertain parameters. The figures above are simplified public reconstructions, not the original company simulations or validated predictions for an installation.</p>
-  </section>
-
-        </div>
-          </div>
-        </details>
-        <div class="industrial-reference-strip">
-    <div class="industrial-reference-links"><a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">View code and technical documentation ↗</a></div>
-  </div>
-
       </section>
 
-      <section class="shell academic-empirical-project" aria-labelledby="empirical-heading">
+      <section class="shell academic-empirical-project project-paper-entry" aria-labelledby="empirical-heading">
         <header class="academic-project-heading">
-          <p class="academic-project-context">Five-person MSc group study · Tilburg University · 2026</p>
+          <p class="academic-project-context">MSc group study · Tilburg University · 2026</p>
           <h2 id="empirical-heading">Empirical asset pricing</h2>
           <p class="project-research-question">Does better explanatory fit imply better asset pricing?</p>
-          <p class="project-method-line">Factor regressions <span aria-hidden="true">·</span> Time-series inference <span aria-hidden="true">·</span> GMM <span aria-hidden="true">·</span> Python reconstruction</p>
         </header>
-        <div class="academic-project-overview">
-          <div class="academic-project-narrative">
-            <p>Our five-person MSc group studied five U.S. industry portfolios, comparing CAPM with the five-factor model of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a>. The study also examined calendar effects, momentum motivated by <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">Carhart (1997)</a> and restrictions on a stochastic discount factor.</p>
-            <p>More factors explained more of the historical variation, but that did not settle whether the models priced returns correctly. Intercepts, covariance assumptions and specification tests answer different questions. Failing to reject a model, especially with only five related industry portfolios, is not proof that it is correct.</p>
-            <p>I subsequently built a separate public Python implementation to revisit inference, multiple-testing corrections and simple forecasts. These later diagnostics are not the group's original code or evidence of an investable strategy.</p>
+        <div class="project-paper-layout">
+          <div class="project-paper-copy">
+            <p>In a five-person MSc group project, we examined historical U.S. industry returns using CAPM, the Fama–French five-factor model, momentum, calendar effects and stochastic-discount-factor restrictions. The main question was whether explaining more variation in returns also meant pricing those returns more accurately.</p>
+            <p>The five-factor model improved adjusted R² across all five industries, but it did not eliminate pricing errors. I later developed a separate public Python implementation to examine robust inference, multiple-testing adjustments and forecast stability. Those later checks are distinct from the original group study.</p>
+            <p class="project-paper-takeaway"><strong>What the results showed:</strong> Regression fit, pricing errors and predictive performance measure different things. Better in-sample explanation is not evidence of a successful investment strategy.</p>
           </div>
-          <aside class="academic-project-learning" aria-label="What the empirical finance work involved">
-            <h3>What this work involved</h3>
-            <ul>
-              <li>Compare CAPM and five-factor regressions on a matched historical sample.</li>
-              <li>Assess intercepts separately from explanatory fit and GMM model restrictions.</li>
-              <li>Revisit inference and stability in a later, independent Python analysis.</li>
-            </ul>
+          <aside class="project-paper-reference" aria-label="Empirical finance paper and supporting implementation">
+            <p class="project-paper-label">Academic research / Group study</p>
+            <h3>An Analysis of Stock Returns Across Industries</h3>
+            <p>Five-person empirical study of factor models, calendar effects, momentum and stochastic-discount-factor restrictions.</p>
+            <a class="project-paper-primary-link" href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/Empirical_finance.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Read the group paper (PDF) <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Independent Python implementation <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Later robustness checks <span aria-hidden="true">↗</span></a>
+            <p class="project-paper-disclaimer">The paper is group work. The later public code and diagnostics are a separate implementation, not the group's original research code.</p>
           </aside>
         </div>
-        <div class="project-case-highlight project-empirical-highlight">
-          <div class="project-highlight-copy">
-            <p class="project-highlight-kicker">02 / Historical model comparison</p>
-            <h3>More explained variation, but nonzero alphas</h3>
-            <p>Across all five industry portfolios, the five-factor model improved adjusted R² relative to CAPM. In the later public Python analysis, the FF5 alphas for Textiles and Toys remained significant after HAC inference and a Holm correction across the five industry tests.</p>
-            <p class="project-highlight-caveat">The group paper used different regression-inference conventions. This plot shows in-sample fit, not pricing accuracy, predictive performance or investment returns.</p>
-          </div>
-          <figure class="project-highlight-figure project-empirical-figure">
-            <a href="assets/empirical-finance-fit.svg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size CAPM and Fama-French factor model comparison">
-              <img src="assets/empirical-finance-fit.svg" width="900" height="470" loading="lazy" alt="Adjusted R-squared for CAPM and Fama–French five-factor regressions across five U.S. industries.">
-            </a>
-            <figcaption>Adjusted R² across five industries, July 1963–June 2026. Higher fit does not establish lower pricing errors.</figcaption>
-          </figure>
-        </div>
-        <details class="project-technical-details project-empirical-details">
-          <summary><span>Explore the methods and robustness checks</span><small>HAC inference · GMM specification tests · Walk-forward diagnostics</small></summary>
-          <div class="project-technical-content">
-            <h3>Inference and model restrictions</h3>
-            <p>The original group report and my later public reconstruction use different inference conventions for factor regressions. The independent Python checks apply heteroskedasticity-and-autocorrelation-consistent (HAC) inference following <a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">Newey and West (1987)</a>, then adjust the five alpha tests for multiple comparisons. Our group also examined CAPM stochastic-discount-factor restrictions through GMM in the framework of <a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Hansen (1982)</a>. The J test did not reject, but its power is limited by the selected portfolios and moment conditions.</p>
-            <h3>Robustness beyond in-sample fit</h3>
-            <p>The later <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">public robustness analysis</a> varies HAC bandwidths and historical subperiods. In a separately defined expanding-window forecast with lagged factors, four industries performed worse than a historical-mean benchmark; Textiles improved only slightly. These inputs were not verified as historical point-in-time vintages, and there was no trading-cost backtest.</p>
-          </div>
-        </details>
-        <div class="academic-empirical-links">
-          <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Public Python analysis</a>
-          <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness results</a>
-          <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/empirical-finance/README.md" target="_blank" rel="noopener noreferrer">Group methods and findings</a>
-        </div>
-
       </section>
-
     </article>
 
     <!-- PAGE 3: RESEARCH -->

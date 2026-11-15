@@ -134,48 +134,27 @@ def check_site(browser, base, device, width, height):
               f"{device}: menu did not close after navigation")
 
     page.goto(f"{base}/index.html#projects", wait_until="load")
-    check(page.locator("#projects .project-process-steps li").count() == 4,
-          f"{device}: missing process overview steps")
-    check(not page.locator("#industrial-detail").evaluate("node => node.open"),
-          f"{device}: technical details should start collapsed")
+    check(page.locator("#projects .project-paper-entry").count() == 2,
+          f"{device}: expected two concise research case studies")
+    check(page.locator("#projects details").count() == 0,
+          f"{device}: Projects page should have no dropdowns")
+    check(page.locator("#projects [data-project-carousel]").count() == 0,
+          f"{device}: retired carousel remains")
+    check(page.locator('#projects a[href$="fluivac-public-technical-excerpt.pdf"]').count() == 1,
+          f"{device}: technical PDF reference missing")
+    check(page.locator('#projects a[href$="Empirical_finance.pdf"]').count() == 1,
+          f"{device}: group paper PDF link missing")
     header_height = page.locator(".site-header").bounding_box()["height"]
     check(page.locator("#projects-title").bounding_box()["y"] >= header_height - 4,
           f"{device}: Projects heading overlaps navigation")
-    page.locator("#industrial-detail > summary").click()
-    check(page.locator("#industrial-detail").evaluate("node => node.open"),
-          f"{device}: technical disclosure did not expand")
-    carousels = page.locator('[data-project-carousel]')
-    check(carousels.count() == 2, f"{device}: missing project carousels")
-    equations = page.locator("#projects .industrial-stage-equation math")
-    check(equations.count() == 4, f"{device}: expected four rendered MathML equations")
-    for i in range(equations.count()):
-        equation = equations.nth(i)
-        metrics = equation.evaluate("""math => ({
-            namespace: math.namespaceURI,
-            height: math.getBoundingClientRect().height,
-            width: math.getBoundingClientRect().width
-        })""")
-        check(metrics["namespace"] == "http://www.w3.org/1998/Math/MathML"
-              and metrics["height"] >= 12 and metrics["width"] > 0,
-              f"{device}: equation {i+1} failed to render: {metrics}")
-        check(equation.locator(":scope > mrow").count() == 1,
-              f"{device}: equation {i+1} has no grouped mathematical row")
-    if width > 810:
-        size = equations.first.evaluate("""math => ({
-          equation: math.getBoundingClientRect().width,
-          container: math.closest('.industrial-stage-equation').clientWidth,
-          fraction: math.querySelector('mfrac').getBoundingClientRect().width
-        })""")
-        check(size["equation"] < size["container"] * .85
-              and size["fraction"] < size["container"] * .65,
-              f"{device}: fraction stretches across the panel: {size}")
-    for i in range(2):
-        carousel = carousels.nth(i)
-        check(carousel.locator('[data-project-count]').inner_text().startswith("01"),
-              f"{device}: first slide not selected")
-        carousel.locator('[data-project-next]').click()
-        check(carousel.locator('[data-project-count]').inner_text().startswith("02"),
-              f"{device}: next arrow did not work")
+    page.goto(f"{base}/index.html#empirical-heading", wait_until="load")
+    page.locator("#projects").wait_for(state="visible")
+    check(page.locator('[data-nav="projects"][aria-current="page"]').count() == 1,
+          f"{device}: empirical deep link did not route to Projects")
+    page.goto(f"{base}/index.html#industrial-model-stages", wait_until="load")
+    page.locator("#projects").wait_for(state="visible")
+    check(page.locator("#industrial-project-title").count() == 1,
+          f"{device}: old industrial bookmark has no fallback")
 
     page.goto(f"{base}/index.html#engineering", wait_until="load")
     check(page.locator('#explore-backtesting a[href*="doi.org"]').count() >= 2,
