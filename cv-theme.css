@@ -232,3 +232,67 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--cv-navy); outline
   #about .academic-profile-skills > div,#about .academic-profile-contact > div { grid-template-columns:1fr;gap:2px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* Integrated literature references — November 2026.
+   Research questions now read as continuous narratives; references are linked
+   where the methods are discussed rather than repeated in bibliography cards. */
+#engineering .academic-focus-topic {
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+  padding:26px 0 30px;
+}
+#engineering .academic-focus-description { max-width:80ch;min-width:0; }
+#engineering .academic-focus-description > p:not(.academic-focus-kicker):not(.academic-focus-methods) {
+  max-width:80ch;
+  color:#40515d;
+  font:14.5px/1.77 'Lato',Arial,sans-serif;
+  margin:0 0 14px;
+}
+#engineering .academic-focus-description .academic-focus-methods {
+  margin:17px 0 0;
+  color:var(--cv-muted);
+  font:12.5px/1.65 'Lato',Arial,sans-serif;
+}
+#projects .industrial-model-evaluation {
+  margin-top:27px;
+  padding:25px 0 26px;
+  border-top:1px solid var(--cv-rule);
+}
+#projects .industrial-model-evaluation h3 {
+  color:var(--cv-navy);
+  font:400 23px/1.3 'Lato',Arial,sans-serif;
+  margin:0 0 12px;
+}
+#projects .industrial-model-evaluation p {
+  max-width:80ch;
+  color:#40515d;
+  font:14.5px/1.76 'Lato',Arial,sans-serif;
+  margin:0;
+}
+#projects .academic-industrial-project .industrial-stage-detail a,
+#projects .industrial-model-evaluation a,
+#projects .academic-empirical-project .academic-empirical-intro a,
+#projects .academic-empirical-copy a,
+#engineering .academic-focus-description a,
+#engineering .academic-project-entry > div > p a {
+  color:var(--cv-blue);
+  text-decoration:underline;
+  text-decoration-color:#a8bac7;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+  overflow-wrap:anywhere;
+}
+#projects .academic-industrial-project .industrial-stage-detail a:hover,
+#projects .industrial-model-evaluation a:hover,
+#projects .academic-empirical-project .academic-empirical-intro a:hover,
+#projects .academic-empirical-copy a:hover,
+#engineering .academic-focus-description a:hover,
+#engineering .academic-project-entry > div > p a:hover {
+  color:var(--cv-navy);
+  text-decoration-color:currentColor;
+}
+@media(max-width:700px) {
+  #engineering .academic-focus-topic { padding:22px 0 25px; }
+  #projects .industrial-model-evaluation { margin-top:21px;padding:22px 0; }
+  #projects .industrial-model-evaluation p { font-size:14px; }
+}
