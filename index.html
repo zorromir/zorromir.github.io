@@ -208,6 +208,31 @@
           </aside>
         </div>
       </section>
+
+      <section class="shell academic-panel-project project-paper-entry" aria-labelledby="panel-simulation-heading">
+        <header class="academic-project-heading">
+          <p class="academic-project-context">Independent research note · Panel-data simulations · 2026</p>
+          <h2 id="panel-simulation-heading">What do panel estimators recover?</h2>
+          <p class="project-research-question">How much can unobserved individual differences and persistent errors change what a regression estimates?</p>
+        </header>
+        <div class="project-paper-layout">
+          <div class="project-paper-copy">
+            <p>I wanted to see how much difference the choice of estimator makes when the data are not as clean as a textbook regression assumes. I generated a small panel with a known coefficient and repeated the experiment 1,000 times. This way, I could compare what each method estimated with the answer I had put into the data.</p>
+            <p>The regressor shares an unobserved individual component, and the errors follow a random walk. Pooled OLS estimates a slope around 2.4 even though the true value is 2. Fixed effects and first differences get much closer. First differences also gives more stable results in this particular setup because it removes the random-walk persistence.</p>
+            <p>I then added a lagged outcome and looked at what happened as the panel became longer. The fixed-effects estimate moved further away from the true persistence coefficient. It was a useful reminder that familiar estimator properties can change when the assumptions about the errors change.</p>
+            <p class="project-paper-takeaway"><strong>What I took from it:</strong> An estimate can look precise and still be biased. Simulations are a simple way to see the difference and understand where it comes from.</p>
+          </div>
+          <aside class="project-paper-reference" aria-label="Panel-data simulation paper and Python code">
+            <p class="project-paper-label">Short research note / Reproducible simulation</p>
+            <h3>What Do Panel Estimators Recover?</h3>
+            <p>A two-page Monte Carlo experiment comparing pooled OLS, fixed effects and first differences, with a short dynamic-panel extension.</p>
+            <a class="project-paper-primary-link" href="assets/reports/panel-estimators-monte-carlo.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Read the paper (PDF) <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/panel-estimators/panel_monte_carlo_minimal.py" target="_blank" rel="noopener noreferrer">View the Python simulation <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/panel-estimators/Panel_Estimators_Refined.tex" target="_blank" rel="noopener noreferrer">LaTeX source <span aria-hidden="true">↗</span></a>
+            <p class="project-paper-disclaimer">The starting data-generating process came from a coursework exercise completed with Walid Afasi. I independently rewrote the short note and reran the simulations.</p>
+          </aside>
+        </div>
+      </section>
     </article>
 
     <!-- PAGE 3: RESEARCH -->
