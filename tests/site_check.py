@@ -153,8 +153,8 @@ assert 'Phase 3 — industrial carousel layout refinement' in editorial_css
 assert 'grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr)' in editorial_css
 assert 'grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr)' in editorial_css
 assert projects.count('class="industrial-gallery-figure"') == 5
-for marker in ("without company measurements", "four of five industries",
-               "Hansen (1982)", "not a point-in-time trading backtest"):
+for marker in ("without company measurements", "four industries performed worse",
+               "Hansen (1982)", "not verified as historical point-in-time vintages"):
     assert marker in projects, f"Project evidence or limitation missing: {marker}"
 assert '<h3>Selected findings</h3>' not in projects
 assert 'academic-empirical-findings' not in projects
