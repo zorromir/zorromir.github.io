@@ -110,6 +110,9 @@ assert projects.count('<h3>What I investigated</h3>') == 2
 assert projects.count('class="project-paper-copy"') == 2
 assert projects.count('class="project-paper-credentials"') == 2
 assert "Six months · Two days a week" in projects
+assert "I spent six months on this project, working on it two days a week." in projects
+assert "stages Push, Blow, Rinse and Dry instead" in projects
+assert "project-paper-note" not in projects
 assert "The amount of liquid in the pipe changes" in projects
 assert "A large part of the work was not just solving equations" in projects
 assert "What I learned most from this project" in projects
@@ -120,9 +123,9 @@ assert '<details' not in projects and 'data-project-carousel' not in projects
 assert '<details' not in projects and 'data-project-carousel' not in projects
 assert "I started from a practical question" in projects
 assert "if an asset-pricing model explains more variation in returns" in projects
-assert "The original paper is a five-person group study" in projects
-assert "not an official company report" in projects.lower()
-assert "not validated industrial predictions" in projects
+assert "The original paper is a five-person group study" not in projects
+assert "The linked report is a redacted" not in projects
+assert "not validated industrial predictions" not in projects
 assert 'assets/reports/fluivac-public-technical-excerpt.pdf' in projects
 for filename in ("fluivac-public-technical-excerpt.pdf", "Empirical_finance.pdf"):
     report_bytes = (ROOT / "assets" / "reports" / filename).read_bytes()
@@ -130,7 +133,7 @@ for filename in ("fluivac-public-technical-excerpt.pdf", "Empirical_finance.pdf"
         f"Missing, invalid or unexpectedly short public report: {filename}"
     )
 assert 'assets/reports/Empirical_finance.pdf' in projects
-assert 'https://github.com/zorromir/pipeline-flow-modelling' in projects
+assert 'https://github.com/zorromir/pipeline-flow-modelling' not in projects
 assert 'https://github.com/zorromir/Empirical-Finance' in projects
 assert "Open CV" not in projects
 assert "'industrial-model-stages': 'industrial-project-title'" in js
@@ -239,7 +242,7 @@ assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
 assert "After the group project, I built a separate public Python version" in html
 assert "After the group project, I built a separate public Python version" in html
-assert "Public Python examples" in html
+assert "Public Python examples" not in projects
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
 assert "<svg" in kernel and kernel.count("<path") >= 3, "Memory-kernel figure absent"
