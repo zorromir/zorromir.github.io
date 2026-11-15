@@ -139,7 +139,7 @@ assert 'data-project-next' not in js
 assert '#projects .project-paper-layout' in cv_theme
 assert '#projects .project-paper-questions' in cv_theme
 assert 'app.js?v=projects-paper-first-20261115' in html
-assert 'cv-theme.css?v=projects-paper-first-20261115' in html
+assert 'cv-theme.css?v=projects-research-story-20261115' in html
 
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
