@@ -14,7 +14,9 @@
   // That fragment is reserved for the accessible skip link, not for a seventh page.
   function renderPage() {
     const hash = location.hash.slice(1);
-    const detailTarget = hash === 'empirical-heading' ? document.getElementById('empirical-heading') : null;
+    // Preserve bookmarked Projects anchors, including figures inside closed disclosures.
+    const projectAnchors = ['empirical-heading', 'industrial-detail', 'industrial-model-stages', 'industrial-numerical-figures'];
+    const detailTarget = projectAnchors.includes(hash) ? document.getElementById(hash) : null;
     const name = detailTarget ? 'projects' : (hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home')));
     const changed = name !== currentPage;
     currentPage = name;
@@ -29,8 +31,10 @@
 
     closeMenu();
     if (detailTarget) {
-      // The target belongs to a routed (initially hidden) page, so reveal it
-      // before scrolling. Works both from Home and on direct link/page reload.
+      // First reveal the routed page, then any closed ancestor disclosure,
+      // so direct links to project figures remain useful after the redesign.
+      const disclosure = detailTarget.closest('details');
+      if (disclosure) disclosure.open = true;
       detailTarget.scrollIntoView({ block: 'start', behavior: 'instant' });
     } else if (changed && hash !== 'main-content') {
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -75,7 +79,7 @@
   }
 
   // Independent project carousels: process stages and Python-generated figures.
-  // Their controllers also support direct links between relevant model and figure slides.
+  // Controls remain available when the surrounding technical disclosure is opened.
   document.querySelectorAll('[data-project-carousel]').forEach(carousel => {
     const track = carousel.querySelector('[data-project-track]');
     const slides = track ? [...track.querySelectorAll('.project-slide')] : [];
