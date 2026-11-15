@@ -17,6 +17,7 @@
     // Old technical-section bookmarks now point to the concise industrial summary.
     const projectAnchors = {
       'empirical-heading': 'empirical-heading',
+      'panel-simulation-heading': 'panel-simulation-heading',
       'industrial-project-title': 'industrial-project-title',
       'industrial-detail': 'industrial-project-title',
       'industrial-model-stages': 'industrial-project-title',
@@ -59,6 +60,18 @@
 
   window.addEventListener('hashchange', renderPage);
   renderPage();
+
+  // With hash-based pages, the browser can perform its native fragment
+  // scrolling after the page router has hidden the other sections.
+  // Re-anchor top-level page routes after load so the sticky navigation
+  // never sits over the first case-study heading in a full-page capture.
+  window.addEventListener('load', () => {
+    if (validPages.has(window.location.hash.slice(1))) {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => window.scrollTo({top: 0, behavior: 'instant'}));
+      });
+    }
+  }, {once: true});
 
   if (menu && menuBtn) {
     menuBtn.addEventListener('click', () => {

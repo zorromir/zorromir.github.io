@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-research-story-20261115' in html
+assert 'cv-theme.css?v=projects-editorial-consistency-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -104,11 +104,11 @@ assert "assets/research/01_fractional_oscillator_time.svg" in home
 projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RESEARCH -->", 1)[0]
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects and 'id="empirical-heading"' in projects
-assert count_class("project-paper-entry") == 2
-assert projects.count('class="project-paper-questions"') == 2
-assert projects.count('<h3>What I investigated</h3>') == 2
-assert projects.count('class="project-paper-copy"') == 2
-assert projects.count('class="project-paper-credentials"') == 2
+assert count_class("project-paper-entry") == 3
+assert projects.count('class="project-paper-questions"') == 3
+assert projects.count('<h3>What I investigated</h3>') == 3
+assert projects.count('class="project-paper-copy"') == 3
+assert projects.count('class="project-paper-credentials"') == 3
 assert "Six months · Two days a week" in projects
 assert "I spent six months on this project, working on it two days a week." in projects
 assert "stages Push, Blow, Rinse and Dry instead" in projects
@@ -116,7 +116,16 @@ assert "project-paper-note" not in projects
 assert "The amount of liquid in the pipe changes" in projects
 assert "A large part of the work was not just solving equations" in projects
 assert "What I learned most from this project" in projects
-assert projects.count('<aside class="project-paper-questions"') == 2
+assert 'id="panel-simulation-heading"' in projects
+assert 'assets/reports/panel-estimators-monte-carlo.pdf' in projects
+assert 'projects/panel-estimators/panel_monte_carlo_minimal.py' in projects
+assert 'projects/panel-estimators/Panel_Estimators_Refined.tex' in projects
+assert 'class="project-paper-provenance"' in projects
+assert 'class="project-paper-reference"' not in projects
+assert "'panel-simulation-heading': 'panel-simulation-heading'" in js
+assert "window.addEventListener('load'" in js
+assert '#projects .project-paper-provenance' in cv_theme
+assert projects.count('<aside class="project-paper-questions"') == 3
 for panel in re.findall(r'<aside class="project-paper-questions"[^>]*>(.*?)</aside>', projects, re.S):
     assert panel.count("<li>") == 3
 assert '<details' not in projects and 'data-project-carousel' not in projects
@@ -141,8 +150,8 @@ assert "'empirical-heading': 'empirical-heading'" in js
 assert 'data-project-next' not in js
 assert '#projects .project-paper-layout' in cv_theme
 assert '#projects .project-paper-questions' in cv_theme
-assert 'app.js?v=projects-paper-first-20261115' in html
-assert 'cv-theme.css?v=projects-research-story-20261115' in html
+assert 'app.js?v=projects-editorial-consistency-20261115' in html
+assert 'cv-theme.css?v=projects-editorial-consistency-20261115' in html
 
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
@@ -186,7 +195,7 @@ assert 'data-nav="about">Profile &amp; CV</a>' in html
 assert "hash === 'cv' ? 'about'" in js
 assert "document.title = name === 'engineering'" in js
 assert "? 'Exploring & Reading'" in js
-assert 'app.js?v=projects-paper-first-20261115' in html
+assert 'app.js?v=projects-editorial-consistency-20261115' in html
 for section_id in ("about-title", "about-story-title", "about-education-title",
                    "about-timeline-heading", "about-learning-title", "about-other-interests-title", "about-methods-title",
                    "about-languages-title", "about-contact-title"):

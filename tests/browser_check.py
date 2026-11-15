@@ -40,6 +40,8 @@ def check_site(browser, base, device, width, height):
     for route in ROUTES:
         page.goto(f"{base}/index.html#{route}", wait_until="load", timeout=30000)
         page.locator("#" + route).wait_for(state="visible")
+        if route == "projects":
+            page.wait_for_function("window.scrollY < 2", timeout=5000)
         check(page.locator(f'[data-page="{route}"] h1:visible').count() == 1,
               f"{device}/{route}: missing or duplicate visible page heading")
         check(page.locator('h1:visible').count() == 1,
@@ -134,13 +136,18 @@ def check_site(browser, base, device, width, height):
               f"{device}: menu did not close after navigation")
 
     page.goto(f"{base}/index.html#projects", wait_until="load")
-    check(page.locator("#projects .project-paper-entry").count() == 2,
-          f"{device}: expected two concise research case studies")
-    check(page.locator("#projects .project-paper-questions").count() == 2,
+    page.wait_for_function("window.scrollY < 2", timeout=5000)
+    check(page.locator("#projects .project-paper-provenance").count() == 1,
+          f"{device}: panel paper provenance note missing")
+    check(page.locator("#projects .project-paper-reference").count() == 0,
+          f"{device}: inconsistent paper-summary sidebar remains")
+    check(page.locator("#projects .project-paper-entry").count() == 3,
+          f"{device}: expected three consistent research case studies")
+    check(page.locator("#projects .project-paper-questions").count() == 3,
           f"{device}: investigation sidebars missing")
-    check(page.locator("#projects .project-paper-copy p").count() == 6,
-          f"{device}: expected three research-story paragraphs per project")
-    check(page.locator("#projects .project-paper-credentials a").count() == 4,
+    check(page.locator("#projects .project-paper-copy p").count() == 9,
+          f"{device}: expected three research-story paragraphs for each project")
+    check(page.locator("#projects .project-paper-credentials a").count() == 7,
           f"{device}: direct paper/code links missing")
     if width > 820:
         layout = page.locator("#projects .project-paper-layout").first.evaluate("""node => {
@@ -166,6 +173,8 @@ def check_site(browser, base, device, width, height):
           f"{device}: technical PDF reference missing")
     check(page.locator('#projects a[href$="Empirical_finance.pdf"]').count() == 1,
           f"{device}: group paper PDF link missing")
+    check(page.locator('#projects a[href$="panel-estimators-monte-carlo.pdf"]').count() == 1,
+          f"{device}: panel-estimators paper PDF link missing")
     header_height = page.locator(".site-header").bounding_box()["height"]
     check(page.locator("#projects-title").bounding_box()["y"] >= header_height - 4,
           f"{device}: Projects heading overlaps navigation")
@@ -173,6 +182,10 @@ def check_site(browser, base, device, width, height):
     page.locator("#projects").wait_for(state="visible")
     check(page.locator('[data-nav="projects"][aria-current="page"]').count() == 1,
           f"{device}: empirical deep link did not route to Projects")
+    page.goto(f"{base}/index.html#panel-simulation-heading", wait_until="load")
+    page.locator("#projects").wait_for(state="visible")
+    check(page.locator("#panel-simulation-heading").is_visible(),
+          f"{device}: panel study fragment navigation failed")
     page.goto(f"{base}/index.html#industrial-model-stages", wait_until="load")
     page.locator("#projects").wait_for(state="visible")
     check(page.locator("#industrial-project-title").count() == 1,
