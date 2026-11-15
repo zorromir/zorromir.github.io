@@ -400,46 +400,19 @@
             <div class="academic-focus-description">
               <p class="academic-focus-kicker">01 / QUANTITATIVE RESEARCH</p>
               <h3 id="explore-backtesting-title">How reliable is a backtest?</h3>
-              <p>I'm looking at how trying many trading strategies on the same data can produce convincing results by chance. The question is how to assess a selected strategy without confusing a good historical fit with evidence of predictive ability.</p>
+              <p>When many trading strategies are tested on the same historical data, a strong result can arise by chance. I am interested in distinguishing genuine predictive ability from a strategy selected because it happened to perform well in the sample.</p>
+              <p>To investigate this, I am studying the bootstrap-based reality check of <a href="https://doi.org/10.1111/1468-0262.00152" target="_blank" rel="noopener noreferrer">White (2000)</a>, the probability of backtest overfitting examined by <a href="https://ssrn.com/abstract=2326253" target="_blank" rel="noopener noreferrer">Bailey et al. (2014)</a>, and the Deflated Sharpe Ratio developed by <a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">Bailey and López de Prado (2014)</a>. These approaches examine different consequences of selecting strategies on historical data.</p>
+              <p>I want to understand what each method can tell us about the reliability of a selected strategy and when its assumptions are appropriate.</p>
               <p class="academic-focus-methods">Multiple testing · Bootstrap inference · CSCV · Sharpe ratios</p>
-            </div>
-            <div class="academic-focus-reading">
-              <h4>Reading for this question</h4>
-              <ol class="academic-focus-reading-list">
-                  <li class="academic-focus-paper">
-                    <a href="https://doi.org/10.1111/1468-0262.00152" target="_blank" rel="noopener noreferrer">A Reality Check for Data Snooping</a>
-                    <span>Halbert White · 2000</span>
-                    <p>Testing the best result from a specification search against a benchmark, using a bootstrap that accounts for data reuse.</p>
-                  </li>
-                  <li class="academic-focus-paper">
-                    <a href="https://ssrn.com/abstract=2326253" target="_blank" rel="noopener noreferrer">The Probability of Backtest Overfitting</a>
-                    <span>David H. Bailey, Jonathan M. Borwein, Marcos López de Prado &amp; Qiji Jim Zhu · 2014</span>
-                    <p>Using combinatorially symmetric cross-validation to estimate how often the in-sample winner falls below the median out of sample.</p>
-                  </li>
-                  <li class="academic-focus-paper">
-                    <a href="https://doi.org/10.3905/jpm.2014.40.5.094" target="_blank" rel="noopener noreferrer">The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality</a>
-                    <span>David H. Bailey &amp; Marcos López de Prado · 2014</span>
-                    <p>Adjusting a reported Sharpe ratio for multiple testing and non-normal returns before treating it as convincing evidence.</p>
-                  </li>
-              </ol>
             </div>
           </article>
           <article class="academic-focus-topic" id="explore-suppliers" aria-labelledby="explore-suppliers-title">
             <div class="academic-focus-description">
               <p class="academic-focus-kicker">02 / DECISIONS UNDER UNCERTAINTY</p>
               <h3 id="explore-suppliers-title">How should a firm choose unreliable suppliers?</h3>
-              <p>I'm studying how disruption probabilities, partial deliveries and risk preferences change supplier selection and order sizes. This connects the newsvendor model to Monte Carlo simulation and stochastic optimization.</p>
+              <p>I am studying how supply disruptions, partial deliveries and risk preferences change supplier selection and order sizes. The research by <a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Merzifonluoglu et al. (2026)</a> examines these decisions under different delivery guarantees and risk preferences.</p>
+              <p>I am using this work to understand how supplier rankings and ordering decisions change under uncertainty, connecting the newsvendor model to Monte Carlo simulation, stochastic optimization and risk measures such as CVaR.</p>
               <p class="academic-focus-methods">Supplier selection · Monte Carlo · CVaR · Stochastic optimization</p>
-            </div>
-            <div class="academic-focus-reading">
-              <h4>Reading for this question</h4>
-              <ol class="academic-focus-reading-list">
-                  <li class="academic-focus-paper">
-                    <a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Managing unreliable suppliers under varying risk preferences: all-or-nothing versus fractional delivery guarantees</a>
-                    <span>Yasemin Merzifonluoglu, Ismail Serdar Bakal, Marie Versteeg &amp; Arnout den Hollander · 2026</span>
-                    <p>Studying the cost-based supplier ranking result, fractional delivery guarantees and the distinction between full and weighted profit variance.</p>
-                  </li>
-              </ol>
             </div>
           </article>
         </div>
@@ -464,7 +437,7 @@
             <div class="academic-project-entry">
               <div>
                 <h3>Fama–French factor extensions</h3>
-                <p>Reproducing the Fama–French factor models and testing published extensions to value, momentum and low-volatility strategies. The project compares conventional factors with enhanced value, residual momentum and low-volatility signals using factor regressions, spanning tests and out-of-sample evaluation.</p>
+                <p>Starting from the five-factor benchmark of <a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">Fama and French (2015)</a> and the momentum model discussed by <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">Carhart (1997)</a>, I am reproducing asset-pricing models and investigating extensions to value, residual momentum and low-volatility signals. Planned comparisons use factor regressions, spanning tests and out-of-sample evaluation.</p>
                 <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/current-research/fama-french-factor-extensions.md" target="_blank" rel="noopener noreferrer">Project</a></p>
               </div>
               <span>Asset pricing · Quantitative research</span>
@@ -492,7 +465,7 @@
             <div class="academic-project-entry">
               <div>
                 <h3>Panel-data estimation and dynamic models</h3>
-                <p>Using simulated panel data to compare pooled OLS, clustered standard errors, fixed effects, first differences and random effects. The assignment also explores grouped heterogeneity, dynamic-panel bias and Arellano–Bond estimation.</p>
+                <p>Using simulated panel data to compare pooled OLS, clustered standard errors, fixed effects, first differences and random effects. For dynamic-panel bias and instrument-based estimation, I am studying the approach introduced by <a href="https://doi.org/10.2307/2297968" target="_blank" rel="noopener noreferrer">Arellano and Bond (1991)</a>, including the moment conditions needed for consistent estimation.</p>
                 <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/coursework/README.md#panel-data-estimation-and-dynamic-models" target="_blank" rel="noopener noreferrer">Project scope</a></p>
               </div>
               <span>Panel Data · MSc coursework</span>
@@ -512,8 +485,8 @@
             <div class="academic-project-entry">
               <div>
                 <h3>Supplier decisions under uncertainty</h3>
-                <p>Studying how supplier disruptions affect ordering decisions. The assignment combines supplier-selection algorithms, Monte Carlo simulation, stochastic programming, VaR/CVaR objectives and distributionally robust optimization.</p>
-                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/coursework/README.md#supplier-decisions-under-uncertainty" target="_blank" rel="noopener noreferrer">Project scope</a><a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Related paper</a></p>
+                <p>Studying how supplier disruptions affect ordering decisions, building on the delivery-guarantee and risk-preference questions in <a href="https://doi.org/10.1007/s00291-026-00869-8" target="_blank" rel="noopener noreferrer">Merzifonluoglu et al. (2026)</a>. The assignment combines supplier-selection algorithms, Monte Carlo simulation, stochastic programming, VaR/CVaR objectives and distributionally robust optimization.</p>
+                <p class="academic-entry-links"><a href="https://github.com/zorromir/zorromir.github.io/blob/main/projects/coursework/README.md#supplier-decisions-under-uncertainty" target="_blank" rel="noopener noreferrer">Project scope</a></p>
               </div>
               <span>Decision Making Under Uncertainty · MSc coursework</span>
             </div>
@@ -528,28 +501,6 @@
               <span>Risk &amp; Regulation · Coursework study</span>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="shell academic-exploring-section academic-literature" aria-labelledby="reading-title">
-        <div class="academic-literature-header">
-          <h2 id="reading-title">Other papers &amp; references</h2>
-          <p>Additional papers connected to my studies in finance, econometrics and statistical methods. These are reference notes, not a record of completed reading.</p>
-        </div>
-        <div class="academic-literature-library" data-paper-library>
-          <div class="academic-literature-filters" data-paper-filters role="group" aria-label="Filter papers by research area"></div>
-          <p class="academic-literature-count" data-paper-count aria-live="polite" hidden></p>
-          <ol class="academic-literature-list" data-paper-list aria-label="Filtered research bibliography" hidden></ol>
-          <div class="academic-literature-fallback" data-paper-fallback>
-            <ol class="academic-literature-list" aria-label="Selected research bibliography">
-              <li><a href="https://larspeterhansen.org/lph_research/large-sample-properties-of-generalized-method-of-moments-estimators/" target="_blank" rel="noopener noreferrer">Large Sample Properties of Generalized Method of Moments Estimators</a><span class="paper-citation">Lars Peter Hansen (1982) · Econometrica</span><p>Provides the theoretical basis for two-step GMM and Hansen J-tests used to evaluate the CAPM stochastic discount factor.</p></li>
-              <li><a href="https://www.nber.org/papers/t0055" target="_blank" rel="noopener noreferrer">A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix</a><span class="paper-citation">Whitney K. Newey &amp; Kenneth D. West (1987) · Econometrica</span><p>Clarifies why conventional OLS inference can be misleading for financial returns and how HAC errors change alpha tests.</p></li>
-              <li><a href="https://doi.org/10.1016/j.jfineco.2014.10.010" target="_blank" rel="noopener noreferrer">A Five-Factor Asset Pricing Model</a><span class="paper-citation">Eugene F. Fama &amp; Kenneth R. French (2015) · Journal of Financial Economics</span><p>Provides the five-factor benchmark compared with CAPM and clarifies why stronger regression fit need not mean smaller pricing errors.</p></li>
-              <li><a href="https://doi.org/10.1111/j.1540-6261.1997.tb03808.x" target="_blank" rel="noopener noreferrer">On Persistence in Mutual Fund Performance</a><span class="paper-citation">Mark M. Carhart (1997) · The Journal of Finance</span><p>Motivates examining momentum as a missing dimension in models that otherwise explain significant return variation.</p></li>
-              <li><a href="https://doi.org/10.2307/2297968" target="_blank" rel="noopener noreferrer">Some Tests of Specification for Panel Data: Monte Carlo Evidence and an Application to Employment Equations</a><span class="paper-citation">Manuel Arellano &amp; Stephen Bond (1991) · The Review of Economic Studies</span><p>Connects panel instruments and moment restrictions to the principles of consistent GMM estimation.</p></li>
-            </ol>
-          </div>
-          <p class="academic-literature-note"><a href="data/reading-list.json">Bibliography data</a></p>
         </div>
       </section>
 
