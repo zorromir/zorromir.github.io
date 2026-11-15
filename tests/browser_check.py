@@ -136,6 +136,28 @@ def check_site(browser, base, device, width, height):
     page.goto(f"{base}/index.html#projects", wait_until="load")
     check(page.locator("#projects .project-paper-entry").count() == 2,
           f"{device}: expected two concise research case studies")
+    check(page.locator("#projects .project-paper-questions").count() == 2,
+          f"{device}: investigation sidebars missing")
+    check(page.locator("#projects .project-paper-copy p").count() == 6,
+          f"{device}: expected three research-story paragraphs per project")
+    check(page.locator("#projects .project-paper-credentials a").count() == 5,
+          f"{device}: direct paper/code links missing")
+    if width > 820:
+        layout = page.locator("#projects .project-paper-layout").first.evaluate("""node => {
+            const summary = node.querySelector('.project-paper-copy').getBoundingClientRect();
+            const aside = node.querySelector('.project-paper-questions').getBoundingClientRect();
+            return {mainLeft: summary.left, asideLeft: aside.left, asideTop: aside.top, mainTop: summary.top};
+        }""")
+        check(layout["asideLeft"] > layout["mainLeft"] and abs(layout["asideTop"] - layout["mainTop"]) < 12,
+              f"{device}: investigation sidebar should align beside story: {layout}")
+    else:
+        layout = page.locator("#projects .project-paper-layout").first.evaluate("""node => {
+            const summary = node.querySelector('.project-paper-copy').getBoundingClientRect();
+            const aside = node.querySelector('.project-paper-questions').getBoundingClientRect();
+            return {mainBottom: summary.bottom, asideTop: aside.top};
+        }""")
+        check(layout["asideTop"] >= layout["mainBottom"] - 2,
+              f"{device}: investigation sidebar should stack below story: {layout}")
     check(page.locator("#projects details").count() == 0,
           f"{device}: Projects page should have no dropdowns")
     check(page.locator("#projects [data-project-carousel]").count() == 0,

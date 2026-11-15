@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cv-theme.css?v=projects-paper-first-20261115">
+  <link rel="stylesheet" href="cv-theme.css?v=projects-research-story-20261115">
   <script defer src="app.js?v=projects-paper-first-20261115"></script>
   <noscript>
     <style>
@@ -150,54 +150,67 @@
       <header class="shell academic-page-intro academic-projects-intro">
         <p class="cv-page-eyebrow">Selected research / Mathematics &amp; quantitative finance</p>
         <h1 id="projects-title">Projects</h1>
-        <p>A brief account of the problem, my approach and what the work showed. The reports contain the technical detail.</p>
+        <p>Research problems I have worked on, from the practical questions that started them to the methods and ideas I took away.</p>
       </header>
 
       <section class="shell academic-industrial-project project-paper-entry" aria-labelledby="industrial-project-title">
         <header class="academic-project-heading">
-          <p class="academic-project-context">Industrial research · Six-month project</p>
+          <p class="academic-project-context">Industrial research · Six months · Two days a week</p>
           <h2 id="industrial-project-title">Two-phase flow modelling in industrial pipelines</h2>
-          <p class="project-research-question">How can a physical model describe a pipeline process as its flow conditions change?</p>
+          <p class="project-paper-byline">Fluid mechanics · Numerical modelling · Python</p>
+          <p class="project-paper-credentials">
+            <a href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Technical report (PDF)</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public Python examples</a>
+          </p>
         </header>
         <div class="project-paper-layout">
           <div class="project-paper-copy">
-            <p>The assignment began with estimating pressure losses in industrial pipelines. I found that this was only part of the problem: as air displaces liquid, the amount and distribution of liquid change. A single pressure-drop calculation cannot describe the complete process.</p>
-            <p>During the project, I studied and adapted published fluid-mechanics models, developed numerical simulations in Python and compared calculations with available measurements. The work evolved into separate descriptions of four successive stages—Push, Blow, Rinse and Dry—with particular attention to their assumptions, physical limitations and state transitions.</p>
-            <p class="project-paper-takeaway"><strong>What I took from the project:</strong> A numerical model is useful only when its assumptions are appropriate and its results are checked against the physical problem. A good fit to existing measurements is not automatically an independent predictive validation.</p>
+            <p>I started from a practical question: how can you estimate what happens inside a pipeline when product is pushed out with compressed air and later removed through rinsing and drying? At first this sounded like a standard pressure-loss problem, but while working on it I found that the real difficulty was that the physical situation keeps changing. The amount of liquid in the pipe changes, the flow regime changes, and the output of one stage becomes the starting point of the next.</p>
+            <p>To work on this, I read published models from fluid mechanics, translated the main ideas into Python, and adapted them to the process I was studying. That led me to think about the pipeline in stages—Push, Blow, Rinse and Dry—instead of trying to force everything into one model. A large part of the work was not just solving equations, but deciding which assumptions still made sense in each stage and where they started to break down.</p>
+            <p>What I learned most from this project is that a model can look convincing long before it becomes physically reliable. Numerical output by itself is not enough. You have to ask whether the assumptions match the process, whether the transitions between stages are sensible, and what comparison with measurements really tells you. That made the project much more interesting to me than a simple calculator: it became a question about how mathematical models stay useful in messy physical systems.</p>
           </div>
-          <aside class="project-paper-reference" aria-label="Industrial modelling technical report and source code">
-            <p class="project-paper-label">Technical report / Public excerpt</p>
-            <h3>Calculation model: Push, Blow, Rinse and Dry</h3>
-            <p>Selected pages from an independently reconstructed, redacted technical report. The public excerpt presents the research question, governing equations, modelling framework and limitations.</p>
-            <a class="project-paper-primary-link" href="assets/reports/fluivac-public-technical-excerpt.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Read the technical report (PDF) <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/zorromir/pipeline-flow-modelling" target="_blank" rel="noopener noreferrer">Public Python examples and model scope <span aria-hidden="true">↗</span></a>
-            <p class="project-paper-disclaimer">This is not an official company report. The public Python examples are simplified reconstructions with hypothetical inputs, not a validated industrial simulator.</p>
+          <aside class="project-paper-questions" aria-label="Questions investigated in industrial pipeline modelling">
+            <h3>What I investigated</h3>
+            <ul>
+              <li>How far a pressure-loss model remains useful once the liquid distribution inside the pipeline starts to change</li>
+              <li>When a moving-column description should give way to a residual-liquid or film-flow interpretation</li>
+              <li>How stage-to-stage modelling affects physical consistency, interpretation and comparison with measurements</li>
+            </ul>
           </aside>
         </div>
+        <p class="project-paper-note">The linked report is a redacted, independently reconstructed technical excerpt, not an official company report. The public Python simulations use hypothetical inputs and are not validated industrial predictions.</p>
       </section>
 
       <section class="shell academic-empirical-project project-paper-entry" aria-labelledby="empirical-heading">
         <header class="academic-project-heading">
           <p class="academic-project-context">MSc group study · Tilburg University · 2026</p>
           <h2 id="empirical-heading">Empirical asset pricing</h2>
-          <p class="project-research-question">Does better explanatory fit imply better asset pricing?</p>
+          <p class="project-paper-byline">Factor models · Time-series inference · Python</p>
+          <p class="project-paper-credentials">
+            <a href="assets/reports/Empirical_finance.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Group paper (PDF)</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Independent Python implementation</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Robustness checks</a>
+          </p>
         </header>
         <div class="project-paper-layout">
           <div class="project-paper-copy">
-            <p>In a five-person MSc group project, we examined historical U.S. industry returns using CAPM, the Fama–French five-factor model, momentum, calendar effects and stochastic-discount-factor restrictions. The main question was whether explaining more variation in returns also meant pricing those returns more accurately.</p>
-            <p>The five-factor model improved adjusted R² across all five industries, but it did not eliminate pricing errors. I later developed a separate public Python implementation to examine robust inference, multiple-testing adjustments and forecast stability. Those later checks are distinct from the original group study.</p>
-            <p class="project-paper-takeaway"><strong>What the results showed:</strong> Regression fit, pricing errors and predictive performance measure different things. Better in-sample explanation is not evidence of a successful investment strategy.</p>
+            <p>In a five-person MSc group study, we looked at a question that sounds straightforward: if an asset-pricing model explains more variation in returns, does that mean it prices assets better? We compared CAPM with the Fama–French five-factor model across five U.S. industry portfolios and also studied momentum, calendar effects and restrictions on a stochastic discount factor.</p>
+            <p>We worked with historical return data, factor regressions and specification tests to see what the different models could actually tell us. The five-factor model improved adjusted R² in all five industries, but pricing errors remained. After the group project, I built a separate public Python version to look more closely at robust inference, multiple testing and how the results changed across periods.</p>
+            <p>What I found most useful was learning not to confuse a well-fitting regression with a well-supported economic explanation. Statistical significance, pricing errors and out-of-sample forecasts answer different questions, and I became more interested in understanding what a result really establishes than in finding the model with the highest R².</p>
           </div>
-          <aside class="project-paper-reference" aria-label="Empirical finance paper and supporting implementation">
-            <p class="project-paper-label">Academic research / Group study</p>
-            <h3>An Analysis of Stock Returns Across Industries</h3>
-            <p>Five-person empirical study of factor models, calendar effects, momentum and stochastic-discount-factor restrictions.</p>
-            <a class="project-paper-primary-link" href="assets/reports/Empirical_finance.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Read the group paper (PDF) <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/zorromir/Empirical-Finance" target="_blank" rel="noopener noreferrer">Independent Python implementation <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/zorromir/Empirical-Finance/blob/main/docs/ROBUSTNESS_RESULTS_2026-11-01.md" target="_blank" rel="noopener noreferrer">Later robustness checks <span aria-hidden="true">↗</span></a>
-            <p class="project-paper-disclaimer">The paper is group work. The later public code and diagnostics are a separate implementation, not the group's original research code.</p>
+          <aside class="project-paper-questions" aria-label="Questions investigated in empirical asset pricing">
+            <h3>What I investigated</h3>
+            <ul>
+              <li>Why can a factor model explain more variation while leaving pricing errors?</li>
+              <li>How do standard errors and specification tests change the conclusions?</li>
+              <li>Which findings remain when the sample or forecasting method changes?</li>
+            </ul>
           </aside>
         </div>
+        <p class="project-paper-note">The original paper is a five-person group study. The later Python implementation and robustness checks are my separate public reconstruction, not the group's original code or a validated investment strategy.</p>
       </section>
     </article>
 

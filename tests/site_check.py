@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=projects-paper-first-20261115' in html
+assert 'cv-theme.css?v=projects-research-story-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -105,13 +105,24 @@ projects = html.split("<!-- PAGE 2: PROJECTS -->", 1)[1].split("<!-- PAGE 3: RES
 assert 'class="page academic-projects"' in projects
 assert 'id="industrial-project-title"' in projects and 'id="empirical-heading"' in projects
 assert count_class("project-paper-entry") == 2
-assert projects.count('class="project-paper-reference"') == 2
+assert projects.count('class="project-paper-questions"') == 2
+assert projects.count('<h3>What I investigated</h3>') == 2
+assert projects.count('class="project-paper-copy"') == 2
+assert projects.count('class="project-paper-credentials"') == 2
+assert "Six months · Two days a week" in projects
+assert "The amount of liquid in the pipe changes" in projects
+assert "A large part of the work was not just solving equations" in projects
+assert "What I learned most from this project" in projects
+assert projects.count('<aside class="project-paper-questions"') == 2
+for panel in re.findall(r'<aside class="project-paper-questions"[^>]*>(.*?)</aside>', projects, re.S):
+    assert panel.count("<li>") == 3
 assert '<details' not in projects and 'data-project-carousel' not in projects
-assert "How can a physical model describe a pipeline process" in projects
-assert "Does better explanatory fit imply better asset pricing?" in projects
-assert "The paper is group work." in projects
+assert '<details' not in projects and 'data-project-carousel' not in projects
+assert "I started from a practical question" in projects
+assert "if an asset-pricing model explains more variation in returns" in projects
+assert "The original paper is a five-person group study" in projects
 assert "not an official company report" in projects.lower()
-assert "not a validated industrial simulator" in projects
+assert "not validated industrial predictions" in projects
 assert 'assets/reports/fluivac-public-technical-excerpt.pdf' in projects
 for filename in ("fluivac-public-technical-excerpt.pdf", "Empirical_finance.pdf"):
     report_bytes = (ROOT / "assets" / "reports" / filename).read_bytes()
@@ -126,9 +137,9 @@ assert "'industrial-model-stages': 'industrial-project-title'" in js
 assert "'empirical-heading': 'empirical-heading'" in js
 assert 'data-project-next' not in js
 assert '#projects .project-paper-layout' in cv_theme
-assert '#projects .project-paper-reference' in cv_theme
+assert '#projects .project-paper-questions' in cv_theme
 assert 'app.js?v=projects-paper-first-20261115' in html
-assert 'cv-theme.css?v=projects-paper-first-20261115' in html
+assert 'cv-theme.css?v=projects-research-story-20261115' in html
 
 # Academic About and Research must keep their distinct content and source notes.
 about = html.split("<!-- PAGE 5: PROFILE & CV", 1)[1].split("  </main>", 1)[0]
@@ -226,8 +237,8 @@ assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
-assert "a separate public Python implementation" in html
-assert "a separate public Python implementation" in html
+assert "After the group project, I built a separate public Python version" in html
+assert "After the group project, I built a separate public Python version" in html
 assert "Public Python examples" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
