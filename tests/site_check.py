@@ -237,8 +237,8 @@ assert "https://github.com/zorromir/fractional-harmonic-oscillator" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "https://github.com/zorromir/Empirical-Finance" in html
 assert "ROBUSTNESS_RESULTS_2026-11-01.md" in html
-assert "a separate public Python implementation" in html
-assert "a separate public Python implementation" in html
+assert "After the group project, I built a separate public Python version" in html
+assert "After the group project, I built a separate public Python version" in html
 assert "Public Python examples" in html
 assert "ILLUSTRATIVE DATA — NOT EMPIRICAL RESULTS" not in html
 kernel = (ROOT / "assets/research/03_caputo_memory_kernel.svg").read_text(encoding="utf-8")
