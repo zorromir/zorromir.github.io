@@ -75,7 +75,7 @@ assert 'class="academic-home-work-list"' in home
 assert 'class="brand-symbol"' not in html
 assert 'class="brand-label"' in html
 # Refined CV / motivation-letter design spans all five routed pages.
-assert 'cv-theme.css?v=learning-questions-20261115' in html
+assert 'cv-theme.css?v=exploring-learning-questions-20261115' in html
 assert 'family=Lato' in html
 assert 'class="brand-mark"' in html
 assert 'class="site-contact"' in html
@@ -374,6 +374,17 @@ assert 'id="explore-backtesting"' in reading_page
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="now-projects-title"')
 assert reading_page.index('id="explore-backtesting"') < reading_page.index('id="explore-suppliers"')
 assert reading_page.count('class="academic-focus-topic"') == 2
+focus_section = reading_page.split('id="exploring-now-title"', 1)[1].split('id="now-projects-title"', 1)[0]
+focus_learning_panels = re.findall(r'<aside class="academic-project-learning"[^>]*>(.*?)</aside>', focus_section, re.S)
+assert len(focus_learning_panels) == 2
+assert all(panel.count("<li>") == 3 for panel in focus_learning_panels)
+assert focus_section.count('<h4>What I want to understand</h4>') == 2
+assert "How much apparent performance comes from testing many strategies?" in focus_section
+assert "How do risk preferences and CVaR change supplier rankings?" in focus_section
+assert "Learning goals beside the two Exploring questions" in cv_theme
+assert "#engineering .academic-focus-section .academic-project-learning" in cv_theme
+assert reading_page.count('class="academic-project-learning"') == 5
+
 assert 'class="academic-focus-reading"' not in reading_page
 assert 'class="academic-focus-paper"' not in reading_page
 assert "How reliable is a backtest?" in reading_page
