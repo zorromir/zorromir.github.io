@@ -42,7 +42,11 @@
 
     closeMenu();
     if (detailTarget || researchTarget) {
-      (detailTarget || researchTarget).scrollIntoView({ block: 'start', behavior: 'instant' });
+      const heading = detailTarget || researchTarget;
+      const destination = heading.closest('.project-paper-entry, .academic-research-thesis') || heading;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => destination.scrollIntoView({ block: 'start', behavior: 'instant' }));
+      });
     } else if (changed && hash !== 'main-content') {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
