@@ -219,6 +219,31 @@
         </div>
         <p class="project-paper-provenance">The starting data-generating process came from a coursework exercise completed with Walid Afasi. I independently rewrote the short note and reran the simulations.</p>
       </section>
+      <section class="shell academic-panel-project project-paper-entry" aria-labelledby="yield-curve-heading">
+        <header class="academic-project-heading">
+          <p class="academic-project-context">MSc numerical study · Valuation &amp; Risk Management · 2026</p>
+          <h2 id="yield-curve-heading">From yield curves to bond prices</h2>
+          <p class="project-paper-byline">Stochastic interest rates · Vasicek model · Monte Carlo · Python</p>
+          <p class="project-paper-credentials">
+            <a href="https://github.com/zorromir/yield-curve-modelling" target="_blank" rel="noopener noreferrer">Project repository</a>
+          </p>
+        </header>
+        <div class="project-paper-layout">
+          <div class="project-paper-copy">
+            <p>I wanted to understand how a model fitted to today's yield curve can also be used to price an interest-rate derivative. Starting with Dutch government yield data, I calculated discount and forward rates and fitted the Vasicek model to the observed term structure. The model reproduced the overall shape of the curve, though not every maturity equally well.</p>
+            <p>I then used the calibrated model to simulate short-rate paths and price European options on a zero-coupon bond. Working through the simulation made the distinction between modelling future uncertainty and forecasting actual interest rates clearer to me: the risk-neutral dynamics are chosen for pricing, not as a prediction of what rates will do.</p>
+            <p>Finally, I fitted the Nelson–Siegel curve to the same yields. It gave a slightly smaller fitting error, but it does not by itself supply the stochastic dynamics needed for option pricing. That comparison was the most interesting part of the exercise for me: a curve that fits today's observations better is not necessarily the model that answers every pricing question.</p>
+          </div>
+          <aside class="project-paper-questions" aria-label="Questions investigated in yield curve modelling">
+            <h3>What I investigated</h3>
+            <ul>
+              <li>How closely can a simple mean-reverting short-rate model fit observed government yields?</li>
+              <li>How do risk-neutral interest-rate simulations enter bond-option valuation?</li>
+              <li>What is the difference between fitting a yield curve and specifying a pricing model?</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
     </article>
 
     <!-- PAGE 3: RESEARCH -->
