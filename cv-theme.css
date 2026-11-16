@@ -1059,11 +1059,11 @@ body.is-projects-page .site-header { position:relative; top:auto; }
 }
 
 
-/* Rounded square headshot on the Profile & CV biography. */
+/* Rounded portrait on the Profile & CV biography. */
 #about .academic-profile-portrait {
   float: right;
   width: 160px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   margin: 4px 0 18px 28px;
   border-radius: 18px;
   overflow: hidden;
