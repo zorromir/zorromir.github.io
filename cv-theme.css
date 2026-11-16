@@ -1053,3 +1053,31 @@ body.is-projects-page .site-header { position:relative; top:auto; }
   #projects .project-paper-questions ul { display:block; }
   #projects .project-paper-credentials { line-height:1.95; }
 }
+
+
+/* Compact headshot on the Profile & CV biography. */
+#about .academic-profile-portrait {
+  float: right;
+  width: 154px;
+  margin: 1px 0 18px 28px;
+}
+#about .academic-profile-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--cv-rule);
+  border-radius: 3px;
+}
+#about .academic-about-biography::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 540px) {
+  #about .academic-profile-portrait {
+    width: 126px;
+    margin: 2px 0 12px 18px;
+  }
+}
