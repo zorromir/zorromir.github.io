@@ -18,6 +18,7 @@
     const projectAnchors = {
       'empirical-heading': 'empirical-heading',
       'panel-simulation-heading': 'panel-simulation-heading',
+      'yield-curve-heading': 'yield-curve-heading',
       'industrial-project-title': 'industrial-project-title',
       'industrial-detail': 'industrial-project-title',
       'industrial-model-stages': 'industrial-project-title',
@@ -25,7 +26,8 @@
     };
     const detailTarget = Object.prototype.hasOwnProperty.call(projectAnchors, hash)
       ? document.getElementById(projectAnchors[hash]) : null;
-    const name = detailTarget ? 'projects' : (hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home')));
+    const researchTarget = hash === 'research-thesis-title' ? document.getElementById('research-thesis-title') : null;
+    const name = researchTarget ? 'research' : (detailTarget ? 'projects' : (hash === 'main-content' ? currentPage : (hash === 'cv' ? 'about' : (validPages.has(hash) ? hash : 'home'))));
     const changed = name !== currentPage;
     currentPage = name;
     document.body.classList.toggle('is-projects-page', name === 'projects');
@@ -39,8 +41,8 @@
     });
 
     closeMenu();
-    if (detailTarget) {
-      detailTarget.scrollIntoView({ block: 'start', behavior: 'instant' });
+    if (detailTarget || researchTarget) {
+      (detailTarget || researchTarget).scrollIntoView({ block: 'start', behavior: 'instant' });
     } else if (changed && hash !== 'main-content') {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
